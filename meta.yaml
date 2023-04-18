@@ -1,6 +1,6 @@
-# name: cx-api-<service_name>
-# CX_PRODUCT: apis
-# deployable_type: library
-# code_language: protobuf
-# tests: true
-# publish: false
+ name: cx-api-alerting
+ CX_PRODUCT: apis
+ deployable_type: library
+ code_language: protobuf
+ tests: false
+ publish: false
