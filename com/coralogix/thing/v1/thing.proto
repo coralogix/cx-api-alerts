@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.coralogix.thing.v1;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+// Thing is a thing.
+message Thing {
+  // ID is the unique identifier of the thing.
+  google.protobuf.UInt64Value id = 1;
+  // Magic key of the thing.
+  google.protobuf.StringValue key = 2;
+  // Name of the thing.
+  google.protobuf.StringValue name = 3;
+  // Creation timestamp of the thing.
+  google.protobuf.Timestamp created_at = 4;
+}
