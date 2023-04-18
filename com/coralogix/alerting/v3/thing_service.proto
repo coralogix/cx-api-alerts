@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.coralogix.thing.v1;
+package com.coralogix.alerting.v3;
 
 import "com/coralogix/thing/v1/audit_log.proto";
 import "com/coralogix/thing/v1/thing.proto";

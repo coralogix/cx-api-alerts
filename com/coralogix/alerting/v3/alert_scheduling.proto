@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.coralogix.alerting.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/type/dayofweek.proto";
+
+message AlertSchedulingInfo {
+    google.protobuf.BoolValue enabled = 1;
+    repeated google.type.DayOfWeek days_enabled = 2;
+    Time start_time = 3;
+    Time end_time = 4;
+//    timezone: "UTC"                  // TZ name or +-HH:MM offsets
+}
+
+message Time {
+  int32 hours = 1;
+  int32 minutes = 2;
+}

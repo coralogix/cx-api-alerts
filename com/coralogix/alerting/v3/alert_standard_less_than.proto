@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.coralogix.alerting.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogix/alerting/v3/alert_timewindow.proto";
+
+message AlertStandardLessThan  {
+  //TODO: add query
+//    LogsQuery query = 0;
+    google.protobuf.UInt32Value threshold = 1 ;
+    AlertTimeWindow time_window = 2;
+}

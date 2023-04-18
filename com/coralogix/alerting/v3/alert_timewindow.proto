@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.coralogix.alerting.v3;
+
+enum AlertTimeWindow {
+  FIVE_MINUTES = 0;
+  TEN_MINUTES = 1;
+  FIFTEEN_MINUTES = 2;
+  THIRTY_MINUTES = 3;
+  ONE_HOUR = 4;
+  TWO_HOURS = 5;
+  FOUR_HOURS = 6;
+  SIX_HOURS = 7;
+  TWELVE_HOURS = 8;
+  TWENTY_FOUR_HOURS = 9;
+  THIRTY_SIX_HOURS = 10;
+}
