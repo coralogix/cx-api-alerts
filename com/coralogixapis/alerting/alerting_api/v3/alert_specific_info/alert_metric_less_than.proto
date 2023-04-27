@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerting/v1/logs_query.proto";
+import "auto_retire_timeframe.proto";
+import "timewindow.proto";
+
+message AlertMetricLessThan  {
+    google.protobuf.StringValue promQl = 1;
+    google.protobuf.UInt32Value threshold = 2;
+    google.protobuf.UInt32Value for_over_pct = 3;
+    TimeWindow of_the_last = 4;
+    google.protobuf.BoolValue replace_missing_value_with_0 = 5;
+    google.protobuf.BoolValue trigger_undetected_value = 6;
+    optional AutoRetireTimeframe auto_retire = 7;
+}

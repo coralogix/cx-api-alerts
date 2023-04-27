@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerting/v1/logs_query.proto";
+import "timewindow.proto";
+
+message AlertUniqueCount  {
+    v1.LogsQuery query = 1;
+    google.protobuf.StringValue unique_count_keypath = 3;
+    google.protobuf.Int64Value max_unique_count = 4;
+    TimeWindow time_window = 5;
+}

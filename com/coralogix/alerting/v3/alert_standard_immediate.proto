@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package com.coralogix.alerting.v3;
-
-message AlertStandardImmediate {
-  //TODO: add query
-//    LogsQuery query = 0;
-}

@@ -1,0 +1,245 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+
+import "google/protobuf/descriptor.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerting/alerting_api/v3/alert.proto";
+import "alert_severity.proto";
+
+message AuditLogDescription {
+  optional string description = 1;
+      }
+
+extend google.protobuf.MethodOptions {
+  optional AuditLogDescription audit_log_description = 5000;
+  }
+
+service AlertsService {
+
+  rpc GetAlert(GetAlertRequest) returns (GetAlertResponse) {
+    option (google.api.http) = {
+      get: "/v3/alerting/alerts/{id}"
+    };
+  }
+
+  rpc CreateAlert(CreateAlertRequest) returns (CreateAlertResponse){
+    option (audit_log_description).description = "create alert";
+    option (google.api.http) = {
+      post: "/v3/alerting/alerts"
+      body: "*"
+    };
+  }
+
+  rpc ReplaceAlert(ReplaceAlertRequest) returns (ReplaceAlertResponse){
+    option (audit_log_description).description = "replace alert";
+    option (google.api.http) = {
+      put: "/v3/alerting/alerts"
+      body: "*"
+    };
+  }
+
+  rpc BatchGetAlert(BatchGetAlertRequest) returns (BatchGetAlertResponse){
+    option (audit_log_description).description = "batch get alerts";
+    option (google.api.http) = {
+      get: "/v3/alerting/alert:batchGet"
+    };
+  }
+
+  rpc ListAlerts(ListAlertsRequest) returns (ListAlertsResponse){
+    option (audit_log_description).description = "get alerts list";
+    option (google.api.http) = {
+      get: "/v3/alerting/alerts"
+      body: "*"
+    };
+  }
+
+  rpc DeleteAlert(DeleteAlertRequest) returns (DeleteAlertResponse){
+    option (audit_log_description).description = "delete alert";
+    option (google.api.http) = {
+      delete: "/v3/alerting/alert/{id}"
+    };
+  }
+
+  rpc AtomicBatchExecuteAlert(AtomicBatchExecuteAlertRequest) returns (AtomicBatchExecuteAlertResponse) {
+    option (audit_log_description).description = "atomic batch execute alert";
+    option (google.api.http) = {
+      post: "/v3/alerting/alert:atomicBatchExecute"
+      body: "*"
+    };
+  }
+
+  // If we want to Count ,can we make this also an aggregative function?
+  rpc GetAlertEvents(GetAlertEventsRequest) returns (GetAlertEventsResponse) {
+    option (audit_log_description).description = "get alert events";
+    option (google.api.http) = {
+      get: "/v3/alerting/alerts/events"
+    };
+  }
+
+  rpc GetCompanyAlertsLimit(GetCompanyAlertsLimitRequest) returns (GetCompanyAlertsLimitResponse) {
+    option (audit_log_description).description = "get company alerts limit";
+    option (google.api.http) = {
+      get: "/v3/alerting/alerts/company-limit"
+    };
+  }
+
+  rpc ValidateAlert(ValidateAlertRequest) returns (ValidateAlertResponse) {
+    option (audit_log_description).description = "validate alert";
+    option (google.api.http) = {
+      post: "/v3/alerting/alert/validate"
+      body: "alert"
+    };
+  }
+}
+
+enum OrderByDirection {
+  UNSPECIFIED = 0;
+  ASC = 1;
+  DESC = 2;
+}
+
+message OrderBy {
+  google.protobuf.StringValue field_name = 1;
+  OrderByDirection direction = 2;
+}
+
+message GetAlertRequest {
+  google.protobuf.StringValue id = 1;
+}
+
+message GetAlertResponse {
+  Alert alert = 1;
+}
+
+message ListAlertsResponse {
+  repeated Alert alerts = 1;
+}
+
+message ListAlertsRequest {
+  optional AlertSeverity severity = 1;
+  optional google.protobuf.StringValue name = 2;
+  optional google.protobuf.BoolValue enabled = 3;
+  repeated google.protobuf.StringValue meta_labels = 10;
+  repeated OrderBy order_bys = 11;
+}
+
+message BatchGetAlertRequest {
+  repeated google.protobuf.StringValue ids = 1 ;
+}
+
+message BatchGetAlertResponse {
+  repeated Alert alerts = 1;
+}
+message DeleteAlertRequest {
+  google.protobuf.StringValue id = 1;
+}
+message DeleteAlertResponse {
+}
+message ReplaceAlertRequest {
+  Alert alert = 1;
+}
+message ReplaceAlertResponse {
+  Alert alert = 1;
+}
+message CreateAlertRequest{
+  Alert alert = 1;
+}
+message CreateAlertResponse {
+  Alert alert = 1;
+}
+message AtomicBatchExecuteAlertRequest {
+ repeated AlertExecutionRequest requests = 1;
+}
+message AtomicBatchExecuteAlertResponse {
+  repeated AlertExecutionResponse matching_responses = 1;
+}
+
+message AlertExecutionRequest {
+  oneof request {
+    CreateAlertRequest create = 1;
+    ReplaceAlertRequest replace = 2;
+    DeleteAlertRequest delete = 3;
+  }
+}
+message AlertExecutionResponse {
+  oneof response {
+    CreateAlertResponse create = 1;
+    ReplaceAlertResponse replace = 2;
+    DeleteAlertResponse delete = 3;
+  }
+}
+message GetAlertEventsRequest {
+  google.protobuf.Timestamp from = 2;
+  google.protobuf.Timestamp to = 3;
+}
+message GetCompanyAlertsLimitRequest {}
+
+message GetCompanyAlertsLimitResponse {
+  google.protobuf.StringValue company_id = 1;
+  google.protobuf.Int32Value limit = 2;
+  google.protobuf.Int32Value used = 3;
+}
+message ValidateAlertRequest {
+  Alert alert = 1;
+}
+message ValidateAlertResponse {
+}
+
+//  // Standard Verbs
+//
+//  // GET /api/v2/alerting/alert/<stable-id>
+//    GetAlert(GetAlertRequest): Alert
+//  // GET /api/v2/alerting/alerts     (body = "alert")
+//      ListAlerts(ListAlertsRequest): ListAlertsResponse
+//  // POST /api/v2/alerting/alerts
+//      CreateAlert(CreateAlertRequest): Alert
+//  // PUT /api/v2/alerting/alerts/<stable-id>
+//      UpdateAlert(UpdateAlertRequest): Alert                      // will be changed to Replace
+//  // DELETE /api/v2/alerting/alerts/<stable-id>
+//      DeleteAlert(DeleteAlertRequest): google.protobuf.Empty
+//  // POST /api/v2/alerting/alerts:validate
+//      ValidateAlert(ValidateAlertRequest): ValidateAlertResponse
+//
+//      BatchGet  ....
+//  BatchExecute ...
+//
+//  // TBD - Do we want to implement VerifyAlert as well?
+//}
+//
+//    CreateAlertRequest {
+//alert: Alert
+//    request_id: string
+//    }
+//
+//UpdateAlertRequest {
+//alert: Alert
+//    request_id: string
+//    }
+//
+//DeleteAlertRequest {
+//alert_id: string
+//// no need for a full alert object here...
+//    }
+//
+//GetAlertRequest {
+//// Empty
+//    }
+//
+//ListAlertsRequest {
+//// TBD - What needs to be supported for now
+//    filter: string
+//    page_size: int = 0
+//    page_token: string
+//    }
+//
+//ListAlertsResponse {
+//alerts: Alert[]
+//
+//    page_token: string
+//    total_results: int
+//    }
+//}
+//

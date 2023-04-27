@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+enum TimeRelativeComparedTo {
+    PREVIOUS_HOUR = 0;
+    SAME_HOUR_YESTERDAY = 1;
+    SAME_HOUR_LAST_WEEK = 2;
+    YESTERDAY = 3;
+    SAME_DAY_LAST_WEEK = 4;
+    SAME_DAY_LAST_MONTH = 5;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerting/v1/logs_query.proto";
+import "auto_retire_timeframe.proto";
+import "timewindow.proto";
+
+message AlertTracingMoreThan  {
+    google.protobuf.StringValue span_filters = 1;
+    google.protobuf.UInt32Value latency_threshold_ms = 2;
+    google.protobuf.UInt32Value threshold = 3;
+    TimeWindow time_window = 4;
+}

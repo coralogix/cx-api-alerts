@@ -1,0 +1,8 @@
+syntax = "proto3";
+import "com/coralogixapis/alerting/v1/logs_query.proto";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+
+message AlertStandardImmediate {
+    v1.LogsQuery query = 1;
+}

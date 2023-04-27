@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.alerting_api.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerting/alerting_api/v3/alert_timewindow.proto";
+import "com/coralogixapis/alerting/v1/logs_query.proto";
+
+message AlertNewValue  {
+    v1.LogsQuery query = 1;
+    google.protobuf.StringValue keypath_to_track = 3;
+    AlertTimeWindow time_window = 4;
+}
