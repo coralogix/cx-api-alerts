@@ -8,8 +8,32 @@ import "com/coralogixapis/alerting/v1/logs_query.proto";
 import "timewindow.proto";
 
 message AlertFlow  {
-    v1.LogsQuery query = 1;
-    google.protobuf.StringValue unique_count_keypath = 3;
-    google.protobuf.Int64Value max_unique_count = 4;
-    TimeWindow time_window = 5;
+    repeated FlowStages stages = 1 ;
 }
+message FlowStages {
+    repeated FlowStagesGroups groups = 1;
+     google.protobuf.Int64Value timeframe_ms = 2;
+}
+message FlowStagesGroups {
+    repeated FlowStagesGroupsAlerts alerts = 1;
+    NextOp nextOp = 2;
+}
+message FlowStagesGroupsAlerts {
+    google.protobuf.StringValue id = 1;
+    google.protobuf.BoolValue not = 2;
+}
+
+enum NextOp {
+    AND = 0;
+    OR = 1;
+}
+
+//    {"stages": [{"groups":
+//        [{"alerts": {"values": [{"id": "8272bd06-cfce-40a6-a80c-648254db0abd", "not": false}]}, "nextOp": "OR"}],
+//        "timeframe": {"ms": 0}},
+//    {"groups": [{"alerts":
+//             {"values":
+//                 [{"id": "8272bd06-cfce-40a6-a80c-648254db0abd", "not": false}, {"id": "8272bd06-cfce-40a6-a80c-648254db0abd", "not": false}]
+//                 },
+//        "nextOp": "OR"}],
+//        "timeframe": {"ms": 1200000}}]}
