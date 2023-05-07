@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.v3;
+
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/timewindow_common.proto";
+import "com/coralogixapis/alerting/v3/logs_query.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/undetected_values.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/arithmetic_operator.proto";
+
+message AlertMetricLuceneLessThan  {
+    LogsQuery query = 1;
+    google.protobuf.StringValue metric_field = 2;
+    ArithmeticOperator arithmetic_operator = 3;
+    google.protobuf.UInt32Value threshold = 4;
+    google.protobuf.UInt32Value for_over_pct = 5;
+    TimeWindow of_the_last = 6;
+    google.protobuf.BoolValue replace_missing_value_with_0 = 7;
+    google.protobuf.BoolValue trigger_undetected_value = 8;
+    optional AutoRetireTimeframe auto_retire = 9;
+}

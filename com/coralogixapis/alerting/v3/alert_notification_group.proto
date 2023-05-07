@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.coralogixapis.alerting.alerting_api.v3;
+package com.coralogixapis.alerting.v3;
 
 import "google/protobuf/wrappers.proto";
 
@@ -9,7 +9,7 @@ message ShowInInsight {
   optional NotifyOn notify_on = 2;
 }
 
-message AlertNotificationGroups {
+message AlertNotificationGroup {
   repeated google.protobuf.StringValue group_by_fields = 1;
   repeated AlertNotification notifications = 2;
 }
@@ -28,6 +28,6 @@ message Recipients {
 }
 
 enum NotifyOn {
-  TRIGGERED_ONLY = 0;
-  TRIGGERED_AND_RESOLVED = 1;
+  NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED = 0;
+  NOTIFY_ON_TRIGGERED_AND_RESOLVED = 1;
 }

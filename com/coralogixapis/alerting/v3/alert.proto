@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.v3;
+
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerting/v3/alert_severity.proto";
+import "com/coralogixapis/alerting/v3/alert_scheduling.proto";
+import "com/coralogixapis/alerting/v3/alert_notification_group.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_standard_immediate.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_standard_more_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_standard_less_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_standard_more_than_usual.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_ratio_more_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_ratio_less_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_new_value.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_unique_count.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_time_relative_more_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_time_relative_less_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_metric_lucene_more_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_metric_lucene_less_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_metric_promql_more_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_metric_promql_less_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_tracing_immediate.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_tracing_more_than.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_flow.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/alert_metric_promql_more_than_usual.proto";
+
+
+message Alert {
+  google.protobuf.UInt64Value id = 1;
+  google.protobuf.UInt64Value unique_identifier = 2;
+  google.protobuf.StringValue name = 3;
+  google.protobuf.StringValue description = 4;
+  optional google.protobuf.BoolValue enabled = 5;
+  AlertSeverity alert_severity = 6;
+  AlertSchedulingInfo scheduling = 7;
+  AlertType alert_type = 8;
+  oneof alert_info {
+    AlertStandardImmediate standard_immediate = 100;
+    AlertStandardMoreThan standard_more_than = 101;
+    AlertStandardLessThan standard_less_than = 102;
+    AlertStandardMoreThanUsual standard_more_than_usual = 103;
+    AlertRatioMoreThan ratio_more_than = 104;
+    AlertRatioLessThan ratio_less_than = 105;
+    AlertNewValue new_value = 106;
+    AlertUniqueCount unique_count = 107;
+    AlertTimeRelativeMoreThan time_relative_more_than = 108;
+    AlertTimeRelativeLessThan time_relative_less_than = 109;
+    AlertMetricLuceneMoreThan metric_lucene_more_than = 110;
+    AlertMetricLuceneLessThan metric_lucene_less_than = 111;
+    AlertMetricPromqlMoreThan metric_promql_more_than = 112;
+    AlertMetricPromqlLessThan metric_promql_less_than = 113;
+    AlertMetricPromqlMoreThanUsual metric_promql_more_than_usual = 114;
+    AlertTracingImmediate tracing_immediate = 115;
+    AlertTracingMoreThan tracing_more_than = 116;
+    AlertFlow flow = 117;
+  };
+  repeated google.protobuf.StringValue alert_group_bys = 9;
+  repeated AlertNotificationGroup notification_groups = 10 ;
+  optional ShowInInsight show_in_insight = 11;
+  repeated google.protobuf.StringValue meta_labels = 12;
+}
+
+enum AlertType {
+  ALERT_TYPE_STANDARD_IMMEDIATE_OR_UNSPECIFIED = 0;
+  ALERT_TYPE_STANDARD_MORE_THAN = 1;
+  ALERT_TYPE_STANDARD_LESS_THAN = 2;
+  ALERT_TYPE_STANDARD_MORE_THAN_USUAL = 3;
+  ALERT_TYPE_RATIO_MORE_THAN = 4;
+  ALERT_TYPE_RATIO_LESS_THAN = 5;
+  ALERT_TYPE_NEW_VALUE = 6;
+  ALERT_TYPE_UNIQUE_COUNT = 7;
+  ALERT_TYPE_TIME_RELATIVE_MORE_THAN = 8;
+  ALERT_TYPE_TIME_RELATIVE_LESS_THAN = 9;
+  ALERT_TYPE_METRIC_LUCENE_MORE_THAN = 10;
+  ALERT_TYPE_METRIC_LUCENE_LESS_THAN = 11;
+  ALERT_TYPE_METRIC_PROMQL_MORE_THAN = 12;
+  ALERT_TYPE_METRIC_PROMQL_LESS_THAN = 13;
+  ALERT_TYPE_METRIC_PROMQL_MORE_THAN_USUAL = 14;
+  ALERT_TYPE_TRACING_IMMEDIATE = 15;
+  ALERT_TYPE_TRACING_MORE_THAN = 16;
+  ALERT_TYPE_FLOW = 17;
+}
+

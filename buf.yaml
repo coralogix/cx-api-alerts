@@ -4,7 +4,10 @@ deps:
 lint:
   use:
     - DEFAULT
-    - COMMENTS
+  except:
+    - PACKAGE_DIRECTORY_MATCH
+    - PACKAGE_SAME_DIRECTORY
+  allow_comment_ignores: true
 breaking:
   use:
     - WIRE

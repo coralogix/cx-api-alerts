@@ -1,13 +1,13 @@
 syntax = "proto3";
 
-package com.coralogixapis.alerting.alerting_api.v3;
+package com.coralogixapis.alerting.v3;
 
 import "google/protobuf/descriptor.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
-import "com/coralogixapis/alerting/alerting_api/v3/alert.proto";
-import "alert_severity.proto";
+import "com/coralogixapis/alerting/v3/alert.proto";
+import "com/coralogixapis/alerting/v3/alert_severity.proto";
 
 message AuditLogDescription {
   optional string description = 1;
@@ -20,6 +20,7 @@ extend google.protobuf.MethodOptions {
 service AlertsService {
 
   rpc GetAlert(GetAlertRequest) returns (GetAlertResponse) {
+    option (audit_log_description).description = "get alert";
     option (google.api.http) = {
       get: "/v3/alerting/alerts/{id}"
     };
@@ -72,13 +73,13 @@ service AlertsService {
   }
 
   // If we want to Count ,can we make this also an aggregative function?
-  rpc GetAlertEvents(GetAlertEventsRequest) returns (GetAlertEventsResponse) {
-    option (audit_log_description).description = "get alert events";
-    option (google.api.http) = {
-      get: "/v3/alerting/alerts/events"
-    };
-  }
-
+//  rpc GetAlertEvents(GetAlertEventsRequest) returns (GetAlertEventsResponse) {
+//    option (audit_log_description).description = "get alert events";
+//    option (google.api.http) = {
+//      get: "/v3/alerting/alerts/events"
+//    };
+//  }
+//
   rpc GetCompanyAlertsLimit(GetCompanyAlertsLimitRequest) returns (GetCompanyAlertsLimitResponse) {
     option (audit_log_description).description = "get company alerts limit";
     option (google.api.http) = {
@@ -96,9 +97,9 @@ service AlertsService {
 }
 
 enum OrderByDirection {
-  UNSPECIFIED = 0;
-  ASC = 1;
-  DESC = 2;
+  ORDER_BY_DIRECTION_UNSPECIFIED_OR_UNSPECIFIED = 0;
+  ORDER_BY_DIRECTION_ASC = 1;
+  ORDER_BY_DIRECTION_DESC = 2;
 }
 
 message OrderBy {
@@ -186,6 +187,7 @@ message ValidateAlertRequest {
   Alert alert = 1;
 }
 message ValidateAlertResponse {
+  google.protobuf.BoolValue valid = 1;
 }
 
 //  // Standard Verbs

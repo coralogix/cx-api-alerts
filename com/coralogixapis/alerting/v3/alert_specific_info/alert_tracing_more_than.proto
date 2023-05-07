@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.v3;
+
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerting/v3/alert_specific_info/timewindow_common.proto";
+
+message AlertTracingMoreThan  {
+    //TODO: How should we name this field? contains all filters (spans, subsystems, etc)
+    google.protobuf.StringValue labels_filters = 1;
+    google.protobuf.UInt32Value latency_threshold_ms = 2;
+    google.protobuf.UInt32Value span_amount = 3;
+    TimeWindow time_window = 4;
+}
