@@ -5,7 +5,7 @@ package com.coralogixapis.alerting.v3;
 import "google/protobuf/wrappers.proto";
 
 message ShowInInsight {
-  optional google.protobuf.UInt32Value retriggering_period_seconds = 1;
+  optional google.protobuf.UInt32Value retriggering_period_minutes = 1;
   optional NotifyOn notify_on = 2;
 }
 
@@ -15,7 +15,8 @@ message AlertNotificationGroup {
 }
 
 message AlertNotification {
-   optional google.protobuf.UInt32Value retriggering_period_seconds = 1;
+  //TODO: Minutes or Seconds?
+   optional google.protobuf.UInt32Value retriggering_period_minutes = 1;
    optional NotifyOn notify_on = 2;
    oneof integration_type {
      google.protobuf.UInt32Value integration_id = 3;

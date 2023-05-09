@@ -3,12 +3,12 @@ syntax = "proto3";
 package com.coralogixapis.alerting.v3;
 
 import "google/protobuf/wrappers.proto";
-import "com/coralogixapis/alerting/v3/logs_query.proto";
-import "com/coralogixapis/alerting/v3/alert_specific_info/timewindow_unique_value.proto";
+import "com/coralogixapis/alerting/v3/alert_info/logs_query.proto";
+import "com/coralogixapis/alerting/v3/alert_info/unique_count/unique_value_timewindow.proto";
 
-message AlertUniqueCount  {
+message UniqueCountAlertInfo  {
     LogsQuery query = 1;
     google.protobuf.StringValue unique_count_keypath = 3;
     google.protobuf.Int64Value max_unique_count = 4;
-    TimeWindowUniqueValue time_window = 5;
+    UniqueValueTimeWindow time_window = 5;
 }

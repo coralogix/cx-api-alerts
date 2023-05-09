@@ -4,9 +4,8 @@ package com.coralogixapis.alerting.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message AlertTracingImmediate  {
+message TracingImmediateAlertInfo  {
     //TODO: How should we name this field? contains all filters (spans, subsystems, etc)
-    google.protobuf.StringValue labels_filters = 1;
+    google.protobuf.StringValue label_filters = 1;
     google.protobuf.UInt32Value latency_threshold_ms = 2;
-
 }

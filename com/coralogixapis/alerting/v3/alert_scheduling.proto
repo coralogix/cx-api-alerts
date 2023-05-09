@@ -5,11 +5,10 @@ package com.coralogixapis.alerting.v3;
 import "google/protobuf/wrappers.proto";
 
 message AlertSchedulingInfo {
-    google.protobuf.BoolValue enabled = 1;
-    repeated DaySchedule days_schedule = 2;
+    repeated ActivitySchedule active_on = 1;
 }
 
-message DaySchedule {
+message ActivitySchedule {
   DayOfWeek day_of_week = 1;
   google.protobuf.StringValue start_time = 2;
   google.protobuf.StringValue end_time = 3;

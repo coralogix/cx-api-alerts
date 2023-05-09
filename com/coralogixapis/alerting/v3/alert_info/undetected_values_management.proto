@@ -4,8 +4,8 @@ package com.coralogixapis.alerting.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message UndetectedValues {
-    google.protobuf.BoolValue trigger_undetected_value = 1;
+message UndetectedValuesManagement {
+    google.protobuf.BoolValue trigger_undetected_values = 1;
     optional AutoRetireTimeframe auto_retire_timeframe = 2;
 }
 
