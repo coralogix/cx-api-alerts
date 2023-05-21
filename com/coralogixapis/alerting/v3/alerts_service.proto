@@ -171,6 +171,7 @@ message AtomicBatchExecuteAlertRequest {
 }
 message AtomicBatchExecuteAlertResponse {
   repeated AlertExecutionResponse matching_responses = 1;
+  //TODO: Where should this object be placed
 //  com.coralogix.api.ResponseStatus status = 2;
 }
 

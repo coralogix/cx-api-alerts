@@ -10,6 +10,7 @@ message AlertSchedulingInfo {
 
 message ActivitySchedule {
   DayOfWeek day_of_week = 1;
+  //TODO: How does this format look like?
   google.protobuf.StringValue start_time = 2;
   google.protobuf.StringValue end_time = 3;
 }

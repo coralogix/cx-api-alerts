@@ -33,6 +33,7 @@ message Alert {
   optional google.protobuf.BoolValue enabled = 4;
   AlertSeverity alert_severity = 5;
   optional AlertSchedulingInfo scheduling = 6;
+  //TODO: DO We Really Need this?
   AlertType alert_type = 7;
   oneof alert_info {
     StandardImmediateAlertInfo standard_immediate = 100;
@@ -52,8 +53,11 @@ message Alert {
     TracingMoreThanAlertInfo tracing_more_than = 116;
     FlowAlertInfo flow = 117;
   };
+  //TODO: What to do for alert_group_bys when promql has groupby in the query level ?
   repeated google.protobuf.StringValue alert_group_bys = 8;
   repeated AlertNotificationGroup notification_groups = 9 ;
+  //TODO : this is relevant only for log alerts, should we move it to a different message?
+  repeated google.protobuf.StringValue notification_payload_filter = 13;
   map<string,string> meta_labels = 10;
   optional google.protobuf.Timestamp created_time = 11;
   optional google.protobuf.Timestamp updated_time = 12;
