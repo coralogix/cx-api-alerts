@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerting.v3;
+
+import "google/protobuf/wrappers.proto";
+
+message EventStandard {
+  google.protobuf.Int64Value hit_value = 1;
+  map<string, string> field_values = 2;
+}
