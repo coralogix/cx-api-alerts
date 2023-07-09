@@ -5,5 +5,5 @@ package com.coralogixapis.alerting.v3;
 import "google/protobuf/wrappers.proto";
 
 message EventTracingImmediate {
-  google.protobuf.StringValue log_text = 1;
+  google.protobuf.StringValue log_record = 1;
 }

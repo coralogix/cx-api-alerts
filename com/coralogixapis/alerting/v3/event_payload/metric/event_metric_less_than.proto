@@ -4,7 +4,7 @@ package com.coralogixapis.alerting.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message EventMetric {
+message EventMetricLessThan {
   google.protobuf.FloatValue percentage_over_threshold = 1;
   optional google.protobuf.FloatValue avg_value_across_threshold = 2;
   optional google.protobuf.FloatValue min_value_across_threshold = 3;
