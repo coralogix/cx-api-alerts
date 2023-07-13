@@ -22,6 +22,7 @@ import "com/coralogixapis/alerting/v3/event_payload/standard/event_standard_more
 message AlertEventPayload {
   map<string,string> group_labels = 1;
   google.protobuf.Timestamp timestamp = 2;
+  google.protobuf.StringValue source_alert_event_id = 3;
   oneof alert_event_type {
     EventFlow event_flow = 100;
     EventNewValue event_new_value = 102;
