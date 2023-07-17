@@ -1,4 +1,4 @@
- name: cx-api-alerting
+ name: cx-api-alerts
  CX_PRODUCT: apis
  deployable_type: library
  code_language: protobuf

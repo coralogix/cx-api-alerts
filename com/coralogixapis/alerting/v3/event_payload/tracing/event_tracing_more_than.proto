@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package com.coralogixapis.alerting.v3;
-
-import "google/protobuf/wrappers.proto";
-
-message EventTracing {
-  google.protobuf.StringValue log_record = 1;
-}
