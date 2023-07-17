@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerts/v3/event_payload/flow/event_flow.proto";
+import "com/coralogixapis/alerts/v3/event_payload/metric/event_metric_more_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/metric/event_metric_less_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/metric/event_metric_more_than_usual.proto";
+import "com/coralogixapis/alerts/v3/event_payload/new_value/event_new_value.proto";
+import "com/coralogixapis/alerts/v3/event_payload/unique_count/event_unique_count.proto";
+import "com/coralogixapis/alerts/v3/event_payload/time_relative/event_time_relative_less_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/time_relative/event_time_relative_more_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/ratio/event_ratio_more_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/ratio/event_ratio_less_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/standard/event_standard_immediate.proto";
+import "com/coralogixapis/alerts/v3/event_payload/standard/event_standard_less_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/standard/event_standard_more_than.proto";
+import "com/coralogixapis/alerts/v3/event_payload/standard/event_standard_more_than_usual.proto";
+
+message AlertEventPayload {
+  map<string,string> group_labels = 1;
+  google.protobuf.Timestamp timestamp = 2;
+  google.protobuf.StringValue source_alert_event_id = 3;
+  oneof alert_event_type {
+    EventFlow event_flow = 100;
+    EventNewValue event_new_value = 102;
+    EventStandardImmediate event_unique_count = 103;
+    EventRatioMoreThan event_ratio_more_than = 104;
+    EventRatioLessThan event_ratio_less_than = 105;
+    EventTimeRelativeLessThan event_time_relative_less_than = 106;
+    EventTimeRelativeMoreThan event_time_relative_more_than = 107;
+    EventStandardImmediate event_standard_immediate = 108;
+    EventStandardLessThan event_standard_less_than = 109;
+    EventStandardMoreThan event_standard_more_than = 110;
+    EventStandardMoreThanUsual event_standard_more_than_usual = 111;
+    EventMetricMoreThan event_metric_more_than = 112;
+    EventMetricLessThan event_metric_less_than = 113;
+  }
+}

@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package com.coralogixapis.alerting.v3;
-
-message EventMetricMoreThanUsual {
-//TBD
-}
