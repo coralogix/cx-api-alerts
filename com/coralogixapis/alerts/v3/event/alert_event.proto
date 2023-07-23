@@ -22,7 +22,8 @@ import "com/coralogixapis/alerts/v3/event/payload/standard/event_standard_more_t
 message AlertEvent {
   map<string,string> group_labels = 1;
   google.protobuf.Timestamp timestamp = 2;
-  google.protobuf.StringValue source_alert_event_id = 3;
+  google.protobuf.StringValue source_event_id = 3;
+  google.protobuf.StringValue alert_id = 4;
   oneof payload {
     EventFlow event_flow = 100;
     EventNewValue event_new_value = 102;
@@ -37,5 +38,6 @@ message AlertEvent {
     EventStandardMoreThanUsual event_standard_more_than_usual = 111;
     EventMetricMoreThan event_metric_more_than = 112;
     EventMetricLessThan event_metric_less_than = 113;
+    EventMetricMoreThanUsual event_metric_more_than_usual = 114;
   }
 }
