@@ -9,4 +9,5 @@ message EventMetricLessThan {
   optional google.protobuf.FloatValue avg_value_across_threshold = 2;
   optional google.protobuf.FloatValue min_value_across_threshold = 3;
   optional google.protobuf.FloatValue max_value_across_threshold = 4;
+  google.protobuf.BoolValue is_deadman = 5;
 }

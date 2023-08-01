@@ -5,5 +5,5 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message EventStandardMoreThanUsual {
-  google.protobuf.Int64Value hit_value = 1;
+  google.protobuf.StringValue log_record = 1;
 }
