@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 message EventTimeRelativeLessThan {
   google.protobuf.Int64Value numerator_hit_value = 1;
   google.protobuf.Int64Value denominator_hit_value = 2;
-  google.protobuf.Int64Value result_hit_value = 3;
+  google.protobuf.FloatValue result_hit_value = 3;
   google.protobuf.Timestamp from_timestamp = 4;
   google.protobuf.Timestamp to_timestamp = 5;
 }
