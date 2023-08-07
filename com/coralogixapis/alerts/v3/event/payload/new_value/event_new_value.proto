@@ -5,11 +5,5 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message EventNewValue {
-// TODO: Change to something along these lines:
-//    countersMap: Map[Long, Int],
-//    valuesSet: Set[String],
-//    alertTimeframe: Int,
-//    cardinalityKey: String,
-//    groupByValue: Option[String],
-//    windowStartTimeframeMs: Long
+  google.protobuf.StringValue log_record = 1;
 }
