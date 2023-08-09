@@ -11,4 +11,9 @@ message AlertEvent {
   google.protobuf.Timestamp timestamp = 2;
   google.protobuf.StringValue alert_id = 4;
   AlertEventPayload payload = 5;
+  AlertStatus status = 6;
+}
+enum AlertStatus {
+  ALERT_STATUS_RESOLVED_OR_UNSPECIFIED = 0;
+  ALERT_STATUS_TRIGGERED = 1;
 }
