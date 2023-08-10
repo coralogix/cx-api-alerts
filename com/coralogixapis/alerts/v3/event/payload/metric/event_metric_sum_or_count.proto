@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package com.coralogixapis.alerts.v3;
-
-import "google/protobuf/wrappers.proto";
-
-message EventMetricSumOrCount {
-  google.protobuf.FloatValue value = 1;
-}

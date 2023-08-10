@@ -11,7 +11,8 @@ message EventMetricMoreThanUsual {
 message DynamicAlertMatch {
   ObservedDetails observed_details = 1;
   SearchDetails search_details = 2;
-  TopBucket topBucket = 3;
+  TopBucket top_bucket = 3;
+  google.protobuf.UInt64Value forecast_timestamp = 4;
 }
 message ObservedDetails {
   google.protobuf.Timestamp from_timestamp = 1;

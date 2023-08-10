@@ -12,6 +12,7 @@ message AlertEvent {
   google.protobuf.StringValue alert_id = 4;
   AlertEventPayload payload = 5;
   AlertStatus status = 6;
+  google.protobuf.StringValue pre_grouping_event_id = 7;
 }
 enum AlertStatus {
   ALERT_STATUS_RESOLVED_OR_UNSPECIFIED = 0;
