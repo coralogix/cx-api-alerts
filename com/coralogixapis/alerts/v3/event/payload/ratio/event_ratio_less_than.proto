@@ -4,7 +4,7 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
-import "com/coralogixapis/alerts/v3/event/payload/ratio/ratio_special_values.proto";
+import "com/coralogixapis/alerts/v3/event/payload/ratio_special_values.proto";
 
 message EventRatioLessThan {
   google.protobuf.Int64Value numerator_hit_value = 1;
