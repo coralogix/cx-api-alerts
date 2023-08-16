@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 message EventUniqueCount {
   map<string, uint32> counters_map = 1;
   repeated google.protobuf.StringValue values_set = 2;
-  repeated google.protobuf.StringValue cardinality_key = 3;
+  google.protobuf.StringValue cardinality_key = 3;
   google.protobuf.UInt32Value alert_timeframe = 4;
   google.protobuf.Timestamp window_start_timeframe_ms = 5;
 }
