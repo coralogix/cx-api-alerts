@@ -6,6 +6,9 @@ import "google/protobuf/struct.proto";
 import "google/protobuf/wrappers.proto";
 
 message AlertEventPayload {
-  google.protobuf.Struct payload = 1;
+  oneof payload {
+    google.protobuf.Struct payload_json = 1;
+    google.protobuf.BytesValue payload_protobuf = 3;
+  }
   google.protobuf.StringValue payload_type = 2;
 }

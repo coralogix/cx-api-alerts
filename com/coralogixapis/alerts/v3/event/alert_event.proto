@@ -4,7 +4,7 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
-import "google/protobuf/struct.proto";
+import "com/coralogixapis/alerts/v3/event/alert_event_payload.proto";
 
 message AlertEvent {
   map<string, string> permutation_labels = 1;
@@ -13,8 +13,7 @@ message AlertEvent {
   google.protobuf.StringValue alert_id = 4;
   AlertStatus status = 5;
   google.protobuf.StringValue pre_grouping_event_id = 6;
-  google.protobuf.Struct payload = 7;
-  google.protobuf.StringValue payload_type = 8;
+  AlertEventPayload payload = 7;
 }
 
 enum AlertStatus {
