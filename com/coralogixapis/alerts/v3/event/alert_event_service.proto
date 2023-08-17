@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/descriptor.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerts/v3/event/alert_event.proto";
+import "com/coralogixapis/alerts/v3/alerts_service.proto";
+
+service AlertEventService {
+  rpc GetAlertEvent(GetAlertEventRequest) returns (GetAlertEventResponse) {
+    option (audit_log_description).description = "get alert event";
+    option (google.api.http) = {
+      get: "/v3/alert_event/{id}"
+    };
+  }
+}
+
+message GetAlertEventRequest {
+  google.protobuf.StringValue id = 1;
+}
+
+message GetAlertEventResponse {
+  repeated AlertEvent alert_event = 1;
+}

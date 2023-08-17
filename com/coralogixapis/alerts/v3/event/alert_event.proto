@@ -2,18 +2,21 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
-import "com/coralogixapis/alerts/v3/event/alert_event_payload.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/struct.proto";
 
 message AlertEvent {
-  map<string, string> group_labels = 1;
-  google.protobuf.Timestamp timestamp = 2;
+  map<string, string> permutation_labels = 1;
+  map<string, string> group_labels = 2;
+  google.protobuf.Timestamp timestamp = 3;
   google.protobuf.StringValue alert_id = 4;
-  AlertEventPayload payload = 5;
-  AlertStatus status = 6;
-  google.protobuf.StringValue pre_grouping_event_id = 7;
+  AlertStatus status = 5;
+  google.protobuf.StringValue pre_grouping_event_id = 6;
+  google.protobuf.Struct payload = 7;
+  google.protobuf.StringValue payload_type = 8;
 }
+
 enum AlertStatus {
   ALERT_STATUS_RESOLVED_OR_UNSPECIFIED = 0;
   ALERT_STATUS_TRIGGERED = 1;
