@@ -19,8 +19,25 @@ service AlertEventService {
 
 message GetAlertEventRequest {
   google.protobuf.StringValue id = 1;
+  repeated AlertEventOrderBy order_bys = 2;
 }
 
 message GetAlertEventResponse {
-  repeated AlertEvent alert_event = 1;
+  repeated AlertEvent grouped_alert_event = 1;
+}
+
+enum OrderByAlertEventFields {
+  ORDER_BY_ALERT_EVENT_FIELDS_UNSPECIFIED = 0;
+  ORDER_BY_ALERT_EVENT_FIELDS_TIMESTAMP = 1;
+}
+
+enum OrderByAlertEventDirection {
+  ORDER_BY_ALERT_EVENT_DIRECTION_UNSPECIFIED = 0;
+  ORDER_BY_ALERT_EVENT_DIRECTION_ASC = 1;
+  ORDER_BY_ALERT_EVENT_DIRECTION_DESC = 2;
+}
+
+message AlertEventOrderBy {
+  OrderByAlertEventFields field_name = 1;
+  OrderByAlertEventDirection direction = 2;
 }
