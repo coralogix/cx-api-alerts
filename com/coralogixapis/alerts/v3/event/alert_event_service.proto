@@ -23,7 +23,14 @@ message GetAlertEventRequest {
 }
 
 message GetAlertEventResponse {
-  repeated AlertEvent grouped_alert_event = 1;
+  oneof alert_event {
+    AlertEvent single_permutation = 1;
+    AlertEventMultiplePermutation multiple_permutation = 2;
+  }
+}
+
+message AlertEventMultiplePermutation{
+  repeated AlertEvent alert_event_multiple_permutation = 1;
 }
 
 enum OrderByAlertEventFields {
