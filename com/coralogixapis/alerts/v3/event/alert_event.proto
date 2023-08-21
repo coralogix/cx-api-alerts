@@ -15,6 +15,7 @@ message AlertEvent {
   google.protobuf.StringValue pre_grouping_event_id = 6;
   google.protobuf.Struct payload = 7;
   google.protobuf.StringValue payload_type = 8;
+  google.protobuf.StringValue permutation_id = 9;
 }
 
 enum AlertStatus {
