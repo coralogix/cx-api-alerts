@@ -23,9 +23,10 @@ message GetAlertEventRequest {
 }
 
 message GetAlertEventResponse {
+  google.protobuf.StringValue id = 1;
   oneof alert_event {
-    AlertEvent single_permutation = 1;
-    AlertEventMultiplePermutation multiple_permutation = 2;
+    AlertEvent single_permutation = 2;
+    AlertEventMultiplePermutation multiple_permutation = 3;
   }
 }
 
