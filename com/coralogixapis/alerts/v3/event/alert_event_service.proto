@@ -33,6 +33,7 @@ message EventStats {
   google.protobuf.UInt32Value count = 1;
   google.protobuf.UInt32Value resolved_count = 2;
   google.protobuf.UInt32Value triggered_count = 3;
+  map<string, string> permutations_samples = 4;
 }
 
 message GetAlertEventStatsResponse {
