@@ -29,15 +29,19 @@ message GetAlertEventStatsRequest {
   repeated AlertEventOrderBy order_bys = 2;
 }
 
+message GetAlertEventStatsResponse {
+  map<string, EventStats> events_stats = 1;
+}
+
+message Permutation {
+  map<string, string> permutation_labels = 1;
+}
+
 message EventStats {
   google.protobuf.UInt32Value count = 1;
   google.protobuf.UInt32Value resolved_count = 2;
   google.protobuf.UInt32Value triggered_count = 3;
-  map<string, string> permutations_samples = 4;
-}
-
-message GetAlertEventStatsResponse {
-  map<string, EventStats> events_stats = 1;
+  repeated Permutation permutations_samples = 4;
 }
 
 message GetAlertEventRequest {
