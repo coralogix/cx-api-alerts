@@ -26,7 +26,6 @@ service AlertEventService {
 
 message GetAlertEventStatsRequest {
   repeated google.protobuf.StringValue ids = 1;
-  repeated AlertEventOrderBy order_bys = 2;
 }
 
 message GetAlertEventStatsResponse {
