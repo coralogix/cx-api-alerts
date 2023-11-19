@@ -20,6 +20,7 @@ import "com/coralogixapis/alerts/v3/alert_info/time_relative/time_relative_less_
 import "com/coralogixapis/alerts/v3/alert_info/metric/metric_less_than_alert_info.proto";
 import "com/coralogixapis/alerts/v3/alert_info/metric/metric_more_than_alert_info.proto";
 import "com/coralogixapis/alerts/v3/alert_info/metric/metric_more_than_usual_alert_info.proto";
+import "com/coralogixapis/alerts/v3/alert_info/metric/metric_less_than_usual_alert_info.proto";
 import "com/coralogixapis/alerts/v3/alert_info/tracing/tracing_immediate_alert_info.proto";
 import "com/coralogixapis/alerts/v3/alert_info/tracing/tracing_more_than_alert_info.proto";
 import "com/coralogixapis/alerts/v3/alert_info/flow/flow_alert_info.proto";
@@ -52,6 +53,7 @@ message Alert {
     TracingImmediateAlertInfo tracing_immediate = 115;
     TracingMoreThanAlertInfo tracing_more_than = 116;
     FlowAlertInfo flow = 117;
+    MetricLessThanUsualAlertInfo metric_less_than_usual = 118;
   };
   //TODO: What to do for alert_group_bys when promql has groupby in the query level ?
   repeated google.protobuf.StringValue alert_group_bys = 8;
