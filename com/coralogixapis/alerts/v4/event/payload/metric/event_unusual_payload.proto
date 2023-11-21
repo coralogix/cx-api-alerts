@@ -27,7 +27,7 @@ message SearchDetailsInterval {
 
 message ExtremeSample {
   google.protobuf.Timestamp   timestamp  = 1;
-  google.protobuf.DoubleValue lowerLimit = 2;
-  google.protobuf.DoubleValue upperLimit = 3;
+  google.protobuf.DoubleValue lower_limit = 2;
+  google.protobuf.DoubleValue upper_limit = 3;
   google.protobuf.DoubleValue value      = 4;
 }
