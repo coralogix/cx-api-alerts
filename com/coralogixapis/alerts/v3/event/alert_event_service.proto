@@ -48,6 +48,7 @@ message EventStats {
 message GetAlertEventRequest {
   google.protobuf.StringValue id = 1;
   repeated AlertEventOrderBy order_bys = 2;
+  PaginationRequest pagination = 3;
 }
 
 message GetAlertEventResponse {
@@ -56,7 +57,18 @@ message GetAlertEventResponse {
     AlertEvent single_permutation = 2;
     AlertEventMultiplePermutation multiple_permutation = 3;
   }
+  PaginationResponse pagination = 4;
 }
+message PaginationRequest {
+  google.protobuf.UInt32Value page_size = 1;
+  google.protobuf.StringValue page_token = 2;
+}
+message PaginationResponse {
+  google.protobuf.UInt32Value total_size = 1;
+  google.protobuf.StringValue next_page_token = 2;
+}
+
+
 
 message AlertEventMultiplePermutation{
   repeated AlertEvent alert_event_multiple_permutation = 1;
