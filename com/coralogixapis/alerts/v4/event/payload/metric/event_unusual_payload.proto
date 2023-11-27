@@ -6,12 +6,13 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 message EventUnusualPayload {
-  google.protobuf.Timestamp   from_timestamp     = 1;
-  google.protobuf.Timestamp   to_timestamp       = 2;
-  google.protobuf.UInt64Value forecast_timestamp = 3;
-  SearchDetails               search_details     = 4;
-  google.protobuf.DoubleValue distance           = 5;
-  ExtremeSample               extreme_sample     = 6;
+  google.protobuf.Timestamp   from_timestamp        = 1;
+  google.protobuf.Timestamp   to_timestamp          = 2;
+  google.protobuf.UInt64Value forecast_timestamp    = 3;
+  SearchDetails               search_details        = 4;
+  google.protobuf.DoubleValue distance              = 5;
+  ExtremeSample               extreme_sample        = 6;
+  google.protobuf.DoubleValue ratio_unusual_samples = 7;
 }
 
 message SearchDetails {
