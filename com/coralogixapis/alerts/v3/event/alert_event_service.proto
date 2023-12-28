@@ -48,7 +48,7 @@ message EventStats {
 
 message ActivityAnalysisStats {
   google.protobuf.UInt32Value is_muted_count = 1;
-  repeated google.protobuf.StringValue rules_id = 2;
+  repeated google.protobuf.StringValue rules = 2;
 }
 
 message GetAlertEventRequest {
