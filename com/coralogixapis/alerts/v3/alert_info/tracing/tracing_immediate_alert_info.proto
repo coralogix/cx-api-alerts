@@ -8,4 +8,5 @@ message TracingImmediateAlertInfo  {
     //TODO: How should we name this field? contains all filters (spans, subsystems, etc)
     google.protobuf.StringValue label_filters = 1;
     google.protobuf.UInt32Value latency_threshold_ms = 2;
+    repeated google.protobuf.StringValue notification_payload_filter = 3;
 }

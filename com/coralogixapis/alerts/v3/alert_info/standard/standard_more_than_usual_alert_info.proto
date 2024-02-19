@@ -3,7 +3,10 @@ syntax = "proto3";
 package com.coralogixapis.alerts.v3;
 
 import "com/coralogixapis/alerts/v3/alert_info/logs_query.proto";
+import "google/protobuf/wrappers.proto";
 
 message StandardMoreThanAlertInfoUsual  {
     LogsQuery query = 1;
+    google.protobuf.UInt32Value minimum_threshold = 2;
+    repeated google.protobuf.StringValue notification_payload_filter = 3;
 }
