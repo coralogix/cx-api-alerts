@@ -11,4 +11,5 @@ message TimeRelativeMoreThanAlertInfo  {
     google.protobuf.UInt32Value threshold = 3;
     TimeRelativeComparedTo compared_to = 4;
     google.protobuf.BoolValue ignore_infinity = 5;
+    repeated google.protobuf.StringValue notification_payload_filter = 6;
 }

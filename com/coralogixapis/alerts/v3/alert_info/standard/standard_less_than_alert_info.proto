@@ -12,4 +12,5 @@ message StandardLessThanAlertInfo  {
     google.protobuf.UInt32Value threshold = 2;
     StandardTimeWindow time_window = 3;
     optional UndetectedValuesManagement undetected_values_management = 4;
+    repeated google.protobuf.StringValue notification_payload_filter = 5;
 }
