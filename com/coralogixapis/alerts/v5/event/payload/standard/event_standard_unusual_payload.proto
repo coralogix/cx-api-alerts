@@ -12,7 +12,7 @@ message EventStandardUnusualPayload {
   google.protobuf.UInt64Value forecast_timestamp = 3;
   TimeRangeWithInterval       search_details     = 4;
   google.protobuf.DoubleValue distance           = 5;
-  google.protobuf.Int64Value  sum_hitcount       = 6;
+  google.protobuf.Int64Value  sum_hit_count      = 6;
   // TODO: should we add this field?
-  // google.protobuf.Int64Value  sum_hitcount_forecast = 7;
+  // google.protobuf.Int64Value  sum_hit_count_forecast = 7;
 }
