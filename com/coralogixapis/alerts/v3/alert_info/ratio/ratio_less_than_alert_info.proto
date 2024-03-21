@@ -14,5 +14,4 @@ message RatioLessThanAlertInfo  {
     RatioTimeWindow time_window = 4;
     google.protobuf.BoolValue ignore_infinity = 5;
     optional UndetectedValuesManagement undetected_values_management = 6;
-    repeated google.protobuf.StringValue notification_payload_filter = 7;
 }

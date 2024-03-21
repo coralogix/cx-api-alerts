@@ -11,5 +11,4 @@ message TracingMoreThanAlertInfo  {
     google.protobuf.UInt32Value latency_threshold_ms = 2;
     google.protobuf.UInt32Value span_amount = 3;
     TracingTimeWindow time_window = 4;
-    repeated google.protobuf.StringValue notification_payload_filter = 5;
 }
