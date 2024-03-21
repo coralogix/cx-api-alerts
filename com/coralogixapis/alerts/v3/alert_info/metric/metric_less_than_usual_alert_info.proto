@@ -5,7 +5,7 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_info/metric/metric_timewindow.proto";
 
-message MetricMoreThanUsualAlertInfo  {
+message MetricLessThanUsualAlertInfo  {
     google.protobuf.StringValue promql = 10;
     google.protobuf.UInt32Value threshold = 2;
     google.protobuf.UInt32Value for_over_pct = 3;

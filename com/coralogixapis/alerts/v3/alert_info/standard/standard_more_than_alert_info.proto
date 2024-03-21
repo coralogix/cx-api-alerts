@@ -11,6 +11,7 @@ message StandardMoreThanAlertInfo  {
     google.protobuf.UInt32Value threshold = 2;
     StandardTimeWindow time_window = 3;
     optional EvaluationWindow evaluation_window = 4;
+    repeated google.protobuf.StringValue notification_payload_filter = 5;
 }
 enum EvaluationWindow {
     EVALUATION_WINDOW_ROLLING_OR_UNSPECIFIED = 0;
