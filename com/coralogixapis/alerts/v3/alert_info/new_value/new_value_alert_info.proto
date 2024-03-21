@@ -10,5 +10,4 @@ message NewValueAlertInfo  {
     LogsQuery query = 1;
     google.protobuf.StringValue keypath_to_track = 3;
     NewValueTimeWindow time_window = 4;
-    repeated google.protobuf.StringValue notification_payload_filter = 5;
 }

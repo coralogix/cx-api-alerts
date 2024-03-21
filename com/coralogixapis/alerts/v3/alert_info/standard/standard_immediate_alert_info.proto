@@ -1,10 +1,8 @@
 syntax = "proto3";
 import "com/coralogixapis/alerts/v3/alert_info/logs_query.proto";
-import "google/protobuf/wrappers.proto";
 
 package com.coralogixapis.alerts.v3;
 
 message StandardImmediateAlertInfo {
     LogsQuery query = 1;
-    repeated google.protobuf.StringValue notification_payload_filter = 2;
 }

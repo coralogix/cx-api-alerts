@@ -12,5 +12,4 @@ message RatioMoreThanAlertInfo  {
     google.protobuf.UInt32Value threshold = 3;
     RatioTimeWindow time_window = 4;
     google.protobuf.BoolValue ignore_infinity = 5;
-    repeated google.protobuf.StringValue notification_payload_filter = 6;
 }
