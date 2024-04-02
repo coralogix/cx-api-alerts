@@ -8,6 +8,6 @@ import "com/coralogixapis/alerts/v3/alert_info/metric/metric_timewindow.proto";
 message MetricLessThanUsualAlertInfo  {
     google.protobuf.StringValue promql = 10;
     google.protobuf.UInt32Value threshold = 2;
-    google.protobuf.UInt32Value for_over_pct = 3;
+    google.protobuf.UInt32Value for_over_percent = 3;
     MetricTimeWindow of_the_last = 4;
 }

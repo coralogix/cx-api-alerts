@@ -10,15 +10,18 @@ message AlertNotificationGroup {
 }
 
 message AlertIncidentSettings {
-  google.protobuf.UInt32Value retriggering_period_seconds = 1;
+  oneof retriggering_period {
+    google.protobuf.UInt32Value minutes = 100;
+    // RetriggeringPeriodSpecialValue special_value = 101;
+  }
   NotifyOn notify_on = 2;
   google.protobuf.BoolValue use_as_notification_settings = 3;
 }
 
-enum RetriggeringPeriodSpecialValue {
-  RETRIGGERING_PERIOD_NEVER = 0;
-  RETRIGGERING_PERIOD_ON_EACH_EVALUATION = 1;
-}
+//enum RetriggeringPeriodSpecialValue {
+//  RETRIGGERING_PERIOD_NEVER = 0;
+//  RETRIGGERING_PERIOD_ON_EACH_EVALUATION = 1;
+// }
 
 message AlertNotification {
   // Decided on oneOf to allow extension in the future for special values like "never" or "on each evaluation"

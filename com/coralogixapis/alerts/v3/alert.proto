@@ -33,12 +33,10 @@ message Alert {
   google.protobuf.StringValue name = 2;
   optional google.protobuf.StringValue description = 3;
   optional google.protobuf.BoolValue enabled = 4;
-  //TODO: We have a change in the alert severity which incoporates the security severity into a unified model,
-  // Talk to Maayan about this before the deployment
   AlertSeverity alert_severity = 5;
-  //TODO: This needs to change for suppression rules (activity_anlysis) ?
-  // We need to discuss this to understand how to tackle this
-  optional AlertSchedulingInfo scheduling = 6;
+  oneof AlertSchedule {
+    AlertActiveWhen active_when = 6;
+  }
   AlertType alert_type = 7;
   oneof alert_info {
     StandardImmediateAlertInfo standard_immediate = 100;
