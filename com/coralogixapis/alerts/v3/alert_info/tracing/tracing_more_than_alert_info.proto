@@ -4,12 +4,11 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_info/tracing/tracing_timewindow.proto";
+import "com/coralogixapis/alerts/v3/alert_info/tracing/tracing_query.proto";
 
 message TracingMoreThanAlertInfo  {
-    //TODO: How should we name this field? contains all filters (spans, subsystems, etc)
-    google.protobuf.StringValue label_filters = 1;
-    google.protobuf.UInt32Value latency_threshold_ms = 2;
-    google.protobuf.UInt32Value span_amount = 3;
-    TracingTimeWindow time_window = 4;
-    repeated google.protobuf.StringValue notification_payload_filter = 5;
+    TracingQuery tracing_query = 1;
+    google.protobuf.UInt32Value span_amount = 2;
+    TracingTimeWindow time_window = 3;
+    repeated google.protobuf.StringValue notification_payload_filter = 4;
 }

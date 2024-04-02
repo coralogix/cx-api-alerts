@@ -5,8 +5,36 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message LogsQuery{
-  //TODO: are we okay with this?
-  optional google.protobuf.StringValue alias = 1;
-  optional google.protobuf.StringValue lucene = 2;
-  optional google.protobuf.StringValue label_filters = 3 ;
+  google.protobuf.StringValue alias = 1;
+  google.protobuf.StringValue lucene = 2;
+  oneof filters {
+    LogLabelFilters log_label_filters = 3;
+  }
+}
+
+message LogLabelFilters {
+  repeated LogFilterType application_name = 1;
+  repeated LogFilterType subsystem_name = 2;
+  repeated LogSeverity severities = 3;
+}
+
+message LogFilterType {
+  google.protobuf.StringValue value = 1;
+  LogFilterOperationType operation = 2;
+}
+
+enum LogFilterOperationType {
+  OPERATION_TYPE_IS_OR_UNSPECIFIED = 0;
+  OPERATION_TYPE_INCLUDES = 1;
+  OPERATION_TYPE_ENDS_WITH = 2;
+  OPERATION_TYPE_STARTS_WITH =3;
+}
+
+enum LogSeverity{
+  LOG_SEVERITY_VERBOSE_UNSPECIFIED = 0;
+  LOG_SEVERITY_DEBUG = 1;
+  LOG_SEVERITY_INFO = 2;
+  LOG_SEVERITY_WARNING = 3;
+  LOG_SEVERITY_ERROR = 4;
+  LOG_SEVERITY_CRITICAL = 5;
 }

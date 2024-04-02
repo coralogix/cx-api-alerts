@@ -4,15 +4,14 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message AlertSchedulingInfo {
+message AlertActiveWhen {
     repeated ActivitySchedule active_on = 1;
 }
 
 message ActivitySchedule {
   DayOfWeek day_of_week = 1;
-  //TODO: How does this format look like?
-  google.protobuf.StringValue start_time = 2;
-  google.protobuf.StringValue end_time = 3;
+  TimeOfDay start_time = 2;
+  TimeOfDay end_time = 3;
 }
 enum DayOfWeek {
   DAY_OF_WEEK_MONDAY_OR_UNSPECIFIED = 0;
@@ -22,4 +21,10 @@ enum DayOfWeek {
   DAY_OF_WEEK_FRIDAY = 4;
   DAY_OF_WEEK_SATURDAY = 5;
   DAY_OF_WEEK_SUNDAY = 6;
+}
+message TimeOfDay {
+  // Hours of day in 24 hour format. Should be from 0 to 23.
+  int32 hours = 1;
+  // Minutes of hour of day. Must be from 0 to 59.
+  int32 minutes = 2;
 }
