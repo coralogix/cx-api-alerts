@@ -34,7 +34,7 @@ message Alert {
   optional google.protobuf.StringValue description = 3;
   optional google.protobuf.BoolValue enabled = 4;
   AlertSeverity alert_severity = 5;
-  oneof AlertSchedule {
+  oneof alertSchedule {
     AlertActiveWhen active_when = 6;
   }
   AlertType alert_type = 7;
