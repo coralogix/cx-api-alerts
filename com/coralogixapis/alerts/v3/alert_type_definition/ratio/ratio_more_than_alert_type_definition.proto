@@ -8,9 +8,11 @@ import "com/coralogixapis/alerts/v3/alert_type_definition/ratio/ratio_timewindow
 
 message RatioMoreThanAlertTypeDefinition  {
     LogsQuery numerator_query = 1;
-    LogsQuery denominator_query = 2;
-    google.protobuf.UInt32Value threshold = 3;
-    RatioTimeWindow time_window = 4;
-    google.protobuf.BoolValue ignore_infinity = 5;
-    repeated google.protobuf.StringValue notification_payload_filter = 6;
+    google.protobuf.StringValue numerator_alias =2;
+    LogsQuery denominator_query = 3;
+    google.protobuf.StringValue denominator_alias = 4;
+    google.protobuf.UInt32Value threshold = 5;
+    RatioTimeWindow time_window = 6;
+    google.protobuf.BoolValue ignore_infinity = 7;
+    repeated google.protobuf.StringValue notification_payload_filter =8;
 }

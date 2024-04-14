@@ -5,10 +5,9 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message LogsQuery{
-  google.protobuf.StringValue alias = 1;
-  google.protobuf.StringValue lucene = 2;
+  google.protobuf.StringValue lucene = 1;
   oneof filters {
-    LogLabelFilters log_label_filters = 3;
+    LogLabelFilters log_label_filters = 2;
   }
 }
 
