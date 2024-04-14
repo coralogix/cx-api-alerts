@@ -5,11 +5,11 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message AlertActiveWhen {
-    repeated ActivitySchedule active_on = 1;
+     ActivitySchedule active_on = 1;
 }
 
 message ActivitySchedule {
-  DayOfWeek day_of_week = 1;
+  repeated DayOfWeek day_of_week = 1;
   TimeOfDay start_time = 2;
   TimeOfDay end_time = 3;
 }
