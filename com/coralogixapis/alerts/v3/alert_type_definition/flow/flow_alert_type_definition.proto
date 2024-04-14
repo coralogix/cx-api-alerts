@@ -4,7 +4,7 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message FlowAlertInfo  {
+message FlowAlertTypeDefinition  {
     repeated FlowStages stages = 1 ;
 }
 message FlowStages {
