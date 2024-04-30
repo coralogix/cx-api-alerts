@@ -12,4 +12,5 @@ message EventMetricMoreThan {
   optional google.protobuf.FloatValue max_value_across_threshold = 4;
   google.protobuf.Timestamp from_timestamp = 5;
   google.protobuf.Timestamp to_timestamp = 6;
+  optional google.protobuf.BoolValue is_more_than_or_equals = 7;
 }

@@ -13,4 +13,5 @@ message EventMetricLessThan {
   google.protobuf.BoolValue is_deadman = 5;
   google.protobuf.Timestamp from_timestamp = 6;
   google.protobuf.Timestamp to_timestamp = 7;
+  optional google.protobuf.BoolValue is_less_than_or_equals = 8;
 }
