@@ -211,4 +211,5 @@ message SetActiveRequest{
   google.protobuf.BoolValue active = 2;
 }
 message SetActiveResponse {
+  google.protobuf.StringValue id = 1;
 }
