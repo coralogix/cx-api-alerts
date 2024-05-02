@@ -29,10 +29,10 @@ import "com/coralogixapis/alerts/v3/alert_type.proto";
 
 message Alert {
   //This is the unique Identifier
-  optional google.protobuf.UInt64Value id = 1;
+  google.protobuf.StringValue id = 1;
   google.protobuf.StringValue name = 2;
-  optional google.protobuf.StringValue description = 3;
-  optional google.protobuf.BoolValue enabled = 4;
+  google.protobuf.StringValue description = 3;
+  google.protobuf.BoolValue enabled = 4;
   AlertSeverity alert_severity = 5;
   oneof alertSchedule {
     AlertActiveWhen active_when = 6;
