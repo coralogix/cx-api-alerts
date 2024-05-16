@@ -15,6 +15,6 @@ message MetricLessThanAlertTypeDefinition  {
     google.protobuf.UInt32Value threshold = 2;
     google.protobuf.UInt32Value for_over_pct = 3;
     MetricTimeWindow of_the_last = 4;
-    google.protobuf.BoolValue replace_missing_value_with_zero = 5;
+    google.protobuf.BoolValue replace_missing_values_with_zero = 5;
     optional UndetectedValuesManagement undetected_values_management = 6;
 }
