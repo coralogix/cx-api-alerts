@@ -11,7 +11,7 @@ message MetricMoreThanAlertTypeDefinition  {
         google.protobuf.StringValue promql = 10;
         MetricLuceneQuery lucene = 11;
     }
-    google.protobuf.UInt32Value threshold = 2;
+    google.protobuf.FloatValue threshold = 2;
     google.protobuf.UInt32Value for_over_pct = 3;
     MetricTimeWindow of_the_last = 4;
     google.protobuf.BoolValue replace_missing_values_with_zero = 5;
