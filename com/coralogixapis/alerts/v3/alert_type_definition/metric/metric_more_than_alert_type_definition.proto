@@ -9,7 +9,7 @@ import "com/coralogixapis/alerts/v3/alert_type_definition/metric/metric_lucene_q
 message MetricMoreThanAlertTypeDefinition  {
     oneof query {
         google.protobuf.StringValue promql = 10;
-        MetricLuceneQuery lucene = 11;
+//        MetricLuceneQuery lucene = 11;
     }
     google.protobuf.FloatValue threshold = 2;
     google.protobuf.UInt32Value for_over_pct = 3;
