@@ -5,6 +5,7 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_type_definition/metric/metric_timewindow.proto";
 import "com/coralogixapis/alerts/v3/alert_type_definition/metric/metric_lucene_query.proto";
+import "com/coralogixapis/alerts/v3/alert_type_definition/metric/metric_missing_values.proto";
 
 message MetricMoreThanAlertTypeDefinition  {
     oneof query {
@@ -14,6 +15,5 @@ message MetricMoreThanAlertTypeDefinition  {
     google.protobuf.FloatValue threshold = 2;
     google.protobuf.UInt32Value for_over_pct = 3;
     MetricTimeWindow of_the_last = 4;
-    google.protobuf.BoolValue replace_missing_values_with_zero = 5;
-    google.protobuf.UInt32Value min_non_null_values_pct= 6;
+    MetricMissingValues missing_values =5;
 }
