@@ -5,6 +5,7 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_type_definition/logs_query.proto";
 import "com/coralogixapis/alerts/v3/alert_type_definition/ratio/ratio_timewindow.proto";
+import "com/coralogixapis/alerts/v3/alert_type_definition/ratio/ratio_group_by_for.proto";
 
 message RatioMoreThanAlertTypeDefinition  {
     LogsQuery numerator_query = 1;
@@ -15,4 +16,5 @@ message RatioMoreThanAlertTypeDefinition  {
     RatioTimeWindow time_window = 6;
     google.protobuf.BoolValue ignore_infinity = 7;
     repeated google.protobuf.StringValue notification_payload_filter =8;
+    RatioGroupByFor group_by_for = 9;
 }
