@@ -42,7 +42,7 @@ message Alert {
     StandardImmediateAlertTypeDefinition standard_immediate = 100;
     StandardMoreThanAlertTypeDefinition standard_more_than = 101;
     StandardLessThanAlertTypeDefinition standard_less_than = 102;
-    StandardMoreThanAlertTypeDefinitionUsual standard_more_than_usual = 103;
+    StandardMoreThanUsualAlertTypeDefinition standard_more_than_usual = 103;
     RatioMoreThanAlertTypeDefinition ratio_more_than = 104;
     RatioLessThanAlertTypeDefinition ratio_less_than = 105;
     NewValueAlertTypeDefinition new_value = 106;

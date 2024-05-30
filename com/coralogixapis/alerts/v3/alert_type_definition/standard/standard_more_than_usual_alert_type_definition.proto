@@ -4,9 +4,11 @@ package com.coralogixapis.alerts.v3;
 
 import "com/coralogixapis/alerts/v3/alert_type_definition/logs_query.proto";
 import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerts/v3/alert_type_definition/standard/standard_timewindow.proto";
 
-message StandardMoreThanAlertTypeDefinitionUsual  {
+message StandardMoreThanUsualAlertTypeDefinition  {
     LogsQuery query = 1;
     google.protobuf.UInt32Value minimum_threshold = 2;
-    repeated google.protobuf.StringValue notification_payload_filter = 3;
+    StandardTimeWindow time_window = 3;
+    repeated google.protobuf.StringValue notification_payload_filter = 4;
 }
