@@ -16,9 +16,9 @@ message TracingLabelFilters {
   repeated TracingFilterType subsystem_name = 2;
   repeated TracingFilterType service_name = 3;
   repeated TracingFilterType operation_name = 4;
-  repeated TracingSpanTagFilterType span_tags = 5;
+  repeated TracingSpanFieldsFilterType span_fields = 5;
 }
-message TracingSpanTagFilterType {
+message TracingSpanFieldsFilterType {
   google.protobuf.StringValue key = 1;
   TracingFilterType filter_type = 2;
 }
