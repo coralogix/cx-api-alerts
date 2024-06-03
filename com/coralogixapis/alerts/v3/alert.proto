@@ -61,7 +61,7 @@ message Alert {
   //When Promql with group by this field needs to be empty or equal to the by clause, otherwise we fail the validation
   repeated google.protobuf.StringValue alert_group_bys = 8;
   AlertIncidentSettings incidents_settings = 9;
- AlertNotificationGroup notification_group = 10;
+  AlertNotificationGroup notification_group = 10;
   map<string,string> labels = 11;
   optional google.protobuf.Timestamp created_time = 12;
   optional google.protobuf.Timestamp updated_time = 13;

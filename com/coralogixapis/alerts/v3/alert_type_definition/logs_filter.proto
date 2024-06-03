@@ -17,12 +17,12 @@ message LuceneFilter {
 }
 
 message LabelFilters {
-  repeated LogFilterType application_name = 1;
-  repeated LogFilterType subsystem_name = 2;
+  repeated LabelFilterType application_name = 1;
+  repeated LabelFilterType subsystem_name = 2;
   repeated LogSeverity severities = 3;
 }
 
-message LogFilterType {
+message LabelFilterType {
   google.protobuf.StringValue value = 1;
   LogFilterOperationType operation = 2;
 }
