@@ -4,27 +4,32 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message LogsQuery{
-  google.protobuf.StringValue lucene = 1;
-  oneof filters {
-    LogLabelFilters log_label_filters = 2;
+message LogsFilter {
+  oneof filter_type {
+    LuceneFilter lucene_filter = 1;
+    // DPXL will be added here in the future
+    //google.protobuf.StringValue dpxl = 2;
   }
 }
+message LuceneFilter {
+  google.protobuf.StringValue lucene_query = 1;
+  LabelFilters label_filters = 2;
+}
 
-message LogLabelFilters {
-  repeated LogFilterType application_name = 1;
-  repeated LogFilterType subsystem_name = 2;
+message LabelFilters {
+  repeated LabelFilterType application_name = 1;
+  repeated LabelFilterType subsystem_name = 2;
   repeated LogSeverity severities = 3;
 }
 
-message LogFilterType {
+message LabelFilterType {
   google.protobuf.StringValue value = 1;
   LogFilterOperationType operation = 2;
 }
 
 enum LogFilterOperationType {
-  LOG_FILER_OPERATION_TYPE_IS_OR_UNSPECIFIED = 0;
-  LOG_FILER_OPERATION_TYPE_INCLUDES = 1;
+  LOG_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED = 0;
+  LOG_FILTER_OPERATION_TYPE_INCLUDES = 1;
   LOG_FILTER_OPERATION_TYPE_ENDS_WITH = 2;
   LOG_FILTER_OPERATION_TYPE_STARTS_WITH =3;
 }
