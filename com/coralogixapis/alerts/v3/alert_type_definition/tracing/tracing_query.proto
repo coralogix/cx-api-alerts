@@ -4,7 +4,7 @@ package com.coralogixapis.alerts.v3;
 
 import "google/protobuf/wrappers.proto";
 
-message TracingQuery{
+message TracingQuery {
   oneof filters {
     TracingLabelFilters tracing_label_filters = 1;
   }
@@ -20,11 +20,11 @@ message TracingLabelFilters {
 }
 message TracingSpanTagFilterType {
   google.protobuf.StringValue key = 1;
-    TracingFilterType filter_type = 2;
+  TracingFilterType filter_type = 2;
 }
 
 message TracingFilterType {
-  google.protobuf.StringValue value = 1;
+  repeated google.protobuf.StringValue values = 1;
   TracingFilterOperationType operation = 2;
 }
 
@@ -32,6 +32,6 @@ enum TracingFilterOperationType {
   TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED = 0;
   TRACING_FILTER_OPERATION_TYPE_INCLUDES = 1;
   TRACING_FILTER_OPERATION_TYPE_ENDS_WITH = 2;
-  TRACING_FILTER_OPERATION_TYPE_STARTS_WITH =3;
+  TRACING_FILTER_OPERATION_TYPE_STARTS_WITH = 3;
   TRACING_FILTER_OPERATION_TYPE_IS_NOT = 4;
 }
