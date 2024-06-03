@@ -62,8 +62,7 @@ message Alert {
   repeated google.protobuf.StringValue alert_group_bys = 8;
   AlertIncidentSettings incidents_settings = 9;
  AlertNotificationGroup notification_group = 10;
-  //TODO: Harel will need to give a name
-  map<string,string> meta_labels = 11;
+  map<string,string> labels = 11;
   optional google.protobuf.Timestamp created_time = 12;
   optional google.protobuf.Timestamp updated_time = 13;
 }
