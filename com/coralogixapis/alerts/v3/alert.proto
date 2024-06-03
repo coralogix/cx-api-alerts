@@ -38,6 +38,7 @@ message Alert {
     ActivitySchedule active_on = 6;
   }
   AlertType alert_type = 7;
+
   oneof alert_type_definition {
     LogsImmediateAlertTypeDefinition logs_immediate = 100;
     LogsMoreThanAlertTypeDefinition logs_more_than = 101;
@@ -47,8 +48,8 @@ message Alert {
     LogsRatioLessThanAlertTypeDefinition logs_ratio_less_than = 105;
     LogsNewValueAlertTypeDefinition logs_new_value = 106;
     LogsUniqueCountAlertTypeDefinition logs_unique_count = 107;
-    LogsTimeRelativeMoreThanAlertTypeDefinition time_relative_more_than = 108;
-    LogsTimeRelativeLessThanAlertTypeDefinition time_relative_less_than = 109;
+    LogsTimeRelativeMoreThanAlertTypeDefinition logs_time_relative_more_than = 108;
+    LogsTimeRelativeLessThanAlertTypeDefinition logs_time_relative_less_than = 109;
     MetricMoreThanAlertTypeDefinition metric_more_than = 112;
     MetricLessThanAlertTypeDefinition metric_less_than = 113;
     MetricMoreThanUsualAlertTypeDefinition metric_more_than_usual = 114;
