@@ -11,4 +11,5 @@ message MetricMoreThanUsualAlertTypeDefinition  {
     google.protobuf.UInt32Value threshold = 2;
     google.protobuf.UInt32Value for_over_pct = 3;
     MetricTimeWindow of_the_last = 4;
+    google.protobuf.UInt32Value min_non_null_values_pct = 5;
 }
