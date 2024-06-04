@@ -148,13 +148,14 @@ message DeleteAlertRequest {
 message DeleteAlertResponse {
 }
 message ReplaceAlertRequest {
-  Alert alert = 1;
+  AlertProperties alert_properties = 1;
+  google.protobuf.StringValue id = 2;
 }
 message ReplaceAlertResponse {
   Alert alert = 1;
 }
 message CreateAlertRequest{
-  Alert alert = 1;
+  AlertProperties alert_properties = 1;
 }
 message CreateAlertResponse {
   Alert alert = 1;
