@@ -9,6 +9,6 @@ import "com/coralogixapis/alerts/v3/alert_type_definition/metrics_filter.proto";
 message MetricLessThanUsualAlertTypeDefinition  {
     MetricFilter metric_filter = 1;
     google.protobuf.UInt32Value threshold = 2;
-    google.protobuf.UInt32Value for_over_percent = 3;
+    google.protobuf.UInt32Value for_over_pct = 3;
     MetricTimeWindow of_the_last = 4;
 }
