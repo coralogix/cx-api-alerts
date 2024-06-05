@@ -8,6 +8,7 @@ message FlowAlertInfo  {
     repeated FlowStages stages = 1 ;
     bool enforce_suppression = 2;
 }
+
 message FlowStages {
     oneof flow_stages {
         FlowStagesGroups flow_stages_groups = 10;
