@@ -6,7 +6,7 @@ import "google/protobuf/wrappers.proto";
 
 message FlowAlertInfo  {
     repeated FlowStages stages = 1 ;
-    bool enforce_suppression = 2;
+    google.protobuf.BoolValue enforce_suppression = 2;
 }
 
 message FlowStages {
