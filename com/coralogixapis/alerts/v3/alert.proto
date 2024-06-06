@@ -27,17 +27,24 @@ import "com/coralogixapis/alerts/v3/alert_type_definition/flow/flow_alert_type_d
 import "com/coralogixapis/alerts/v3/alert_type.proto";
 import "com/coralogixapis/alerts/v3/alert_priority.proto";
 
+
 message Alert {
+  AlertProperties properties = 1;
   //This is the unique Identifier
-  google.protobuf.StringValue id = 1;
-  google.protobuf.StringValue name = 2;
-  google.protobuf.StringValue description = 3;
-  google.protobuf.BoolValue enabled = 4;
-  AlertPriority alert_priority = 5;
+  google.protobuf.StringValue id = 2;
+  optional google.protobuf.Timestamp created_time = 3;
+  optional google.protobuf.Timestamp updated_time = 4;
+}
+
+message AlertProperties {
+  google.protobuf.StringValue name = 1;
+  google.protobuf.StringValue description = 2;
+  google.protobuf.BoolValue enabled = 3;
+  AlertPriority alert_priority = 4;
   oneof alert_schedule {
-    ActivitySchedule active_on = 6;
+    ActivitySchedule active_on = 5;
   }
-  AlertType alert_type = 7;
+  AlertType alert_type = 6;
 
   oneof alert_type_definition {
     LogsImmediateAlertTypeDefinition logs_immediate = 100;
@@ -60,10 +67,8 @@ message Alert {
 //    LogsLessThanAlertTypeDefinitionUsual logs_less_than_usual = 119;
   };
   //When Promql with group by this field needs to be empty or equal to the by clause, otherwise we fail the validation
-  repeated google.protobuf.StringValue alert_group_bys = 8;
-  AlertIncidentSettings incidents_settings = 9;
-  AlertNotificationGroup notification_group = 10;
-  map<string,string> labels = 11;
-  optional google.protobuf.Timestamp created_time = 12;
-  optional google.protobuf.Timestamp updated_time = 13;
+  repeated google.protobuf.StringValue alert_group_bys = 7;
+  AlertIncidentSettings incidents_settings = 8;
+  AlertNotificationGroup notification_group = 9;
+  map<string,string> labels = 10;
 }
