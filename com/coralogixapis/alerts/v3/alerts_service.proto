@@ -7,8 +7,8 @@ import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert.proto";
-import "com/coralogixapis/alerts/v3/alert_severity.proto";
 import "com/coralogixapis/alerts/v3/alert_type.proto";
+import "com/coralogixapis/alerts/v3/alert_query_filter.proto";
 
 message AuditLogDescription {
   optional string description = 1;
@@ -104,12 +104,11 @@ enum OrderByDirection {
 }
 
 enum OrderByFields {
-  ORDER_BY_FIELDS_UNSPECIFIED = 0;
+  ORDER_BY_FIELDS_NAME_OR_UNSPECIFIED = 0;
   ORDER_BY_FIELDS_ID = 1;
   ORDER_BY_FIELDS_SEVERITY = 2;
-  ORDER_BY_FIELDS_NAME = 3;
-  ORDER_BY_FIELDS_CREATED_TIME = 4;
-  ORDER_BY_FIELDS_UPDATED_TIME = 5;
+  ORDER_BY_FIELDS_CREATED_TIME = 3;
+  ORDER_BY_FIELDS_UPDATED_TIME = 4;
 }
 
 message OrderBy {
@@ -130,14 +129,8 @@ message ListAlertsResponse {
 }
 
 message ListAlertsRequest {
-  repeated AlertType alert_type = 1;
-  repeated AlertSeverity severity = 2;
-  optional google.protobuf.BoolValue enabled = 3;
-  map<string,string> meta_labels = 4;
-  optional google.protobuf.Timestamp created_time_start =6;
-  optional google.protobuf.Timestamp created_time_end = 7;
-
-  repeated OrderBy order_bys = 30;
+  AlertQueryFilter filter = 1;
+  repeated OrderBy order_bys = 2;
 }
 
 message BatchGetAlertRequest {
@@ -155,13 +148,14 @@ message DeleteAlertRequest {
 message DeleteAlertResponse {
 }
 message ReplaceAlertRequest {
-  Alert alert = 1;
+  AlertProperties alert_properties = 1;
+  google.protobuf.StringValue id = 2;
 }
 message ReplaceAlertResponse {
   Alert alert = 1;
 }
 message CreateAlertRequest{
-  Alert alert = 1;
+  AlertProperties alert_properties = 1;
 }
 message CreateAlertResponse {
   Alert alert = 1;
