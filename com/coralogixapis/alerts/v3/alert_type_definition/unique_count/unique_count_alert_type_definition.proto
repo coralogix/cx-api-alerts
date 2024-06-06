@@ -12,4 +12,5 @@ message LogsUniqueCountAlertTypeDefinition  {
     google.protobuf.Int64Value max_unique_count = 4;
     LogsUniqueValueTimeWindow time_window = 5;
     repeated google.protobuf.StringValue notification_payload_filter = 6;
+    optional google.protobuf.Int64Value max_unique_count_per_group_by_key = 7;
 }
