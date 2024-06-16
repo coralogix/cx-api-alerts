@@ -66,8 +66,8 @@ message AlertProperties {
     TracingMoreThanAlertTypeDefinition tracing_more_than = 116;
     FlowAlertTypeDefinition flow = 117;
     MetricLessThanUsualAlertTypeDefinition metric_less_than_usual = 118;
-    MetricMoreThanOrEqualAlertTypeDefinition metric_less_or_eq_than = 119;
-    MetricLessThanOrEqualAlertTypeDefinition metric_more_or_than = 120;
+    MetricMoreThanOrEqualAlertTypeDefinition metric_less_than_eq = 119;
+    MetricLessThanOrEqualAlertTypeDefinition metric_more_than_eq = 120;
 
     //    LogsLessThanAlertTypeDefinitionUsual logs_less_than_usual = 119;
   };
