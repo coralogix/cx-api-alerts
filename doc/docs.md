@@ -41,7 +41,7 @@ The complete request header should look like this:
 grpcurl -H "Authorization: Bearer API_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/
 ```
 
-### Sample Request
+### Sample Requests
 
 Create a simple Logs Immediate alert (aka, standard with condition immediate)
 
@@ -196,6 +196,170 @@ EOF
         },
         "updated_time": {
             "seconds": "1719248014",
+            "nanos": 0
+        }
+    }
+}
+```
+Create a Logs more than alert (aka, standard with condition more than)
+
+```bash
+grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
+{
+    "alert_properties": {
+        "name": {
+            "value": "logs-more than"
+        },
+        "description": {
+            "value": "Example of logs-more than alert"
+        },
+        "enabled": {
+            "value": true
+        },
+        "alert_priority": "ALERT_PRIORITY_P3",
+        "alert_type": "ALERT_TYPE_LOGS_MORE_THAN",
+        "incidents_settings": {
+            "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+            "use_as_notification_settings": {
+                "value": true
+            },
+            "minutes": {
+                "value": 1
+            }
+        },
+        "notification_group": {
+            "group_by_fields": [],
+            "notifications": [
+                {
+                    "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+                    "recipients": {
+                        "emails": [
+                            {
+                                "value": "example@coralogix.com"
+                            }
+                        ]
+                    },
+                    "minutes": {
+                        "value": 1
+                    }
+                }
+            ]
+        },
+        "logs_more_than": {
+            "threshold": {
+                "value": 100
+            },
+            "time_window": {
+                "logs_time_window_specific_value": "LOGS_TIME_WINDOW_VALUE_HOURS_24"
+            },
+            "logs_filter": {
+                "lucene_filter": {
+                    "label_filters": {
+                        "subsystem_name": [
+                            {
+                                "operation": "LOG_FILTER_OPERATION_TYPE_INCLUDES",
+                                "value": {
+                                    "value": "includes"
+                                }
+                            }
+                        ]
+                    },
+                    "lucene_query": {
+                        "value": "QueryThisLog && This Log"
+                    }
+                }
+            }
+        }
+    }
+}
+EOF
+```
+
+### Sample Response
+
+```bash
+{
+    "alert": {
+        "properties": {
+            "alert_group_bys": [],
+            "labels": [],
+            "name": {
+                "value": "logs-more than"
+            },
+            "description": {
+                "value": "Example of logs-more than alert"
+            },
+            "enabled": {
+                "value": true
+            },
+            "alert_priority": "ALERT_PRIORITY_P3",
+            "alert_type": "ALERT_TYPE_LOGS_MORE_THAN",
+            "incidents_settings": {
+                "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+                "use_as_notification_settings": {
+                    "value": true
+                },
+                "minutes": {
+                    "value": 1
+                }
+            },
+            "notification_group": {
+                "group_by_fields": [],
+                "notifications": [
+                    {
+                        "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+                        "recipients": {
+                            "emails": [
+                                {
+                                    "value": "example@coralogix.com"
+                                }
+                            ]
+                        },
+                        "minutes": {
+                            "value": 1
+                        }
+                    }
+                ]
+            },
+            "logs_more_than": {
+                "notification_payload_filter": [],
+                "logs_filter": {
+                    "lucene_filter": {
+                        "lucene_query": {
+                            "value": "QueryThisLog && This Log"
+                        },
+                        "label_filters": {
+                            "application_name": [],
+                            "subsystem_name": [
+                                {
+                                    "value": {
+                                        "value": "includes"
+                                    },
+                                    "operation": "LOG_FILTER_OPERATION_TYPE_INCLUDES"
+                                }
+                            ],
+                            "severities": []
+                        }
+                    }
+                },
+                "threshold": {
+                    "value": 100
+                },
+                "time_window": {
+                    "logs_time_window_specific_value": "LOGS_TIME_WINDOW_VALUE_HOURS_24"
+                },
+                "evaluation_window": "EVALUATION_WINDOW_ROLLING_OR_UNSPECIFIED"
+            }
+        },
+        "id": {
+            "value": "0d60e179-c44c-45fa-8476-9ff90cdfe4a3"
+        },
+        "created_time": {
+            "seconds": "1719248496",
+            "nanos": 0
+        },
+        "updated_time": {
+            "seconds": "1719248496",
             "nanos": 0
         }
     }
