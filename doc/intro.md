@@ -364,6 +364,156 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
 }
 ```
 
+Create a metric more than alert 
+
+```bash
+grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
+{
+    "alert_properties": {
+        "name": {
+            "value": "metrics-more than"
+        },
+        "description": {
+            "value": "Example of metrics-more than alert"
+        },
+        "enabled": {
+            "value": true
+        },
+        "alert_priority": "ALERT_PRIORITY_P3",
+        "alert_type": "ALERT_TYPE_METRIC_MORE_THAN",
+        "incidents_settings": {
+            "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+            "use_as_notification_settings": {
+                "value": true
+            },
+            "minutes": {
+                "value": 1
+            }
+        },
+        "notification_group": {
+            "group_by_fields": [],
+            "notifications": [
+                {
+                    "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+                    "recipients": {
+                        "emails": [
+                            {
+                                "value": "example@coralogix.com"
+                            }
+                        ]
+                    },
+                    "minutes": {
+                        "value": 1
+                    }
+                }
+            ]
+        },
+        "metric_more_than": {
+            "threshold": {
+                "value": 100
+            },
+            "metric_filter": {
+                "promql": {
+                    "value": "sum(cpu) by (pod)"
+                }
+            },
+            "of_the_last": {
+                "metric_time_window_specific_value": "METRIC_TIME_WINDOW_VALUE_HOURS_24"
+            },
+            "for_over_pct": {
+                "value": 5
+            }
+        }
+    }
+}
+```
+
+### Sample Response
+
+```bash
+{
+    "alert": {
+        "properties": {
+            "alert_group_bys": [
+                {
+                    "value": "pod"
+                }
+            ],
+            "labels": [],
+            "name": {
+                "value": "metrics-more than"
+            },
+            "description": {
+                "value": "Example of metrics-more than alert"
+            },
+            "enabled": {
+                "value": true
+            },
+            "alert_priority": "ALERT_PRIORITY_P3",
+            "alert_type": "ALERT_TYPE_METRIC_MORE_THAN",
+            "incidents_settings": {
+                "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+                "use_as_notification_settings": {
+                    "value": true
+                },
+                "minutes": {
+                    "value": 1
+                }
+            },
+            "notification_group": {
+                "group_by_fields": [],
+                "notifications": [
+                    {
+                        "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+                        "recipients": {
+                            "emails": [
+                                {
+                                    "value": "example@coralogix.com"
+                                }
+                            ]
+                        },
+                        "minutes": {
+                            "value": 1
+                        }
+                    }
+                ]
+            },
+            "metric_more_than": {
+                "metric_filter": {
+                    "promql": {
+                        "value": "sum(cpu) by (pod)"
+                    }
+                },
+                "threshold": {
+                    "value": 100
+                },
+                "for_over_pct": {
+                    "value": 5
+                },
+                "of_the_last": {
+                    "metric_time_window_specific_value": "METRIC_TIME_WINDOW_VALUE_HOURS_24"
+                },
+                "missing_values": {
+                    "replace_with_zero": {
+                        "value": true
+                    }
+                }
+            }
+        },
+        "id": {
+            "value": "b8897379-cd65-4033-9318-dc47563faef7"
+        },
+        "created_time": {
+            "seconds": "1719250165",
+            "nanos": 0
+        },
+        "updated_time": {
+            "seconds": "1719250165",
+            "nanos": 0
+        }
+    }
+}
+```
 ## API Endpoints
 
 https://github.com/coralogix/cx-api-alerts/blob/generate-docs/doc/docs.md
