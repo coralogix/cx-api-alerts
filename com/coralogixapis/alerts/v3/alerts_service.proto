@@ -44,12 +44,12 @@ service AlertsService {
     };
   }
 
-  rpc BatchGetAlert(BatchGetAlertRequest) returns (BatchGetAlertResponse){
-    option (audit_log_description).description = "batch get alerts";
-    option (google.api.http) = {
-      get: "/v3/alerts:batchGet"
-    };
-  }
+//  rpc BatchGetAlert(BatchGetAlertRequest) returns (BatchGetAlertResponse){
+//    option (audit_log_description).description = "batch get alerts";
+//    option (google.api.http) = {
+//      get: "/v3/alerts:batchGet"
+//    };
+//  }
 
   rpc ListAlerts(ListAlertsRequest) returns (ListAlertsResponse){
     option (audit_log_description).description = "get alerts list";
@@ -66,29 +66,29 @@ service AlertsService {
     };
   }
 
-  rpc AtomicBatchExecuteAlert(AtomicBatchExecuteAlertRequest) returns (AtomicBatchExecuteAlertResponse) {
-    option (audit_log_description).description = "atomic batch execute alert";
-    option (google.api.http) = {
-      post: "/v3/alerts:atomicBatchExecute"
-      body: "*"
-    };
-  }
+//  rpc AtomicBatchExecuteAlert(AtomicBatchExecuteAlertRequest) returns (AtomicBatchExecuteAlertResponse) {
+//    option (audit_log_description).description = "atomic batch execute alert";
+//    option (google.api.http) = {
+//      post: "/v3/alerts:atomicBatchExecute"
+//      body: "*"
+//    };
+//  }
 
 
-  rpc GetLimits(GetLimitsRequest) returns (GetLimitsResponse) {
-    option (audit_log_description).description = "get limits";
-    option (google.api.http) = {
-      get: "/v3/alerts:getLimits"
-    };
-  }
-
-  rpc ValidateAlert(ValidateAlertRequest) returns (ValidateAlertResponse) {
-    option (audit_log_description).description = "validate alert";
-    option (google.api.http) = {
-      post: "/v3/alerts:validate"
-      body: "alert"
-    };
-  }
+//  rpc GetLimits(GetLimitsRequest) returns (GetLimitsResponse) {
+//    option (audit_log_description).description = "get limits";
+//    option (google.api.http) = {
+//      get: "/v3/alerts:getLimits"
+//    };
+//  }
+//
+//  rpc ValidateAlert(ValidateAlertRequest) returns (ValidateAlertResponse) {
+//    option (audit_log_description).description = "validate alert";
+//    option (google.api.http) = {
+//      post: "/v3/alerts:validate"
+//      body: "alert"
+//    };
+//  }
 
   rpc SetActive(SetActiveRequest) returns (SetActiveResponse) {
     option (audit_log_description).description = "disable or enable the alert";

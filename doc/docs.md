@@ -1,374 +1,3 @@
-# Alerts gRPC API Reference
-
-## Overview
-
-This document outlines coralogix's V3 Alerts API. It is fully backward compatible with the previous versions, it is much more simple and is designed to be more user-friendly. furthermore as this uses protobuf, this can be used with clients that supports autocomplete ( like Postman's GRPC ).
-
-### Prerequisites
-
-Before you begin, please make sure you have the following:
-
-- [API Key for Alerts, Rules & Tags to successfully authenticate.](https://coralogix.com/docs/alerts-rules-tags-api-key/)
-- [Management API Endpoint that corresponds with your Coralogix subscription.](https://coralogix.com/docs/management-api-endpoints/)
-- Administrator permissions to manage your services.
-
-## Authentication
-
-Coralogix API uses API keys to authenticate requests. You can view and [manage your API keys](https://coralogix.com/docs/alerts-rules-tags-api-key/) from the Data Flow tab in Coralogix. You need to use this API key in the Authorization request
-header to successfully connect.
-
-Example:
-
-```markdown
-grpcurl -H "Authorization: Bearer API_KEY_HERE"
-```
-
-Then, use one of our designated **[Management Endpoints](https://coralogix.com/docs/management-api-endpoints/)** to structure your header.
-
-```markdown
--d @ ng-api-grpc.coralogix.com:443
-```
-
-For the Alerts Service API, the service name will be `AlertsService`.
-
-```bash
-com.coralogixapis.alerts.v3.AlertsService
-```
-
-The complete request header should look like this:
-
-```bash
-grpcurl -H "Authorization: Bearer API_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/
-```
-
-### Sample Requests
-
-Create a simple Logs Immediate alert (aka, standard with condition immediate)
-
-```bash
-grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
-{
-    "alert_properties": {
-        "name": {
-            "value": "logs-immediate"
-        },
-        "description": {
-            "value": "Example of logs-immediate alert"
-        },
-        "enabled": {
-            "value": true
-        },
-        "alert_priority": "ALERT_PRIORITY_P3",
-        "alert_type": "ALERT_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED",
-        "incidents_settings": {
-            "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-            "use_as_notification_settings": {
-                "value": true
-            },
-            "minutes": {
-                "value": 1
-            }
-        },
-        "notification_group": {
-            "group_by_fields": [],
-            "notifications": [
-                {
-                    "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-                    "recipients": {
-                        "emails": [
-                            {
-                                "value": "example@coralogix.com"
-                            }
-                        ]
-                    },
-                    "minutes": {
-                        "value": 1
-                    }
-                }
-            ]
-        },
-        "logs_immediate": {
-            "logs_filter": {
-                "lucene_filter": {
-                    "label_filters": {
-                        "application_name": [
-                            {
-                                "operation": "LOG_FILTER_OPERATION_TYPE_ENDS_WITH",
-                                "value": {
-                                    "value": "endsWithThis"
-                                }
-                            }
-                        ],
-                        "severities": [
-                            "LOG_SEVERITY_ERROR",
-                            "LOG_SEVERITY_CRITICAL"
-                        ]
-                    },
-                    "lucene_query": {
-                        "value": "QueryThisLog"
-                    }
-                }
-            }
-        }
-    }
-}
-EOF
-```
-
-### Sample Response
-
-```bash
-{
-    "alert": {
-        "properties": {
-            "alert_group_bys": [],
-            "labels": [],
-            "name": {
-                "value": "logs-immediatea"
-            },
-            "description": {
-                "value": "Example of logs-immediate alert"
-            },
-            "enabled": {
-                "value": true
-            },
-            "alert_priority": "ALERT_PRIORITY_P3",
-            "alert_type": "ALERT_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED",
-            "incidents_settings": {
-                "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-                "use_as_notification_settings": {
-                    "value": true
-                },
-                "minutes": {
-                    "value": 1
-                }
-            },
-            "notification_group": {
-                "group_by_fields": [],
-                "notifications": [
-                    {
-                        "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-                        "recipients": {
-                            "emails": [
-                                {
-                                    "value": "example@coralogix.com"
-                                }
-                            ]
-                        },
-                        "minutes": {
-                            "value": 1
-                        }
-                    }
-                ]
-            },
-            "logs_immediate": {
-                "notification_payload_filter": [],
-                "logs_filter": {
-                    "lucene_filter": {
-                        "lucene_query": {
-                            "value": "QueryThisLog"
-                        },
-                        "label_filters": {
-                            "application_name": [
-                                {
-                                    "value": {
-                                        "value": "endsWithThis"
-                                    },
-                                    "operation": "LOG_FILTER_OPERATION_TYPE_ENDS_WITH"
-                                }
-                            ],
-                            "subsystem_name": [],
-                            "severities": [
-                                "LOG_SEVERITY_ERROR",
-                                "LOG_SEVERITY_CRITICAL"
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "id": {
-            "value": "7341c8e7-e9f8-4129-ba8a-3b4214452266"
-        },
-        "created_time": {
-            "seconds": "1719248014",
-            "nanos": 0
-        },
-        "updated_time": {
-            "seconds": "1719248014",
-            "nanos": 0
-        }
-    }
-}
-```
-Create a Logs more than alert (aka, standard with condition more than)
-
-```bash
-grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
-{
-    "alert_properties": {
-        "name": {
-            "value": "logs-more than"
-        },
-        "description": {
-            "value": "Example of logs-more than alert"
-        },
-        "enabled": {
-            "value": true
-        },
-        "alert_priority": "ALERT_PRIORITY_P3",
-        "alert_type": "ALERT_TYPE_LOGS_MORE_THAN",
-        "incidents_settings": {
-            "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-            "use_as_notification_settings": {
-                "value": true
-            },
-            "minutes": {
-                "value": 1
-            }
-        },
-        "notification_group": {
-            "group_by_fields": [],
-            "notifications": [
-                {
-                    "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-                    "recipients": {
-                        "emails": [
-                            {
-                                "value": "example@coralogix.com"
-                            }
-                        ]
-                    },
-                    "minutes": {
-                        "value": 1
-                    }
-                }
-            ]
-        },
-        "logs_more_than": {
-            "threshold": {
-                "value": 100
-            },
-            "time_window": {
-                "logs_time_window_specific_value": "LOGS_TIME_WINDOW_VALUE_HOURS_24"
-            },
-            "logs_filter": {
-                "lucene_filter": {
-                    "label_filters": {
-                        "subsystem_name": [
-                            {
-                                "operation": "LOG_FILTER_OPERATION_TYPE_INCLUDES",
-                                "value": {
-                                    "value": "includes"
-                                }
-                            }
-                        ]
-                    },
-                    "lucene_query": {
-                        "value": "QueryThisLog && This Log"
-                    }
-                }
-            }
-        }
-    }
-}
-EOF
-```
-
-### Sample Response
-
-```bash
-{
-    "alert": {
-        "properties": {
-            "alert_group_bys": [],
-            "labels": [],
-            "name": {
-                "value": "logs-more than"
-            },
-            "description": {
-                "value": "Example of logs-more than alert"
-            },
-            "enabled": {
-                "value": true
-            },
-            "alert_priority": "ALERT_PRIORITY_P3",
-            "alert_type": "ALERT_TYPE_LOGS_MORE_THAN",
-            "incidents_settings": {
-                "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-                "use_as_notification_settings": {
-                    "value": true
-                },
-                "minutes": {
-                    "value": 1
-                }
-            },
-            "notification_group": {
-                "group_by_fields": [],
-                "notifications": [
-                    {
-                        "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
-                        "recipients": {
-                            "emails": [
-                                {
-                                    "value": "example@coralogix.com"
-                                }
-                            ]
-                        },
-                        "minutes": {
-                            "value": 1
-                        }
-                    }
-                ]
-            },
-            "logs_more_than": {
-                "notification_payload_filter": [],
-                "logs_filter": {
-                    "lucene_filter": {
-                        "lucene_query": {
-                            "value": "QueryThisLog && This Log"
-                        },
-                        "label_filters": {
-                            "application_name": [],
-                            "subsystem_name": [
-                                {
-                                    "value": {
-                                        "value": "includes"
-                                    },
-                                    "operation": "LOG_FILTER_OPERATION_TYPE_INCLUDES"
-                                }
-                            ],
-                            "severities": []
-                        }
-                    }
-                },
-                "threshold": {
-                    "value": 100
-                },
-                "time_window": {
-                    "logs_time_window_specific_value": "LOGS_TIME_WINDOW_VALUE_HOURS_24"
-                },
-                "evaluation_window": "EVALUATION_WINDOW_ROLLING_OR_UNSPECIFIED"
-            }
-        },
-        "id": {
-            "value": "0d60e179-c44c-45fa-8476-9ff90cdfe4a3"
-        },
-        "created_time": {
-            "seconds": "1719248496",
-            "nanos": 0
-        },
-        "updated_time": {
-            "seconds": "1719248496",
-            "nanos": 0
-        }
-    }
-}
-```
-
-## API Endpoints
-
-
 <details open markdown="block">
   <summary>Table of contents</summary>
   <ul>
@@ -377,6 +6,121 @@ EOF
       <ul>
         <li><a href="#comcoralogixapisalertsv3alertsservice">AlertsService (<code>com.coralogixapis.alerts.v3.AlertsService</code>)</a></li>
       </ul>
+    </li>
+    <li>
+      <a href="#messages">Messages</a>
+      <ul>
+        <li><a href="#comcoralogixapisalertsv3alertincidentsettings">AlertIncidentSettings (<code>com.coralogixapis.alerts.v3.AlertIncidentSettings</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertnotification">AlertNotification (<code>com.coralogixapis.alerts.v3.AlertNotification</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertnotificationgroup">AlertNotificationGroup (<code>com.coralogixapis.alerts.v3.AlertNotificationGroup</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3recipients">Recipients (<code>com.coralogixapis.alerts.v3.Recipients</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3activityschedule">ActivitySchedule (<code>com.coralogixapis.alerts.v3.ActivitySchedule</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3timeofday">TimeOfDay (<code>com.coralogixapis.alerts.v3.TimeOfDay</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertqueryfilter">AlertQueryFilter (<code>com.coralogixapis.alerts.v3.AlertQueryFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertqueryfiltermetalabelsentry">AlertQueryFilter.MetaLabelsEntry (<code>com.coralogixapis.alerts.v3.AlertQueryFilter.MetaLabelsEntry</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alert">Alert (<code>com.coralogixapis.alerts.v3.Alert</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertproperties">AlertProperties (<code>com.coralogixapis.alerts.v3.AlertProperties</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertpropertieslabelsentry">AlertProperties.LabelsEntry (<code>com.coralogixapis.alerts.v3.AlertProperties.LabelsEntry</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertexecutionrequest">AlertExecutionRequest (<code>com.coralogixapis.alerts.v3.AlertExecutionRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertexecutionresponse">AlertExecutionResponse (<code>com.coralogixapis.alerts.v3.AlertExecutionResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3atomicbatchexecutealertrequest">AtomicBatchExecuteAlertRequest (<code>com.coralogixapis.alerts.v3.AtomicBatchExecuteAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3atomicbatchexecutealertresponse">AtomicBatchExecuteAlertResponse (<code>com.coralogixapis.alerts.v3.AtomicBatchExecuteAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3auditlogdescription">AuditLogDescription (<code>com.coralogixapis.alerts.v3.AuditLogDescription</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3batchgetalertrequest">BatchGetAlertRequest (<code>com.coralogixapis.alerts.v3.BatchGetAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3batchgetalertresponse">BatchGetAlertResponse (<code>com.coralogixapis.alerts.v3.BatchGetAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3batchgetalertresponsealertsentry">BatchGetAlertResponse.AlertsEntry (<code>com.coralogixapis.alerts.v3.BatchGetAlertResponse.AlertsEntry</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3createalertrequest">CreateAlertRequest (<code>com.coralogixapis.alerts.v3.CreateAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3createalertresponse">CreateAlertResponse (<code>com.coralogixapis.alerts.v3.CreateAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3deletealertrequest">DeleteAlertRequest (<code>com.coralogixapis.alerts.v3.DeleteAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3deletealertresponse">DeleteAlertResponse (<code>com.coralogixapis.alerts.v3.DeleteAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getalerteventsrequest">GetAlertEventsRequest (<code>com.coralogixapis.alerts.v3.GetAlertEventsRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getalertrequest">GetAlertRequest (<code>com.coralogixapis.alerts.v3.GetAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getalertresponse">GetAlertResponse (<code>com.coralogixapis.alerts.v3.GetAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getlimitsrequest">GetLimitsRequest (<code>com.coralogixapis.alerts.v3.GetLimitsRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getlimitsresponse">GetLimitsResponse (<code>com.coralogixapis.alerts.v3.GetLimitsResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3listalertsrequest">ListAlertsRequest (<code>com.coralogixapis.alerts.v3.ListAlertsRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3listalertsresponse">ListAlertsResponse (<code>com.coralogixapis.alerts.v3.ListAlertsResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3orderby">OrderBy (<code>com.coralogixapis.alerts.v3.OrderBy</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3replacealertrequest">ReplaceAlertRequest (<code>com.coralogixapis.alerts.v3.ReplaceAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3replacealertresponse">ReplaceAlertResponse (<code>com.coralogixapis.alerts.v3.ReplaceAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3setactiverequest">SetActiveRequest (<code>com.coralogixapis.alerts.v3.SetActiveRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3setactiveresponse">SetActiveResponse (<code>com.coralogixapis.alerts.v3.SetActiveResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3validatealertrequest">ValidateAlertRequest (<code>com.coralogixapis.alerts.v3.ValidateAlertRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3validatealertresponse">ValidateAlertResponse (<code>com.coralogixapis.alerts.v3.ValidateAlertResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingfiltertype">TracingFilterType (<code>com.coralogixapis.alerts.v3.TracingFilterType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracinglabelfilters">TracingLabelFilters (<code>com.coralogixapis.alerts.v3.TracingLabelFilters</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingquery">TracingQuery (<code>com.coralogixapis.alerts.v3.TracingQuery</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingspanfieldsfiltertype">TracingSpanFieldsFilterType (<code>com.coralogixapis.alerts.v3.TracingSpanFieldsFilterType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingtimewindow">TracingTimeWindow (<code>com.coralogixapis.alerts.v3.TracingTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingimmediatealerttypedefinition">TracingImmediateAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.TracingImmediateAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingmorethanalerttypedefinition">TracingMoreThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.TracingMoreThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsuniquevaluetimewindow">LogsUniqueValueTimeWindow (<code>com.coralogixapis.alerts.v3.LogsUniqueValueTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsuniquecountalerttypedefinition">LogsUniqueCountAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsUniqueCountAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3undetectedvaluesmanagement">UndetectedValuesManagement (<code>com.coralogixapis.alerts.v3.UndetectedValuesManagement</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsmorethanalerttypedefinition">LogsMoreThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsMoreThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logslessthanalerttypedefinitionusual">LogsLessThanAlertTypeDefinitionUsual (<code>com.coralogixapis.alerts.v3.LogsLessThanAlertTypeDefinitionUsual</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsmorethanusualalerttypedefinition">LogsMoreThanUsualAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsMoreThanUsualAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsimmediatealerttypedefinition">LogsImmediateAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsImmediateAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logslessthanalerttypedefinition">LogsLessThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsLessThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimewindow">LogsTimeWindow (<code>com.coralogixapis.alerts.v3.LogsTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiotimewindow">LogsRatioTimeWindow (<code>com.coralogixapis.alerts.v3.LogsRatioTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiomorethanalerttypedefinition">LogsRatioMoreThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsRatioMoreThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiolessthanalerttypedefinition">LogsRatioLessThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsRatioLessThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimerelativelessthanalerttypedefinition">LogsTimeRelativeLessThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsTimeRelativeLessThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimerelativemorethanalerttypedefinition">LogsTimeRelativeMoreThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsTimeRelativeMoreThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3labelfiltertype">LabelFilterType (<code>com.coralogixapis.alerts.v3.LabelFilterType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3labelfilters">LabelFilters (<code>com.coralogixapis.alerts.v3.LabelFilters</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsfilter">LogsFilter (<code>com.coralogixapis.alerts.v3.LogsFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3lucenefilter">LuceneFilter (<code>com.coralogixapis.alerts.v3.LuceneFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3activityanalysis">ActivityAnalysis (<code>com.coralogixapis.alerts.v3.ActivityAnalysis</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsnewvaluealerttypedefinition">LogsNewValueAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsNewValueAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsnewvaluetimewindow">LogsNewValueTimeWindow (<code>com.coralogixapis.alerts.v3.LogsNewValueTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricfilter">MetricFilter (<code>com.coralogixapis.alerts.v3.MetricFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metriclessthanusualalerttypedefinition">MetricLessThanUsualAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricLessThanUsualAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmorethanusualalerttypedefinition">MetricMoreThanUsualAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricMoreThanUsualAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metrictimewindow">MetricTimeWindow (<code>com.coralogixapis.alerts.v3.MetricTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metriclessthanorequalsalerttypedefinition">MetricLessThanOrEqualsAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricLessThanOrEqualsAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmissingvalues">MetricMissingValues (<code>com.coralogixapis.alerts.v3.MetricMissingValues</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmorethanalerttypedefinition">MetricMoreThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricMoreThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metriclessthanalerttypedefinition">MetricLessThanAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricLessThanAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmorethanorequalsalerttypedefinition">MetricMoreThanOrEqualsAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricMoreThanOrEqualsAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowalerttypedefinition">FlowAlertTypeDefinition (<code>com.coralogixapis.alerts.v3.FlowAlertTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstages">FlowStages (<code>com.coralogixapis.alerts.v3.FlowStages</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstagesgroup">FlowStagesGroup (<code>com.coralogixapis.alerts.v3.FlowStagesGroup</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstagesgroups">FlowStagesGroups (<code>com.coralogixapis.alerts.v3.FlowStagesGroups</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstagesgroupsalerts">FlowStagesGroupsAlerts (<code>com.coralogixapis.alerts.v3.FlowStagesGroupsAlerts</code>)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#enums">Enums</a>
+      <ul>
+        <li><a href="#comcoralogixapisalertsv3notifyon">NotifyOn (<code>com.coralogixapis.alerts.v3.NotifyOn</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3dayofweek">DayOfWeek (<code>com.coralogixapis.alerts.v3.DayOfWeek</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertpriority">AlertPriority (<code>com.coralogixapis.alerts.v3.AlertPriority</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alerttype">AlertType (<code>com.coralogixapis.alerts.v3.AlertType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3orderbydirection">OrderByDirection (<code>com.coralogixapis.alerts.v3.OrderByDirection</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3orderbyfields">OrderByFields (<code>com.coralogixapis.alerts.v3.OrderByFields</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingfilteroperationtype">TracingFilterOperationType (<code>com.coralogixapis.alerts.v3.TracingFilterOperationType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingtimewindowvalue">TracingTimeWindowValue (<code>com.coralogixapis.alerts.v3.TracingTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsuniquevaluetimewindowvalue">LogsUniqueValueTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsUniqueValueTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3autoretiretimeframe">AutoRetireTimeframe (<code>com.coralogixapis.alerts.v3.AutoRetireTimeframe</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3arithmeticoperator">ArithmeticOperator (<code>com.coralogixapis.alerts.v3.ArithmeticOperator</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3evaluationwindow">EvaluationWindow (<code>com.coralogixapis.alerts.v3.EvaluationWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimewindowvalue">LogsTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiogroupbyfor">LogsRatioGroupByFor (<code>com.coralogixapis.alerts.v3.LogsRatioGroupByFor</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiotimewindowvalue">LogsRatioTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsRatioTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimerelativecomparedto">LogsTimeRelativeComparedTo (<code>com.coralogixapis.alerts.v3.LogsTimeRelativeComparedTo</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logfilteroperationtype">LogFilterOperationType (<code>com.coralogixapis.alerts.v3.LogFilterOperationType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logseverity">LogSeverity (<code>com.coralogixapis.alerts.v3.LogSeverity</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3activityanalysisstatus">ActivityAnalysisStatus (<code>com.coralogixapis.alerts.v3.ActivityAnalysisStatus</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsnewvaluetimewindowvalue">LogsNewValueTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsNewValueTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metrictimewindowvalue">MetricTimeWindowValue (<code>com.coralogixapis.alerts.v3.MetricTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertsop">AlertsOp (<code>com.coralogixapis.alerts.v3.AlertsOp</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3nextop">NextOp (<code>com.coralogixapis.alerts.v3.NextOp</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3timeframetype">TimeframeType (<code>com.coralogixapis.alerts.v3.TimeframeType</code>)</a></li>
+      </ul>
+    </li>
+    <li><a href="#scalar-value-types">Scalar Value Types</a></li>
   </ul>
 </details>
 
@@ -389,12 +133,8 @@ EOF
 | `GetAlert`| [`GetAlertRequest`](#comcoralogixapisalertsv3getalertrequest)| [`GetAlertResponse`](#comcoralogixapisalertsv3getalertresponse)| Get Alert by non Changing ID AKA UniqueIdentifier|
 | `CreateAlert`| [`CreateAlertRequest`](#comcoralogixapisalertsv3createalertrequest)| [`CreateAlertResponse`](#comcoralogixapisalertsv3createalertresponse)| |
 | `ReplaceAlert`| [`ReplaceAlertRequest`](#comcoralogixapisalertsv3replacealertrequest)| [`ReplaceAlertResponse`](#comcoralogixapisalertsv3replacealertresponse)| |
-| `BatchGetAlert`| [`BatchGetAlertRequest`](#comcoralogixapisalertsv3batchgetalertrequest)| [`BatchGetAlertResponse`](#comcoralogixapisalertsv3batchgetalertresponse)| |
 | `ListAlerts`| [`ListAlertsRequest`](#comcoralogixapisalertsv3listalertsrequest)| [`ListAlertsResponse`](#comcoralogixapisalertsv3listalertsresponse)| |
 | `DeleteAlert`| [`DeleteAlertRequest`](#comcoralogixapisalertsv3deletealertrequest)| [`DeleteAlertResponse`](#comcoralogixapisalertsv3deletealertresponse)| |
-| `AtomicBatchExecuteAlert`| [`AtomicBatchExecuteAlertRequest`](#comcoralogixapisalertsv3atomicbatchexecutealertrequest)| [`AtomicBatchExecuteAlertResponse`](#comcoralogixapisalertsv3atomicbatchexecutealertresponse)| |
-| `GetLimits`| [`GetLimitsRequest`](#comcoralogixapisalertsv3getlimitsrequest)| [`GetLimitsResponse`](#comcoralogixapisalertsv3getlimitsresponse)| |
-| `ValidateAlert`| [`ValidateAlertRequest`](#comcoralogixapisalertsv3validatealertrequest)| [`ValidateAlertResponse`](#comcoralogixapisalertsv3validatealertresponse)| |
 | `SetActive`| [`SetActiveRequest`](#comcoralogixapisalertsv3setactiverequest)| [`SetActiveResponse`](#comcoralogixapisalertsv3setactiveresponse)| |
 
 
@@ -960,13 +700,13 @@ Represents The non generated alert properties (the ones that are set by the user
 
 
 
-| Field | Type                                                                                | Description |
-| ------|-------------------------------------------------------------------------------------| ----------- |
-| `logs_filter` | [`LogsFilter`](#comcoralogixapisalertsv3logsfilter)                                 |  |
-| `threshold` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value)                         |  |
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `logs_filter` | [`LogsFilter`](#comcoralogixapisalertsv3logsfilter) |  |
+| `threshold` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 | `compared_to` | [`LogsTimeRelativeComparedTo`](#comcoralogixapisalertsv3logstimerelativecomparedto) |  |
-| `ignore_infinity` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue)                             |  |
-| `notification_payload_filter` | [`repeated google.protobuf.StringValue`](#googleprotobufstringvalue)                |  |
+| `ignore_infinity` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
+| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
 <h2 id="comcoralogixapisalertsv3labelfiltertype" name="comcoralogixapisalertsv3labelfiltertype">LabelFilterType <small>(<code>com.coralogixapis.alerts.v3.LabelFilterType</code>)</small></h2>
 
