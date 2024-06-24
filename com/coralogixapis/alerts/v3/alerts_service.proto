@@ -20,7 +20,7 @@ extend google.protobuf.MethodOptions {
 
 service AlertsService {
 
-  // Get Alert by non non Changing ID AKA UniqueIdentifier
+  // Get Alert by non Changing ID AKA UniqueIdentifier
   rpc GetAlert(GetAlertRequest) returns (GetAlertResponse) {
     option (audit_log_description).description = "get alert";
     option (google.api.http) = {

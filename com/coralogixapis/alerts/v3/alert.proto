@@ -35,8 +35,8 @@ import "com/coralogixapis/alerts/v3/alert_priority.proto";
 message Alert {
   AlertProperties properties = 1;
   google.protobuf.StringValue id = 2; // This is the Alert's Persistent ID (does not change on replace) , AKA UniqueIdentifier
-  optional google.protobuf.Timestamp created_time = 3;
-  optional google.protobuf.Timestamp updated_time = 4;
+  google.protobuf.Timestamp created_time = 3;
+  google.protobuf.Timestamp updated_time = 4;
 }
 
 /**
@@ -52,11 +52,8 @@ message AlertProperties {
   }
   AlertType alert_type = 6;
 
-  /*
-   The Different types of alerts are flattened, as we did not want to continue with a hierarchy of types
-   */
   oneof alert_type_definition {
-    LogsImmediateAlertTypeDefinition logs_immediate = 100; // Aka Standard with condition of Immediate
+    LogsImmediateAlertTypeDefinition logs_immediate = 100;
     LogsMoreThanAlertTypeDefinition logs_more_than = 101;
     LogsLessThanAlertTypeDefinition logs_less_than = 102;
     LogsMoreThanUsualAlertTypeDefinition logs_more_than_usual = 103;

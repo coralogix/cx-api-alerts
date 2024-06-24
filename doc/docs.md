@@ -130,7 +130,7 @@
 
 | Method name | Request type | Response type | Description |
 | ----------- | ------------ | ------------- | ----------- |
-| `GetAlert`| [`GetAlertRequest`](#comcoralogixapisalertsv3getalertrequest)| [`GetAlertResponse`](#comcoralogixapisalertsv3getalertresponse)| Get Alert by non non Changing ID AKA UniqueIdentifier|
+| `GetAlert`| [`GetAlertRequest`](#comcoralogixapisalertsv3getalertrequest)| [`GetAlertResponse`](#comcoralogixapisalertsv3getalertresponse)| Get Alert by non Changing ID AKA UniqueIdentifier|
 | `CreateAlert`| [`CreateAlertRequest`](#comcoralogixapisalertsv3createalertrequest)| [`CreateAlertResponse`](#comcoralogixapisalertsv3createalertresponse)| |
 | `ReplaceAlert`| [`ReplaceAlertRequest`](#comcoralogixapisalertsv3replacealertrequest)| [`ReplaceAlertResponse`](#comcoralogixapisalertsv3replacealertresponse)| |
 | `BatchGetAlert`| [`BatchGetAlertRequest`](#comcoralogixapisalertsv3batchgetalertrequest)| [`BatchGetAlertResponse`](#comcoralogixapisalertsv3batchgetalertresponse)| |
@@ -231,8 +231,8 @@ Represents An Existing or Created Alert
 | ------| ---- | ----------- |
 | `properties` | [`AlertProperties`](#comcoralogixapisalertsv3alertproperties) |  |
 | `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) | This is the Alert's Persistent ID (does not change on replace) , AKA UniqueIdentifier |
-| <small><strong>optional</strong></small><br>`created_time` | [`optionalgoogle.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-| <small><strong>optional</strong></small><br>`updated_time` | [`optionalgoogle.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
+| `created_time` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
+| `updated_time` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
 
 <h2 id="comcoralogixapisalertsv3alertproperties" name="comcoralogixapisalertsv3alertproperties">AlertProperties <small>(<code>com.coralogixapis.alerts.v3.AlertProperties</code>)</small></h2>
 Represents The non generated alert properties (the ones that are set by the user)
@@ -246,7 +246,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | `alert_priority` | [`AlertPriority`](#comcoralogixapisalertsv3alertpriority) |  |
 | <small><strong>oneof</strong> <code>alert_schedule</code></small><br>`active_on` | [`ActivitySchedule`](#comcoralogixapisalertsv3activityschedule) |  |
 | `alert_type` | [`AlertType`](#comcoralogixapisalertsv3alerttype) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_immediate` | [`LogsImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3logsimmediatealerttypedefinition) | Aka Standard with condition of Immediate |
+| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_immediate` | [`LogsImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3logsimmediatealerttypedefinition) |  |
 | <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_more_than` | [`LogsMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanalerttypedefinition) |  |
 | <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_less_than` | [`LogsLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logslessthanalerttypedefinition) |  |
 | <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_more_than_usual` | [`LogsMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanusualalerttypedefinition) |  |
