@@ -5,4 +5,4 @@ proto_paths=$(find com -type d -name "event" -prune -o -type f -name "*.proto" -
 docker run --rm \
   -v $(pwd)/doc:/out \
   -v $(pwd):/protos \
-  pseudomuto/protoc-gen-doc --proto_path=/protos/ --doc_opt=markdown,docs.md $proto_paths
+  pseudomuto/protoc-gen-doc --proto_path=/protos/ --doc_opt=/protos/grpc-md.tmpl,docs.md $proto_paths
