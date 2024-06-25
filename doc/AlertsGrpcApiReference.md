@@ -128,25 +128,25 @@ Represents The non generated alert properties (the ones that are set by the user
 | `alert_priority` | [`AlertPriority`](#comcoralogixapisalertsv3alertpriority) |  |
 | <small><strong>oneof</strong> <code>alert_schedule</code></small><br>`active_on` | [`ActivitySchedule`](#comcoralogixapisalertsv3activityschedule) |  |
 | `alert_type` | [`AlertType`](#comcoralogixapisalertsv3alerttype) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_immediate` | [`LogsImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3logsimmediatealerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_more_than` | [`LogsMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_less_than` | [`LogsLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logslessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_more_than_usual` | [`LogsMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanusualalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_ratio_more_than` | [`LogsRatioMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsratiomorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_ratio_less_than` | [`LogsRatioLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsratiolessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_new_value` | [`LogsNewValueAlertTypeDefinition`](#comcoralogixapisalertsv3logsnewvaluealerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_unique_count` | [`LogsUniqueCountAlertTypeDefinition`](#comcoralogixapisalertsv3logsuniquecountalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_time_relative_more_than` | [`LogsTimeRelativeMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logstimerelativemorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`logs_time_relative_less_than` | [`LogsTimeRelativeLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logstimerelativelessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`metric_more_than` | [`MetricMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`metric_less_than` | [`MetricLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`metric_more_than_usual` | [`MetricMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanusualalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`tracing_immediate` | [`TracingImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3tracingimmediatealerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`tracing_more_than` | [`TracingMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3tracingmorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`flow` | [`FlowAlertTypeDefinition`](#comcoralogixapisalertsv3flowalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`metric_less_than_usual` | [`MetricLessThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanusualalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`metric_more_than_or_equals` | [`MetricMoreThanOrEqualsAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanorequalsalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_type_definition</code></small><br>`metric_less_than_or_equals` | [`MetricLessThanOrEqualsAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanorequalsalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_immediate` | [`LogsImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3logsimmediatealerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_more_than` | [`LogsMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_less_than` | [`LogsLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logslessthanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_more_than_usual` | [`LogsMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanusualalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_ratio_more_than` | [`LogsRatioMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsratiomorethanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_ratio_less_than` | [`LogsRatioLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsratiolessthanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_new_value` | [`LogsNewValueAlertTypeDefinition`](#comcoralogixapisalertsv3logsnewvaluealerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_unique_count` | [`LogsUniqueCountAlertTypeDefinition`](#comcoralogixapisalertsv3logsuniquecountalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_time_relative_more_than` | [`LogsTimeRelativeMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logstimerelativemorethanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_time_relative_less_than` | [`LogsTimeRelativeLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logstimerelativelessthanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_more_than` | [`MetricMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_less_than` | [`MetricLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_more_than_usual` | [`MetricMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanusualalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`tracing_immediate` | [`TracingImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3tracingimmediatealerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`tracing_more_than` | [`TracingMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3tracingmorethanalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`flow` | [`FlowAlertTypeDefinition`](#comcoralogixapisalertsv3flowalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_less_than_usual` | [`MetricLessThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanusualalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_more_than_or_equals` | [`MetricMoreThanOrEqualsAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanorequalsalerttypedefinition) |  |
+| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_less_than_or_equals` | [`MetricLessThanOrEqualsAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanorequalsalerttypedefinition) |  |
 | `alert_group_bys` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 | `incidents_settings` | [`AlertIncidentSettings`](#comcoralogixapisalertsv3alertincidentsettings) |  |
 | `notification_group` | [`AlertNotificationGroup`](#comcoralogixapisalertsv3alertnotificationgroup) |  |
