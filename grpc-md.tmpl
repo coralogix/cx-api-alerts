@@ -1,0 +1,87 @@
+<details open markdown="block">
+  <summary>Table of contents</summary>
+  <ul>
+    <li>
+      <a href="#services">Services</a>
+      <ul>
+      {{- range .Files}}{{range .Services}}
+        <li><a href="#{{.FullName | lower | replace "." ""}}">{{.LongName}} (<code>{{.FullName}}</code>)</a></li>
+      {{- end}}{{end}}
+      </ul>
+    </li>
+    <li>
+      <a href="#messages">Messages</a>
+      <ul>
+      {{- range .Files}}{{range .Messages}}
+        <li><a href="#{{.FullName | lower | replace "." ""}}">{{.LongName}} (<code>{{.FullName}}</code>)</a></li>
+      {{- end}}{{end}}
+      </ul>
+    </li>
+    <li>
+      <a href="#enums">Enums</a>
+      <ul>
+      {{- range .Files}}{{range .Enums}}
+        <li><a href="#{{.FullName | lower | replace "." ""}}">{{.LongName}} (<code>{{.FullName}}</code>)</a></li>
+      {{- end}}{{end}}
+      </ul>
+    </li>
+    <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+  </ul>
+</details>
+
+<h1 id="service" name="service">Service</h1>
+{{- range .Files}}{{range .Services}}
+<h2 id="{{.FullName | lower | replace "." ""}}" name="{{.FullName | lower | replace "." ""}}">{{.LongName}} <small>(<code>{{.FullName}}</code>)</small></h2>
+{{.Description}}
+
+| Method name | Request type | Response type | Description |
+| ----------- | ------------ | ------------- | ----------- |
+{{range .Methods -}}
+| `{{.Name}}`{{/* noline */ -}}
+| {{if .RequestStreaming}}**stream** {{end}}[`{{.RequestLongType}}`](#{{.RequestFullType | lower | replace "." ""}}){{/* noline */ -}}
+| {{if .ResponseStreaming}}**stream** {{end}}[`{{.ResponseLongType}}`](#{{.ResponseFullType | lower | replace "." ""}}){{/* noline */ -}}
+| {{if .Description}}{{.Description | replace "\n" "<br>"}}{{end}}{{/* noline */ -}} 
+|
+{{end}}{{/* range .Methods */}}
+{{- end}}{{/* range .Services */}}
+{{- end}}{{/* range .Files */}}
+
+
+<h1 id="messages" name="messages">Messages</h1>
+{{- range .Files}}{{range .Messages}}
+<h2 id="{{.FullName | lower | replace "." ""}}" name="{{.FullName | lower | replace "." ""}}">{{.LongName}} <small>(<code>{{.FullName}}</code>)</small></h2>
+{{.Description}}
+
+{{ if .HasFields}}
+| Field | Type | Description |
+| ------| ---- | ----------- |
+{{range .Fields -}}
+| {{if .IsOneof -}}<small>{{if eq .OneofDecl (printf "_%s" .Name)}}<strong>optional</strong>{{else}}<strong>oneof</strong> <code>{{.OneofDecl}}</code>{{end}}</small><br>{{end}}`{{.Name}}` {{/* noline */ -}}
+| [`{{if .IsMap}}map{{else}}{{.Label}}{{end}}{{.LongType}}`](#{{.FullType | lower | replace "." ""}}) {{/* noline */ -}}
+| {{if (index .Options "deprecated" | default false)}}**deprecated**<br>{{end}}{{if .Description}}{{.Description | replace "\n" "<br>"}}{{end}} {{/* noline */ -}}
+|
+{{end}}{{/* range .Fields */}}
+{{- end}}{{/* if .HasFields */}}
+{{- end}}{{/* range .Messages */}}
+{{- end}}{{/* range .Files */}}
+
+<h1 id="enums" name="enums">Enums</h1>
+{{- range .Files}}{{range .Enums}}
+<h2 id="{{.FullName | lower | replace "." ""}}" name="{{.FullName | lower | replace "." ""}}">{{.LongName}} <small>(<code>{{.FullName}}</code>)</small></h2>
+{{.Description}}
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+{{range .Values -}}
+| `{{.Name}}` | `{{.Number}}` | {{if .Description}}{{.Description | replace "\n" "<br>"}}{{end}} |
+{{end}}{{/* range .Value */}}
+{{- end}}{{/* range .Enums */}}
+{{- end}}{{/* range .Files */}}
+
+<h1 id="scalar-value-types" name="scalar-value-types">Scalar Value Types</h1>
+
+| .proto Type | Notes |
+| ----------- | ----- |
+{{range .Scalars -}}
+| <code id="{{.ProtoType | lower | replace "." ""}}" name="{{.ProtoType | lower | replace "." ""}}">{{.ProtoType }}</code> | {{.Notes | replace "\n" "<br>"}} |
+{{end}}
