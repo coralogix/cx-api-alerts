@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines coralogix's V3 Alerts API. It is fully backward compatible with the previous versions, it is much more simple and is designed to be more user-friendly. furthermore as this uses protobuf, this can be used with clients that supports autocomplete ( like Postman's GRPC ).
+This document outlines Coralogix's V3 Alerts API. It is fully backward compatible with the previous versions, it is much more simple and is designed to be more user-friendly. furthermore as this uses protobuf, this can be used with clients that supports autocomplete ( like Postman's GRPC ).
 
 ### Prerequisites
 
