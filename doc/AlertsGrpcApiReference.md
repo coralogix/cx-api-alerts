@@ -4,66 +4,131 @@
     <li>
       <a href="#services">Services</a>
       <ul>
-        <li><a href="#comcoralogixapisalertsv3alertsservice">AlertsService (<code>com.coralogixapis.alerts.v3.AlertsService</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefsservice">AlertDefsService (<code>com.coralogixapis.alerts.v3.AlertDefsService</code>)</a></li>
       </ul>
+    </li>
     <li>
+      <a href="#messages">Messages</a>
+      <ul>
+        <li><a href="#comcoralogixapisalertsv3activityschedule">ActivitySchedule (<code>com.coralogixapis.alerts.v3.ActivitySchedule</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3timeofday">TimeOfDay (<code>com.coralogixapis.alerts.v3.TimeOfDay</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3auditlogdescription">AuditLogDescription (<code>com.coralogixapis.alerts.v3.AuditLogDescription</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3batchgetalertdefrequest">BatchGetAlertDefRequest (<code>com.coralogixapis.alerts.v3.BatchGetAlertDefRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3batchgetalertdefresponse">BatchGetAlertDefResponse (<code>com.coralogixapis.alerts.v3.BatchGetAlertDefResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3batchgetalertdefresponsealertdefsentry">BatchGetAlertDefResponse.AlertDefsEntry (<code>com.coralogixapis.alerts.v3.BatchGetAlertDefResponse.AlertDefsEntry</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3createalertdefrequest">CreateAlertDefRequest (<code>com.coralogixapis.alerts.v3.CreateAlertDefRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3createalertdefresponse">CreateAlertDefResponse (<code>com.coralogixapis.alerts.v3.CreateAlertDefResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3deletealertdefrequest">DeleteAlertDefRequest (<code>com.coralogixapis.alerts.v3.DeleteAlertDefRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3deletealertdefresponse">DeleteAlertDefResponse (<code>com.coralogixapis.alerts.v3.DeleteAlertDefResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getalertdefrequest">GetAlertDefRequest (<code>com.coralogixapis.alerts.v3.GetAlertDefRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3getalertdefresponse">GetAlertDefResponse (<code>com.coralogixapis.alerts.v3.GetAlertDefResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3listalertdefsrequest">ListAlertDefsRequest (<code>com.coralogixapis.alerts.v3.ListAlertDefsRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3listalertdefsresponse">ListAlertDefsResponse (<code>com.coralogixapis.alerts.v3.ListAlertDefsResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3orderby">OrderBy (<code>com.coralogixapis.alerts.v3.OrderBy</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3replacealertdefrequest">ReplaceAlertDefRequest (<code>com.coralogixapis.alerts.v3.ReplaceAlertDefRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3replacealertdefresponse">ReplaceAlertDefResponse (<code>com.coralogixapis.alerts.v3.ReplaceAlertDefResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3setactiverequest">SetActiveRequest (<code>com.coralogixapis.alerts.v3.SetActiveRequest</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3setactiveresponse">SetActiveResponse (<code>com.coralogixapis.alerts.v3.SetActiveResponse</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingfiltertype">TracingFilterType (<code>com.coralogixapis.alerts.v3.TracingFilterType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracinglabelfilters">TracingLabelFilters (<code>com.coralogixapis.alerts.v3.TracingLabelFilters</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingquery">TracingQuery (<code>com.coralogixapis.alerts.v3.TracingQuery</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingspanfieldsfiltertype">TracingSpanFieldsFilterType (<code>com.coralogixapis.alerts.v3.TracingSpanFieldsFilterType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingtimewindow">TracingTimeWindow (<code>com.coralogixapis.alerts.v3.TracingTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingmorethantypedefinition">TracingMoreThanTypeDefinition (<code>com.coralogixapis.alerts.v3.TracingMoreThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingimmediatetypedefinition">TracingImmediateTypeDefinition (<code>com.coralogixapis.alerts.v3.TracingImmediateTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsuniquecounttypedefinition">LogsUniqueCountTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsUniqueCountTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsuniquevaluetimewindow">LogsUniqueValueTimeWindow (<code>com.coralogixapis.alerts.v3.LogsUniqueValueTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3undetectedvaluesmanagement">UndetectedValuesManagement (<code>com.coralogixapis.alerts.v3.UndetectedValuesManagement</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logslessthanalerttypedefinitionusual">LogsLessThanAlertTypeDefinitionUsual (<code>com.coralogixapis.alerts.v3.LogsLessThanAlertTypeDefinitionUsual</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsimmediatetypedefinition">LogsImmediateTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsImmediateTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsmorethantypedefinition">LogsMoreThanTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsMoreThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsmorethanusualtypedefinition">LogsMoreThanUsualTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsMoreThanUsualTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimewindow">LogsTimeWindow (<code>com.coralogixapis.alerts.v3.LogsTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logslessthantypedefinition">LogsLessThanTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsLessThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiomorethantypedefinition">LogsRatioMoreThanTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsRatioMoreThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiotimewindow">LogsRatioTimeWindow (<code>com.coralogixapis.alerts.v3.LogsRatioTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiolessthantypedefinition">LogsRatioLessThanTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsRatioLessThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimerelativelessthantypedefinition">LogsTimeRelativeLessThanTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsTimeRelativeLessThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimerelativemorethantypedefinition">LogsTimeRelativeMoreThanTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsTimeRelativeMoreThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3labelfiltertype">LabelFilterType (<code>com.coralogixapis.alerts.v3.LabelFilterType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3labelfilters">LabelFilters (<code>com.coralogixapis.alerts.v3.LabelFilters</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsfilter">LogsFilter (<code>com.coralogixapis.alerts.v3.LogsFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3lucenefilter">LuceneFilter (<code>com.coralogixapis.alerts.v3.LuceneFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3activityanalysis">ActivityAnalysis (<code>com.coralogixapis.alerts.v3.ActivityAnalysis</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsnewvaluetypedefinition">LogsNewValueTypeDefinition (<code>com.coralogixapis.alerts.v3.LogsNewValueTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsnewvaluetimewindow">LogsNewValueTimeWindow (<code>com.coralogixapis.alerts.v3.LogsNewValueTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricfilter">MetricFilter (<code>com.coralogixapis.alerts.v3.MetricFilter</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmorethanorequalstypedefinition">MetricMoreThanOrEqualsTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricMoreThanOrEqualsTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmorethantypedefinition">MetricMoreThanTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricMoreThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metrictimewindow">MetricTimeWindow (<code>com.coralogixapis.alerts.v3.MetricTimeWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmissingvalues">MetricMissingValues (<code>com.coralogixapis.alerts.v3.MetricMissingValues</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metriclessthanusualtypedefinition">MetricLessThanUsualTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricLessThanUsualTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metriclessthanorequalstypedefinition">MetricLessThanOrEqualsTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricLessThanOrEqualsTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metricmorethanusualtypedefinition">MetricMoreThanUsualTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricMoreThanUsualTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metriclessthantypedefinition">MetricLessThanTypeDefinition (<code>com.coralogixapis.alerts.v3.MetricLessThanTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstages">FlowStages (<code>com.coralogixapis.alerts.v3.FlowStages</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstagesgroup">FlowStagesGroup (<code>com.coralogixapis.alerts.v3.FlowStagesGroup</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstagesgroups">FlowStagesGroups (<code>com.coralogixapis.alerts.v3.FlowStagesGroups</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowstagesgroupsalertdefs">FlowStagesGroupsAlertDefs (<code>com.coralogixapis.alerts.v3.FlowStagesGroupsAlertDefs</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3flowtypedefinition">FlowTypeDefinition (<code>com.coralogixapis.alerts.v3.FlowTypeDefinition</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefincidentsettings">AlertDefIncidentSettings (<code>com.coralogixapis.alerts.v3.AlertDefIncidentSettings</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefnotification">AlertDefNotification (<code>com.coralogixapis.alerts.v3.AlertDefNotification</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefnotificationgroup">AlertDefNotificationGroup (<code>com.coralogixapis.alerts.v3.AlertDefNotificationGroup</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3recipients">Recipients (<code>com.coralogixapis.alerts.v3.Recipients</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdef">AlertDef (<code>com.coralogixapis.alerts.v3.AlertDef</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefproperties">AlertDefProperties (<code>com.coralogixapis.alerts.v3.AlertDefProperties</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefpropertieslabelsentry">AlertDefProperties.LabelsEntry (<code>com.coralogixapis.alerts.v3.AlertDefProperties.LabelsEntry</code>)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#enums">Enums</a>
+      <ul>
+        <li><a href="#comcoralogixapisalertsv3alertdeftype">AlertDefType (<code>com.coralogixapis.alerts.v3.AlertDefType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3dayofweek">DayOfWeek (<code>com.coralogixapis.alerts.v3.DayOfWeek</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3orderbydirection">OrderByDirection (<code>com.coralogixapis.alerts.v3.OrderByDirection</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3orderbyfields">OrderByFields (<code>com.coralogixapis.alerts.v3.OrderByFields</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingfilteroperationtype">TracingFilterOperationType (<code>com.coralogixapis.alerts.v3.TracingFilterOperationType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3tracingtimewindowvalue">TracingTimeWindowValue (<code>com.coralogixapis.alerts.v3.TracingTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsuniquevaluetimewindowvalue">LogsUniqueValueTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsUniqueValueTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3autoretiretimeframe">AutoRetireTimeframe (<code>com.coralogixapis.alerts.v3.AutoRetireTimeframe</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3arithmeticoperator">ArithmeticOperator (<code>com.coralogixapis.alerts.v3.ArithmeticOperator</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3evaluationwindow">EvaluationWindow (<code>com.coralogixapis.alerts.v3.EvaluationWindow</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimewindowvalue">LogsTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiogroupbyfor">LogsRatioGroupByFor (<code>com.coralogixapis.alerts.v3.LogsRatioGroupByFor</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsratiotimewindowvalue">LogsRatioTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsRatioTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logstimerelativecomparedto">LogsTimeRelativeComparedTo (<code>com.coralogixapis.alerts.v3.LogsTimeRelativeComparedTo</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logfilteroperationtype">LogFilterOperationType (<code>com.coralogixapis.alerts.v3.LogFilterOperationType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logseverity">LogSeverity (<code>com.coralogixapis.alerts.v3.LogSeverity</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3activityanalysisstatus">ActivityAnalysisStatus (<code>com.coralogixapis.alerts.v3.ActivityAnalysisStatus</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3logsnewvaluetimewindowvalue">LogsNewValueTimeWindowValue (<code>com.coralogixapis.alerts.v3.LogsNewValueTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3metrictimewindowvalue">MetricTimeWindowValue (<code>com.coralogixapis.alerts.v3.MetricTimeWindowValue</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertsop">AlertsOp (<code>com.coralogixapis.alerts.v3.AlertsOp</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3nextop">NextOp (<code>com.coralogixapis.alerts.v3.NextOp</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3timeframetype">TimeframeType (<code>com.coralogixapis.alerts.v3.TimeframeType</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3notifyon">NotifyOn (<code>com.coralogixapis.alerts.v3.NotifyOn</code>)</a></li>
+        <li><a href="#comcoralogixapisalertsv3alertdefpriority">AlertDefPriority (<code>com.coralogixapis.alerts.v3.AlertDefPriority</code>)</a></li>
+      </ul>
+    </li>
+    <li><a href="#scalar-value-types">Scalar Value Types</a></li>
   </ul>
 </details>
 
 <h1 id="service" name="service">Service</h1>
-<h2 id="comcoralogixapisalertsv3alertsservice" name="comcoralogixapisalertsv3alertsservice">AlertsService <small>(<code>com.coralogixapis.alerts.v3.AlertsService</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3alertdefsservice" name="comcoralogixapisalertsv3alertdefsservice">AlertDefsService <small>(<code>com.coralogixapis.alerts.v3.AlertDefsService</code>)</small></h2>
 
 
 | Method name | Request type | Response type | Description |
 | ----------- | ------------ | ------------- | ----------- |
-| `GetAlert`| [`GetAlertRequest`](#comcoralogixapisalertsv3getalertrequest)| [`GetAlertResponse`](#comcoralogixapisalertsv3getalertresponse)| Get Alert by non Changing ID AKA UniqueIdentifier|
-| `CreateAlert`| [`CreateAlertRequest`](#comcoralogixapisalertsv3createalertrequest)| [`CreateAlertResponse`](#comcoralogixapisalertsv3createalertresponse)| |
-| `ReplaceAlert`| [`ReplaceAlertRequest`](#comcoralogixapisalertsv3replacealertrequest)| [`ReplaceAlertResponse`](#comcoralogixapisalertsv3replacealertresponse)| |
-| `ListAlerts`| [`ListAlertsRequest`](#comcoralogixapisalertsv3listalertsrequest)| [`ListAlertsResponse`](#comcoralogixapisalertsv3listalertsresponse)| |
-| `DeleteAlert`| [`DeleteAlertRequest`](#comcoralogixapisalertsv3deletealertrequest)| [`DeleteAlertResponse`](#comcoralogixapisalertsv3deletealertresponse)| |
+| `GetAlertDef`| [`GetAlertDefRequest`](#comcoralogixapisalertsv3getalertdefrequest)| [`GetAlertDefResponse`](#comcoralogixapisalertsv3getalertdefresponse)| Get Alert Def by non changing ID AKA UniqueIdentifier|
+| `CreateAlertDef`| [`CreateAlertDefRequest`](#comcoralogixapisalertsv3createalertdefrequest)| [`CreateAlertDefResponse`](#comcoralogixapisalertsv3createalertdefresponse)| |
+| `ReplaceAlertDef`| [`ReplaceAlertDefRequest`](#comcoralogixapisalertsv3replacealertdefrequest)| [`ReplaceAlertDefResponse`](#comcoralogixapisalertsv3replacealertdefresponse)| |
+| `ListAlertDefs`| [`ListAlertDefsRequest`](#comcoralogixapisalertsv3listalertdefsrequest)| [`ListAlertDefsResponse`](#comcoralogixapisalertsv3listalertdefsresponse)| |
+| `DeleteAlertDef`| [`DeleteAlertDefRequest`](#comcoralogixapisalertsv3deletealertdefrequest)| [`DeleteAlertDefResponse`](#comcoralogixapisalertsv3deletealertdefresponse)| |
 | `SetActive`| [`SetActiveRequest`](#comcoralogixapisalertsv3setactiverequest)| [`SetActiveResponse`](#comcoralogixapisalertsv3setactiveresponse)| |
 
 
 
 <h1 id="messages" name="messages">Messages</h1>
-<h2 id="comcoralogixapisalertsv3alertincidentsettings" name="comcoralogixapisalertsv3alertincidentsettings">AlertIncidentSettings <small>(<code>com.coralogixapis.alerts.v3.AlertIncidentSettings</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) | RetriggeringPeriodSpecialValue special_value = 101; |
-| `notify_on` | [`NotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
-| `use_as_notification_settings` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3alertnotification" name="comcoralogixapisalertsv3alertnotification">AlertNotification <small>(<code>com.coralogixapis.alerts.v3.AlertNotification</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) | RetriggeringPeriodSpecialValue special_value = 101; |
-| <small><strong>optional</strong></small><br>`notify_on` | [`optionalNotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
-| <small><strong>oneof</strong> <code>integration_type</code></small><br>`integration_id` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| <small><strong>oneof</strong> <code>integration_type</code></small><br>`recipients` | [`Recipients`](#comcoralogixapisalertsv3recipients) |  |
-
-<h2 id="comcoralogixapisalertsv3alertnotificationgroup" name="comcoralogixapisalertsv3alertnotificationgroup">AlertNotificationGroup <small>(<code>com.coralogixapis.alerts.v3.AlertNotificationGroup</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `group_by_fields` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-| `notifications` | [`repeatedAlertNotification`](#comcoralogixapisalertsv3alertnotification) |  |
-
-<h2 id="comcoralogixapisalertsv3recipients" name="comcoralogixapisalertsv3recipients">Recipients <small>(<code>com.coralogixapis.alerts.v3.Recipients</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `emails` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-
 <h2 id="comcoralogixapisalertsv3activityschedule" name="comcoralogixapisalertsv3activityschedule">ActivitySchedule <small>(<code>com.coralogixapis.alerts.v3.ActivitySchedule</code>)</small></h2>
 
 
@@ -83,120 +148,6 @@
 | `hours` | [`int32`](#int32) | Hours of day in 24 hour format. Should be from 0 to 23. |
 | `minutes` | [`int32`](#int32) | Minutes of hour of day. Must be from 0 to 59. |
 
-<h2 id="comcoralogixapisalertsv3alertqueryfilter" name="comcoralogixapisalertsv3alertqueryfilter">AlertQueryFilter <small>(<code>com.coralogixapis.alerts.v3.AlertQueryFilter</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `alert_type` | [`repeatedAlertType`](#comcoralogixapisalertsv3alerttype) |  |
-| `priority` | [`repeatedAlertPriority`](#comcoralogixapisalertsv3alertpriority) |  |
-| <small><strong>optional</strong></small><br>`enabled` | [`optionalgoogle.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
-| `meta_labels` | [`mapAlertQueryFilter.MetaLabelsEntry`](#comcoralogixapisalertsv3alertqueryfiltermetalabelsentry) |  |
-| `created_time_start` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-| `created_time_end` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-
-<h2 id="comcoralogixapisalertsv3alertqueryfiltermetalabelsentry" name="comcoralogixapisalertsv3alertqueryfiltermetalabelsentry">AlertQueryFilter.MetaLabelsEntry <small>(<code>com.coralogixapis.alerts.v3.AlertQueryFilter.MetaLabelsEntry</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `key` | [`string`](#string) |  |
-| `value` | [`string`](#string) |  |
-
-<h2 id="comcoralogixapisalertsv3alert" name="comcoralogixapisalertsv3alert">Alert <small>(<code>com.coralogixapis.alerts.v3.Alert</code>)</small></h2>
-Represents An Existing or Created Alert
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `properties` | [`AlertProperties`](#comcoralogixapisalertsv3alertproperties) |  |
-| `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) | This is the Alert's Persistent ID (does not change on replace) , AKA UniqueIdentifier |
-| `created_time` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-| `updated_time` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-
-<h2 id="comcoralogixapisalertsv3alertproperties" name="comcoralogixapisalertsv3alertproperties">AlertProperties <small>(<code>com.coralogixapis.alerts.v3.AlertProperties</code>)</small></h2>
-Represents The non generated alert properties (the ones that are set by the user)
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `name` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-| `description` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-| `enabled` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
-| `alert_priority` | [`AlertPriority`](#comcoralogixapisalertsv3alertpriority) |  |
-| <small><strong>oneof</strong> <code>alert_schedule</code></small><br>`active_on` | [`ActivitySchedule`](#comcoralogixapisalertsv3activityschedule) |  |
-| `alert_type` | [`AlertType`](#comcoralogixapisalertsv3alerttype) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_immediate` | [`LogsImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3logsimmediatealerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_more_than` | [`LogsMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_less_than` | [`LogsLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logslessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_more_than_usual` | [`LogsMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3logsmorethanusualalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_ratio_more_than` | [`LogsRatioMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsratiomorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_ratio_less_than` | [`LogsRatioLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logsratiolessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_new_value` | [`LogsNewValueAlertTypeDefinition`](#comcoralogixapisalertsv3logsnewvaluealerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_unique_count` | [`LogsUniqueCountAlertTypeDefinition`](#comcoralogixapisalertsv3logsuniquecountalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_time_relative_more_than` | [`LogsTimeRelativeMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3logstimerelativemorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`logs_time_relative_less_than` | [`LogsTimeRelativeLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3logstimerelativelessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_more_than` | [`MetricMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_less_than` | [`MetricLessThanAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_more_than_usual` | [`MetricMoreThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanusualalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`tracing_immediate` | [`TracingImmediateAlertTypeDefinition`](#comcoralogixapisalertsv3tracingimmediatealerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`tracing_more_than` | [`TracingMoreThanAlertTypeDefinition`](#comcoralogixapisalertsv3tracingmorethanalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`flow` | [`FlowAlertTypeDefinition`](#comcoralogixapisalertsv3flowalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_less_than_usual` | [`MetricLessThanUsualAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanusualalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_more_than_or_equals` | [`MetricMoreThanOrEqualsAlertTypeDefinition`](#comcoralogixapisalertsv3metricmorethanorequalsalerttypedefinition) |  |
-| <small><strong>oneof</strong> <code>alert_def_type_definition</code></small><br>`metric_less_than_or_equals` | [`MetricLessThanOrEqualsAlertTypeDefinition`](#comcoralogixapisalertsv3metriclessthanorequalsalerttypedefinition) |  |
-| `alert_group_bys` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-| `incidents_settings` | [`AlertIncidentSettings`](#comcoralogixapisalertsv3alertincidentsettings) |  |
-| `notification_group` | [`AlertNotificationGroup`](#comcoralogixapisalertsv3alertnotificationgroup) |  |
-| `labels` | [`mapAlertProperties.LabelsEntry`](#comcoralogixapisalertsv3alertpropertieslabelsentry) |  |
-
-<h2 id="comcoralogixapisalertsv3alertpropertieslabelsentry" name="comcoralogixapisalertsv3alertpropertieslabelsentry">AlertProperties.LabelsEntry <small>(<code>com.coralogixapis.alerts.v3.AlertProperties.LabelsEntry</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `key` | [`string`](#string) |  |
-| `value` | [`string`](#string) |  |
-
-<h2 id="comcoralogixapisalertsv3alertexecutionrequest" name="comcoralogixapisalertsv3alertexecutionrequest">AlertExecutionRequest <small>(<code>com.coralogixapis.alerts.v3.AlertExecutionRequest</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>request</code></small><br>`create` | [`CreateAlertRequest`](#comcoralogixapisalertsv3createalertrequest) |  |
-| <small><strong>oneof</strong> <code>request</code></small><br>`replace` | [`ReplaceAlertRequest`](#comcoralogixapisalertsv3replacealertrequest) |  |
-| <small><strong>oneof</strong> <code>request</code></small><br>`delete` | [`DeleteAlertRequest`](#comcoralogixapisalertsv3deletealertrequest) |  |
-
-<h2 id="comcoralogixapisalertsv3alertexecutionresponse" name="comcoralogixapisalertsv3alertexecutionresponse">AlertExecutionResponse <small>(<code>com.coralogixapis.alerts.v3.AlertExecutionResponse</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>response</code></small><br>`create` | [`CreateAlertResponse`](#comcoralogixapisalertsv3createalertresponse) |  |
-| <small><strong>oneof</strong> <code>response</code></small><br>`replace` | [`ReplaceAlertResponse`](#comcoralogixapisalertsv3replacealertresponse) |  |
-| <small><strong>oneof</strong> <code>response</code></small><br>`delete` | [`DeleteAlertResponse`](#comcoralogixapisalertsv3deletealertresponse) |  |
-
-<h2 id="comcoralogixapisalertsv3atomicbatchexecutealertrequest" name="comcoralogixapisalertsv3atomicbatchexecutealertrequest">AtomicBatchExecuteAlertRequest <small>(<code>com.coralogixapis.alerts.v3.AtomicBatchExecuteAlertRequest</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `requests` | [`repeatedAlertExecutionRequest`](#comcoralogixapisalertsv3alertexecutionrequest) |  |
-
-<h2 id="comcoralogixapisalertsv3atomicbatchexecutealertresponse" name="comcoralogixapisalertsv3atomicbatchexecutealertresponse">AtomicBatchExecuteAlertResponse <small>(<code>com.coralogixapis.alerts.v3.AtomicBatchExecuteAlertResponse</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `matching_responses` | [`repeatedAlertExecutionResponse`](#comcoralogixapisalertsv3alertexecutionresponse) | TODO: Where should this object be placed<br> com.coralogix.api.ResponseStatus status = 2; |
-
 <h2 id="comcoralogixapisalertsv3auditlogdescription" name="comcoralogixapisalertsv3auditlogdescription">AuditLogDescription <small>(<code>com.coralogixapis.alerts.v3.AuditLogDescription</code>)</small></h2>
 
 
@@ -205,7 +156,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | ------| ---- | ----------- |
 | <small><strong>optional</strong></small><br>`description` | [`optionalstring`](#string) |  |
 
-<h2 id="comcoralogixapisalertsv3batchgetalertrequest" name="comcoralogixapisalertsv3batchgetalertrequest">BatchGetAlertRequest <small>(<code>com.coralogixapis.alerts.v3.BatchGetAlertRequest</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3batchgetalertdefrequest" name="comcoralogixapisalertsv3batchgetalertdefrequest">BatchGetAlertDefRequest <small>(<code>com.coralogixapis.alerts.v3.BatchGetAlertDefRequest</code>)</small></h2>
 
 
 
@@ -213,41 +164,41 @@ Represents The non generated alert properties (the ones that are set by the user
 | ------| ---- | ----------- |
 | `ids` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3batchgetalertresponse" name="comcoralogixapisalertsv3batchgetalertresponse">BatchGetAlertResponse <small>(<code>com.coralogixapis.alerts.v3.BatchGetAlertResponse</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3batchgetalertdefresponse" name="comcoralogixapisalertsv3batchgetalertdefresponse">BatchGetAlertDefResponse <small>(<code>com.coralogixapis.alerts.v3.BatchGetAlertDefResponse</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `alerts` | [`mapBatchGetAlertResponse.AlertsEntry`](#comcoralogixapisalertsv3batchgetalertresponsealertsentry) |  |
+| `alert_defs` | [`mapBatchGetAlertDefResponse.AlertDefsEntry`](#comcoralogixapisalertsv3batchgetalertdefresponsealertdefsentry) |  |
 | `not_found_ids` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3batchgetalertresponsealertsentry" name="comcoralogixapisalertsv3batchgetalertresponsealertsentry">BatchGetAlertResponse.AlertsEntry <small>(<code>com.coralogixapis.alerts.v3.BatchGetAlertResponse.AlertsEntry</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3batchgetalertdefresponsealertdefsentry" name="comcoralogixapisalertsv3batchgetalertdefresponsealertdefsentry">BatchGetAlertDefResponse.AlertDefsEntry <small>(<code>com.coralogixapis.alerts.v3.BatchGetAlertDefResponse.AlertDefsEntry</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
 | `key` | [`string`](#string) |  |
-| `value` | [`Alert`](#comcoralogixapisalertsv3alert) |  |
+| `value` | [`AlertDef`](#comcoralogixapisalertsv3alertdef) |  |
 
-<h2 id="comcoralogixapisalertsv3createalertrequest" name="comcoralogixapisalertsv3createalertrequest">CreateAlertRequest <small>(<code>com.coralogixapis.alerts.v3.CreateAlertRequest</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `alert_properties` | [`AlertProperties`](#comcoralogixapisalertsv3alertproperties) |  |
-
-<h2 id="comcoralogixapisalertsv3createalertresponse" name="comcoralogixapisalertsv3createalertresponse">CreateAlertResponse <small>(<code>com.coralogixapis.alerts.v3.CreateAlertResponse</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3createalertdefrequest" name="comcoralogixapisalertsv3createalertdefrequest">CreateAlertDefRequest <small>(<code>com.coralogixapis.alerts.v3.CreateAlertDefRequest</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `alert` | [`Alert`](#comcoralogixapisalertsv3alert) |  |
+| `alert_def_properties` | [`AlertDefProperties`](#comcoralogixapisalertsv3alertdefproperties) |  |
 
-<h2 id="comcoralogixapisalertsv3deletealertrequest" name="comcoralogixapisalertsv3deletealertrequest">DeleteAlertRequest <small>(<code>com.coralogixapis.alerts.v3.DeleteAlertRequest</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3createalertdefresponse" name="comcoralogixapisalertsv3createalertdefresponse">CreateAlertDefResponse <small>(<code>com.coralogixapis.alerts.v3.CreateAlertDefResponse</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `alert_def` | [`AlertDef`](#comcoralogixapisalertsv3alertdef) |  |
+
+<h2 id="comcoralogixapisalertsv3deletealertdefrequest" name="comcoralogixapisalertsv3deletealertdefrequest">DeleteAlertDefRequest <small>(<code>com.coralogixapis.alerts.v3.DeleteAlertDefRequest</code>)</small></h2>
 
 
 
@@ -255,65 +206,37 @@ Represents The non generated alert properties (the ones that are set by the user
 | ------| ---- | ----------- |
 | `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3deletealertresponse" name="comcoralogixapisalertsv3deletealertresponse">DeleteAlertResponse <small>(<code>com.coralogixapis.alerts.v3.DeleteAlertResponse</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3deletealertdefresponse" name="comcoralogixapisalertsv3deletealertdefresponse">DeleteAlertDefResponse <small>(<code>com.coralogixapis.alerts.v3.DeleteAlertDefResponse</code>)</small></h2>
 
 
 
-<h2 id="comcoralogixapisalertsv3getalerteventsrequest" name="comcoralogixapisalertsv3getalerteventsrequest">GetAlertEventsRequest <small>(<code>com.coralogixapis.alerts.v3.GetAlertEventsRequest</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `from` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-| `to` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
-
-<h2 id="comcoralogixapisalertsv3getalertrequest" name="comcoralogixapisalertsv3getalertrequest">GetAlertRequest <small>(<code>com.coralogixapis.alerts.v3.GetAlertRequest</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3getalertdefrequest" name="comcoralogixapisalertsv3getalertdefrequest">GetAlertDefRequest <small>(<code>com.coralogixapis.alerts.v3.GetAlertDefRequest</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) | The Alerts non changing ID |
+| `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) | The Alert's non changing ID |
 
-<h2 id="comcoralogixapisalertsv3getalertresponse" name="comcoralogixapisalertsv3getalertresponse">GetAlertResponse <small>(<code>com.coralogixapis.alerts.v3.GetAlertResponse</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `alert` | [`Alert`](#comcoralogixapisalertsv3alert) |  |
-
-<h2 id="comcoralogixapisalertsv3getlimitsrequest" name="comcoralogixapisalertsv3getlimitsrequest">GetLimitsRequest <small>(<code>com.coralogixapis.alerts.v3.GetLimitsRequest</code>)</small></h2>
-
-
-
-<h2 id="comcoralogixapisalertsv3getlimitsresponse" name="comcoralogixapisalertsv3getlimitsresponse">GetLimitsResponse <small>(<code>com.coralogixapis.alerts.v3.GetLimitsResponse</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3getalertdefresponse" name="comcoralogixapisalertsv3getalertdefresponse">GetAlertDefResponse <small>(<code>com.coralogixapis.alerts.v3.GetAlertDefResponse</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `company_id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-| `limit` | [`google.protobuf.Int32Value`](#googleprotobufint32value) |  |
-| `used` | [`google.protobuf.Int32Value`](#googleprotobufint32value) |  |
+| `alert_def` | [`AlertDef`](#comcoralogixapisalertsv3alertdef) |  |
 
-<h2 id="comcoralogixapisalertsv3listalertsrequest" name="comcoralogixapisalertsv3listalertsrequest">ListAlertsRequest <small>(<code>com.coralogixapis.alerts.v3.ListAlertsRequest</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3listalertdefsrequest" name="comcoralogixapisalertsv3listalertdefsrequest">ListAlertDefsRequest <small>(<code>com.coralogixapis.alerts.v3.ListAlertDefsRequest</code>)</small></h2>
 
 
 
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `filter` | [`AlertQueryFilter`](#comcoralogixapisalertsv3alertqueryfilter) |  |
-| `order_bys` | [`repeatedOrderBy`](#comcoralogixapisalertsv3orderby) |  |
-
-<h2 id="comcoralogixapisalertsv3listalertsresponse" name="comcoralogixapisalertsv3listalertsresponse">ListAlertsResponse <small>(<code>com.coralogixapis.alerts.v3.ListAlertsResponse</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3listalertdefsresponse" name="comcoralogixapisalertsv3listalertdefsresponse">ListAlertDefsResponse <small>(<code>com.coralogixapis.alerts.v3.ListAlertDefsResponse</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `alerts` | [`repeatedAlert`](#comcoralogixapisalertsv3alert) |  |
+| `alert_defs` | [`repeatedAlertDef`](#comcoralogixapisalertsv3alertdef) |  |
 
 <h2 id="comcoralogixapisalertsv3orderby" name="comcoralogixapisalertsv3orderby">OrderBy <small>(<code>com.coralogixapis.alerts.v3.OrderBy</code>)</small></h2>
 
@@ -324,25 +247,51 @@ Represents The non generated alert properties (the ones that are set by the user
 | `field_name` | [`OrderByFields`](#comcoralogixapisalertsv3orderbyfields) |  |
 | `direction` | [`OrderByDirection`](#comcoralogixapisalertsv3orderbydirection) |  |
 
-<h2 id="comcoralogixapisalertsv3replacealertrequest" name="comcoralogixapisalertsv3replacealertrequest">ReplaceAlertRequest <small>(<code>com.coralogixapis.alerts.v3.ReplaceAlertRequest</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3replacealertdefrequest" name="comcoralogixapisalertsv3replacealertdefrequest">ReplaceAlertDefRequest <small>(<code>com.coralogixapis.alerts.v3.ReplaceAlertDefRequest</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `alert_properties` | [`AlertProperties`](#comcoralogixapisalertsv3alertproperties) |  |
-| `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+| `alert_def_properties` | [`AlertDefProperties`](#comcoralogixapisalertsv3alertdefproperties) |  |
+| `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) | The AlertDef's Id to be replaced |
 
-<h2 id="comcoralogixapisalertsv3replacealertresponse" name="comcoralogixapisalertsv3replacealertresponse">ReplaceAlertResponse <small>(<code>com.coralogixapis.alerts.v3.ReplaceAlertResponse</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3replacealertdefresponse" name="comcoralogixapisalertsv3replacealertdefresponse">ReplaceAlertDefResponse <small>(<code>com.coralogixapis.alerts.v3.ReplaceAlertDefResponse</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `alert` | [`Alert`](#comcoralogixapisalertsv3alert) |  |
+| `alert_def` | [`AlertDef`](#comcoralogixapisalertsv3alertdef) |  |
 
 <h2 id="comcoralogixapisalertsv3setactiverequest" name="comcoralogixapisalertsv3setactiverequest">SetActiveRequest <small>(<code>com.coralogixapis.alerts.v3.SetActiveRequest</code>)</small></h2>
+message AlertExecutionRequest {
+ oneof request {
+   CreateAlertDefRequest create = 1;
+   ReplaceAlertDefRequest replace = 2;
+   DeleteAlertDefRequest delete = 3;
+ }
+}
+message AlertExecutionResponse {
+ oneof response {
+   CreateAlertDefResponse create = 1;
+   ReplaceAlertDefResponse replace = 2;
+   DeleteAlertDefResponse delete = 3;
+ }
+}
+message GetLimitsRequest {}
 
+message GetLimitsResponse {
+ google.protobuf.StringValue company_id = 1;
+ google.protobuf.Int32Value limit = 2;
+ google.protobuf.Int32Value used = 3;
+}
+message ValidateAlertRequest {
+ Alert alert = 1;
+}
+message ValidateAlertResponse {
+ google.protobuf.BoolValue valid = 1;
+}
 
 
 | Field | Type | Description |
@@ -353,22 +302,6 @@ Represents The non generated alert properties (the ones that are set by the user
 <h2 id="comcoralogixapisalertsv3setactiveresponse" name="comcoralogixapisalertsv3setactiveresponse">SetActiveResponse <small>(<code>com.coralogixapis.alerts.v3.SetActiveResponse</code>)</small></h2>
 
 
-
-<h2 id="comcoralogixapisalertsv3validatealertrequest" name="comcoralogixapisalertsv3validatealertrequest">ValidateAlertRequest <small>(<code>com.coralogixapis.alerts.v3.ValidateAlertRequest</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `alert` | [`Alert`](#comcoralogixapisalertsv3alert) |  |
-
-<h2 id="comcoralogixapisalertsv3validatealertresponse" name="comcoralogixapisalertsv3validatealertresponse">ValidateAlertResponse <small>(<code>com.coralogixapis.alerts.v3.ValidateAlertResponse</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `valid` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
 
 <h2 id="comcoralogixapisalertsv3tracingfiltertype" name="comcoralogixapisalertsv3tracingfiltertype">TracingFilterType <small>(<code>com.coralogixapis.alerts.v3.TracingFilterType</code>)</small></h2>
 
@@ -417,16 +350,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | ------| ---- | ----------- |
 | <small><strong>oneof</strong> <code>type</code></small><br>`tracing_time_window_value` | [`TracingTimeWindowValue`](#comcoralogixapisalertsv3tracingtimewindowvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3tracingimmediatealerttypedefinition" name="comcoralogixapisalertsv3tracingimmediatealerttypedefinition">TracingImmediateAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.TracingImmediateAlertTypeDefinition</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `tracing_query` | [`TracingQuery`](#comcoralogixapisalertsv3tracingquery) |  |
-| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3tracingmorethanalerttypedefinition" name="comcoralogixapisalertsv3tracingmorethanalerttypedefinition">TracingMoreThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.TracingMoreThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3tracingmorethantypedefinition" name="comcoralogixapisalertsv3tracingmorethantypedefinition">TracingMoreThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.TracingMoreThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -437,15 +361,16 @@ Represents The non generated alert properties (the ones that are set by the user
 | `time_window` | [`TracingTimeWindow`](#comcoralogixapisalertsv3tracingtimewindow) |  |
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logsuniquevaluetimewindow" name="comcoralogixapisalertsv3logsuniquevaluetimewindow">LogsUniqueValueTimeWindow <small>(<code>com.coralogixapis.alerts.v3.LogsUniqueValueTimeWindow</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3tracingimmediatetypedefinition" name="comcoralogixapisalertsv3tracingimmediatetypedefinition">TracingImmediateTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.TracingImmediateTypeDefinition</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>type</code></small><br>`logs_unique_value_time_window_specific_value` | [`LogsUniqueValueTimeWindowValue`](#comcoralogixapisalertsv3logsuniquevaluetimewindowvalue) |  |
+| `tracing_query` | [`TracingQuery`](#comcoralogixapisalertsv3tracingquery) |  |
+| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logsuniquecountalerttypedefinition" name="comcoralogixapisalertsv3logsuniquecountalerttypedefinition">LogsUniqueCountAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsUniqueCountAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logsuniquecounttypedefinition" name="comcoralogixapisalertsv3logsuniquecounttypedefinition">LogsUniqueCountTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsUniqueCountTypeDefinition</code>)</small></h2>
 
 
 
@@ -458,6 +383,14 @@ Represents The non generated alert properties (the ones that are set by the user
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 | <small><strong>optional</strong></small><br>`max_unique_count_per_group_by_key` | [`optionalgoogle.protobuf.Int64Value`](#googleprotobufint64value) |  |
 
+<h2 id="comcoralogixapisalertsv3logsuniquevaluetimewindow" name="comcoralogixapisalertsv3logsuniquevaluetimewindow">LogsUniqueValueTimeWindow <small>(<code>com.coralogixapis.alerts.v3.LogsUniqueValueTimeWindow</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>type</code></small><br>`logs_unique_value_time_window_specific_value` | [`LogsUniqueValueTimeWindowValue`](#comcoralogixapisalertsv3logsuniquevaluetimewindowvalue) |  |
+
 <h2 id="comcoralogixapisalertsv3undetectedvaluesmanagement" name="comcoralogixapisalertsv3undetectedvaluesmanagement">UndetectedValuesManagement <small>(<code>com.coralogixapis.alerts.v3.UndetectedValuesManagement</code>)</small></h2>
 
 
@@ -467,7 +400,25 @@ Represents The non generated alert properties (the ones that are set by the user
 | `trigger_undetected_values` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
 | <small><strong>optional</strong></small><br>`auto_retire_timeframe` | [`optionalAutoRetireTimeframe`](#comcoralogixapisalertsv3autoretiretimeframe) |  |
 
-<h2 id="comcoralogixapisalertsv3logsmorethanalerttypedefinition" name="comcoralogixapisalertsv3logsmorethanalerttypedefinition">LogsMoreThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsMoreThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logslessthanalerttypedefinitionusual" name="comcoralogixapisalertsv3logslessthanalerttypedefinitionusual">LogsLessThanAlertTypeDefinitionUsual <small>(<code>com.coralogixapis.alerts.v3.LogsLessThanAlertTypeDefinitionUsual</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `logs_filter` | [`LogsFilter`](#comcoralogixapisalertsv3logsfilter) |  |
+| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+
+<h2 id="comcoralogixapisalertsv3logsimmediatetypedefinition" name="comcoralogixapisalertsv3logsimmediatetypedefinition">LogsImmediateTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsImmediateTypeDefinition</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `logs_filter` | [`LogsFilter`](#comcoralogixapisalertsv3logsfilter) |  |
+| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+
+<h2 id="comcoralogixapisalertsv3logsmorethantypedefinition" name="comcoralogixapisalertsv3logsmorethantypedefinition">LogsMoreThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsMoreThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -479,16 +430,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | `evaluation_window` | [`EvaluationWindow`](#comcoralogixapisalertsv3evaluationwindow) |  |
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logslessthanalerttypedefinitionusual" name="comcoralogixapisalertsv3logslessthanalerttypedefinitionusual">LogsLessThanAlertTypeDefinitionUsual <small>(<code>com.coralogixapis.alerts.v3.LogsLessThanAlertTypeDefinitionUsual</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `logs_filter` | [`LogsFilter`](#comcoralogixapisalertsv3logsfilter) |  |
-| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3logsmorethanusualalerttypedefinition" name="comcoralogixapisalertsv3logsmorethanusualalerttypedefinition">LogsMoreThanUsualAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsMoreThanUsualAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logsmorethanusualtypedefinition" name="comcoralogixapisalertsv3logsmorethanusualtypedefinition">LogsMoreThanUsualTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsMoreThanUsualTypeDefinition</code>)</small></h2>
 
 
 
@@ -499,16 +441,15 @@ Represents The non generated alert properties (the ones that are set by the user
 | `time_window` | [`LogsTimeWindow`](#comcoralogixapisalertsv3logstimewindow) |  |
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logsimmediatealerttypedefinition" name="comcoralogixapisalertsv3logsimmediatealerttypedefinition">LogsImmediateAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsImmediateAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logstimewindow" name="comcoralogixapisalertsv3logstimewindow">LogsTimeWindow <small>(<code>com.coralogixapis.alerts.v3.LogsTimeWindow</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `logs_filter` | [`LogsFilter`](#comcoralogixapisalertsv3logsfilter) |  |
-| `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+| <small><strong>oneof</strong> <code>type</code></small><br>`logs_time_window_specific_value` | [`LogsTimeWindowValue`](#comcoralogixapisalertsv3logstimewindowvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logslessthanalerttypedefinition" name="comcoralogixapisalertsv3logslessthanalerttypedefinition">LogsLessThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsLessThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logslessthantypedefinition" name="comcoralogixapisalertsv3logslessthantypedefinition">LogsLessThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsLessThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -520,23 +461,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | `undetected_values_management` | [`UndetectedValuesManagement`](#comcoralogixapisalertsv3undetectedvaluesmanagement) |  |
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logstimewindow" name="comcoralogixapisalertsv3logstimewindow">LogsTimeWindow <small>(<code>com.coralogixapis.alerts.v3.LogsTimeWindow</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>type</code></small><br>`logs_time_window_specific_value` | [`LogsTimeWindowValue`](#comcoralogixapisalertsv3logstimewindowvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3logsratiotimewindow" name="comcoralogixapisalertsv3logsratiotimewindow">LogsRatioTimeWindow <small>(<code>com.coralogixapis.alerts.v3.LogsRatioTimeWindow</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>type</code></small><br>`logs_ratio_time_window_specific_value` | [`LogsRatioTimeWindowValue`](#comcoralogixapisalertsv3logsratiotimewindowvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3logsratiomorethanalerttypedefinition" name="comcoralogixapisalertsv3logsratiomorethanalerttypedefinition">LogsRatioMoreThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsRatioMoreThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logsratiomorethantypedefinition" name="comcoralogixapisalertsv3logsratiomorethantypedefinition">LogsRatioMoreThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsRatioMoreThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -552,7 +477,15 @@ Represents The non generated alert properties (the ones that are set by the user
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 | `group_by_for` | [`LogsRatioGroupByFor`](#comcoralogixapisalertsv3logsratiogroupbyfor) |  |
 
-<h2 id="comcoralogixapisalertsv3logsratiolessthanalerttypedefinition" name="comcoralogixapisalertsv3logsratiolessthanalerttypedefinition">LogsRatioLessThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsRatioLessThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logsratiotimewindow" name="comcoralogixapisalertsv3logsratiotimewindow">LogsRatioTimeWindow <small>(<code>com.coralogixapis.alerts.v3.LogsRatioTimeWindow</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>type</code></small><br>`logs_ratio_time_window_specific_value` | [`LogsRatioTimeWindowValue`](#comcoralogixapisalertsv3logsratiotimewindowvalue) |  |
+
+<h2 id="comcoralogixapisalertsv3logsratiolessthantypedefinition" name="comcoralogixapisalertsv3logsratiolessthantypedefinition">LogsRatioLessThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsRatioLessThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -569,7 +502,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 | `group_by_for` | [`LogsRatioGroupByFor`](#comcoralogixapisalertsv3logsratiogroupbyfor) |  |
 
-<h2 id="comcoralogixapisalertsv3logstimerelativelessthanalerttypedefinition" name="comcoralogixapisalertsv3logstimerelativelessthanalerttypedefinition">LogsTimeRelativeLessThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsTimeRelativeLessThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logstimerelativelessthantypedefinition" name="comcoralogixapisalertsv3logstimerelativelessthantypedefinition">LogsTimeRelativeLessThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsTimeRelativeLessThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -582,7 +515,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | <small><strong>optional</strong></small><br>`undetected_values_management` | [`optionalUndetectedValuesManagement`](#comcoralogixapisalertsv3undetectedvaluesmanagement) |  |
 | `notification_payload_filter` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3logstimerelativemorethanalerttypedefinition" name="comcoralogixapisalertsv3logstimerelativemorethanalerttypedefinition">LogsTimeRelativeMoreThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsTimeRelativeMoreThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logstimerelativemorethantypedefinition" name="comcoralogixapisalertsv3logstimerelativemorethantypedefinition">LogsTimeRelativeMoreThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsTimeRelativeMoreThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -639,7 +572,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | `rules` | [`repeatedstring`](#string) |  |
 | `status` | [`ActivityAnalysisStatus`](#comcoralogixapisalertsv3activityanalysisstatus) |  |
 
-<h2 id="comcoralogixapisalertsv3logsnewvaluealerttypedefinition" name="comcoralogixapisalertsv3logsnewvaluealerttypedefinition">LogsNewValueAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsNewValueAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3logsnewvaluetypedefinition" name="comcoralogixapisalertsv3logsnewvaluetypedefinition">LogsNewValueTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.LogsNewValueTypeDefinition</code>)</small></h2>
 
 
 
@@ -666,39 +599,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | ------| ---- | ----------- |
 | <small><strong>oneof</strong> <code>type</code></small><br>`promql` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 
-<h2 id="comcoralogixapisalertsv3metriclessthanusualalerttypedefinition" name="comcoralogixapisalertsv3metriclessthanusualalerttypedefinition">MetricLessThanUsualAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricLessThanUsualAlertTypeDefinition</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `metric_filter` | [`MetricFilter`](#comcoralogixapisalertsv3metricfilter) |  |
-| `threshold` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
-| `min_non_null_values_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-
-<h2 id="comcoralogixapisalertsv3metricmorethanusualalerttypedefinition" name="comcoralogixapisalertsv3metricmorethanusualalerttypedefinition">MetricMoreThanUsualAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricMoreThanUsualAlertTypeDefinition</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `metric_filter` | [`MetricFilter`](#comcoralogixapisalertsv3metricfilter) |  |
-| `threshold` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
-| `min_non_null_values_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-
-<h2 id="comcoralogixapisalertsv3metrictimewindow" name="comcoralogixapisalertsv3metrictimewindow">MetricTimeWindow <small>(<code>com.coralogixapis.alerts.v3.MetricTimeWindow</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>type</code></small><br>`metric_time_window_specific_value` | [`MetricTimeWindowValue`](#comcoralogixapisalertsv3metrictimewindowvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3metriclessthanorequalsalerttypedefinition" name="comcoralogixapisalertsv3metriclessthanorequalsalerttypedefinition">MetricLessThanOrEqualsAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricLessThanOrEqualsAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3metricmorethanorequalstypedefinition" name="comcoralogixapisalertsv3metricmorethanorequalstypedefinition">MetricMoreThanOrEqualsTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricMoreThanOrEqualsTypeDefinition</code>)</small></h2>
 
 
 
@@ -709,7 +610,26 @@ Represents The non generated alert properties (the ones that are set by the user
 | `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 | `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
 | `missing_values` | [`MetricMissingValues`](#comcoralogixapisalertsv3metricmissingvalues) |  |
-| <small><strong>optional</strong></small><br>`undetected_values_management` | [`optionalUndetectedValuesManagement`](#comcoralogixapisalertsv3undetectedvaluesmanagement) |  |
+
+<h2 id="comcoralogixapisalertsv3metricmorethantypedefinition" name="comcoralogixapisalertsv3metricmorethantypedefinition">MetricMoreThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricMoreThanTypeDefinition</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `metric_filter` | [`MetricFilter`](#comcoralogixapisalertsv3metricfilter) |  |
+| `threshold` | [`google.protobuf.FloatValue`](#googleprotobuffloatvalue) |  |
+| `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
+| `missing_values` | [`MetricMissingValues`](#comcoralogixapisalertsv3metricmissingvalues) |  |
+
+<h2 id="comcoralogixapisalertsv3metrictimewindow" name="comcoralogixapisalertsv3metrictimewindow">MetricTimeWindow <small>(<code>com.coralogixapis.alerts.v3.MetricTimeWindow</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>type</code></small><br>`metric_time_window_specific_value` | [`MetricTimeWindowValue`](#comcoralogixapisalertsv3metrictimewindowvalue) |  |
 
 <h2 id="comcoralogixapisalertsv3metricmissingvalues" name="comcoralogixapisalertsv3metricmissingvalues">MetricMissingValues <small>(<code>com.coralogixapis.alerts.v3.MetricMissingValues</code>)</small></h2>
 
@@ -720,19 +640,19 @@ Represents The non generated alert properties (the ones that are set by the user
 | <small><strong>oneof</strong> <code>missing_values</code></small><br>`replace_with_zero` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
 | <small><strong>oneof</strong> <code>missing_values</code></small><br>`min_non_null_values_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 
-<h2 id="comcoralogixapisalertsv3metricmorethanalerttypedefinition" name="comcoralogixapisalertsv3metricmorethanalerttypedefinition">MetricMoreThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricMoreThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3metriclessthanusualtypedefinition" name="comcoralogixapisalertsv3metriclessthanusualtypedefinition">MetricLessThanUsualTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricLessThanUsualTypeDefinition</code>)</small></h2>
 
 
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
 | `metric_filter` | [`MetricFilter`](#comcoralogixapisalertsv3metricfilter) |  |
-| `threshold` | [`google.protobuf.FloatValue`](#googleprotobuffloatvalue) |  |
+| `threshold` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 | `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 | `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
-| `missing_values` | [`MetricMissingValues`](#comcoralogixapisalertsv3metricmissingvalues) |  |
+| `min_non_null_values_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 
-<h2 id="comcoralogixapisalertsv3metriclessthanalerttypedefinition" name="comcoralogixapisalertsv3metriclessthanalerttypedefinition">MetricLessThanAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricLessThanAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3metriclessthanorequalstypedefinition" name="comcoralogixapisalertsv3metriclessthanorequalstypedefinition">MetricLessThanOrEqualsTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricLessThanOrEqualsTypeDefinition</code>)</small></h2>
 
 
 
@@ -745,7 +665,19 @@ Represents The non generated alert properties (the ones that are set by the user
 | `missing_values` | [`MetricMissingValues`](#comcoralogixapisalertsv3metricmissingvalues) |  |
 | <small><strong>optional</strong></small><br>`undetected_values_management` | [`optionalUndetectedValuesManagement`](#comcoralogixapisalertsv3undetectedvaluesmanagement) |  |
 
-<h2 id="comcoralogixapisalertsv3metricmorethanorequalsalerttypedefinition" name="comcoralogixapisalertsv3metricmorethanorequalsalerttypedefinition">MetricMoreThanOrEqualsAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricMoreThanOrEqualsAlertTypeDefinition</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3metricmorethanusualtypedefinition" name="comcoralogixapisalertsv3metricmorethanusualtypedefinition">MetricMoreThanUsualTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricMoreThanUsualTypeDefinition</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `metric_filter` | [`MetricFilter`](#comcoralogixapisalertsv3metricfilter) |  |
+| `threshold` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
+| `min_non_null_values_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+
+<h2 id="comcoralogixapisalertsv3metriclessthantypedefinition" name="comcoralogixapisalertsv3metriclessthantypedefinition">MetricLessThanTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.MetricLessThanTypeDefinition</code>)</small></h2>
 
 
 
@@ -756,15 +688,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | `for_over_pct` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 | `of_the_last` | [`MetricTimeWindow`](#comcoralogixapisalertsv3metrictimewindow) |  |
 | `missing_values` | [`MetricMissingValues`](#comcoralogixapisalertsv3metricmissingvalues) |  |
-
-<h2 id="comcoralogixapisalertsv3flowalerttypedefinition" name="comcoralogixapisalertsv3flowalerttypedefinition">FlowAlertTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.FlowAlertTypeDefinition</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| `stages` | [`repeatedFlowStages`](#comcoralogixapisalertsv3flowstages) |  |
-| `enforce_suppression` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
+| <small><strong>optional</strong></small><br>`undetected_values_management` | [`optionalUndetectedValuesManagement`](#comcoralogixapisalertsv3undetectedvaluesmanagement) |  |
 
 <h2 id="comcoralogixapisalertsv3flowstages" name="comcoralogixapisalertsv3flowstages">FlowStages <small>(<code>com.coralogixapis.alerts.v3.FlowStages</code>)</small></h2>
 
@@ -782,7 +706,7 @@ Represents The non generated alert properties (the ones that are set by the user
 
 | Field | Type | Description |
 | ------| ---- | ----------- |
-| `alerts` | [`repeatedFlowStagesGroupsAlerts`](#comcoralogixapisalertsv3flowstagesgroupsalerts) |  |
+| `alert_defs` | [`repeatedFlowStagesGroupsAlertDefs`](#comcoralogixapisalertsv3flowstagesgroupsalertdefs) |  |
 | `next_op` | [`NextOp`](#comcoralogixapisalertsv3nextop) |  |
 | `alerts_op` | [`AlertsOp`](#comcoralogixapisalertsv3alertsop) |  |
 
@@ -794,7 +718,7 @@ Represents The non generated alert properties (the ones that are set by the user
 | ------| ---- | ----------- |
 | `groups` | [`repeatedFlowStagesGroup`](#comcoralogixapisalertsv3flowstagesgroup) |  |
 
-<h2 id="comcoralogixapisalertsv3flowstagesgroupsalerts" name="comcoralogixapisalertsv3flowstagesgroupsalerts">FlowStagesGroupsAlerts <small>(<code>com.coralogixapis.alerts.v3.FlowStagesGroupsAlerts</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3flowstagesgroupsalertdefs" name="comcoralogixapisalertsv3flowstagesgroupsalertdefs">FlowStagesGroupsAlertDefs <small>(<code>com.coralogixapis.alerts.v3.FlowStagesGroupsAlertDefs</code>)</small></h2>
 
 
 
@@ -803,15 +727,135 @@ Represents The non generated alert properties (the ones that are set by the user
 | `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
 | `not` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
 
+<h2 id="comcoralogixapisalertsv3flowtypedefinition" name="comcoralogixapisalertsv3flowtypedefinition">FlowTypeDefinition <small>(<code>com.coralogixapis.alerts.v3.FlowTypeDefinition</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `stages` | [`repeatedFlowStages`](#comcoralogixapisalertsv3flowstages) |  |
+| `enforce_suppression` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefincidentsettings" name="comcoralogixapisalertsv3alertdefincidentsettings">AlertDefIncidentSettings <small>(<code>com.coralogixapis.alerts.v3.AlertDefIncidentSettings</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| `notify_on` | [`NotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
+| `use_as_notification_settings` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefnotification" name="comcoralogixapisalertsv3alertdefnotification">AlertDefNotification <small>(<code>com.coralogixapis.alerts.v3.AlertDefNotification</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| <small><strong>optional</strong></small><br>`notify_on` | [`optionalNotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
+| <small><strong>oneof</strong> <code>integration_type</code></small><br>`integration_id` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| <small><strong>oneof</strong> <code>integration_type</code></small><br>`recipients` | [`Recipients`](#comcoralogixapisalertsv3recipients) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefnotificationgroup" name="comcoralogixapisalertsv3alertdefnotificationgroup">AlertDefNotificationGroup <small>(<code>com.coralogixapis.alerts.v3.AlertDefNotificationGroup</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `group_by_fields` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+| `notifications` | [`repeatedAlertDefNotification`](#comcoralogixapisalertsv3alertdefnotification) |  |
+
+<h2 id="comcoralogixapisalertsv3recipients" name="comcoralogixapisalertsv3recipients">Recipients <small>(<code>com.coralogixapis.alerts.v3.Recipients</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `emails` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdef" name="comcoralogixapisalertsv3alertdef">AlertDef <small>(<code>com.coralogixapis.alerts.v3.AlertDef</code>)</small></h2>
+Represents An Existing or Created Alert Definition
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `alert_def_properties` | [`AlertDefProperties`](#comcoralogixapisalertsv3alertdefproperties) |  |
+| `id` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) | This is the Alert Definition's Persistent ID (does not change on replace) , AKA UniqueIdentifier |
+| `created_time` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
+| `updated_time` | [`google.protobuf.Timestamp`](#googleprotobuftimestamp) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefproperties" name="comcoralogixapisalertsv3alertdefproperties">AlertDefProperties <small>(<code>com.coralogixapis.alerts.v3.AlertDefProperties</code>)</small></h2>
+Represents The non generated alert definition properties (the ones that are set by the user)
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `name` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+| `description` | [`google.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+| `enabled` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
+| `priority` | [`AlertDefPriority`](#comcoralogixapisalertsv3alertdefpriority) |  |
+| <small><strong>oneof</strong> <code>schedule</code></small><br>`active_on` | [`ActivitySchedule`](#comcoralogixapisalertsv3activityschedule) |  |
+| `alert_def_type` | [`AlertDefType`](#comcoralogixapisalertsv3alertdeftype) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_immediate` | [`LogsImmediateTypeDefinition`](#comcoralogixapisalertsv3logsimmediatetypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_more_than` | [`LogsMoreThanTypeDefinition`](#comcoralogixapisalertsv3logsmorethantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_less_than` | [`LogsLessThanTypeDefinition`](#comcoralogixapisalertsv3logslessthantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_more_than_usual` | [`LogsMoreThanUsualTypeDefinition`](#comcoralogixapisalertsv3logsmorethanusualtypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_ratio_more_than` | [`LogsRatioMoreThanTypeDefinition`](#comcoralogixapisalertsv3logsratiomorethantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_ratio_less_than` | [`LogsRatioLessThanTypeDefinition`](#comcoralogixapisalertsv3logsratiolessthantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_new_value` | [`LogsNewValueTypeDefinition`](#comcoralogixapisalertsv3logsnewvaluetypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_unique_count` | [`LogsUniqueCountTypeDefinition`](#comcoralogixapisalertsv3logsuniquecounttypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_time_relative_more_than` | [`LogsTimeRelativeMoreThanTypeDefinition`](#comcoralogixapisalertsv3logstimerelativemorethantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`logs_time_relative_less_than` | [`LogsTimeRelativeLessThanTypeDefinition`](#comcoralogixapisalertsv3logstimerelativelessthantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`metric_more_than` | [`MetricMoreThanTypeDefinition`](#comcoralogixapisalertsv3metricmorethantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`metric_less_than` | [`MetricLessThanTypeDefinition`](#comcoralogixapisalertsv3metriclessthantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`metric_more_than_usual` | [`MetricMoreThanUsualTypeDefinition`](#comcoralogixapisalertsv3metricmorethanusualtypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`tracing_immediate` | [`TracingImmediateTypeDefinition`](#comcoralogixapisalertsv3tracingimmediatetypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`tracing_more_than` | [`TracingMoreThanTypeDefinition`](#comcoralogixapisalertsv3tracingmorethantypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`flow` | [`FlowTypeDefinition`](#comcoralogixapisalertsv3flowtypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`metric_less_than_usual` | [`MetricLessThanUsualTypeDefinition`](#comcoralogixapisalertsv3metriclessthanusualtypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`metric_more_than_or_equals` | [`MetricMoreThanOrEqualsTypeDefinition`](#comcoralogixapisalertsv3metricmorethanorequalstypedefinition) |  |
+| <small><strong>oneof</strong> <code>type_definition</code></small><br>`metric_less_than_or_equals` | [`MetricLessThanOrEqualsTypeDefinition`](#comcoralogixapisalertsv3metriclessthanorequalstypedefinition) |  |
+| `group_by` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
+| `incidents_settings` | [`AlertDefIncidentSettings`](#comcoralogixapisalertsv3alertdefincidentsettings) |  |
+| `notification_group` | [`AlertDefNotificationGroup`](#comcoralogixapisalertsv3alertdefnotificationgroup) |  |
+| `labels` | [`mapAlertDefProperties.LabelsEntry`](#comcoralogixapisalertsv3alertdefpropertieslabelsentry) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefpropertieslabelsentry" name="comcoralogixapisalertsv3alertdefpropertieslabelsentry">AlertDefProperties.LabelsEntry <small>(<code>com.coralogixapis.alerts.v3.AlertDefProperties.LabelsEntry</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `key` | [`string`](#string) |  |
+| `value` | [`string`](#string) |  |
+
 
 <h1 id="enums" name="enums">Enums</h1>
-<h2 id="comcoralogixapisalertsv3notifyon" name="comcoralogixapisalertsv3notifyon">NotifyOn <small>(<code>com.coralogixapis.alerts.v3.NotifyOn</code>)</small></h2>
+<h2 id="comcoralogixapisalertsv3alertdeftype" name="comcoralogixapisalertsv3alertdeftype">AlertDefType <small>(<code>com.coralogixapis.alerts.v3.AlertDefType</code>)</small></h2>
 
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| `NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED` | `0` |  |
-| `NOTIFY_ON_TRIGGERED_AND_RESOLVED` | `1` |  |
+| `ALERT_DEF_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED` | `0` |  |
+| `ALERT_DEF_TYPE_LOGS_MORE_THAN` | `1` |  |
+| `ALERT_DEF_TYPE_LOGS_LESS_THAN` | `2` |  |
+| `ALERT_DEF_TYPE_LOGS_MORE_THAN_USUAL` | `3` |  |
+| `ALERT_DEF_TYPE_LOGS_RATIO_MORE_THAN` | `4` |  |
+| `ALERT_DEF_TYPE_LOGS_RATIO_LESS_THAN` | `5` |  |
+| `ALERT_DEF_TYPE_LOGS_NEW_VALUE` | `6` |  |
+| `ALERT_DEF_TYPE_LOGS_UNIQUE_COUNT` | `7` |  |
+| `ALERT_DEF_TYPE_LOGS_TIME_RELATIVE_MORE_THAN` | `8` |  |
+| `ALERT_DEF_TYPE_LOGS_TIME_RELATIVE_LESS_THAN` | `9` |  |
+| `ALERT_DEF_TYPE_METRIC_MORE_THAN` | `10` |  |
+| `ALERT_DEF_TYPE_METRIC_LESS_THAN` | `11` |  |
+| `ALERT_DEF_TYPE_METRIC_MORE_THAN_USUAL` | `14` |  |
+| `ALERT_DEF_TYPE_TRACING_IMMEDIATE` | `15` |  |
+| `ALERT_DEF_TYPE_TRACING_MORE_THAN` | `16` |  |
+| `ALERT_DEF_TYPE_FLOW` | `17` |  |
+| `ALERT_DEF_TYPE_METRIC_MORE_THAN_OR_EQUALS` | `18` |  |
+| `ALERT_DEF_TYPE_METRIC_LESS_THAN_OR_EQUALS` | `19` |  |
+| `ALERT_DEF_TYPE_METRIC_LESS_THAN_USUAL` | `21` |  |
 
 <h2 id="comcoralogixapisalertsv3dayofweek" name="comcoralogixapisalertsv3dayofweek">DayOfWeek <small>(<code>com.coralogixapis.alerts.v3.DayOfWeek</code>)</small></h2>
 
@@ -825,42 +869,6 @@ Represents The non generated alert properties (the ones that are set by the user
 | `DAY_OF_WEEK_FRIDAY` | `4` |  |
 | `DAY_OF_WEEK_SATURDAY` | `5` |  |
 | `DAY_OF_WEEK_SUNDAY` | `6` |  |
-
-<h2 id="comcoralogixapisalertsv3alertpriority" name="comcoralogixapisalertsv3alertpriority">AlertPriority <small>(<code>com.coralogixapis.alerts.v3.AlertPriority</code>)</small></h2>
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| `ALERT_PRIORITY_P5_OR_UNSPECIFIED` | `0` |  |
-| `ALERT_PRIORITY_P4` | `1` |  |
-| `ALERT_PRIORITY_P3` | `2` |  |
-| `ALERT_PRIORITY_P2` | `3` |  |
-| `ALERT_PRIORITY_P1` | `4` |  |
-
-<h2 id="comcoralogixapisalertsv3alerttype" name="comcoralogixapisalertsv3alerttype">AlertType <small>(<code>com.coralogixapis.alerts.v3.AlertType</code>)</small></h2>
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| `ALERT_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED` | `0` |  |
-| `ALERT_TYPE_LOGS_MORE_THAN` | `1` |  |
-| `ALERT_TYPE_LOGS_LESS_THAN` | `2` |  |
-| `ALERT_TYPE_LOGS_MORE_THAN_USUAL` | `3` |  |
-| `ALERT_TYPE_LOGS_RATIO_MORE_THAN` | `4` |  |
-| `ALERT_TYPE_LOGS_RATIO_LESS_THAN` | `5` |  |
-| `ALERT_TYPE_LOGS_NEW_VALUE` | `6` |  |
-| `ALERT_TYPE_LOGS_UNIQUE_COUNT` | `7` |  |
-| `ALERT_TYPE_LOGS_TIME_RELATIVE_MORE_THAN` | `8` |  |
-| `ALERT_TYPE_LOGS_TIME_RELATIVE_LESS_THAN` | `9` |  |
-| `ALERT_TYPE_METRIC_MORE_THAN` | `10` |  |
-| `ALERT_TYPE_METRIC_LESS_THAN` | `11` |  |
-| `ALERT_TYPE_METRIC_MORE_THAN_USUAL` | `14` |  |
-| `ALERT_TYPE_TRACING_IMMEDIATE` | `15` |  |
-| `ALERT_TYPE_TRACING_MORE_THAN` | `16` |  |
-| `ALERT_TYPE_FLOW` | `17` |  |
-| `ALERT_TYPE_METRIC_MORE_THAN_OR_EQUALS` | `18` |  |
-| `ALERT_TYPE_METRIC_LESS_THAN_OR_EQUALS` | `19` |  |
-| `ALERT_TYPE_METRIC_LESS_THAN_USUAL` | `21` | ALERT_TYPE_LOGS_LESS_THAN_USUAL = 20; |
 
 <h2 id="comcoralogixapisalertsv3orderbydirection" name="comcoralogixapisalertsv3orderbydirection">OrderByDirection <small>(<code>com.coralogixapis.alerts.v3.OrderByDirection</code>)</small></h2>
 
@@ -1099,6 +1107,25 @@ Represents The non generated alert properties (the ones that are set by the user
 | ---- | ------ | ----------- |
 | `TIMEFRAME_TYPE_UNSPECIFIED` | `0` |  |
 | `TIMEFRAME_TYPE_UP_TO` | `1` |  |
+
+<h2 id="comcoralogixapisalertsv3notifyon" name="comcoralogixapisalertsv3notifyon">NotifyOn <small>(<code>com.coralogixapis.alerts.v3.NotifyOn</code>)</small></h2>
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| `NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED` | `0` |  |
+| `NOTIFY_ON_TRIGGERED_AND_RESOLVED` | `1` |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefpriority" name="comcoralogixapisalertsv3alertdefpriority">AlertDefPriority <small>(<code>com.coralogixapis.alerts.v3.AlertDefPriority</code>)</small></h2>
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| `ALERT_DEF_PRIORITY_P5_OR_UNSPECIFIED` | `0` |  |
+| `ALERT_DEF_PRIORITY_P4` | `1` |  |
+| `ALERT_DEF_PRIORITY_P3` | `2` |  |
+| `ALERT_DEF_PRIORITY_P2` | `3` |  |
+| `ALERT_DEF_PRIORITY_P1` | `4` |  |
 
 
 <h1 id="scalar-value-types" name="scalar-value-types">Scalar Value Types</h1>
