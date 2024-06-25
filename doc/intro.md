@@ -1,8 +1,8 @@
 # Alerts gRPC API Reference
 
 ## Overview
-
-This document outlines Coralogix's V3 Alerts API. It is fully backward compatible with the previous versions, it is much more simple and is designed to be more user-friendly. furthermore as this uses protobuf, this can be used with clients that supports autocomplete ( like Postman's GRPC ).
+****
+This document outlines Coralogix's V3 AlertDefs API. It is fully backward compatible with the previous versions, it is much more simple and is designed to be more user-friendly. furthermore as this uses protobuf, this can be used with clients that supports autocomplete ( like Postman's GRPC ).
 
 ### Prerequisites
 
@@ -29,16 +29,16 @@ Then, use one of our designated **[Management Endpoints](https://coralogix.com/d
 -d @ ng-api-grpc.coralogix.com:443
 ```
 
-For the Alerts Service API, the service name will be `AlertsService`.
+For the Alert Defs Service API, the service name will be `AlertDefsService`.
 
 ```bash
-com.coralogixapis.alerts.v3.AlertsService
+com.coralogixapis.alerts.v3.AlertDefsService
 ```
 
 The complete request header should look like this:
 
 ```bash
-grpcurl -H "Authorization: Bearer API_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/
+grpcurl -H "Authorization: Bearer API_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertDefsService/
 ```
 
 ### Sample Requests
@@ -46,9 +46,9 @@ grpcurl -H "Authorization: Bearer API_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
 Create a simple Logs Immediate alert (aka, standard with condition immediate)
 
 ```bash
-grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
+grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertDefsService/CreateAlertDef <<EOF 
 {
-    "alert_properties": {
+    "alert_def_properties": {
         "name": {
             "value": "logs-immediate"
         },
@@ -58,8 +58,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
         "enabled": {
             "value": true
         },
-        "alert_priority": "ALERT_PRIORITY_P3",
-        "alert_type": "ALERT_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED",
+        "priority": "ALERT_DEF_PRIORITY_P3",
+        "alert_def_type": "ALERT_DEF_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED",
         "incidents_settings": {
             "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
             "use_as_notification_settings": {
@@ -118,9 +118,9 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
 
 ```bash
 {
-    "alert": {
-        "properties": {
-            "alert_group_bys": [],
+    "alert_def": {
+        "alert_def_properties": {
+            "group_by": [],
             "labels": [],
             "name": {
                 "value": "logs-immediatea"
@@ -131,8 +131,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
             "enabled": {
                 "value": true
             },
-            "alert_priority": "ALERT_PRIORITY_P3",
-            "alert_type": "ALERT_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED",
+            "priority": "ALERT_DEF_PRIORITY_P3",
+            "alert_def_type": "ALERT_DEF_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED",
             "incidents_settings": {
                 "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
                 "use_as_notification_settings": {
@@ -205,7 +205,7 @@ Create a Logs more than alert (aka, standard with condition more than)
 ```bash
 grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
 {
-    "alert_properties": {
+    "alert_def_properties": {
         "name": {
             "value": "logs-more than"
         },
@@ -215,8 +215,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
         "enabled": {
             "value": true
         },
-        "alert_priority": "ALERT_PRIORITY_P3",
-        "alert_type": "ALERT_TYPE_LOGS_MORE_THAN",
+        "priority": "ALERT_DEF_PRIORITY_P3",
+        "alert_def_type": "ALERT_DEF_TYPE_LOGS_MORE_THAN",
         "incidents_settings": {
             "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
             "use_as_notification_settings": {
@@ -277,9 +277,9 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
 
 ```bash
 {
-    "alert": {
-        "properties": {
-            "alert_group_bys": [],
+    "alert_def": {
+        "alert_def_properties": {
+            "group_by": [],
             "labels": [],
             "name": {
                 "value": "logs-more than"
@@ -290,8 +290,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
             "enabled": {
                 "value": true
             },
-            "alert_priority": "ALERT_PRIORITY_P3",
-            "alert_type": "ALERT_TYPE_LOGS_MORE_THAN",
+            "priority": "ALERT_DEF_PRIORITY_P3",
+            "alert_def_type": "ALERT_DEF_TYPE_LOGS_MORE_THAN",
             "incidents_settings": {
                 "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
                 "use_as_notification_settings": {
@@ -369,7 +369,7 @@ Create a metric more than alert
 ```bash
 grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:443 com.coralogixapis.alerts.v3.AlertsService/CreateAlert <<EOF 
 {
-    "alert_properties": {
+    "alert_def_properties": {
         "name": {
             "value": "metrics-more than"
         },
@@ -379,8 +379,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
         "enabled": {
             "value": true
         },
-        "alert_priority": "ALERT_PRIORITY_P3",
-        "alert_type": "ALERT_TYPE_METRIC_MORE_THAN",
+        "alert_def_priority": "ALERT_DEF_PRIORITY_P3",
+        "alert_def_type": "ALERT_DEF_TYPE_METRIC_MORE_THAN",
         "incidents_settings": {
             "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
             "use_as_notification_settings": {
@@ -432,8 +432,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
 
 ```bash
 {
-    "alert": {
-        "properties": {
+    "alert_def": {
+        "alert_def_properties": {
             "alert_group_bys": [
                 {
                     "value": "pod"
@@ -449,8 +449,8 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
             "enabled": {
                 "value": true
             },
-            "alert_priority": "ALERT_PRIORITY_P3",
-            "alert_type": "ALERT_TYPE_METRIC_MORE_THAN",
+            "alert_def_priority": "ALERT_DEF_PRIORITY_P3",
+            "alert_def_type": "ALERT_DEF_TYPE_METRIC_MORE_THAN",
             "incidents_settings": {
                 "notify_on": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
                 "use_as_notification_settings": {
