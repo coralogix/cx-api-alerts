@@ -4,14 +4,6 @@
 ****
 This document outlines Coralogix's V3 AlertDefs API. It is fully backward compatible with the previous versions, it is much more simple and is designed to be more user-friendly. furthermore as this uses protobuf, this can be used with clients that supports autocomplete ( like Postman's GRPC ).
 
-### Prerequisites
-
-Before you begin, please make sure you have the following:
-
-- [API Key for Alerts, Rules & Tags to successfully authenticate.](https://coralogix.com/docs/alerts-rules-tags-api-key/)
-- [Management API Endpoint that corresponds with your Coralogix subscription.](https://coralogix.com/docs/management-api-endpoints/)
-- Administrator permissions to manage your services.
-
 ## Authentication
 
 Coralogix API uses API keys to authenticate requests. You can view and [manage your API keys](https://coralogix.com/docs/alerts-rules-tags-api-key/) from the Data Flow tab in Coralogix. You need to use this API key in the Authorization request
@@ -516,4 +508,4 @@ grpcurl -H "Authorization: Bearer APY_KEY_HERE" -d @ ng-api-grpc.coralogix.com:4
 ```
 ## API Endpoints
 
-https://github.com/coralogix/cx-api-alerts/blob/generate-docs/doc/docs.md
+https://github.com/coralogix/cx-api-alerts/blob/master/doc/AlertsGrpcApiReference.md
