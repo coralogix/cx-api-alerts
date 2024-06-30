@@ -634,6 +634,24 @@ message ValidateAlertResponse {
 | `stages` | [`repeatedFlowStages`](#comcoralogixapisalertsv3flowstages) |  |
 | `enforce_suppression` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
 
+<h2 id="comcoralogixapisalertsv3alertdefadvancedtargetsettings" name="comcoralogixapisalertsv3alertdefadvancedtargetsettings">AlertDefAdvancedTargetSettings <small>(<code>com.coralogixapis.alerts.v3.AlertDefAdvancedTargetSettings</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| <small><strong>optional</strong></small><br>`notify_on` | [`optionalNotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
+| `integration` | [`IntegrationType`](#comcoralogixapisalertsv3integrationtype) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdefadvancedtargets" name="comcoralogixapisalertsv3alertdefadvancedtargets">AlertDefAdvancedTargets <small>(<code>com.coralogixapis.alerts.v3.AlertDefAdvancedTargets</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `advanced_targets_settings` | [`repeatedAlertDefAdvancedTargetSettings`](#comcoralogixapisalertsv3alertdefadvancedtargetsettings) |  |
+
 <h2 id="comcoralogixapisalertsv3alertdefincidentsettings" name="comcoralogixapisalertsv3alertdefincidentsettings">AlertDefIncidentSettings <small>(<code>com.coralogixapis.alerts.v3.AlertDefIncidentSettings</code>)</small></h2>
 
 
@@ -642,18 +660,6 @@ message ValidateAlertResponse {
 | ------| ---- | ----------- |
 | <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
 | `notify_on` | [`NotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
-| `use_as_notification_settings` | [`google.protobuf.BoolValue`](#googleprotobufboolvalue) |  |
-
-<h2 id="comcoralogixapisalertsv3alertdefnotification" name="comcoralogixapisalertsv3alertdefnotification">AlertDefNotification <small>(<code>com.coralogixapis.alerts.v3.AlertDefNotification</code>)</small></h2>
-
-
-
-| Field | Type | Description |
-| ------| ---- | ----------- |
-| <small><strong>oneof</strong> <code>retriggering_period</code></small><br>`minutes` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| <small><strong>optional</strong></small><br>`notify_on` | [`optionalNotifyOn`](#comcoralogixapisalertsv3notifyon) |  |
-| <small><strong>oneof</strong> <code>integration_type</code></small><br>`integration_id` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
-| <small><strong>oneof</strong> <code>integration_type</code></small><br>`recipients` | [`Recipients`](#comcoralogixapisalertsv3recipients) |  |
 
 <h2 id="comcoralogixapisalertsv3alertdefnotificationgroup" name="comcoralogixapisalertsv3alertdefnotificationgroup">AlertDefNotificationGroup <small>(<code>com.coralogixapis.alerts.v3.AlertDefNotificationGroup</code>)</small></h2>
 
@@ -662,7 +668,25 @@ message ValidateAlertResponse {
 | Field | Type | Description |
 | ------| ---- | ----------- |
 | `group_by_fields` | [`repeatedgoogle.protobuf.StringValue`](#googleprotobufstringvalue) |  |
-| `notifications` | [`repeatedAlertDefNotification`](#comcoralogixapisalertsv3alertdefnotification) |  |
+| <small><strong>oneof</strong> <code>targets</code></small><br>`advanced` | [`AlertDefAdvancedTargets`](#comcoralogixapisalertsv3alertdefadvancedtargets) |  |
+| <small><strong>oneof</strong> <code>targets</code></small><br>`simple` | [`AlertDefTargetSimple`](#comcoralogixapisalertsv3alertdeftargetsimple) |  |
+
+<h2 id="comcoralogixapisalertsv3alertdeftargetsimple" name="comcoralogixapisalertsv3alertdeftargetsimple">AlertDefTargetSimple <small>(<code>com.coralogixapis.alerts.v3.AlertDefTargetSimple</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| `integrations` | [`repeatedIntegrationType`](#comcoralogixapisalertsv3integrationtype) |  |
+
+<h2 id="comcoralogixapisalertsv3integrationtype" name="comcoralogixapisalertsv3integrationtype">IntegrationType <small>(<code>com.coralogixapis.alerts.v3.IntegrationType</code>)</small></h2>
+
+
+
+| Field | Type | Description |
+| ------| ---- | ----------- |
+| <small><strong>oneof</strong> <code>integration_type</code></small><br>`integration_id` | [`google.protobuf.UInt32Value`](#googleprotobufuint32value) |  |
+| <small><strong>oneof</strong> <code>integration_type</code></small><br>`recipients` | [`Recipients`](#comcoralogixapisalertsv3recipients) |  |
 
 <h2 id="comcoralogixapisalertsv3recipients" name="comcoralogixapisalertsv3recipients">Recipients <small>(<code>com.coralogixapis.alerts.v3.Recipients</code>)</small></h2>
 
