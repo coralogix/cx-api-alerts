@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/standard/logs_timewindow.proto";
+
+message LogsMultipleConditionsMoreThan {
+  google.protobuf.UInt32Value threshold = 1;
+  LogsTimeWindow time_window = 2;
+  // we need to talk about the rolling window. - ask maayan if wwe should add this per condition or globally
+//  EvaluationWindow evaluation_window = 3;
+}
+
+enum EvaluationWindow {
+  EVALUATION_WINDOW_ROLLING_OR_UNSPECIFIED = 0;
+  EVALUATION_WINDOW_DYNAMIC = 1;
+}

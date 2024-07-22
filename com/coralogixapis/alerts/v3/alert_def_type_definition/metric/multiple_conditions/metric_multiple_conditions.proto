@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/multiple_conditions/metric_multiple_conditions_more_than.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/multiple_conditions/metric_multiple_conditions_more_than_or_equals.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/multiple_conditions/metric_multiple_conditions_less_than.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/multiple_conditions/metric_multiple_conditions_less_than_or_equals.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/undetected_values_management.proto";
+
+message MetricMultipleConditions {
+  AlertDefPriority priority = 1;
+
+  oneof condition_definition {
+    MetricMultipleConditionsMoreThan more_than = 100;
+    MetricMultipleConditionsMoreThanOrEquals more_than_or_equals = 101;
+    MetricMultipleConditionsLessThan less_than = 102;
+    MetricMultipleConditionsLessThanOrEquals less_than_or_equals = 103;
+  }
+
+  optional UndetectedValuesManagement undetected_values_management = 6;
+
+}
