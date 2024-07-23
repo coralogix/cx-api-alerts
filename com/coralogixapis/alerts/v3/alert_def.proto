@@ -50,27 +50,20 @@ message AlertDefProperties {
   oneof schedule {
     ActivitySchedule active_on = 5;
   }
-  AlertDefType alert_def_type = 6;
+  AlertDefType type =6;
   oneof type_definition {
-    LogsImmediateTypeDefinition logs_immediate = 100;
-    LogsMoreThanTypeDefinition logs_more_than = 101;
-    LogsLessThanTypeDefinition logs_less_than = 102;
-    LogsMoreThanUsualTypeDefinition logs_more_than_usual = 103;
-    LogsRatioMoreThanTypeDefinition logs_ratio_more_than = 104;
-    LogsRatioLessThanTypeDefinition logs_ratio_less_than = 105;
-    LogsNewValueTypeDefinition logs_new_value = 106;
-    LogsUniqueCountTypeDefinition logs_unique_count = 107;
-    LogsTimeRelativeMoreThanTypeDefinition logs_time_relative_more_than = 108;
-    LogsTimeRelativeLessThanTypeDefinition logs_time_relative_less_than = 109;
-    MetricMoreThanTypeDefinition metric_more_than = 112;
-    MetricLessThanTypeDefinition metric_less_than = 113;
-    MetricMoreThanUsualTypeDefinition metric_more_than_usual = 114;
-    TracingImmediateTypeDefinition tracing_immediate = 115;
-    TracingMoreThanTypeDefinition tracing_more_than = 116;
-    FlowTypeDefinition flow = 117;
-    MetricLessThanUsualTypeDefinition metric_less_than_usual = 118;
-    MetricMoreThanOrEqualsTypeDefinition metric_more_than_or_equals = 119;
-    MetricLessThanOrEqualsTypeDefinition metric_less_than_or_equals = 120;
+    LogsImmediateType logs_immediate = 101;
+    TracingImmediateType tracing_immediate = 102;
+    LogsThresholdType logs_threshold = 103;
+    LogsRatioThresholdType logs_ratio_threshold = 104;
+    LogsTimeRelativeThresholdType logs_time_relative_threshold = 105;
+    MetricThresholdType metric_threshold = 106;
+    TracingThresholdType tracing_threshold = 107;
+    FlowType flow_def = 108;
+    LogsUnusualType logs_unusual = 109;
+    MetricUnusualType metric_unusual = 110;
+    LogsNewValueType logs_new_value = 111;
+    LogsUniqueCountType logs_unique_count = 112;
   };
   repeated google.protobuf.StringValue group_by = 7;
   AlertDefIncidentSettings incidents_settings = 8;
