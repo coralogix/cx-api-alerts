@@ -9,22 +9,30 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/activity_analysis/
 import "com/coralogixapis/alerts/v3/alert_def.proto";
 
 message Alert {
-  repeated AlertItem items = 1;
-  AlertDef definition = 2;
+  repeated AlertItem items_triggered = 1; //max 10
+  repeated AlertItem items_resolved = 2; // max 10
+//  AlertDef definition = 2;
+  AlertStatistics statistics = 3;
+  google.protobuf.Timestamp timestamp = 4;
+  map<string, string> group_labels = 5;
+  google.protobuf.StringValue incident_correlation_key = 6;
 }
 
 message AlertItem {
   map<string, string> permutation_labels = 1;
-  map<string, string> group_labels = 2;
-  google.protobuf.Timestamp timestamp = 3;
   AlertStatus status = 5;
   google.protobuf.Struct payload = 7;
   google.protobuf.StringValue payload_type = 8;
-  google.protobuf.StringValue incident_correlation_key = 10;
   optional ActivityAnalysis activity_analysis = 11;
 }
 
 enum AlertStatus {
   ALERT_STATUS_RESOLVED_OR_UNSPECIFIED = 0;
   ALERT_STATUS_TRIGGERED = 1;
+}
+
+message AlertStatistics {
+  google.protobuf.UInt64Value count = 1;
+  google.protobuf.UInt64Value resolved_count = 2;
+  google.protobuf.UInt64Value triggered_count = 3;
 }
