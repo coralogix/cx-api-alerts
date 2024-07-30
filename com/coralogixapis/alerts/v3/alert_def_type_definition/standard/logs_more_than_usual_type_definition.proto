@@ -10,10 +10,10 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/overrides.proto";
 
 message LogsUnusualType  {
     LogsFilter logs_filter = 1;
-    LogsTimeRelativeRule rule = 2;
+    LogsUnusualRule rule = 2;
     repeated google.protobuf.StringValue notification_payload_filter = 3;
 }
-message LogsTimeRelativeRule {
+message LogsUnusualRule {
     LogsUnusualCondition condition = 1;
     AlertDefOverride override = 2;
 }

@@ -59,7 +59,7 @@ message AlertDefProperties {
     LogsTimeRelativeThresholdType logs_time_relative_threshold = 105;
     MetricThresholdType metric_threshold = 106;
     TracingThresholdType tracing_threshold = 107;
-    FlowType flow_def = 108;
+    FlowType flow = 108;
     LogsUnusualType logs_unusual = 109;
     MetricUnusualType metric_unusual = 110;
     LogsNewValueType logs_new_value = 111;
