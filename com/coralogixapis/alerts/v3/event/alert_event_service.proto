@@ -74,8 +74,6 @@ message PaginationResponse {
   google.protobuf.StringValue next_page_token = 2;
 }
 
-
-
 message AlertEventMultiplePermutation{
   repeated AlertEvent alert_event_multiple_permutation = 1;
 }

@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/descriptor.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerts/v3/alert_defs_service.proto";
+import "com/coralogixapis/alerts/v3/alert/alert.proto";
+import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type.proto";
+import "com/coralogixapis/alerts/v3/alert_status.proto";
+import "com/coralogixapis/alerts/v3/event/alert_event_service.proto";
+
+service AlertService {
+  rpc ListAlerts(ListAlertsRequest) returns (ListAlertsResponse) {
+    option (audit_log_description).description = "list alerts";
+    option (google.api.http) = {
+      get: "/v3/alerts"
+    };
+  }
+
+  rpc GetFilterValues(GetFilterValuesRequest) returns (GetFilterValuesResponse) {
+    option (audit_log_description).description = "get filter values";
+    option (google.api.http) = {
+      get: "/v3/alerts:getFilterValues"
+    };
+  }
+}
+
+message ListAlertsRequest {
+  AlertFilters filters = 1;
+  repeated AlertOrderBy order_bys = 2;
+  PaginationRequest pagination = 3;
+}
+
+message ListAlertsResponse {
+  repeated Alert alert = 1;
+  PaginationResponse pagination = 2;
+}
+
+message AlertFilters {
+  TimeRange timestamp = 1;
+  repeated AlertStatus status = 2;
+  repeated AlertDefPriority priority = 3;
+  LabelsFilter labels = 4;
+}
+
+message TimeRange {
+  google.protobuf.Timestamp start_time = 1;
+  google.protobuf.Timestamp end_time = 2;
+}
+
+message LabelsFilter {
+  repeated MetaLabel meta_labels = 1;
+  FilterOperator operator = 2;
+}
+
+message MetaLabel {
+  google.protobuf.StringValue key = 1;
+  google.protobuf.StringValue value = 2;
+}
+
+enum FilterOperator {
+  FILTER_OPERATOR_OR_OR_UNSPECIFIED = 0;
+  FILTER_OPERATOR_AND = 1;
+}
+
+message GetFilterValuesRequest {
+  AlertFilters filters = 1;
+}
+
+message GetFilterValuesResponse {
+  StatusWithCount status_with_count = 1;
+  AlertNameWithCount alert_name_with_count = 2;
+  PriorityWithCount priority_with_count = 3;
+  AlertDefTypeWithCount alert_def_type_with_count = 4;
+  LabelsWithCount labels_with_count = 5;
+}
+
+message StatusWithCount {
+  AlertStatus status = 1;
+  google.protobuf.UInt32Value count = 2;
+}
+
+message AlertNameWithCount {
+  google.protobuf.StringValue alert_name = 1;
+  google.protobuf.UInt32Value count = 2;
+}
+
+message PriorityWithCount {
+  AlertDefPriority priority = 1;
+  google.protobuf.UInt32Value count = 2;
+}
+
+message AlertDefTypeWithCount {
+  AlertDefType alert_def_type = 1;
+  google.protobuf.UInt32Value count = 2;
+}
+
+message LabelsWithCount {
+  MetaLabel meta_label = 1;
+  google.protobuf.UInt32Value count = 2;
+}
+
+enum OrderByAlertFields {
+  ORDER_BY_ALERT_FIELDS_UNSPECIFIED = 0;
+  ORDER_BY_ALERT_FIELDS_TIMESTAMP = 1;
+}
+
+enum OrderByAlertDirection {
+  ORDER_BY_ALERT_DIRECTION_UNSPECIFIED = 0;
+  ORDER_BY_ALERT_DIRECTION_ASC = 1;
+  ORDER_BY_ALERT_DIRECTION_DESC = 2;
+}
+
+message AlertOrderBy {
+  OrderByAlertFields field_name = 1;
+  OrderByAlertDirection direction = 2;
+}
