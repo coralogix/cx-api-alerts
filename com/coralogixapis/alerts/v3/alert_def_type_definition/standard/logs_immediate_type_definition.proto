@@ -4,7 +4,7 @@ import "google/protobuf/wrappers.proto";
 
 package com.coralogixapis.alerts.v3;
 
-message LogsImmediateTypeDefinition {
+message LogsImmediateType {
     LogsFilter logs_filter = 1;
     repeated google.protobuf.StringValue notification_payload_filter = 2;
 }

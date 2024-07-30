@@ -5,10 +5,19 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_timewindow.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_query.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_condition_type.proto";
 
-message TracingMoreThanTypeDefinition  {
-    TracingQuery tracing_query = 1;
-    google.protobuf.UInt32Value span_amount = 2;
-    TracingTimeWindow time_window = 3;
-    repeated google.protobuf.StringValue notification_payload_filter = 4;
+message TracingThresholdType  {
+    TracingFilter tracing_query = 1;
+    TracingThresholdRule rule = 2;
+    repeated google.protobuf.StringValue notification_payload_filter = 3;
+}
+message TracingThresholdRule{
+    TracingThresholdCondition condition = 1;
+}
+
+message TracingThresholdCondition{
+    google.protobuf.DoubleValue span_amount = 1;
+    TracingTimeWindow time_window = 2;
+    TracingConditionType condition_type = 3;
 }
