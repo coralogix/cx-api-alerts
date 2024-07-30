@@ -44,7 +44,7 @@ message AlertFilters {
   TimeRange timestamp = 1;
   repeated AlertStatus status = 2;
   repeated AlertDefPriority priority = 3;
-  repeated LabelsFilter labels = 4;
+  LabelsFilter labels = 4;
 }
 
 message TimeRange {
