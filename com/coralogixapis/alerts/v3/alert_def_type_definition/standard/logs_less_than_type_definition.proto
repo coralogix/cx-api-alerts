@@ -11,7 +11,9 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/overrides.proto";
 
 message LogsThresholdType  {
     LogsFilter logs_filter = 1;
+    // is now common for both more than and less than (maybe its relevant for more than somehow? not, then will validate it out if no less then is specified)
     UndetectedValuesManagement undetected_values_management = 2;
+    // set of rules -> the first one to match will be used
     repeated LogsThresholdRule rules = 3;
     repeated google.protobuf.StringValue notification_payload_filter = 4;
 }
