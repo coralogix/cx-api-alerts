@@ -5,7 +5,7 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_query.proto";
 
-message TracingImmediateType  {
-    TracingFilter tracing_filter = 1;
+message TracingImmediateTypeDefinition  {
+    TracingQuery tracing_query = 1;
     repeated google.protobuf.StringValue notification_payload_filter = 2;
 }

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v35;
+
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerts/v3_5/alert_def_type_definition/logs_filter.proto";
+import "com/coralogixapis/alerts/v3_5/alert_def_type_definition/undetected_values_management.proto";
+import "com/coralogixapis/alerts/v3_5/alert_def_type_definition/standard/logs_timewindow.proto";
+import "com/coralogixapis/alerts/v3_5/alert_def_type_definition/logs_condition_type.proto";
+import "com/coralogixapis/alerts/v3_5/alert_def_type_definition/overrides.proto";
+
+message LogsThresholdType  {
+    LogsFilter logs_filter = 1;
+    // is now common for both more than and less than (maybe its relevant for more than somehow? not, then will validate it out if no less then is specified)
+    UndetectedValuesManagement undetected_values_management = 2;
+    // set of rules -> the first one to match will be used
+    repeated LogsThresholdRule rules = 3;
+    repeated google.protobuf.StringValue notification_payload_filter = 4;
+}
+message LogsThresholdRule {
+    LogsThresholdCondition condition = 1;
+    AlertDefOverride override = 2;
+}
+
+message LogsThresholdCondition {
+    google.protobuf.DoubleValue threshold = 1;
+    LogsTimeWindow time_window = 2;
+    LogsConditionType condition_type = 3;
+}

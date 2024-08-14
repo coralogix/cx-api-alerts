@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package com.coralogixapis.alerts.v3;
+package com.coralogixapis.alerts.v35;
 
 
 enum TracingConditionType {

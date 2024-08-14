@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-package com.coralogixapis.alerts.v3;
+package com.coralogixapis.alerts.v35;
 
 message LogsTimeWindow {
+  // this is for the future for dynamic time window
   oneof type {
     LogsTimeWindowValue logs_time_window_specific_value = 1;
   }

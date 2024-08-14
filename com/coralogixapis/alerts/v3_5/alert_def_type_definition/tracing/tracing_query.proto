@@ -1,13 +1,16 @@
 syntax = "proto3";
 
-package com.coralogixapis.alerts.v3;
+package com.coralogixapis.alerts.v35;
 
 import "google/protobuf/wrappers.proto";
 
-message TracingQuery {
-  oneof filters {
-    TracingLabelFilters tracing_label_filters = 1;
+message TracingFilter {
+  oneof filter_type {
+    TracingSimpleFilter simple_filter = 1;
   }
+}
+message TracingSimpleFilter {
+  TracingLabelFilters tracing_label_filters = 1;
   google.protobuf.UInt32Value latency_threshold_ms = 2;
 }
 
