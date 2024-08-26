@@ -19,7 +19,7 @@ message LogsThresholdType  {
 }
 message LogsThresholdRule {
     LogsThresholdCondition condition = 1;
-    AlertDefOverride override = 2;
+//    AlertDefOverride override = 2;
 }
 
 message LogsThresholdCondition {
