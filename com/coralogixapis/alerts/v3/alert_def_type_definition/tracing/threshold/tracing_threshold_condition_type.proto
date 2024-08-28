@@ -4,5 +4,5 @@ package com.coralogixapis.alerts.v3;
 
 
 enum TracingThresholdConditionType {
-  TRACING_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED = 0;
+  TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED = 0;
 }
