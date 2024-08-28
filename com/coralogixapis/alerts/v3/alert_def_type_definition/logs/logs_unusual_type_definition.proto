@@ -21,5 +21,5 @@ message LogsUnusualRule {
 message LogsUnusualCondition {
     google.protobuf.DoubleValue minimum_threshold = 1;
     LogsTimeWindow time_window = 2;
-    LogsUnusualConditionType logs_unusual_condition_type = 3;
+    LogsUnusualConditionType condition_type = 3;
 }
