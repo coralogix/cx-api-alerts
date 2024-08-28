@@ -3,6 +3,6 @@ syntax = "proto3";
 package com.coralogixapis.alerts.v3;
 
 
-enum TracingConditionType {
+enum TracingThresholdConditionType {
   TRACING_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED = 0;
 }

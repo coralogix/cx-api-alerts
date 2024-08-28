@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
-enum MetricConditionType {
+enum MetricThresholdConditionType {
   METRIC_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED = 0;
   METRIC_CONDITION_TYPE_LESS_THAN = 1;
   METRIC_CONDITION_TYPE_MORE_THAN_OR_EQUALS = 2;
