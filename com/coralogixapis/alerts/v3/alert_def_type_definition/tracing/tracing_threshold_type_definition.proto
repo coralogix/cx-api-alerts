@@ -7,16 +7,16 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/threshold/
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/common/tracing_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/threshold/tracing_threshold_condition_type.proto";
 
-message TracingThresholdType  {
+message TracingThresholdType {
     TracingFilter tracing_query = 1;
-    TracingThresholdRule rule = 2;
+    repeated TracingThresholdRule rules = 2;
     repeated google.protobuf.StringValue notification_payload_filter = 3;
 }
-message TracingThresholdRule{
+message TracingThresholdRule {
     TracingThresholdCondition condition = 1;
 }
 
-message TracingThresholdCondition{
+message TracingThresholdCondition {
     google.protobuf.DoubleValue span_amount = 1;
     TracingTimeWindow time_window = 2;
     TracingThresholdConditionType condition_type = 3;

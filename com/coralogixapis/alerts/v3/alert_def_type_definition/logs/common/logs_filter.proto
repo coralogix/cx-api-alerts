@@ -7,8 +7,6 @@ import "google/protobuf/wrappers.proto";
 message LogsFilter {
   oneof filter_type {
     LogsSimpleFilter simple_filter = 1;
-    // DPXL will be added here in the future
-//    google.protobuf.StringValue dpxl = 2;
   }
 }
 message LogsSimpleFilter {

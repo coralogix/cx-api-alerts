@@ -8,7 +8,6 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ra
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/undetected_values_management.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_group_by_for.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_condition_type.proto";
-import "com/coralogixapis/alerts/v3/alert_def_type_definition/overrides.proto";
 
 message LogsRatioThresholdType  {
     LogsFilter numerator = 1;
@@ -22,7 +21,6 @@ message LogsRatioThresholdType  {
 }
 message LogsRatioRules {
     LogsRatioCondition condition = 1;
-//    AlertDefOverride override = 2;
 }
 
 message LogsRatioCondition {

@@ -7,15 +7,15 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/common/metr
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/common/metrics_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/unusual/metric_unsual_condition_type.proto";
 
-message MetricUnusualType  {
+message MetricUnusualType {
     MetricFilter metric_filter = 1;
-    MetricUnusualRule rule = 2;
+    repeated MetricUnusualRule rules = 2;
 }
-message MetricUnusualRule{
+message MetricUnusualRule {
     MetricUnusualCondition condition = 1;
 }
 
-message MetricUnusualCondition{
+message MetricUnusualCondition {
     google.protobuf.DoubleValue threshold = 1;
     google.protobuf.UInt32Value for_over_pct = 2;
     MetricTimeWindow of_the_last = 3;

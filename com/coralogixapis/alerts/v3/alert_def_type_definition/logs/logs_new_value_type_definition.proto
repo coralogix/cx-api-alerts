@@ -8,7 +8,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/common/logs_f
 
 message LogsNewValueType  {
     LogsFilter logs_filter = 1;
-    LogsNewValueRule rule = 2;
+    repeated LogsNewValueRule rules = 2;
     repeated google.protobuf.StringValue notification_payload_filter = 3;
 }
 message LogsNewValueRule {
