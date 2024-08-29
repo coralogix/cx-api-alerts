@@ -6,12 +6,10 @@ import "google/protobuf/wrappers.proto";
 
 message LogsFilter {
   oneof filter_type {
-    LuceneFilter lucene_filter = 1;
-    // DPXL will be added here in the future
-    //google.protobuf.StringValue dpxl = 2;
+    LogsSimpleFilter simple_filter = 1;
   }
 }
-message LuceneFilter {
+message LogsSimpleFilter {
   google.protobuf.StringValue lucene_query = 1;
   LabelFilters label_filters = 2;
 }
