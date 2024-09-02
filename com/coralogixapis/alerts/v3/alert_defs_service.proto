@@ -25,7 +25,7 @@ service AlertDefsService {
     name: "Alerts"
   };
 
-  // Get Alert Def by non changing ID AKA UniqueIdentifier
+  // Get Alert Definition by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
     option (audit_log_description).description = "get alert definition";
     option (google.api.http) = {
@@ -38,19 +38,29 @@ service AlertDefsService {
     
   }
 
+  // Create Alert Definition
   rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse){
     option (audit_log_description).description = "create alert definition";
     option (google.api.http) = {
-      post: "/v3/alert-defs"
-      body: "alertDef"
+      post: "/v2/alerts"
+      body: "alert_def"
+      response_body: "alert_def"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
+  // Replace Alert Definition by ID AKA UniqueIdentifier
   rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
     option (audit_log_description).description = "replace alert definition";
     option (google.api.http) = {
-      put: "/v3/alert-defs"
-      body: "alertDef"
+      put: "/v2/alerts"
+      body: "alert_def"
+      response_body: "alert_def"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
@@ -60,19 +70,27 @@ service AlertDefsService {
 //      get: "/v3/alertDefs:batchGet"
 //    };
 //  }
-
+ 
+  // List all Alert Defitions
   rpc ListAlertDefs(ListAlertDefsRequest) returns (ListAlertDefsResponse){
     option (audit_log_description).description = "get alert definitions list";
     option (google.api.http) = {
-      get: "/v3/alert-defs"
+      get: "/v2/alerts"
       body: "*"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
+  // Delete Alert Definition by ID AKA UniqueIdentifier
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse){
     option (audit_log_description).description = "delete alert definitions";
     option (google.api.http) = {
-      delete: "/v3/alert-defs/{id}"
+      delete: "/v2/alerts/{id}"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
@@ -100,10 +118,14 @@ service AlertDefsService {
 //    };
 //  }
 
+  // Set Active status of an alert definition
   rpc SetActive(SetActiveRequest) returns (SetActiveResponse) {
     option (audit_log_description).description = "disable or enable the alert definitions";
     option (google.api.http) = {
-      post: "/v3/alert-defs/{id}:SetActive"
+      post: "/v2/alerts/{id}:SetActive"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 }
