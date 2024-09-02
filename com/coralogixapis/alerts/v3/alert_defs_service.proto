@@ -8,6 +8,7 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
+import "com/coralogix/openapi/v1/annotations.proto";
 
 message AuditLogDescription {
   optional string description = 1;
@@ -17,7 +18,13 @@ extend google.protobuf.MethodOptions {
   optional AuditLogDescription audit_log_description = 5000;
   }
 
+// API to manage alert definitions
 service AlertDefsService {
+  option (com.coralogix.openapi.v1.service) = {
+    version: "v2"
+    name: "Alerts"
+  };
+
   // Get Alert Def by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
     option (audit_log_description).description = "get alert definition";
