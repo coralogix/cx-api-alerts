@@ -128,7 +128,6 @@ message OrderBy {
 
 message GetAlertDefRequest {
   google.protobuf.StringValue id = 1; // The Alert's non changing ID
-  OrderByFields field_name = 1;
 }
 
 message GetAlertDefResponse {
