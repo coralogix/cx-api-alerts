@@ -27,7 +27,7 @@ extend google.protobuf.ServiceOptions {
 // its description, request schema, error responses, and the index of the HTTP rule where endpoints is defined.
 message MethodOpenAPI {
   bool resource = 1;                           // Indicates if the method operates on a REST resource.
-  string description = 3;                      // Description of the method.
+  string description = 3;                      // Description of the method. (Deprecated)
   string request_schema = 4;                   // Schema of the request message. (Used when you want to use different schema than the one that will be generated from method request mesage type).
   string response_schema = 5;                  // Schema of the response message. (Used when you want to use different schema than the one that will be generated from method response mesage type).
   map<uint32, string> error_responses = 6;     // Map of error response codes to descriptions.
