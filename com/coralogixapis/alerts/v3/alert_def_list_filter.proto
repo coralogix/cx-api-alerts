@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/wrappers.proto";
+
+
+enum FilterOperator {
+  FILTER_OPERATOR_EQUALS_OR_UNSPECIFIED = 0;
+}
+
+enum FilterField {
+  FILTER_FIELD_
+}
+
+message ListAlertDefFilter {
+  string field = 1;      // The field to filter by (e.g., "name", "status")
+  FilterOperator operator = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
+  repeated google.protobuf.StringValue values = 3;      // The value to filter by
+}
+
+message AlertDefListFilters {
+
+}

@@ -8,6 +8,7 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_list_filter.proto";
 
 message AuditLogDescription {
   optional string description = 1;
@@ -112,7 +113,7 @@ enum OrderByDirection {
 enum OrderByFields {
   ORDER_BY_FIELDS_NAME_OR_UNSPECIFIED = 0;
   ORDER_BY_FIELDS_ID = 1;
-  ORDER_BY_FIELDS_SEVERITY = 2;
+  ORDER_BY_FIELDS_PRIORITY = 2;
   ORDER_BY_FIELDS_CREATED_TIME = 3;
   ORDER_BY_FIELDS_UPDATED_TIME = 4;
 }
@@ -130,11 +131,15 @@ message GetAlertDefResponse {
   AlertDef alert_def = 1;
 }
 
-message ListAlertDefsResponse {
-  repeated AlertDef alert_defs = 1;
+message ListAlertDefsRequest {
+  AlertDefListFilters filter = 1;
+  PaginationRequest pagination = 2;
+  repeated OrderBy order_bys = 3;
 }
 
-message ListAlertDefsRequest {
+message ListAlertDefsResponse {
+  repeated AlertDef alert_defs = 1;
+  PaginationResponse pagination = 2;
 }
 
 message DownloadAlertsRequest {
@@ -214,4 +219,14 @@ message SetActiveRequest{
   google.protobuf.BoolValue active = 2;
 }
 message SetActiveResponse {
+}
+
+message PaginationRequest {
+  google.protobuf.UInt32Value page_size = 1;
+  google.protobuf.StringValue page_token = 2;
+}
+
+message PaginationResponse {
+  google.protobuf.UInt32Value total_size = 1;
+  google.protobuf.StringValue next_page_token = 2;
 }
