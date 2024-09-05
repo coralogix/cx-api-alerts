@@ -5,20 +5,33 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 
-enum FilterOperator {
-  FILTER_OPERATOR_EQUALS_OR_UNSPECIFIED = 0;
+enum FilterMatcher {
+  FILTER_MATCHER_EQUALS_OR_UNSPECIFIED = 0;
+}
+
+enum FilterValuesOperator {
+  FILTER_VALUES_OPERATOR_OR_OR_UNSPECIFIED = 0;
+  FILTER_VALUES_OPERATOR_AND = 1;
 }
 
 enum FilterField {
-  FILTER_FIELD_
+  FILTER_FIELD_UNSPECIFIED = 0;
+  FILTER_FIELD_TYPE = 2;
+  FILTER_FIELD_PRIORITY = 3;
 }
 
 message ListAlertDefFilter {
-  string field = 1;      // The field to filter by (e.g., "name", "status")
-  FilterOperator operator = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
+  google.protobuf.StringValue field = 1;      // The field to filter by (e.g., "name", "status")
+  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
   repeated google.protobuf.StringValue values = 3;      // The value to filter by
+  FilterValuesOperator values_operator = 4;   // The operator to apply to the field (e.g., "AND", "OR")
+}
+
+message AlertDefListSearch {
+  google.protobuf.StringValue query = 1;      // The search query
 }
 
 message AlertDefListFilters {
-
+  repeated ListAlertDefFilter filters = 1;      // The list of filters
+  AlertDefListSearch search = 2;   // The search query
 }
