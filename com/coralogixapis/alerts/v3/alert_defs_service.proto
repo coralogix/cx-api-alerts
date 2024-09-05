@@ -118,7 +118,7 @@ enum OrderByFields {
   ORDER_BY_FIELDS_UPDATED_TIME = 4;
 }
 
-message OrderBy {
+message AlertDefOrderBy {
   OrderByFields field_name = 1;
   OrderByDirection direction = 2;
 }
@@ -134,7 +134,7 @@ message GetAlertDefResponse {
 message ListAlertDefsRequest {
   AlertDefListFilters filters = 1;
   AlertDefPaginationRequest pagination = 2;
-  repeated OrderBy order_bys = 3;
+  repeated AlertDefOrderBy order_bys = 3;
 }
 
 message ListAlertDefsResponse {

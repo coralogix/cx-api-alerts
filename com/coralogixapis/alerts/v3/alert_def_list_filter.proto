@@ -21,7 +21,7 @@ enum FilterField {
 }
 
 message ListAlertDefFilter {
-  google.protobuf.StringValue field = 1;      // The field to filter by (e.g., "name", "status")
+  FilterField field = 1;      // The field to filter by (e.g., "name", "status")
   FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
   repeated google.protobuf.StringValue values = 3;      // The value to filter by
   FilterValuesOperator values_operator = 4;   // The operator to apply to the field (e.g., "AND", "OR")
