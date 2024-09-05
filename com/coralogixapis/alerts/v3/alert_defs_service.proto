@@ -133,13 +133,13 @@ message GetAlertDefResponse {
 
 message ListAlertDefsRequest {
   AlertDefListFilters filters = 1;
-  PaginationRequest pagination = 2;
+  AlertDefPaginationRequest pagination = 2;
   repeated OrderBy order_bys = 3;
 }
 
 message ListAlertDefsResponse {
   repeated AlertDef alert_defs = 1;
-  PaginationResponse pagination = 2;
+  AlertDefPaginationResponse pagination = 2;
 }
 
 message DownloadAlertsRequest {
@@ -221,12 +221,12 @@ message SetActiveRequest{
 message SetActiveResponse {
 }
 
-message PaginationRequest {
+message AlertDefPaginationRequest {
   google.protobuf.UInt32Value page_size = 1;
   google.protobuf.StringValue page_token = 2;
 }
 
-message PaginationResponse {
+message AlertDefPaginationResponse {
   google.protobuf.UInt32Value total_size = 1;
   google.protobuf.StringValue next_page_token = 2;
 }
