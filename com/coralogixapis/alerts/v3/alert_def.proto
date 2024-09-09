@@ -64,4 +64,5 @@ message AlertDefProperties {
   map<string, string> labels = 10;
   google.protobuf.BoolValue phantom_mode = 11;
   google.protobuf.BoolValue deleted = 12;
+  google.protobuf.Int32Value delay_offset = 13;
 }
