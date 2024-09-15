@@ -139,7 +139,6 @@ message ListAlertDefsRequest {
 
 message DownloadAlertsRequest {
   repeated string alert_fields = 1;
-  string file_name = 2;
 }
 
 
