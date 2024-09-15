@@ -57,7 +57,7 @@ service AlertDefsService {
     };
   }
 
-  rpc DownloadAlerts(DownloadAlertsRequest) returns (stream DownloadAlertsResponse){
+  rpc DownloadAlerts(DownloadAlertsRequest) returns (stream bytes){
     option (audit_log_description).description = "Download alerts";
     option (google.api.http) = {
       get: "/v3/alerts/download"
