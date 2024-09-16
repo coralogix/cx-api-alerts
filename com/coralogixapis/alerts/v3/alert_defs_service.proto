@@ -143,7 +143,6 @@ message DownloadAlertsRequest {
 
 message DownloadAlertsResponse {
   bytes content = 1;
-  google.protobuf.UInt32Value progress = 2;
 }
 
 
