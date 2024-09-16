@@ -22,7 +22,7 @@ extend google.protobuf.MethodOptions {
 service AlertDefsService {
   option (com.coralogix.openapi.v1.service) = {
     version: "v2"
-    name: "Alerts"
+    name: "V2Alerts"
   };
 
   // Get Alert Definition by non changing ID AKA UniqueIdentifier
@@ -43,7 +43,7 @@ service AlertDefsService {
     option (audit_log_description).description = "create alert definition";
     option (google.api.http) = {
       post: "/v2/alerts"
-      body: "alert_def"
+      body: "alert_def_properties"
       response_body: "alert_def"
     };
     option (com.coralogix.openapi.v1.method) = {
@@ -55,8 +55,8 @@ service AlertDefsService {
   rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
     option (audit_log_description).description = "replace alert definition";
     option (google.api.http) = {
-      put: "/v2/alerts"
-      body: "alert_def"
+      put: "/v2/alerts/{id}"
+      body: "alert_def_properties"
       response_body: "alert_def"
     };
     option (com.coralogix.openapi.v1.method) = {
@@ -76,7 +76,6 @@ service AlertDefsService {
     option (audit_log_description).description = "get alert definitions list";
     option (google.api.http) = {
       get: "/v2/alerts"
-      body: "*"
     };
     option (com.coralogix.openapi.v1.method) = {
       resource: true
