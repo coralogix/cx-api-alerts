@@ -123,9 +123,6 @@ service AlertDefsService {
     option (google.api.http) = {
       post: "/v2/alerts/{id}:SetActive"
     };
-    option (com.coralogix.openapi.v1.method) = {
-      resource: true
-    };
   }
 }
 
@@ -156,7 +153,10 @@ message GetAlertDefResponse {
 }
 
 message ListAlertDefsResponse {
-  repeated AlertDef alert_defs = 1;
+  option (com.coralogix.openapi.v1.message) = {
+    name: "V2AlertCollection"
+  };
+  repeated AlertDef alert_defs = 1 [ (com.coralogix.openapi.v1.field) = { name: "alerts" } ];
 }
 
 message ListAlertDefsRequest {
