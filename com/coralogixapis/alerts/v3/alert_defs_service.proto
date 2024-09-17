@@ -8,6 +8,7 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
+import "com/coralogix/openapi/v1/annotations.proto";
 
 message AuditLogDescription {
   optional string description = 1;
@@ -17,28 +18,49 @@ extend google.protobuf.MethodOptions {
   optional AuditLogDescription audit_log_description = 5000;
   }
 
+// API to manage alert definitions
 service AlertDefsService {
-  // Get Alert Def by non changing ID AKA UniqueIdentifier
+  option (com.coralogix.openapi.v1.service) = {
+    version: "v2"
+    name: "V2Alerts"
+  };
+
+  // Get Alert Definition by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
     option (audit_log_description).description = "get alert definition";
     option (google.api.http) = {
-      get: "/v3/alert-defs/{id}"
+      get: "/v2/alerts/{id}"
+      response_body: "alert_def"
     };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
+    };
+    
   }
 
+  // Create Alert Definition
   rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse){
     option (audit_log_description).description = "create alert definition";
     option (google.api.http) = {
-      post: "/v3/alert-defs"
-      body: "alertDef"
+      post: "/v2/alerts"
+      body: "alert_def_properties"
+      response_body: "alert_def"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
+  // Replace Alert Definition by ID AKA UniqueIdentifier
   rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
     option (audit_log_description).description = "replace alert definition";
     option (google.api.http) = {
-      put: "/v3/alert-defs"
-      body: "alertDef"
+      put: "/v2/alerts/{id}"
+      body: "alert_def_properties"
+      response_body: "alert_def"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
@@ -48,19 +70,26 @@ service AlertDefsService {
 //      get: "/v3/alertDefs:batchGet"
 //    };
 //  }
-
+ 
+  // List all Alert Defitions
   rpc ListAlertDefs(ListAlertDefsRequest) returns (ListAlertDefsResponse){
     option (audit_log_description).description = "get alert definitions list";
     option (google.api.http) = {
-      get: "/v3/alert-defs"
-      body: "*"
+      get: "/v2/alerts"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
+  // Delete Alert Definition by ID AKA UniqueIdentifier
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse){
     option (audit_log_description).description = "delete alert definitions";
     option (google.api.http) = {
-      delete: "/v3/alert-defs/{id}"
+      delete: "/v2/alerts/{id}"
+    };
+    option (com.coralogix.openapi.v1.method) = {
+      resource: true
     };
   }
 
@@ -88,10 +117,11 @@ service AlertDefsService {
 //    };
 //  }
 
+  // Set Active status of an alert definition
   rpc SetActive(SetActiveRequest) returns (SetActiveResponse) {
     option (audit_log_description).description = "disable or enable the alert definitions";
     option (google.api.http) = {
-      post: "/v3/alert-defs/{id}:SetActive"
+      post: "/v2/alerts/{id}:SetActive"
     };
   }
 }
@@ -123,7 +153,10 @@ message GetAlertDefResponse {
 }
 
 message ListAlertDefsResponse {
-  repeated AlertDef alert_defs = 1;
+  option (com.coralogix.openapi.v1.message) = {
+    name: "V2AlertCollection"
+  };
+  repeated AlertDef alert_defs = 1 [ (com.coralogix.openapi.v1.field) = { name: "alerts" } ];
 }
 
 message ListAlertDefsRequest {

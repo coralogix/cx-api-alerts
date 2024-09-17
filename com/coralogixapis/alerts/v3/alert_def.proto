@@ -20,22 +20,40 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_th
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_unique_count_type_definition.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "com/coralogix/openapi/v1/annotations.proto";
 
 /**
  * Represents An Existing or Created Alert Definition
  */
 message AlertDef {
-  AlertDefProperties alert_def_properties = 1;
-  google.protobuf.StringValue id = 2; // This is the Alert Definition's Persistent ID (does not change on replace) , AKA UniqueIdentifier
-  google.protobuf.StringValue alert_version_id = 20; // the old alertId
-  google.protobuf.Timestamp created_time = 3;
-  google.protobuf.Timestamp updated_time = 4;
+  option (com.coralogix.openapi.v1.message) = { 
+    name: "V2Alert"
+    resource: true
+  };
+  AlertDefProperties alert_def_properties = 1 [(com.coralogix.openapi.v1.field) = { 
+    required: true 
+  }];
+  // This is the Alert Definition's Persistent ID (does not change on replace) , AKA UniqueIdentifier
+  google.protobuf.StringValue id = 2 [(com.coralogix.openapi.v1.field) = { 
+    required: true 
+  }];
+  // the old alertId
+  google.protobuf.StringValue alert_version_id = 20;
+  google.protobuf.Timestamp created_time = 3 [(com.coralogix.openapi.v1.field) = { 
+    required: true 
+  }];
+  google.protobuf.Timestamp updated_time = 4 [(com.coralogix.openapi.v1.field) = { 
+    required: true 
+  }];
 }
 
 /**
  * Represents The non generated alert definition properties (the ones that are set by the user)
  */
 message AlertDefProperties {
+  option (com.coralogix.openapi.v1.message) = { 
+    name: "V2AlertPrototype"
+  };
   google.protobuf.StringValue name = 1;
   google.protobuf.StringValue description = 2;
   google.protobuf.BoolValue enabled = 3;
