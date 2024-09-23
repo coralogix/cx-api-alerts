@@ -20,16 +20,11 @@ extend google.protobuf.MethodOptions {
 
 // API to manage alert definitions
 service AlertDefsService {
-  option (com.coralogix.openapi.v1.service) = {
-    version: "v2"
-    name: "V2Alerts"
-  };
-
   // Get Alert Definition by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
     option (audit_log_description).description = "get alert definition";
     option (google.api.http) = {
-      get: "/v2/alerts/{id}"
+      get: "/v1/alert_defs/{id}"
       response_body: "alert_def"
     };
     option (com.coralogix.openapi.v1.method) = {
@@ -42,7 +37,7 @@ service AlertDefsService {
   rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse){
     option (audit_log_description).description = "create alert definition";
     option (google.api.http) = {
-      post: "/v2/alerts"
+      post: "/v1/alert_defs"
       body: "alert_def_properties"
       response_body: "alert_def"
     };
@@ -55,7 +50,7 @@ service AlertDefsService {
   rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
     option (audit_log_description).description = "replace alert definition";
     option (google.api.http) = {
-      put: "/v2/alerts/{id}"
+      put: "/v1/alert_defs/{id}"
       body: "alert_def_properties"
       response_body: "alert_def"
     };
@@ -75,7 +70,7 @@ service AlertDefsService {
   rpc ListAlertDefs(ListAlertDefsRequest) returns (ListAlertDefsResponse){
     option (audit_log_description).description = "get alert definitions list";
     option (google.api.http) = {
-      get: "/v2/alerts"
+      get: "/v1/alert_defs"
     };
     option (com.coralogix.openapi.v1.method) = {
       resource: true
@@ -86,7 +81,7 @@ service AlertDefsService {
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse){
     option (audit_log_description).description = "delete alert definitions";
     option (google.api.http) = {
-      delete: "/v2/alerts/{id}"
+      delete: "/v1/alert_defs/{id}"
     };
     option (com.coralogix.openapi.v1.method) = {
       resource: true
@@ -154,9 +149,9 @@ message GetAlertDefResponse {
 
 message ListAlertDefsResponse {
   option (com.coralogix.openapi.v1.message) = {
-    name: "V2AlertCollection"
+    name: "AlertDefCollection"
   };
-  repeated AlertDef alert_defs = 1 [ (com.coralogix.openapi.v1.field) = { name: "alerts" } ];
+  repeated AlertDef alert_defs = 1 [ (com.coralogix.openapi.v1.field) = { required: true } ];
 }
 
 message ListAlertDefsRequest {

@@ -27,7 +27,6 @@ import "com/coralogix/openapi/v1/annotations.proto";
  */
 message AlertDef {
   option (com.coralogix.openapi.v1.message) = { 
-    name: "V2Alert"
     resource: true
   };
   AlertDefProperties alert_def_properties = 1 [(com.coralogix.openapi.v1.field) = { 
@@ -52,7 +51,7 @@ message AlertDef {
  */
 message AlertDefProperties {
   option (com.coralogix.openapi.v1.message) = { 
-    name: "V2AlertPrototype"
+    name: "AlertDefPrototype"
   };
   google.protobuf.StringValue name = 1;
   google.protobuf.StringValue description = 2;
