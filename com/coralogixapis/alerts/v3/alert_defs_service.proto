@@ -20,6 +20,10 @@ extend google.protobuf.MethodOptions {
 
 // API to manage alert definitions
 service AlertDefsService {
+  option (com.coralogix.openapi.v1.service) = {
+    name: "Alert Definitions"
+    resource_name: "AlertDef"
+  };
   // Get Alert Definition by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
     option (audit_log_description).description = "get alert definition";
