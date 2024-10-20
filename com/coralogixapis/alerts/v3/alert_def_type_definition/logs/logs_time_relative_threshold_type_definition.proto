@@ -12,6 +12,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/overrides.proto";
 message LogsTimeRelativeThresholdType  {
     LogsFilter logs_filter = 1;
     repeated LogsTimeRelativeRule rules = 2;
+    google.protobuf.BoolValue ignore_infinity = 3;
     repeated google.protobuf.StringValue notification_payload_filter = 4;
     UndetectedValuesManagement undetected_values_management = 5;
 }
@@ -20,9 +21,8 @@ message LogsTimeRelativeRule {
     AlertDefOverride override = 2;
 }
 
-message LogsTimeRelativeCondition{
-    google.protobuf.DoubleValue threshold =1;
+message LogsTimeRelativeCondition {
+    google.protobuf.DoubleValue threshold = 1;
     LogsTimeRelativeComparedTo compared_to = 2;
-    google.protobuf.BoolValue ignore_infinity = 3;
     LogsTimeRelativeConditionType condition_type  = 4;
 }
