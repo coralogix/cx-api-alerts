@@ -58,10 +58,10 @@ message AlertDefProperties {
     LogsNewValueType logs_new_value = 111;
     LogsUniqueCountType logs_unique_count = 112;
   }
-  repeated google.protobuf.StringValue group_by = 7;
+  repeated google.protobuf.StringValue group_by_keys = 7;
   AlertDefIncidentSettings incidents_settings = 8;
   AlertDefNotificationGroup notification_group = 9;
-  map<string, string> labels = 10;
+  map<string, string> entity_labels = 10;
   google.protobuf.BoolValue phantom_mode = 11;
   google.protobuf.BoolValue deleted = 12;
 }
