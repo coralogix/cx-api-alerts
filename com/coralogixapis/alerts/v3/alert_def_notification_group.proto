@@ -12,14 +12,14 @@ message AlertDefIncidentSettings {
 }
 
 message AlertDefNotificationGroup {
-  repeated google.protobuf.StringValue group_by_fields = 1;
+  repeated google.protobuf.StringValue group_by_keys = 1;
   oneof targets {
      AlertDefAdvancedTargets advanced = 2;
      AlertDefTargetSimple simple = 3;
   }
 }
 
-message AlertDefTargetSimple{
+message AlertDefTargetSimple {
    repeated IntegrationType integrations = 1;
 }
 
