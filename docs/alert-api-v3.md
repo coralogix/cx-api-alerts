@@ -1,8 +1,9 @@
 # Protocol Documentation
 <a name="top"></a>
 
+
 <a name="com_coralogixapis_alerts_v3_alert_def-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
+
 
 ## com/coralogixapis/alerts/v3/alert_def.proto
 
@@ -49,14 +50,14 @@ Represents The non generated alert definition properties (the ones that are set 
 | metric_threshold | [MetricThresholdType](#com-coralogixapis-alerts-v3-MetricThresholdType) |  |  |
 | tracing_threshold | [TracingThresholdType](#com-coralogixapis-alerts-v3-TracingThresholdType) |  |  |
 | flow | [FlowType](#com-coralogixapis-alerts-v3-FlowType) |  |  |
-| logs_unusual | [LogsUnusualType](#com-coralogixapis-alerts-v3-LogsUnusualType) |  |  |
-| metric_unusual | [MetricUnusualType](#com-coralogixapis-alerts-v3-MetricUnusualType) |  |  |
+| logs_anomaly | [LogsAnomalyType](#com-coralogixapis-alerts-v3-LogsAnomalyType) |  |  |
+| metric_anomaly | [MetricAnomalyType](#com-coralogixapis-alerts-v3-MetricAnomalyType) |  |  |
 | logs_new_value | [LogsNewValueType](#com-coralogixapis-alerts-v3-LogsNewValueType) |  |  |
 | logs_unique_count | [LogsUniqueCountType](#com-coralogixapis-alerts-v3-LogsUniqueCountType) |  |  |
-| group_by | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
+| group_by_keys | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
 | incidents_settings | [AlertDefIncidentSettings](#com-coralogixapis-alerts-v3-AlertDefIncidentSettings) |  |  |
 | notification_group | [AlertDefNotificationGroup](#com-coralogixapis-alerts-v3-AlertDefNotificationGroup) |  |  |
-| labels | [AlertDefProperties.LabelsEntry](#com-coralogixapis-alerts-v3-AlertDefProperties-LabelsEntry) | repeated |  |
+| entity_labels | [AlertDefProperties.EntityLabelsEntry](#com-coralogixapis-alerts-v3-AlertDefProperties-EntityLabelsEntry) | repeated |  |
 | phantom_mode | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  |  |
 | deleted | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  |  |
 
@@ -65,9 +66,9 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
-<a name="com-coralogixapis-alerts-v3-AlertDefProperties-LabelsEntry"></a>
+<a name="com-coralogixapis-alerts-v3-AlertDefProperties-EntityLabelsEntry"></a>
 
-### AlertDefProperties.LabelsEntry
+### AlertDefProperties.EntityLabelsEntry
 
 
 
@@ -80,13 +81,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -94,38 +95,6 @@ Represents The non generated alert definition properties (the ones that are set 
 <p align="right"><a href="#top">Top</a></p>
 
 ## com/coralogixapis/alerts/v3/alert_def_notification_group.proto
-
-
-
-<a name="com-coralogixapis-alerts-v3-AlertDefAdvancedTargetSettings"></a>
-
-### AlertDefAdvancedTargetSettings
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| minutes | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
-| notify_on | [NotifyOn](#com-coralogixapis-alerts-v3-NotifyOn) | optional |  |
-| integration | [IntegrationType](#com-coralogixapis-alerts-v3-IntegrationType) |  |  |
-
-
-
-
-
-
-<a name="com-coralogixapis-alerts-v3-AlertDefAdvancedTargets"></a>
-
-### AlertDefAdvancedTargets
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| advanced_targets_settings | [AlertDefAdvancedTargetSettings](#com-coralogixapis-alerts-v3-AlertDefAdvancedTargetSettings) | repeated |  |
-
-
-
 
 
 
@@ -153,24 +122,25 @@ Represents The non generated alert definition properties (the ones that are set 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| group_by_fields | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
-| advanced | [AlertDefAdvancedTargets](#com-coralogixapis-alerts-v3-AlertDefAdvancedTargets) |  |  |
-| simple | [AlertDefTargetSimple](#com-coralogixapis-alerts-v3-AlertDefTargetSimple) |  |  |
+| group_by_keys | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
+| webhooks | [AlertDefWebhooksSettings](#com-coralogixapis-alerts-v3-AlertDefWebhooksSettings) | repeated |  |
 
 
 
 
 
 
-<a name="com-coralogixapis-alerts-v3-AlertDefTargetSimple"></a>
+<a name="com-coralogixapis-alerts-v3-AlertDefWebhooksSettings"></a>
 
-### AlertDefTargetSimple
+### AlertDefWebhooksSettings
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| integrations | [IntegrationType](#com-coralogixapis-alerts-v3-IntegrationType) | repeated |  |
+| minutes | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
+| notify_on | [NotifyOn](#com-coralogixapis-alerts-v3-NotifyOn) | optional |  |
+| integration | [IntegrationType](#com-coralogixapis-alerts-v3-IntegrationType) |  |  |
 
 
 
@@ -207,7 +177,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-NotifyOn"></a>
@@ -221,11 +191,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | NOTIFY_ON_TRIGGERED_AND_RESOLVED | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -235,7 +205,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_priority.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-AlertDefPriority"></a>
@@ -252,11 +222,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | ALERT_DEF_PRIORITY_P1 | 4 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -299,7 +269,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-DayOfWeek"></a>
@@ -318,11 +288,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | DAY_OF_WEEK_SUNDAY | 6 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -332,7 +302,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-AlertDefType"></a>
@@ -344,23 +314,23 @@ Represents The non generated alert definition properties (the ones that are set 
 | ---- | ------ | ----------- |
 | ALERT_DEF_TYPE_LOGS_IMMEDIATE_OR_UNSPECIFIED | 0 |  |
 | ALERT_DEF_TYPE_LOGS_THRESHOLD | 1 |  |
-| ALERT_DEF_TYPE_LOGS_UNUSUAL | 3 |  |
+| ALERT_DEF_TYPE_LOGS_ANOMALY | 3 |  |
 | ALERT_DEF_TYPE_LOGS_RATIO_THRESHOLD | 4 |  |
 | ALERT_DEF_TYPE_LOGS_NEW_VALUE | 6 |  |
 | ALERT_DEF_TYPE_LOGS_UNIQUE_COUNT | 7 |  |
 | ALERT_DEF_TYPE_LOGS_TIME_RELATIVE_THRESHOLD | 8 |  |
 | ALERT_DEF_TYPE_METRIC_THRESHOLD | 10 |  |
-| ALERT_DEF_TYPE_METRIC_UNUSUAL | 14 |  |
+| ALERT_DEF_TYPE_METRIC_ANOMALY | 14 |  |
 | ALERT_DEF_TYPE_TRACING_IMMEDIATE | 15 |  |
 | ALERT_DEF_TYPE_TRACING_THRESHOLD | 16 |  |
 | ALERT_DEF_TYPE_FLOW | 17 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -386,7 +356,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-ActivityAnalysisStatus"></a>
@@ -400,11 +370,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | ACTIVITY_ANALYSIS_STATUS_MUTE | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -495,7 +465,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-AlertsOp"></a>
@@ -533,11 +503,38 @@ Represents The non generated alert definition properties (the ones that are set 
 | TIMEFRAME_TYPE_UP_TO | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
+
+
+
+<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_logs_anomaly_logs_anomaly_condition_type-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/anomaly/logs_anomaly_condition_type.proto
+
+
+
+
+
+<a name="com-coralogixapis-alerts-v3-LogsAnomalyConditionType"></a>
+
+### LogsAnomalyConditionType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| LOGS_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED | 0 |  |
+
+
+
+
+
+
+
 
 
 
@@ -611,7 +608,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogFilterOperationType"></a>
@@ -643,11 +640,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOG_SEVERITY_CRITICAL | 5 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -672,7 +669,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsTimeWindowValue"></a>
@@ -696,11 +693,76 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_TIME_WINDOW_VALUE_HOURS_36 | 11 |  |
 
 
- 
 
- 
 
- 
+
+
+
+
+
+
+<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_logs_logs_anomaly_type_definition-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_anomaly_type_definition.proto
+
+
+
+<a name="com-coralogixapis-alerts-v3-LogsAnomalyCondition"></a>
+
+### LogsAnomalyCondition
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| minimum_threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
+| time_window | [LogsTimeWindow](#com-coralogixapis-alerts-v3-LogsTimeWindow) |  |  |
+| condition_type | [LogsAnomalyConditionType](#com-coralogixapis-alerts-v3-LogsAnomalyConditionType) |  |  |
+
+
+
+
+
+
+<a name="com-coralogixapis-alerts-v3-LogsAnomalyRule"></a>
+
+### LogsAnomalyRule
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| condition | [LogsAnomalyCondition](#com-coralogixapis-alerts-v3-LogsAnomalyCondition) |  |  |
+
+
+
+
+
+
+<a name="com-coralogixapis-alerts-v3-LogsAnomalyType"></a>
+
+### LogsAnomalyType
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| logs_filter | [LogsFilter](#com-coralogixapis-alerts-v3-LogsFilter) |  |  |
+| rules | [LogsAnomalyRule](#com-coralogixapis-alerts-v3-LogsAnomalyRule) | repeated |  |
+| notification_payload_filter | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -726,13 +788,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -790,13 +852,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -817,7 +879,6 @@ Represents The non generated alert definition properties (the ones that are set 
 | ----- | ---- | ----- | ----------- |
 | threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
 | time_window | [LogsRatioTimeWindow](#com-coralogixapis-alerts-v3-LogsRatioTimeWindow) |  |  |
-| ignore_infinity | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  |  |
 | condition_type | [LogsRatioConditionType](#com-coralogixapis-alerts-v3-LogsRatioConditionType) |  |  |
 
 
@@ -834,6 +895,7 @@ Represents The non generated alert definition properties (the ones that are set 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | condition | [LogsRatioCondition](#com-coralogixapis-alerts-v3-LogsRatioCondition) |  |  |
+| override | [AlertDefOverride](#com-coralogixapis-alerts-v3-AlertDefOverride) |  |  |
 
 
 
@@ -853,6 +915,7 @@ Represents The non generated alert definition properties (the ones that are set 
 | denominator | [LogsFilter](#com-coralogixapis-alerts-v3-LogsFilter) |  |  |
 | denominator_alias | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | rules | [LogsRatioRules](#com-coralogixapis-alerts-v3-LogsRatioRules) | repeated |  |
+| ignore_infinity | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  |  |
 | notification_payload_filter | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
 | group_by_for | [LogsRatioGroupByFor](#com-coralogixapis-alerts-v3-LogsRatioGroupByFor) |  |  |
 | undetected_values_management | [UndetectedValuesManagement](#com-coralogixapis-alerts-v3-UndetectedValuesManagement) |  |  |
@@ -861,13 +924,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -904,6 +967,7 @@ Represents The non generated alert definition properties (the ones that are set 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | condition | [LogsThresholdCondition](#com-coralogixapis-alerts-v3-LogsThresholdCondition) |  |  |
+| override | [AlertDefOverride](#com-coralogixapis-alerts-v3-AlertDefOverride) |  |  |
 
 
 
@@ -927,13 +991,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -954,7 +1018,6 @@ Represents The non generated alert definition properties (the ones that are set 
 | ----- | ---- | ----- | ----------- |
 | threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
 | compared_to | [LogsTimeRelativeComparedTo](#com-coralogixapis-alerts-v3-LogsTimeRelativeComparedTo) |  |  |
-| ignore_infinity | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  |  |
 | condition_type | [LogsTimeRelativeConditionType](#com-coralogixapis-alerts-v3-LogsTimeRelativeConditionType) |  |  |
 
 
@@ -971,6 +1034,7 @@ Represents The non generated alert definition properties (the ones that are set 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | condition | [LogsTimeRelativeCondition](#com-coralogixapis-alerts-v3-LogsTimeRelativeCondition) |  |  |
+| override | [AlertDefOverride](#com-coralogixapis-alerts-v3-AlertDefOverride) |  |  |
 
 
 
@@ -987,6 +1051,7 @@ Represents The non generated alert definition properties (the ones that are set 
 | ----- | ---- | ----- | ----------- |
 | logs_filter | [LogsFilter](#com-coralogixapis-alerts-v3-LogsFilter) |  |  |
 | rules | [LogsTimeRelativeRule](#com-coralogixapis-alerts-v3-LogsTimeRelativeRule) | repeated |  |
+| ignore_infinity | [google.protobuf.BoolValue](#google-protobuf-BoolValue) |  |  |
 | notification_payload_filter | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
 | undetected_values_management | [UndetectedValuesManagement](#com-coralogixapis-alerts-v3-UndetectedValuesManagement) |  |  |
 
@@ -994,13 +1059,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -1019,10 +1084,8 @@ Represents The non generated alert definition properties (the ones that are set 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| unique_count_keypath | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 | max_unique_count | [google.protobuf.Int64Value](#google-protobuf-Int64Value) |  |  |
 | time_window | [LogsUniqueValueTimeWindow](#com-coralogixapis-alerts-v3-LogsUniqueValueTimeWindow) |  |  |
-| max_unique_count_per_group_by_key | [google.protobuf.Int64Value](#google-protobuf-Int64Value) |  |  |
 
 
 
@@ -1055,83 +1118,20 @@ Represents The non generated alert definition properties (the ones that are set 
 | logs_filter | [LogsFilter](#com-coralogixapis-alerts-v3-LogsFilter) |  |  |
 | rules | [LogsUniqueCountRule](#com-coralogixapis-alerts-v3-LogsUniqueCountRule) | repeated |  |
 | notification_payload_filter | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_logs_logs_unusual_type_definition-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_unusual_type_definition.proto
-
-
-
-<a name="com-coralogixapis-alerts-v3-LogsUnusualCondition"></a>
-
-### LogsUnusualCondition
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| minimum_threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
-| time_window | [LogsTimeWindow](#com-coralogixapis-alerts-v3-LogsTimeWindow) |  |  |
-| condition_type | [LogsUnusualConditionType](#com-coralogixapis-alerts-v3-LogsUnusualConditionType) |  |  |
+| max_unique_count_per_group_by_key | [google.protobuf.Int64Value](#google-protobuf-Int64Value) |  |  |
+| unique_count_keypath | [google.protobuf.StringValue](#google-protobuf-StringValue) |  |  |
 
 
 
 
 
 
-<a name="com-coralogixapis-alerts-v3-LogsUnusualRule"></a>
-
-### LogsUnusualRule
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| condition | [LogsUnusualCondition](#com-coralogixapis-alerts-v3-LogsUnusualCondition) |  |  |
 
 
 
 
 
 
-<a name="com-coralogixapis-alerts-v3-LogsUnusualType"></a>
-
-### LogsUnusualType
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| logs_filter | [LogsFilter](#com-coralogixapis-alerts-v3-LogsFilter) |  |  |
-| rules | [LogsUnusualRule](#com-coralogixapis-alerts-v3-LogsUnusualRule) | repeated |  |
-| notification_payload_filter | [google.protobuf.StringValue](#google-protobuf-StringValue) | repeated |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
 
 
 
@@ -1156,7 +1156,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsNewValueTimeWindowValue"></a>
@@ -1176,11 +1176,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_NEW_VALUE_TIME_WINDOW_VALUE_MONTHS_3 | 7 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1190,7 +1190,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_condition_type.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsRatioConditionType"></a>
@@ -1204,11 +1204,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_RATIO_CONDITION_TYPE_LESS_THAN | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1218,7 +1218,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_group_by_for.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsRatioGroupByFor"></a>
@@ -1233,11 +1233,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_RATIO_GROUP_BY_FOR_DENUMERATOR_ONLY | 2 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1262,7 +1262,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsRatioTimeWindowValue"></a>
@@ -1285,11 +1285,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_RATIO_TIME_WINDOW_VALUE_HOURS_36 | 10 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1299,7 +1299,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/threshold/logs_threshold_condition_type.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsThresholdConditionType"></a>
@@ -1313,11 +1313,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_THRESHOLD_CONDITION_TYPE_LESS_THAN | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1327,7 +1327,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/time_relative/logs_time_relative_compared_to.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsTimeRelativeComparedTo"></a>
@@ -1345,11 +1345,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_TIME_RELATIVE_COMPARED_TO_SAME_DAY_LAST_MONTH | 5 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1359,7 +1359,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/time_relative/logs_time_relative_condition_type.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsTimeRelativeConditionType"></a>
@@ -1373,11 +1373,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_TIME_RELATIVE_CONDITION_TYPE_LESS_THAN | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1402,7 +1402,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-LogsUniqueValueTimeWindowValue"></a>
@@ -1424,38 +1424,39 @@ Represents The non generated alert definition properties (the ones that are set 
 | LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_HOURS_24 | 9 |  |
 
 
- 
-
- 
-
- 
 
 
 
-<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_logs_unusual_logs_unsual_condition_type-proto"></a>
+
+
+
+
+
+<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_metric_anomaly_metric_anomaly_condition_type-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## com/coralogixapis/alerts/v3/alert_def_type_definition/logs/unusual/logs_unsual_condition_type.proto
+## com/coralogixapis/alerts/v3/alert_def_type_definition/metric/anomaly/metric_anomaly_condition_type.proto
 
 
- 
 
 
-<a name="com-coralogixapis-alerts-v3-LogsUnusualConditionType"></a>
 
-### LogsUnusualConditionType
+<a name="com-coralogixapis-alerts-v3-MetricAnomalyConditionType"></a>
+
+### MetricAnomalyConditionType
 
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| LOGS_UNUSUAL_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED | 0 |  |
+| METRIC_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED | 0 |  |
+| METRIC_ANOMALY_CONDITION_TYPE_LESS_THAN_USUAL | 1 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1480,7 +1481,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-MetricTimeWindowValue"></a>
@@ -1503,11 +1504,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | METRIC_TIME_WINDOW_VALUE_HOURS_24 | 10 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1532,13 +1533,79 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
+
+
+
+<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_metric_metric_anomaly_type_definition-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## com/coralogixapis/alerts/v3/alert_def_type_definition/metric/metric_anomaly_type_definition.proto
+
+
+
+<a name="com-coralogixapis-alerts-v3-MetricAnomalyCondition"></a>
+
+### MetricAnomalyCondition
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
+| for_over_pct | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
+| of_the_last | [MetricTimeWindow](#com-coralogixapis-alerts-v3-MetricTimeWindow) |  |  |
+| min_non_null_values_pct | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
+| condition_type | [MetricAnomalyConditionType](#com-coralogixapis-alerts-v3-MetricAnomalyConditionType) |  |  |
+
+
+
+
+
+
+<a name="com-coralogixapis-alerts-v3-MetricAnomalyRule"></a>
+
+### MetricAnomalyRule
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| condition | [MetricAnomalyCondition](#com-coralogixapis-alerts-v3-MetricAnomalyCondition) |  |  |
+
+
+
+
+
+
+<a name="com-coralogixapis-alerts-v3-MetricAnomalyType"></a>
+
+### MetricAnomalyType
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| metric_filter | [MetricFilter](#com-coralogixapis-alerts-v3-MetricFilter) |  |  |
+| rules | [MetricAnomalyRule](#com-coralogixapis-alerts-v3-MetricAnomalyRule) | repeated |  |
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1560,7 +1627,6 @@ Represents The non generated alert definition properties (the ones that are set 
 | threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
 | for_over_pct | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
 | of_the_last | [MetricTimeWindow](#com-coralogixapis-alerts-v3-MetricTimeWindow) |  |  |
-| missing_values | [MetricMissingValues](#com-coralogixapis-alerts-v3-MetricMissingValues) |  |  |
 | condition_type | [MetricThresholdConditionType](#com-coralogixapis-alerts-v3-MetricThresholdConditionType) |  |  |
 
 
@@ -1577,6 +1643,7 @@ Represents The non generated alert definition properties (the ones that are set 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | condition | [MetricThresholdCondition](#com-coralogixapis-alerts-v3-MetricThresholdCondition) |  |  |
+| override | [AlertDefOverride](#com-coralogixapis-alerts-v3-AlertDefOverride) |  |  |
 
 
 
@@ -1593,85 +1660,20 @@ Represents The non generated alert definition properties (the ones that are set 
 | ----- | ---- | ----- | ----------- |
 | metric_filter | [MetricFilter](#com-coralogixapis-alerts-v3-MetricFilter) |  |  |
 | rules | [MetricThresholdRule](#com-coralogixapis-alerts-v3-MetricThresholdRule) | repeated |  |
+| missing_values | [MetricMissingValues](#com-coralogixapis-alerts-v3-MetricMissingValues) |  |  |
 | undetected_values_management | [UndetectedValuesManagement](#com-coralogixapis-alerts-v3-UndetectedValuesManagement) |  |  |
 
 
 
 
 
- 
-
- 
-
- 
-
- 
-
-
-
-<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_metric_metric_unusual_type_definition-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## com/coralogixapis/alerts/v3/alert_def_type_definition/metric/metric_unusual_type_definition.proto
-
-
-
-<a name="com-coralogixapis-alerts-v3-MetricUnusualCondition"></a>
-
-### MetricUnusualCondition
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| threshold | [google.protobuf.DoubleValue](#google-protobuf-DoubleValue) |  |  |
-| for_over_pct | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
-| of_the_last | [MetricTimeWindow](#com-coralogixapis-alerts-v3-MetricTimeWindow) |  |  |
-| min_non_null_values_pct | [google.protobuf.UInt32Value](#google-protobuf-UInt32Value) |  |  |
-| condition_type | [MetricUnusualConditionType](#com-coralogixapis-alerts-v3-MetricUnusualConditionType) |  |  |
 
 
 
 
 
 
-<a name="com-coralogixapis-alerts-v3-MetricUnusualRule"></a>
 
-### MetricUnusualRule
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| condition | [MetricUnusualCondition](#com-coralogixapis-alerts-v3-MetricUnusualCondition) |  |  |
-
-
-
-
-
-
-<a name="com-coralogixapis-alerts-v3-MetricUnusualType"></a>
-
-### MetricUnusualType
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| metric_filter | [MetricFilter](#com-coralogixapis-alerts-v3-MetricFilter) |  |  |
-| rules | [MetricUnusualRule](#com-coralogixapis-alerts-v3-MetricUnusualRule) | repeated |  |
-
-
-
-
-
- 
-
- 
-
- 
-
- 
 
 
 
@@ -1681,7 +1683,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/metric/threshold/metric_threshold_condition_type.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-MetricThresholdConditionType"></a>
@@ -1697,11 +1699,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | METRIC_THRESHOLD_CONDITION_TYPE_LESS_THAN_OR_EQUALS | 3 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1727,41 +1729,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
-
- 
-
- 
-
- 
 
 
 
-<a name="com_coralogixapis_alerts_v3_alert_def_type_definition_metric_unusual_metric_unsual_condition_type-proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## com/coralogixapis/alerts/v3/alert_def_type_definition/metric/unusual/metric_unsual_condition_type.proto
 
 
- 
 
 
-<a name="com-coralogixapis-alerts-v3-MetricUnusualConditionType"></a>
-
-### MetricUnusualConditionType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| METRIC_UNUSUAL_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED | 0 |  |
-| METRIC_UNUSUAL_CONDITION_TYPE_LESS_THAN_USUAL | 1 |  |
-
-
- 
-
- 
-
- 
 
 
 
@@ -1786,13 +1760,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -1884,7 +1858,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-TracingFilterOperationType"></a>
@@ -1901,11 +1875,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | TRACING_FILTER_OPERATION_TYPE_IS_NOT | 4 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1915,7 +1889,7 @@ Represents The non generated alert definition properties (the ones that are set 
 ## com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/threshold/tracing_threshold_condition_type.proto
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-TracingThresholdConditionType"></a>
@@ -1928,11 +1902,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED | 0 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -1957,7 +1931,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-TracingTimeWindowValue"></a>
@@ -1980,11 +1954,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | TRACING_TIME_WINDOW_VALUE_HOURS_36 | 10 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -2010,13 +1984,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -2075,13 +2049,13 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
 
- 
 
- 
 
- 
+
+
+
+
 
 
 
@@ -2107,7 +2081,7 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-AutoRetireTimeframe"></a>
@@ -2127,11 +2101,11 @@ Represents The non generated alert definition properties (the ones that are set 
 | AUTO_RETIRE_TIMEFRAME_HOURS_24 | 7 |  |
 
 
- 
 
- 
 
- 
+
+
+
 
 
 
@@ -2259,6 +2233,31 @@ Represents The non generated alert definition properties (the ones that are set 
 
 
 
+<a name="com-coralogixapis-alerts-v3-DownloadAlertsRequest"></a>
+
+### DownloadAlertsRequest
+
+
+
+
+
+
+
+<a name="com-coralogixapis-alerts-v3-DownloadAlertsResponse"></a>
+
+### DownloadAlertsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [bytes](#bytes) |  |  |
+
+
+
+
+
+
 <a name="com-coralogixapis-alerts-v3-GetAlertDefRequest"></a>
 
 ### GetAlertDefRequest
@@ -2365,31 +2364,31 @@ Represents The non generated alert definition properties (the ones that are set 
 
 ### SetActiveRequest
 message AlertExecutionRequest {
- oneof request {
-   CreateAlertDefRequest create = 1;
-   ReplaceAlertDefRequest replace = 2;
-   DeleteAlertDefRequest delete = 3;
- }
+oneof request {
+CreateAlertDefRequest create = 1;
+ReplaceAlertDefRequest replace = 2;
+DeleteAlertDefRequest delete = 3;
+}
 }
 message AlertExecutionResponse {
- oneof response {
-   CreateAlertDefResponse create = 1;
-   ReplaceAlertDefResponse replace = 2;
-   DeleteAlertDefResponse delete = 3;
- }
+oneof response {
+CreateAlertDefResponse create = 1;
+ReplaceAlertDefResponse replace = 2;
+DeleteAlertDefResponse delete = 3;
+}
 }
 message GetLimitsRequest {}
 
 message GetLimitsResponse {
- google.protobuf.StringValue company_id = 1;
- google.protobuf.Int32Value limit = 2;
- google.protobuf.Int32Value used = 3;
+google.protobuf.StringValue company_id = 1;
+google.protobuf.Int32Value limit = 2;
+google.protobuf.Int32Value used = 3;
 }
 message ValidateAlertRequest {
- Alert alert = 1;
+Alert alert = 1;
 }
 message ValidateAlertResponse {
- google.protobuf.BoolValue valid = 1;
+google.protobuf.BoolValue valid = 1;
 }
 
 
@@ -2412,7 +2411,7 @@ message ValidateAlertResponse {
 
 
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-OrderByDirection"></a>
@@ -2441,7 +2440,7 @@ message ValidateAlertResponse {
 | ORDER_BY_FIELDS_UPDATED_TIME | 4 |  |
 
 
- 
+
 
 
 <a name="com_coralogixapis_alerts_v3_alert_defs_service-proto-extensions"></a>
@@ -2451,7 +2450,7 @@ message ValidateAlertResponse {
 | --------- | ---- | ---- | ------ | ----------- |
 | audit_log_description | AuditLogDescription | .google.protobuf.MethodOptions | 5000 |  |
 
- 
+
 
 
 <a name="com-coralogixapis-alerts-v3-AlertDefsService"></a>
@@ -2465,5 +2464,7 @@ message ValidateAlertResponse {
 | CreateAlertDef | [CreateAlertDefRequest](#com-coralogixapis-alerts-v3-CreateAlertDefRequest) | [CreateAlertDefResponse](#com-coralogixapis-alerts-v3-CreateAlertDefResponse) |  |
 | ReplaceAlertDef | [ReplaceAlertDefRequest](#com-coralogixapis-alerts-v3-ReplaceAlertDefRequest) | [ReplaceAlertDefResponse](#com-coralogixapis-alerts-v3-ReplaceAlertDefResponse) |  |
 | ListAlertDefs | [ListAlertDefsRequest](#com-coralogixapis-alerts-v3-ListAlertDefsRequest) | [ListAlertDefsResponse](#com-coralogixapis-alerts-v3-ListAlertDefsResponse) |  |
+| DownloadAlerts | [DownloadAlertsRequest](#com-coralogixapis-alerts-v3-DownloadAlertsRequest) | [DownloadAlertsResponse](#com-coralogixapis-alerts-v3-DownloadAlertsResponse) stream |  |
 | DeleteAlertDef | [DeleteAlertDefRequest](#com-coralogixapis-alerts-v3-DeleteAlertDefRequest) | [DeleteAlertDefResponse](#com-coralogixapis-alerts-v3-DeleteAlertDefResponse) |  |
 | SetActive | [SetActiveRequest](#com-coralogixapis-alerts-v3-SetActiveRequest) | [SetActiveResponse](#com-coralogixapis-alerts-v3-SetActiveResponse) |  |
+
