@@ -26,7 +26,7 @@ service AlertDefsService {
     };
   }
 
-  rpc GetAlertDefByVersionId(GetAlertDefByVersionIdRequest) returns (GetAlertDefResponse) {
+  rpc GetAlertDefByVersionId(GetAlertDefByVersionIdRequest) returns (GetAlertDefByVersionIdResponse) {
     option (audit_log_description).description = "get alert definition by alert version id";
     option (google.api.http) = {
       get: "/v3/alert-defs/alertVersionId/{alert_version_id}"
@@ -138,6 +138,10 @@ message GetAlertDefByVersionIdRequest {
 }
 
 message GetAlertDefResponse {
+  AlertDef alert_def = 1;
+}
+
+message GetAlertDefByVersionIdResponse {
   AlertDef alert_def = 1;
 }
 
