@@ -18,7 +18,6 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_time_rel
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_immediate_type_definition.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_threshold_type_definition.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_unique_count_type_definition.proto";
-import "com/coralogixapis/alerts/v3/alert_def_type_definition/notification_routes/notification_routes.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -67,5 +66,4 @@ message AlertDefProperties {
   map<string, string> entity_labels = 10;
   google.protobuf.BoolValue phantom_mode = 11;
   google.protobuf.BoolValue deleted = 12;
-  NotificationRoutes notification_routes = 13;
 }

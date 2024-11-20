@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "com/coralogixapis/alerts/v3/event/alert_event.proto";
+
+message notification_event {
+  google.protobuf.Timestamp timestamp = 1;
+  google.protobuf.StringValue id = 2;
+  AlertStatus status = 5;
+}
+
+message group {
+  AlertStatus status = 1;
+}
