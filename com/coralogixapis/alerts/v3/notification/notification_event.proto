@@ -5,13 +5,32 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/event/alert_event.proto";
+import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
+import "com/coralogixapis/alerts/v3/notification/logs_immediate_notification.proto";
+import "com/coralogixapis/alerts/v3/notification/logs_threshold_notification.proto";
+import "com/coralogixapis/alerts/v3/notification/metric_threshold_notification.proto";
+import "com/coralogixapis/alerts/v3/alert_def.proto";
 
-message notification_event {
+message AlertNotificationEvent {
+    AlertDef alert_def = 1;
+    AlertEventData alert = 2;
+}
+
+message AlertEventData {
   google.protobuf.Timestamp timestamp = 1;
   google.protobuf.StringValue id = 2;
   AlertStatus status = 5;
+  repeated Group groups = 6;
 }
 
-message group {
+message Group {
   AlertStatus status = 1;
+  google.protobuf.BoolValue suppressed = 2;
+  AlertDefPriority priority = 3;
+  map<string, string> key_values = 4;
+  oneof details {
+    LogsImmediateNotification logs_immediate = 100;
+    LogsThresholdNotification logs_threshold = 101;
+    MetricThresholdNotification metric_threshold = 102;
+  }
 }

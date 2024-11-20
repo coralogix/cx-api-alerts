@@ -3,10 +3,6 @@ import "com/coralogixapis/alerts/v3/commons.proto";
 
 package com.coralogixapis.alerts.v3;
 
-message NotificationRoutes {
-  repeated NotificationRoutes destinations = 1;
-}
-
 message NotificationDestination {
   string connector_id = 1;
   optional string preset_id = 2;
