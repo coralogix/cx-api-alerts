@@ -19,8 +19,9 @@ message AlertNotificationEvent {
 message AlertEventData {
   google.protobuf.Timestamp timestamp = 1;
   google.protobuf.StringValue id = 2;
-  AlertStatus status = 5;
-  repeated Group groups = 6;
+  AlertStatus status = 3;
+  Attachments attachments = 4;
+  repeated Group groups = 5;
 }
 
 message Group {
@@ -33,4 +34,8 @@ message Group {
     LogsThresholdNotification logs_threshold = 101;
     MetricThresholdNotification metric_threshold = 102;
   }
+}
+
+message Attachments {
+  google.protobuf.StringValue logExample = 1;
 }

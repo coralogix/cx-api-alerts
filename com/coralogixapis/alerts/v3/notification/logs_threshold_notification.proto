@@ -10,6 +10,5 @@ message LogsThresholdNotification {
   google.protobuf.Timestamp to_timestamp = 2;
   google.protobuf.Int64Value count_result = 3;
   google.protobuf.BoolValue is_undetected_value = 4;
-  google.protobuf.StringValue log_example = 5;
-  LogsThresholdConditionType condition_type = 6;
+  LogsThresholdConditionType condition_type = 5;
 }
