@@ -6,7 +6,6 @@ package com.coralogixapis.alerts.v3;
 message NotificationDestination {
   NotificationRouting triggerRoute = 1;
   optional NotificationRouting resolvedRoute = 2;
-  optional NotifyOn notify_on = 3; // T&R -> R1, T -> R2 // TODO Ask if we need notifyOn or we can assume that if user send at least one defined resolved, the all router should defined as T&R?
 }
 
 message NotificationRouting {
