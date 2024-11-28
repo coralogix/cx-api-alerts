@@ -4,21 +4,21 @@ import "com/coralogixapis/alerts/v3/commons.proto";
 package com.coralogixapis.alerts.v3;
 
 message NotificationDestination {
-  NotificationRouting triggerRoute = 1;
-  optional NotificationRouting resolvedRoute = 2;
+  string connector_id = 1;
+  optional string preset_id = 2;
+  NotifyOn notify_on = 3;
+  NotificationRouting triggeredRoutingOverrides = 4;
+  optional NotificationRouting resolvedRouteOverrides = 5;
 }
 
 message NotificationRouting {
-  string connector_id = 1;
-  optional string preset_id = 2;
-  optional SourceOverrides config_overrides = 3;
+  optional SourceOverrides config_overrides = 1;
 }
 
 message SourceOverrides {
   string output_schema_id = 1;
-  optional string entity_sub_type = 2;
-  repeated MessageConfigField message_config_fields = 3;
-  repeated ConnectorConfigField connector_config_fields = 4;
+  repeated MessageConfigField message_config_fields = 2;
+  repeated ConnectorConfigField connector_config_fields = 3;
 }
 
 message ConnectorConfigField {
