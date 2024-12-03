@@ -66,4 +66,5 @@ message AlertDefProperties {
   map<string, string> entity_labels = 10;
   google.protobuf.BoolValue phantom_mode = 11;
   google.protobuf.BoolValue deleted = 12;
+  google.protobuf.Int32Value evaluation_delay_ms = 13;
 }
