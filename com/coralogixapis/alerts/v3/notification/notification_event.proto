@@ -12,11 +12,6 @@ import "com/coralogixapis/alerts/v3/notification/metric_threshold_notification.p
 import "com/coralogixapis/alerts/v3/alert_def.proto";
 
 message AlertNotificationEvent {
-    AlertDef alert_def = 1;
-    AlertEventData alert = 2;
-}
-
-message AlertEventData {
   google.protobuf.Timestamp timestamp = 1;
   google.protobuf.StringValue id = 2;
   AlertStatus status = 3;
