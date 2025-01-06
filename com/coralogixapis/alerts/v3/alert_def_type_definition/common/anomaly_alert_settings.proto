@@ -6,5 +6,5 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message AnomalyAlertSettings {
-  google.protobuf.FloatValue tolerance_factor = 1;
+  google.protobuf.FloatValue percentage_of_deviation = 1;
 }
