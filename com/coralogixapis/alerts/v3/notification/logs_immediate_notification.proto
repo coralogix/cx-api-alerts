@@ -2,5 +2,10 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
+import "common.proto";
 
-message LogsImmediateNotification {}
+message LogsImmediateNotification {
+  google.protobuf.StringValue log = 1;
+  CoralogixLogMetadata coralogix_log_metadata = 2;
+}
+
