@@ -34,4 +34,5 @@ message MessageConfigField {
 
 message NotificationRouter {
   string id = 1;
+  optional NotifyOn notify_on = 2;
 }
