@@ -32,6 +32,7 @@ message IntegrationType {
   oneof integration_type {
     google.protobuf.UInt32Value integration_id = 2;
     Recipients recipients = 3;
+    google.protobuf.StringValue integration_uuid = 4;
   }
 }
 
