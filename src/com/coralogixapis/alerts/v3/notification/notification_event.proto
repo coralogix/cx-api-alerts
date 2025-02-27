@@ -16,6 +16,7 @@ message AlertNotificationEvent {
   AlertStatus status = 3;
   Attachments attachments = 4;
   map<string, Group> groups = 5;
+  optional google.protobuf.StringValue grouping_key = 6;
 }
 
 message Group {
