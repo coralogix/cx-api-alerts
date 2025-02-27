@@ -16,6 +16,7 @@ message AlertNotificationEvent {
   AlertStatus status = 3;
   Attachments attachments = 4;
   map<string, Group> groups = 5;
+  optional google.protobuf.StringValue grouping_key = 6;
 }
 
 message Group {
@@ -23,7 +24,6 @@ message Group {
   google.protobuf.BoolValue suppressed = 2;
   AlertDefPriority priority = 3;
   map<string, string> key_values = 4;
-  optional google.protobuf.StringValue grouping_key = 5;
   oneof details {
     LogsImmediateNotification logs_immediate = 100;
     LogsThresholdNotification logs_threshold = 101;
