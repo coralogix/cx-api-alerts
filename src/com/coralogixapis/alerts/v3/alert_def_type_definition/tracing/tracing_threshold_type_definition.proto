@@ -11,7 +11,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message TracingThresholdType {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Tracing Threshold Alert Type"
+            title: "Tracing threshold alert type"
             description: "Configuration for alerts based on trace count thresholds"
             required: ["tracing_filter", "rules"]
         }
@@ -27,7 +27,7 @@ message TracingThresholdRule {
 message TracingThresholdCondition {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Tracing Threshold Condition"
+            title: "Tracing threshold condition"
             description: "Defines conditions for trace threshold alerts"
             required: ["threshold", "time_window"]
         }

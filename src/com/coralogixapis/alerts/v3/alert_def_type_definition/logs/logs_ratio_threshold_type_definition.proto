@@ -39,7 +39,7 @@ message LogsRatioRules {
 message LogsRatioCondition {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Logs Ratio Condition"
+      title: "Logs ratio condition"
       description: "Defines conditions for ratio-based alerts"
       required: ["threshold", "time_window"]
     }

@@ -30,7 +30,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message AlertDef {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Alert Definition"
+      title: "Alert definition"
       description: "This data structure represents an alert definition"
       required: [
         "alert_def_properties",
@@ -60,7 +60,7 @@ message AlertDef {
 message AlertDefProperties {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Alert Definition Properties"
+      title: "Alert definition properties"
       description: "User-configurable properties of an alert definition"
       required: ["name", "enabled", "type", "type_definition"]
     }

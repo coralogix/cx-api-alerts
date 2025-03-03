@@ -34,7 +34,7 @@ message LogsTimeRelativeRule {
 message LogsTimeRelativeCondition {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Logs Time Relative Condition"
+            title: "Logs time-relative condition"
             description: "Defines conditions for time-relative comparison alerts"
             required: ["threshold", "compared_to"]
         }

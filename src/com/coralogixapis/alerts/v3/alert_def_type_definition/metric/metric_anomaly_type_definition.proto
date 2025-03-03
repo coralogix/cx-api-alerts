@@ -31,7 +31,7 @@ message MetricAnomalyRule {
 message MetricAnomalyCondition {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Metric Anomaly Condition"
+            title: "Metric anomaly condition"
             description: "Defines conditions for detecting metric anomalies"
             required: ["minimum_threshold", "time_window"]
         }

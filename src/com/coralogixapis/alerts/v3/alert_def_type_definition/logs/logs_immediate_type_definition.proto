@@ -8,8 +8,8 @@ package com.coralogixapis.alerts.v3;
 message LogsImmediateType {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Logs Immediate Alert Type"
-            description: "Configuration for immediate alerts triggered on log entries matching specific filters"
+            title: "Logs immediate alert type"
+            description: "Configuration for immediate alerts triggered on log entries matching specific filters."
             required: ["logs_filter"]
         }
     };

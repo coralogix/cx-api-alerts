@@ -9,7 +9,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message FlowType {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Flow Alert Type"
+            title: "Flow alert type"
             description: "Configuration for flow-based alerts with multiple stages"
             required: ["stages"]
         }
@@ -21,7 +21,7 @@ message FlowType {
 message FlowStages {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Flow Stages"
+            title: "Flow stages"
             description: "Defines stages in a flow alert"
             required: ["flow_stages", "timeframe_ms"]
         }
@@ -36,7 +36,7 @@ message FlowStages {
 message FlowStagesGroups {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Flow Stages Groups"
+            title: "Flow stage groups"
             description: "Groups of stages in a flow alert"
             required: ["groups"]
         }
@@ -53,7 +53,7 @@ message FlowStagesGroup {
 message FlowStagesGroupsAlertDefs {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
         json_schema: {
-            title: "Flow Stages Groups Alert Defs"
+            title: "Flow stage group alert definitions"
             description: "Alert definitions for a flow stage group"
             required: ["id", "not"]
         }
