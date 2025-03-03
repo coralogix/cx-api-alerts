@@ -14,6 +14,10 @@ message LogsUniqueCountType {
             description: "Configuration for alerts based on unique value counts in logs"
             required: ["logs_filter", "rules", "unique_count_keypath"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/logs/unique-count-alerts/"
+            description: "Learn more about log-based, unique count alerts in our documentation"
+        }
     };
     LogsFilter logs_filter = 1;
     repeated LogsUniqueCountRule rules = 2;

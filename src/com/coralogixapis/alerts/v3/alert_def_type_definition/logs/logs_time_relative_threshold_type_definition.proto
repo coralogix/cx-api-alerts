@@ -17,6 +17,10 @@ message LogsTimeRelativeThresholdType {
             description: "Configuration for alerts comparing log counts between different time periods"
             required: ["logs_filter", "rules"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/logs/time-relative-alerts/"
+            description: "Learn more about log-based, time-relative alerts in our documentation"
+        }
     };
     LogsFilter logs_filter = 1;
     repeated LogsTimeRelativeRule rules = 2;

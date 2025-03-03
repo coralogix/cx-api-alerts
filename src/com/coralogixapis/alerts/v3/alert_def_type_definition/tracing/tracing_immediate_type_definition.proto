@@ -13,6 +13,10 @@ message TracingImmediateType {
       description: "Configuration for immediate alerts triggered on trace entries"
       required: ["tracing_filter"]
     }
+    external_docs: {
+      url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/traces/tracing-alerts/"
+      description: "Learn more about tracing immediate alerts in our documentation."
+    }
   };
   TracingFilter tracing_filter = 1;
   repeated google.protobuf.StringValue notification_payload_filter = 2;

@@ -18,6 +18,10 @@ message LogsRatioThresholdType {
       description: "Configuration for alerts based on the ratio between two log queries"
       required: ["numerator", "denominator", "rules"]
     }
+    external_docs: {
+      url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/logs/ratio-alerts/"
+      description: "Learn more about logs ratio alerts in our documentation"
+    }
   };
   LogsFilter numerator = 1;
   google.protobuf.StringValue numerator_alias =2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { example: "\"numerator_alias\"" }];

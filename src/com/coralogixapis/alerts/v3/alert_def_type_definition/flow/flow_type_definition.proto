@@ -13,6 +13,10 @@ message FlowType {
             description: "Configuration for flow-based alerts with multiple stages"
             required: ["stages"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/flow-alerts/"
+            description: "Learn more about flow alerts in our documentation"
+        }
     };
     repeated FlowStages stages = 1 ;
     google.protobuf.BoolValue enforce_suppression = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { example: "true" }];

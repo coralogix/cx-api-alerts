@@ -12,6 +12,10 @@ message LogsImmediateType {
             description: "Configuration for immediate alerts triggered on log entries matching specific filters."
             required: ["logs_filter"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/logs/immediate-notifications/"
+            description: "Learn more about logs immediate alerts in our documentation"
+        }
     };
     LogsFilter logs_filter = 1;
     repeated google.protobuf.StringValue notification_payload_filter = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { example: "\"text\"" }];

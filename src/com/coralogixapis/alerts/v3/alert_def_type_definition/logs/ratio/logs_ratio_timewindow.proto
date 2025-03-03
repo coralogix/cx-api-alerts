@@ -11,6 +11,10 @@ message LogsRatioTimeWindow {
       description: "Time window configuration for ratio alerts"
       required: ["type"]
     }
+    external_docs: {
+      url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/logs/ratio-alerts/"
+      description: "Learn more about log-based ratio alerts in our documentation"
+    }
   };
   oneof type {
     LogsRatioTimeWindowValue logs_ratio_time_window_specific_value = 1;

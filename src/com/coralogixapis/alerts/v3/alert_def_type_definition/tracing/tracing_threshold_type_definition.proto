@@ -15,6 +15,10 @@ message TracingThresholdType {
             description: "Configuration for alerts based on trace count thresholds"
             required: ["tracing_filter", "rules"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/traces/tracing-alerts/"
+            description: "Learn more about tracing alerts in our documentation"
+        }
     };
     TracingFilter tracing_filter = 1;
     repeated TracingThresholdRule rules = 2;

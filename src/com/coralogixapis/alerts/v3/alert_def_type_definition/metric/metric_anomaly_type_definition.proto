@@ -17,6 +17,10 @@ message MetricAnomalyType {
             description: "Configuration for alerts triggered by anomalous metric patterns"
             required: ["metric_source", "rules"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/metrics/anomaly-detection-alerts/"
+            description: "Learn more about metric-based anomaly alerts in our documentation"
+        }
     };
     MetricFilter metric_filter = 1;
     repeated MetricAnomalyRule rules = 2;

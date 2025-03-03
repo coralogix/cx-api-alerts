@@ -17,6 +17,10 @@ message LogsAnomalyType {
             description: "Configuration for alerts triggered by anomalous log patterns"
             required: ["logs_filter", "rules"]
         }
+        external_docs: {
+            url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/logs/anomaly-detection-alerts/"
+            description: "Learn more about logs anomaly alerts in our documentation"
+        }
     };
     LogsFilter logs_filter = 1;
     repeated LogsAnomalyRule rules = 2;
