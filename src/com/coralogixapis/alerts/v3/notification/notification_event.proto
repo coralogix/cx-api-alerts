@@ -19,6 +19,8 @@ message AlertNotificationEvent {
   map<string, Group> groups = 5;
   google.protobuf.StringValue grouping_key = 6;
   Priority highest_priority = 7;
+  google.protobuf.StringValue resolved_aware_grouping_key = 8;
+
 
 }
 
