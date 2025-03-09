@@ -18,7 +18,7 @@ service AlertEventService {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
       external_docs: {
         url: "https://coralogix.com/docs/user-guides/alerting/incidents/"
-        description: "Learn more about incidents in our documentation."
+        description: "Learn more about alert events and incidents in our documentation."
       }
     };
 
