@@ -14,10 +14,16 @@ service AlertDefsService {
     name: "Alert definitions service"
     description: "View and manage your alerts using alert definitions - data structures that contain the configuration required to create an alert."
   };
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    external_docs: {
+      url: "https://coralogix.com/docs/user-guides/alerting/introduction-to-alerts/"
+      description: "Learn more about alerts in our documentation"
+    }
+  };
 
   // Get Alert Def by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "Get alert definition";
+    option (com.coralogix.common.v1.audit_log_description).description = "get alert definition";
     option (google.api.http) = {
       get: "/v3/alert-defs/{id}"
     };
@@ -56,7 +62,7 @@ service AlertDefsService {
   }
 
   rpc GetAlertDefByVersionId(GetAlertDefByVersionIdRequest) returns (GetAlertDefByVersionIdResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "Get alert definition by alert version ID";
+    option (com.coralogix.common.v1.audit_log_description).description = "get alert definition by alert version ID";
     option (google.api.http) = {
       get: "/v3/alert-defs/alert-version-id/{alert_version_id}"
     };
@@ -81,7 +87,6 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Get alert definition by alert version ID"
-      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -96,7 +101,7 @@ service AlertDefsService {
   }
 
   rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "Create alert definition";
+    option (com.coralogix.common.v1.audit_log_description).description = "create alert definition";
     option (google.api.http) = {
       post: "/v3/alert-defs"
       body: "alert_def_properties"
@@ -122,7 +127,6 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Create an alert"
-      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -137,7 +141,7 @@ service AlertDefsService {
   }
 
   rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "Replace alert definition";
+    option (com.coralogix.common.v1.audit_log_description).description = "replace alert definition";
     option (google.api.http) = {
       put: "/v3/alert-defs"
       body: "*"
@@ -163,7 +167,6 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Replace an alert definition"
-      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -185,7 +188,7 @@ service AlertDefsService {
 //  }
 
   rpc ListAlertDefs(ListAlertDefsRequest) returns (ListAlertDefsResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "Get alert definitions list";
+    option (com.coralogix.common.v1.audit_log_description).description = "get alert definitions list";
     option (google.api.http) = {
       get: "/v3/alert-defs"
     };
@@ -210,7 +213,6 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Get a list of all accessible alert definitions"
-      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -225,7 +227,7 @@ service AlertDefsService {
   }
 
   rpc DownloadAlerts(DownloadAlertsRequest) returns (stream DownloadAlertsResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "Download alerts";
+    option (com.coralogix.common.v1.audit_log_description).description = "download alerts";
     option (google.api.http) = {
       get: "/v3/alerts/download"
     };
@@ -265,7 +267,7 @@ service AlertDefsService {
   }
 
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "Delete alert definitions";
+    option (com.coralogix.common.v1.audit_log_description).description = "delete alert definitions";
     option (google.api.http) = {
       delete: "/v3/alert-defs/{id}"
     };
@@ -290,7 +292,6 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: ""
-      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -329,7 +330,7 @@ service AlertDefsService {
 //  }
 
   rpc SetActive(SetActiveRequest) returns (SetActiveResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "Disable or enable the alert definitions";
+    option (com.coralogix.common.v1.audit_log_description).description = "disable or enable the alert definitions";
     option (google.api.http) = {
       post: "/v3/alert-defs/{id}:setActive"
     };
@@ -354,7 +355,6 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Disable or enable an alert"
-      
       extensions: {
         key: "x-coralogixPermissions"
         value: {

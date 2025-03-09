@@ -22,7 +22,7 @@ service AlertEventService {
     };
 
   rpc GetAlertEvent(GetAlertEventRequest) returns (GetAlertEventResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "Get alert event";
+    option (com.coralogix.common.v1.audit_log_description).description = "get alert event";
     option (google.api.http) = {
       get: "/v3/alert-event/{id}"
     };
@@ -61,7 +61,7 @@ service AlertEventService {
   }
 
   rpc GetAlertEventsStats(GetAlertEventStatsRequest) returns (GetAlertEventStatsResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "Get alert events stats";
+    option (com.coralogix.common.v1.audit_log_description).description = "get alert events stats";
     option (google.api.http) = {
       get: "/v3/alert-event-stats"
     };
@@ -116,7 +116,6 @@ message GetAlertEventStatsResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event statistics response"
-      
     }
   };
 
@@ -126,8 +125,7 @@ message GetAlertEventStatsResponse {
 message Permutation {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: ""
-      
+      title: "Permutation data structure"
     }
   };
 
@@ -138,7 +136,6 @@ message EventStats {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Alert event statistics data structure"
-      
     }
   };
 
@@ -153,8 +150,7 @@ message EventStats {
 message ActivityAnalysisStats {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Event activity analysis statistics"
-      
+      title: "Event activity analysis statistics"      
     }
   };
 
@@ -166,7 +162,6 @@ message GetAlertEventRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event by ID request"
-      
     }
   };
 
@@ -179,8 +174,7 @@ message GetAlertEventRequest {
 message GetAlertEventResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Get alert event response"
-      
+      title: "Get alert event response"      
     }
   };
 
