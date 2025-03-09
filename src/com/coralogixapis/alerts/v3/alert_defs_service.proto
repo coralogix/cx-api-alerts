@@ -81,7 +81,7 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Get alert definition by alert version ID"
-      description: ""
+      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -122,7 +122,7 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Create an alert"
-      description: ""
+      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -163,7 +163,7 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Replace an alert definition"
-      description: ""
+      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -210,7 +210,7 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Get a list of all accessible alert definitions"
-      description: ""
+      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -290,7 +290,7 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: ""
-      description: ""
+      
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -354,7 +354,7 @@ service AlertDefsService {
       },
       tags: ["Alert definitions service"]
       operation_id: "Disable or enable an alert"
-      description: ""
+      
       extensions: {
         key: "x-coralogixPermissions"
         value: {

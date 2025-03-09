@@ -8,8 +8,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message NotificationDestination {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Notification destination"
-      description: "Configuration for where alert notifications should be sent"
+      title: "Notification destination configuration"
       required: ["destination"]
     }
     external_docs: {

@@ -9,13 +9,13 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message TracingImmediateType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Tracing immediate alert type"
+      title: "Trace-based immediate alert type"
       description: "Configuration for immediate alerts triggered on trace entries"
       required: ["tracing_filter"]
     }
     external_docs: {
       url: "https://coralogix.com/docs/user-guides/alerting/create-an-alert/traces/tracing-alerts/"
-      description: "Learn more about tracing immediate alerts in our documentation."
+      description: "Learn more about trace-based alerts in our documentation."
     }
   };
   TracingFilter tracing_filter = 1;

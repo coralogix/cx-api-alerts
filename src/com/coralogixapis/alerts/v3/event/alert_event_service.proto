@@ -104,7 +104,7 @@ message GetAlertEventStatsRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event statistics request"
-      description: ""
+      
     }
   };
 
@@ -116,7 +116,7 @@ message GetAlertEventStatsResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event statistics response"
-      description: ""
+      
     }
   };
 
@@ -127,7 +127,7 @@ message Permutation {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: ""
-      description: ""
+      
     }
   };
 
@@ -138,7 +138,7 @@ message EventStats {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Alert event statistics data structure"
-      description: ""
+      
     }
   };
 
@@ -154,7 +154,7 @@ message ActivityAnalysisStats {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Event activity analysis statistics"
-      description: ""
+      
     }
   };
 
@@ -166,7 +166,7 @@ message GetAlertEventRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event by ID request"
-      description: ""
+      
     }
   };
 
@@ -180,7 +180,7 @@ message GetAlertEventResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event response"
-      description: ""
+      
     }
   };
 

@@ -9,7 +9,6 @@ message AlertDefOverride {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Alert definition priority update"
-      description: "Update the priority of an alert definition"
     }
   };
   AlertDefPriority priority = 1;
