@@ -30,7 +30,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message AlertDef {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Alert Definition"
+      title: "Alert definition"
       description: "This data structure represents an alert definition"
       required: [
         "alert_def_properties",
@@ -41,13 +41,13 @@ message AlertDef {
       ]
     }
     external_docs: {
-      url: "https://coralogix.com/docs/user-guides/data-transformation/enrichments/custom-enrichment/"
-      description: "Find out more about enrichments"
+      url: "https://coralogix.com/docs/user-guides/alerting/introduction-to-alerts/"
+      description: "Find out more about alerts in our documentation"
     }
   };
   AlertDefProperties alert_def_properties = 1;
 
-  // This is the Alert Definition's Persistent ID (does not change on replace) , AKA UniqueIdentifier
+  // This is the Alert Definition's Persistent ID (does not change on replace), AKA UniqueIdentifier
   google.protobuf.StringValue id = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { example: "1" }];
   google.protobuf.StringValue alert_version_id = 20; // the old alertId
   google.protobuf.Timestamp created_time = 3;
@@ -60,7 +60,7 @@ message AlertDef {
 message AlertDefProperties {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Alert Definition Properties"
+      title: "Alert definition properties"
       description: "User-configurable properties of an alert definition"
       required: ["name", "enabled", "type", "type_definition"]
     }
