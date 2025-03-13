@@ -8,7 +8,8 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message AlertDefOverride {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Alert definition priority update"
+      title: "Alert Definition Override"
+      description: "Override settings for specific alert conditions"
     }
   };
   AlertDefPriority priority = 1;
