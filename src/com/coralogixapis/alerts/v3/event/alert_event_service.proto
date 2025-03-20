@@ -104,7 +104,8 @@ message GetAlertEventStatsRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event statistics request"
-      
+      description: "A request to retrieve statistics about alert events"
+      required: ["ids", "order_bys"]
     }
   };
 
@@ -116,6 +117,8 @@ message GetAlertEventStatsResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event statistics response"
+      description: "A response containing statistics for the requested alert events"
+      required: ["events_stats"]
     }
   };
 
@@ -126,6 +129,8 @@ message Permutation {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Permutation data structure"
+      description: "A data structure representing a permutation of label values"
+      required: ["permutation_labels"]
     }
   };
 
@@ -136,6 +141,8 @@ message EventStats {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Alert event statistics data structure"
+      description: "Statistical information about alert events"
+      required: ["count", "resolved_count", "triggered_count", "triggered_permutations_samples", "resolved_permutations_samples", "activity_analysis_stats"]
     }
   };
 
@@ -150,7 +157,9 @@ message EventStats {
 message ActivityAnalysisStats {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Event activity analysis statistics"      
+      title: "Event activity analysis statistics"
+      description: "Statistical information about alert event activity"
+      required: ["is_muted_count", "rules"]
     }
   };
 
@@ -162,6 +171,7 @@ message GetAlertEventRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Get alert event by ID request"
+      required: ["id", "order_bys", "pagination"]
     }
   };
 
@@ -188,16 +198,33 @@ message GetAlertEventResponse {
 }
 
 message PaginationRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Pagination request"
+      required: ["page_size", "page_token"]
+    }
+  };
   google.protobuf.UInt32Value page_size = 1;
   google.protobuf.StringValue page_token = 2;
 }
 
 message PaginationResponse {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Pagination response"
+    }
+  };
   google.protobuf.UInt32Value total_size = 1;
   google.protobuf.StringValue next_page_token = 2;
 }
 
 message AlertEventMultiplePermutation{
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Alert event multiple permutation"
+      required: ["alert_event_multiple_permutation"]
+    }
+  };
   repeated AlertEvent alert_event_multiple_permutation = 1;
 }
 
@@ -213,6 +240,12 @@ enum OrderByAlertEventDirection {
 }
 
 message AlertEventOrderBy {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Alert event order by"
+      required: ["field_name", "direction"]
+    }
+  };
   OrderByAlertEventFields field_name = 1;
   OrderByAlertEventDirection direction = 2;
 }
