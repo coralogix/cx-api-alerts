@@ -25,7 +25,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 
 
 /**
- * Represents An Existing or Created Alert Definition
+ * Represents an existing or created alert definition
  */
 message AlertDef {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
@@ -47,7 +47,7 @@ message AlertDef {
   };
   AlertDefProperties alert_def_properties = 1;
 
-  // This is the Alert Definition's Persistent ID (does not change on replace), AKA UniqueIdentifier
+  // This is the alert definition's persistent ID (does not change on replace), AKA UniqueIdentifier
   google.protobuf.StringValue id = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { example: "1" }];
   google.protobuf.StringValue alert_version_id = 20; // the old alertId
   google.protobuf.Timestamp created_time = 3;
@@ -55,7 +55,7 @@ message AlertDef {
 }
 
 /**
- * Represents The non generated alert definition properties (the ones that are set by the user)
+ * Represents the non generated alert definition properties (the ones that are set by the user)
  */
 message AlertDefProperties {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
