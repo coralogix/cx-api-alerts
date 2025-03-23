@@ -35,9 +35,7 @@ message AlertDef {
       required: [
         "alert_def_properties",
         "id",
-        "alert_version_id",
-        "created_time",
-        "updated_time"
+        "alert_version_id"
       ]
     }
     external_docs: {
