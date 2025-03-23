@@ -6,6 +6,8 @@ import "google/protobuf/descriptor.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
+import "com/coralogixapis/alerts/v3/alert_def_filter.proto";
+import "com/coralogixapis/alerts/v3/pagination.proto";
 
 
 service AlertDefsInternalService {
@@ -13,6 +15,29 @@ service AlertDefsInternalService {
   rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
     option (google.api.http) = {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
+    };
+  }
+
+  rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse){
+    option (com.coralogix.common.v1.audit_log_description).description = "create alert definition internal";
+    option (google.api.http) = {
+      post: "/v3/alert-defs-internal"
+      body: "alert_def_properties"
+    };
+  }
+
+  rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
+    option (com.coralogix.common.v1.audit_log_description).description = "replace alert definition internal";
+    option (google.api.http) = {
+      put: "/v3/alert-defs-internal"
+      body: "*"
+    };
+  }
+
+  rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse){
+    option (com.coralogix.common.v1.audit_log_description).description = "delete alert definitions internal";
+    option (google.api.http) = {
+      delete: "/v3/alert-defs-internal/{id}"
     };
   }
 }
@@ -23,4 +48,27 @@ message GetAlertDefByVersionIdInternalRequest {
 
 message GetAlertDefByVersionIdInternalResponse {
   AlertDef alert_def = 1;
+}
+
+message ListAlertDefsInternalRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "List Alert Definitions Request"
+      description: "Request to retrieve a list of alert definitions"
+    }
+  };
+  AlertQueryFilter alert_query_filter = 1;
+  PaginationRequest pagination = 20;
+}
+
+message ListAlertDefsResponse {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "List Alert Definitions Response"
+      description: "Response containing a list of alert definitions"
+      required: ["alert_defs"]
+    }
+  };
+  repeated AlertDef alert_defs = 1;
+  PaginationResponse pagination_response = 20;
 }
