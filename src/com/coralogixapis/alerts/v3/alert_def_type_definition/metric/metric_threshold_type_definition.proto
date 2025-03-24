@@ -28,6 +28,7 @@ message MetricThresholdType {
     UndetectedValuesManagement undetected_values_management = 3;
     MetricMissingValues missing_values = 4;
     google.protobuf.Int32Value evaluation_delay_ms = 5;
+    PreConditionMetricThreshold pre_condition = 6;
 }
 
 message MetricThresholdRule {
@@ -47,4 +48,9 @@ message MetricThresholdCondition {
     google.protobuf.UInt32Value for_over_pct = 2;
     MetricTimeWindow of_the_last = 3;
     MetricThresholdConditionType condition_type = 5;
+}
+
+message PreConditionMetricThreshold {
+    MetricFilter metric_filter = 1;
+    repeated MetricThresholdRule rules = 2;
 }
