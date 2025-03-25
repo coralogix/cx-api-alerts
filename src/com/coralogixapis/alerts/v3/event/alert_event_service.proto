@@ -11,16 +11,6 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 
 
 service AlertEventService {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {
-    name: "Alert events service"
-    description: "Get information regarding your alert events - instances of alerts being triggered."
-  };
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-    external_docs: {
-      url: "https://coralogix.com/docs/user-guides/alerting/incidents/"
-      description: "Learn more about alert events and incidents in our documentation."
-    }
-  };
   rpc GetAlertEvent(GetAlertEventRequest) returns (GetAlertEventResponse) {
     option (com.coralogix.common.v1.audit_log_description).description = "get alert event";
     option (google.api.http) = {
