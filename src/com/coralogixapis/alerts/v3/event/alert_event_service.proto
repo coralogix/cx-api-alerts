@@ -11,6 +11,23 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 
 
 service AlertEventService {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Alert definition"
+      description: "This data structure represents an alert definition"
+      required: [
+        "alert_def_properties",
+        "id",
+        "alert_version_id",
+        "created_time",
+        "updated_time"
+      ]
+    }
+    external_docs: {
+      url: "https://coralogix.com/docs/user-guides/alerting/introduction-to-alerts/"
+      description: "Find out more about alerts in our documentation"
+    }
+  };
   rpc GetAlertEvent(GetAlertEventRequest) returns (GetAlertEventResponse) {
     option (com.coralogix.common.v1.audit_log_description).description = "get alert event";
     option (google.api.http) = {
