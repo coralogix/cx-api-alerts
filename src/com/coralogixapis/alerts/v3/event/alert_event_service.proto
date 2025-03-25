@@ -8,64 +8,14 @@ import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/event/alert_event.proto";
 import "com/coralogix/common/v1/audit_log.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
 
 
 service AlertEventService {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-    json_schema: {
-      title: "Alert definition"
-      description: "This data structure represents an alert definition"
-      required: [
-        "alert_def_properties",
-        "id",
-        "alert_version_id",
-        "created_time",
-        "updated_time"
-      ]
-    }
-    external_docs: {
-      url: "https://coralogix.com/docs/user-guides/alerting/introduction-to-alerts/"
-      description: "Find out more about alerts in our documentation"
-    }
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {
+    name: "Alert events service"
+    description: "Get information regarding your alert events - instances of alerts being triggered."
   };
-  rpc GetAlertEvent(GetAlertEventRequest) returns (GetAlertEventResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "get alert event";
-    option (google.api.http) = {
-      get: "/v3/alert-event/{id}"
-    };
-    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-      responses: {
-        key: "400"
-        value: {
-          description: "Bad Request"
-        }
-      },
-      responses: {
-        key: "401"
-        value: {
-          description: "Unauthorized request"
-        }
-      },
-      responses: {
-        key: "500"
-        value: {
-          description: "Internal server error"
-        }
-      },
-      tags: ["Alert events service"]
-      operation_id: "Get alert event by ID"
-      extensions: {
-        key: "x-coralogixPermissions"
-        value: {
-          list_value: {
-            values: {
-              string_value: "alerts:ReadConfig"
-            }
-          }
-        }
-      }
-    };
-  }
 
   rpc GetAlertEventsStats(GetAlertEventStatsRequest) returns (GetAlertEventStatsResponse) {
     option (com.coralogix.common.v1.audit_log_description).description = "get alert events stats";
