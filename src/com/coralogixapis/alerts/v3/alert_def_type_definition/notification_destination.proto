@@ -4,12 +4,16 @@ import "com/coralogixapis/alerts/v3/commons.proto";
 package com.coralogixapis.alerts.v3;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
+
 message NotificationDestination {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Notification Destination"
-      description: "Configuration for where alert notifications should be sent"
+      title: "Notification destination configuration"
       required: ["destination"]
+    }
+    external_docs: {
+      url: "https://coralogix.com/docs/user-guides/alerting/configure-notifications/destinations/"
+      description: "Learn more about alert notification destinations in our documentation"
     }
   };
   string connector_id = 1;
