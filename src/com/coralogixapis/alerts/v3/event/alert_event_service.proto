@@ -14,7 +14,6 @@ service AlertEventService {
   rpc GetAlertEvent(GetAlertEventRequest) returns (GetAlertEventResponse) {
     option (com.coralogix.common.v1.audit_log_description).description = "get alert event";
     option (google.api.http) = {
-      get: "/v3/alert_event/{id}"
       get: "/v3/alert-event/{id}"
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
