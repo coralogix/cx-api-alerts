@@ -15,20 +15,31 @@ message SloThresholdRule {
   optional AlertDefOverride override = 2;
 }
 
-message ErrorBudgetAlertDefinition {
+message ErrorBudgetThreshold {
   repeated SloThresholdRule rules = 1;
 }
 
-message BurnRateAlertDefinition {
+message BurnRateTypeDual {
+  google.protobuf.Duration long_window = 1;
+  google.protobuf.Duration short_window = 2;
+}
+
+message BurnRateTypeSingle {
+  google.protobuf.Duration window = 1;
+}
+
+message BurnRateThreshold {
   repeated SloThresholdRule rules = 1;
-  google.protobuf.Duration long_window = 3;
-  google.protobuf.Duration short_window = 4;
+  oneof burn_rate {
+    BurnRateTypeDual dual = 2;
+    BurnRateTypeSingle single = 3;
+  };
 }
 
 message SloThresholdType {
   SloDefinition slo_definition = 1;
   oneof alert {
-    ErrorBudgetAlertDefinition error_budget_alert = 2;
-    BurnRateAlertDefinition burn_rate_alert = 3;
+    ErrorBudgetThreshold error_budget = 2;
+    BurnRateThreshold burn_rate = 3;
   };
 }
