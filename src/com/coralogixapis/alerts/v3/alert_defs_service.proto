@@ -13,8 +13,6 @@ service AlertDefsService {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {
     name: "Alert definitions service"
     description: "View and manage your alerts using alert definitions - data structures that contain the configuration required to create an alert."
-  };
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     external_docs: {
       url: "https://coralogix.com/docs/user-guides/alerting/introduction-to-alerts/"
       description: "Learn more about alerts in our documentation"
