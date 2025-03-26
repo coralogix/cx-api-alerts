@@ -39,7 +39,6 @@ message MetricThresholdType {
     description: "The delay in milliseconds before evaluating the alert condition"
     example: "60000"
   }];
-    PreConditionMetricThreshold pre_condition = 6;
 }
 
 message MetricThresholdRule {
@@ -85,9 +84,4 @@ message MetricThresholdCondition {
     description: "The type of the alert condition"
     example: "\"METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS\""
   }];
-}
-
-message PreConditionMetricThreshold {
-    MetricFilter metric_filter = 1;
-    repeated MetricThresholdRule rules = 2;
 }
