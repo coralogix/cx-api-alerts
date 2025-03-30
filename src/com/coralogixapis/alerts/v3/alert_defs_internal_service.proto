@@ -17,29 +17,7 @@ service AlertDefsInternalService {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
   }
-
-  rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "create alert definition internal";
-    option (google.api.http) = {
-      post: "/v3/alert-defs-internal"
-      body: "alert_def_properties"
-    };
-  }
-
-  rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "replace alert definition internal";
-    option (google.api.http) = {
-      put: "/v3/alert-defs-internal"
-      body: "*"
-    };
-  }
-
-  rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse){
-    option (com.coralogix.common.v1.audit_log_description).description = "delete alert definitions internal";
-    option (google.api.http) = {
-      delete: "/v3/alert-defs-internal/{id}"
-    };
-  }
+  rpc ListAlertDefsInternalInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {}
 }
 
 message GetAlertDefByVersionIdInternalRequest {
@@ -61,7 +39,7 @@ message ListAlertDefsInternalRequest {
   PaginationRequest pagination = 20;
 }
 
-message ListAlertDefsResponse {
+message ListAlertDefsInternalResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "List Alert Definitions Response"
