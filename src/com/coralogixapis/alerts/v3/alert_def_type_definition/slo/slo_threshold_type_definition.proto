@@ -5,7 +5,7 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/duration.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
 import "com/coralogixapis/alerts/v3/alert_type_definition/slo/slo_definition.proto";
-import "com/coralogixapis/alerts/v3/alert_type_definition/slo/common/slo_time_window.proto";
+import "com/coralogixapis/alerts/v3/commons";
 
 message SloThresholdCondition {
   google.protobuf.DoubleValue threshold = 1;
@@ -21,11 +21,11 @@ message ErrorBudgetThreshold {
 }
 
 message BurnRateTypeDual {
-  SloTimeWindowValue window = 1;
+  TimeDuration window = 1;
 }
 
 message BurnRateTypeSingle {
-  SloTimeWindowValue window = 1;
+  TimeDuration window = 1;
 }
 
 message BurnRateThreshold {
@@ -38,7 +38,7 @@ message BurnRateThreshold {
 
 message SloThresholdType {
   SloDefinition slo_definition = 1;
-  oneof alert {
+  oneof threshold {
     ErrorBudgetThreshold error_budget = 2;
     BurnRateThreshold burn_rate = 3;
   };
