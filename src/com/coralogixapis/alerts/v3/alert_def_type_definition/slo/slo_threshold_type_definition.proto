@@ -21,12 +21,11 @@ message ErrorBudgetThreshold {
 }
 
 message BurnRateTypeDual {
-  SloLongTimeWindow long_window = 1; //TODO should be specific hour or make validation for min: 1H and max: 48H
-  SloShortTimeWindow short_window = 2; // TODO should be minute of: long_window / 12
+  SloTimeWindowValue window = 1;
 }
 
 message BurnRateTypeSingle {
-  google.protobuf.Duration window = 1; // need to understand if what the enum should contains here?
+  SloTimeWindowValue window = 1;
 }
 
 message BurnRateThreshold {
