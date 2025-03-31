@@ -4,5 +4,5 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/wrappers.proto";
 
 message SloDefinition {
-  google.protobuf.StringValue slo_id = 1;
+  google.protobuf.StringValue slo_user_facing_id = 1;
 }
