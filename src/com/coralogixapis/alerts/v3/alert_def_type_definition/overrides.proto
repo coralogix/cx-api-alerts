@@ -11,5 +11,5 @@ message AlertDefOverride {
       title: "Alert definition priority update"
     }
   };
-  optional AlertDefPriority priority = 1;
+  AlertDefPriority priority = 1;
 }
