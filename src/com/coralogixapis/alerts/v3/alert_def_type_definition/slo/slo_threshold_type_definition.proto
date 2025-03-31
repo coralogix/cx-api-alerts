@@ -21,11 +21,11 @@ message ErrorBudgetThreshold {
 }
 
 message BurnRateTypeDual {
-  TimeDuration window = 1;
+  TimeDuration time_duration = 1;
 }
 
 message BurnRateTypeSingle {
-  TimeDuration window = 1;
+  TimeDuration time_duration = 1;
 }
 
 message BurnRateThreshold {
