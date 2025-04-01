@@ -1,26 +1,15 @@
 syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
+import "google/protobuf/wrappers.proto";
 
 message PaginationRequest {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-    json_schema: {
-      title: "Pagination request"
-      description: "Pagination parameters for list requests"
-    }
-  };
   google.protobuf.UInt32Value page_size = 1;
   google.protobuf.StringValue page_token = 2;
 }
 
 
 message PaginationResponse {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-    json_schema: {
-      title: "Pagination response"
-      description: "Pagination information for list responses"
-    }
-  };
   google.protobuf.UInt32Value total_size = 1;
   google.protobuf.StringValue next_page_token = 2;
 }
