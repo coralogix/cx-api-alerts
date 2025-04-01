@@ -13,3 +13,4 @@ message PaginationResponse {
   google.protobuf.UInt32Value total_size = 1;
   google.protobuf.StringValue next_page_token = 2;
 }
+
