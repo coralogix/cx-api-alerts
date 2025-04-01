@@ -31,8 +31,8 @@ message GetAlertDefByVersionIdInternalResponse {
 message ListAlertDefsInternalRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "List Alert Definitions Request"
-      description: "Request to retrieve a list of alert definitions"
+      title: "List alert definitions request"
+      description: "A request to get list of alert definitions"
     }
   };
   AlertQueryFilter alert_query_filter = 1;
@@ -42,8 +42,8 @@ message ListAlertDefsInternalRequest {
 message ListAlertDefsInternalResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "List Alert Definitions Response"
-      description: "Response containing a list of alert definitions"
+      title: "List alert definitions response"
+      description: "A response that contains a list of alert definitions"
       required: ["alert_defs"]
     }
   };
