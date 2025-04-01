@@ -17,7 +17,7 @@ service AlertDefsInternalService {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
   }
-  rpc ListAlertDefsInternalInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
+  rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
     option (com.coralogix.common.v1.audit_log_description).description = "get alert definitions list";
     option (google.api.http) = {
       get: "/v3/alert-defs"

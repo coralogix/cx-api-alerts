@@ -5,7 +5,7 @@ package com.coralogixapis.alerts.v3;
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 
 message AlertQueryFilter {
-  oneof AlertDefType alert_def_type = 1;
+  AlertDefType alert_def_type = 1;
 }
 
 
