@@ -17,7 +17,44 @@ service AlertDefsInternalService {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
   }
-  rpc ListAlertDefsInternalInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {}
+  rpc ListAlertDefsInternalInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
+    option (com.coralogix.common.v1.audit_log_description).description = "get alert definitions list";
+    option (google.api.http) = {
+      get: "/v3/alert-defs"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      responses: {
+        key: "400"
+        value: {
+          description: "Bad Request"
+        }
+      },
+      responses: {
+        key: "401"
+        value: {
+          description: "Unauthorized request"
+        }
+      },
+      responses: {
+        key: "500"
+        value: {
+          description: "Internal server error"
+        }
+      },
+      tags: ["Alert definitions service"]
+      operation_id: "Get a list of all accessible alert definitions"
+      extensions: {
+        key: "x-coralogixPermissions"
+        value: {
+          list_value: {
+            values: {
+              string_value: "alerts:ReadConfig"
+            }
+          }
+        }
+      }
+    };
+  }
 }
 
 message GetAlertDefByVersionIdInternalRequest {
