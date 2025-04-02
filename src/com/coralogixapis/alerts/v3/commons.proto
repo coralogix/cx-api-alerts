@@ -2,7 +2,19 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "google/protobuf/wrappers.proto";
+
 enum NotifyOn {
   NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED = 0;
   NOTIFY_ON_TRIGGERED_AND_RESOLVED = 1;
+}
+
+message TimeDuration {
+  google.protobuf.UInt64Value duration = 1;
+  DurationUnit unit = 2;
+}
+
+enum DurationUnit {
+  DURATION_UNIT_UNSPECIFIED = 0;
+  DURATION_UNIT_HOURS = 1;
 }
