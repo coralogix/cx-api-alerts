@@ -8,9 +8,6 @@ import "com/coralogixapis/alerts/v3/alert_def_severity.proto";
 
 message EventSloBurnRateThreshold {
   google.protobuf.FloatValue percentage_over_threshold = 1;
-  optional google.protobuf.FloatValue avg_value_across_threshold = 2;
-  optional google.protobuf.FloatValue min_value_across_threshold = 3;
-  optional google.protobuf.FloatValue max_value_across_threshold = 4;
   google.protobuf.Timestamp from_timestamp = 5;
   google.protobuf.Timestamp to_timestamp = 6;
   AlertDefSeverity severity = 7;
