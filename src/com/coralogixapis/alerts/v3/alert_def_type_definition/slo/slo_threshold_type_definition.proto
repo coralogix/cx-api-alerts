@@ -30,7 +30,7 @@ message BurnRateTypeSingle {
 
 message BurnRateThreshold {
   repeated SloThresholdRule rules = 1;
-  oneof burn_rate {
+  oneof type {
     BurnRateTypeDual dual = 2;
     BurnRateTypeSingle single = 3;
   };
