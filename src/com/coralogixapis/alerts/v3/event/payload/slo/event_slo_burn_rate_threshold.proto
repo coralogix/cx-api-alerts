@@ -12,10 +12,10 @@ message EventSloBurnRateThreshold {
   google.protobuf.Timestamp to_timestamp = 6;
   AlertDefSeverity severity = 7;
   google.protobuf.StringValue promqlText = 8;
-  optional PreCondition pre_condition = 9;
+  optional ShortWindow short_window = 9;
 }
 
-message PreCondition {
+message ShortWindow {
   google.protobuf.FloatValue percentage_over_threshold = 1;
   google.protobuf.StringValue promqlText = 2;
 }
