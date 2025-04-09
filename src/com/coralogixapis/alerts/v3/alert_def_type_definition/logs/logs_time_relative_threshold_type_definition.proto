@@ -10,6 +10,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/undetected_values_
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// LogsTimeRelativeThresholdType is a message that defines the configuration for log-based time-relative alerts.
 message LogsTimeRelativeThresholdType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {

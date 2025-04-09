@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_notification_group.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
 import "com/coralogixapis/alerts/v3/alert_def_scheduling.proto";
@@ -26,6 +27,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
  * Represents an existing or created alert definition
  */
 message AlertDef {
+  option (com.coralogix.openapi.v1.message) = {resource: true};
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Alert definition"
@@ -41,22 +43,44 @@ message AlertDef {
       description: "Find out more about alerts in our documentation"
     }
   };
-  AlertDefProperties alert_def_properties = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The alert definition's properties"}];
+  // The alert definition's properties
+  AlertDefProperties alert_def_properties = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The alert definition's properties"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 
   // This is the alert definition's persistent ID (does not change on replace), AKA UniqueIdentifier
-  google.protobuf.StringValue id = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "123e4567-e89b-12d3-a456-426614174000"
-    description: "The alert definition's persistent ID"
-  }];
-  google.protobuf.StringValue alert_version_id = 20 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The old alert ID"}]; // the old alertId
-  google.protobuf.Timestamp created_time = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "2023-10-01T12:00:00Z"
-    description: "The time when the alert definition was created"
-  }];
-  google.protobuf.Timestamp updated_time = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "2023-10-01T12:00:00Z"
-    description: "The time when the alert definition was last updated"
-  }];
+  google.protobuf.StringValue id = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "123e4567-e89b-12d3-a456-426614174000"
+      description: "The alert definition's persistent ID"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "123e4567-e89b-12d3-a456-426614174000"
+      required: true
+    }
+  ];
+  // the old alertId
+  google.protobuf.StringValue alert_version_id = 20 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The old alert ID"},
+    (com.coralogix.openapi.v1.field) = {description: "The old alert ID"}
+  ];
+  // The time when the alert definition was created
+  google.protobuf.Timestamp created_time = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "2023-10-01T12:00:00Z"
+      description: "The time when the alert definition was created"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "2023-10-01T12:00:00Z"}
+  ];
+  // The time when the alert definition was last updated
+  google.protobuf.Timestamp updated_time = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "2023-10-01T12:00:00Z"
+      description: "The time when the alert definition was last updated"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "2023-10-01T12:00:00Z"}
+  ];
 }
 
 /**
@@ -75,68 +99,142 @@ message AlertDefProperties {
       ]
     }
   };
-  google.protobuf.StringValue name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "\"My Alert\""
-    description: "The name of the alert definition"
-  }];
-  google.protobuf.StringValue description = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "\"Alert description\""
-    description: "A detailed description of what the alert monitors and when it triggers"
-  }];
-  google.protobuf.BoolValue enabled = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "true"
-    description: "Whether the alert is currently active and monitoring"
-    default: "true"
-  }];
-  AlertDefPriority priority = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The priority level of the alert"
-    example: "ALERT_DEF_PRIORITY_P4"
-  }];
+  // The name of the alert definition
+  google.protobuf.StringValue name = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "\"My Alert\""
+      description: "The name of the alert definition"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "\"My Alert\""
+      required: true
+    }
+  ];
+  // A detailed description of what the alert monitors and when it triggers
+  google.protobuf.StringValue description = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "\"Alert description\""
+      description: "A detailed description of what the alert monitors and when it triggers"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "A detailed description of what the alert monitors and when it triggers"}
+  ];
+  // Whether the alert is currently active and monitoring
+  google.protobuf.BoolValue enabled = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "true"
+      description: "Whether the alert is currently active and monitoring"
+      default: "true"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "true"}
+  ];
+  // The priority level of the alert
+  AlertDefPriority priority = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The priority level of the alert"
+      example: "ALERT_DEF_PRIORITY_P4"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      description: "The priority level of the alert"
+      example: "ALERT_DEF_PRIORITY_P4"
+      required: true
+    }
+  ];
+  // The schedule defining when the alert should be active
   oneof schedule {
+    // Defining when the alert is active
     ActivitySchedule active_on = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The schedule defining when the alert should be active"}];
   }
-  AlertDefType type = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Alert type"
-    example: "ALERT_DEF_TYPE_METRIC_THRESHOLD"
-  }];
+  // Alert type
+  AlertDefType type = 6 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Alert type"
+      example: "ALERT_DEF_TYPE_METRIC_THRESHOLD"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "ALERT_DEF_TYPE_METRIC_THRESHOLD"
+    }
+  ];
+  // The type definition of the alert
   oneof type_definition {
+    // Configuration for immediate log-based alerts
     LogsImmediateType logs_immediate = 101 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for immediate log-based alerts"}];
-    TracingImmediateType tracing_immediate = 102 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for immediate tracing-based alerts"}];
+    // Configuration for immediate tracing-based alerts
+    TracingImmediateType tracing_immediate = 102 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for immediate tracing-based alerts"},
+      (com.coralogix.openapi.v1.field) = {skip_in: CLOUD_IBM}
+    ];
+    // Configuration for log-based threshold alerts
     LogsThresholdType logs_threshold = 103 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for log-based threshold alerts"}];
+    // Configuration for log-based ratio threshold alerts
     LogsRatioThresholdType logs_ratio_threshold = 104 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for log-based ratio threshold alerts"}];
+    // Configuration for time-relative log threshold alerts
     LogsTimeRelativeThresholdType logs_time_relative_threshold = 105 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for time-relative log threshold alerts"}];
+    // Configuration for metric-based threshold alerts
     MetricThresholdType metric_threshold = 106 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for metric-based threshold alerts"}];
-    TracingThresholdType tracing_threshold = 107 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for tracing-based threshold alerts"}];
+    // Configuration for tracing-based threshold alerts
+    TracingThresholdType tracing_threshold = 107 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for tracing-based threshold alerts"},
+      (com.coralogix.openapi.v1.field) = {skip_in: CLOUD_IBM}
+    ];
+    // Configuration for flow-based alerts
     FlowType flow = 108 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for flow-based alerts"}];
+    // Configuration for log-based anomaly detection alerts
     LogsAnomalyType logs_anomaly = 109 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for log-based anomaly detection alerts"}];
+    // Configuration for metric-based anomaly detection alerts
     MetricAnomalyType metric_anomaly = 110 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for metric-based anomaly detection alerts"}];
+    // Configuration for alerts triggered by new log values
     LogsNewValueType logs_new_value = 111 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for alerts triggered by new log values"}];
+    // Configuration for alerts based on unique log value counts
     LogsUniqueCountType logs_unique_count = 112 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for alerts based on unique log value counts"}];
   }
-  repeated google.protobuf.StringValue group_by_keys = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Keys used to group and aggregate alert data"
-    example: "[\"key1\", \"key2\"]"
-    min_items: 0
-    max_items: 2
-  }];
+  // Keys used to group and aggregate alert data
+  repeated google.protobuf.StringValue group_by_keys = 7 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Keys used to group and aggregate alert data"
+      example: "[\"key1\", \"key2\"]"
+      min_items: 0
+      max_items: 2
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"key1\", \"key2\"]"
+      min_items: 0
+      max_items: 2
+    }
+  ];
+  // Incident creation and management settings
   AlertDefIncidentSettings incidents_settings = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Incident creation and management settings"}];
+  // Primary notification group for alert events
   AlertDefNotificationGroup notification_group = 9 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Primary notification group for alert events"}];
+  // Additional notification groups for alerts (deprecated)
   repeated AlertDefNotificationGroup notification_group_excess = 210 [
     deprecated = true,
     (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Additional notification groups for alerts (deprecated)"}
   ];
-  map<string, string> entity_labels = 10 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Labels used to identify and categorize the alert entity"
-    example: "{\"key\": \"value\"}"
-  }];
-  google.protobuf.BoolValue phantom_mode = 11 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Whether the alert is in phantom mode (creating incidents or not)"
-    example: "false"
-    default: "false"
-  }];
-  google.protobuf.BoolValue deleted = 12 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Whether the alert has been marked as deleted"
-    example: "false"
-    default: "false"
-  }];
+  // Labels used to identify and categorize the alert entity
+  map<string, string> entity_labels = 10 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Labels used to identify and categorize the alert entity"
+      example: "{\"key\": \"value\"}"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "{\"key\": \"value\"}"}
+  ];
+  // Whether the alert is in phantom mode (creating incidents or not)
+  google.protobuf.BoolValue phantom_mode = 11 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Whether the alert is in phantom mode (creating incidents or not)"
+      example: "false"
+      default: "false"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "false"}
+  ];
+  // Whether the alert has been marked as deleted
+  google.protobuf.BoolValue deleted = 12 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Whether the alert has been marked as deleted"
+      example: "false"
+      default: "false"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "false"}
+  ];
 }

@@ -2,10 +2,12 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/common/tracing_filter.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// TracingImmediateType is a message that defines the configuration for immediate alerts triggered on trace entries matching specific filters.
 message TracingImmediateType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -18,11 +20,27 @@ message TracingImmediateType {
       description: "Learn more about trace-based alerts in our documentation."
     }
   };
-  TracingFilter tracing_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "A filter to match trace entries for immediate alerts"}];
-  repeated google.protobuf.StringValue notification_payload_filter = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Notification payload field filter"
-    example: "[\"obj.field\"]"
-    pattern: "^[a-zA-Z0-9_.]+$"
-    min_items: 0
-  }];
+  // A filter to match trace entries for immediate alerts
+  TracingFilter tracing_filter = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "A filter to match trace entries for immediate alerts"},
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // Notification payload field filter
+  repeated google.protobuf.StringValue notification_payload_filter = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Notification payload field filter"
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+      skip_in: CLOUD_IBM
+    }
+  ];
 }

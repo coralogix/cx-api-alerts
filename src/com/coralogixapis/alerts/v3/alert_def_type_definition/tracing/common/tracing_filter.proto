@@ -2,9 +2,11 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// Alert definition tracing-based filter configuration
 message TracingFilter {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -13,10 +15,17 @@ message TracingFilter {
       required: ["filter_type"]
     }
   };
+  // The filter type for to filter traces.
   oneof filter_type {
-    TracingSimpleFilter simple_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Simple filter using latency threshold and label filters"}];
+    // Simple filter using latency threshold and label filters
+    TracingSimpleFilter simple_filter = 1 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Simple filter using latency threshold and label filters"},
+      (com.coralogix.openapi.v1.field) = {skip_in: CLOUD_IBM}
+    ];
   }
 }
+
+// Simple filter using latency threshold and label filters.
 message TracingSimpleFilter {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -25,14 +34,28 @@ message TracingSimpleFilter {
       required: ["latency_threshold_ms"]
     }
   };
-  TracingLabelFilters tracing_label_filters = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Trace label filters"}];
-  google.protobuf.UInt64Value latency_threshold_ms = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The latency threshold to filter traces in milliseconds"
-    example: "1000"
-    pattern: "^\\d+$"
-  }];
+  // Trace label filters
+  TracingLabelFilters tracing_label_filters = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Trace label filters"},
+    (com.coralogix.openapi.v1.field) = {skip_in: CLOUD_IBM}
+  ];
+  // The latency threshold to filter traces in milliseconds
+  google.protobuf.UInt64Value latency_threshold_ms = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The latency threshold to filter traces in milliseconds"
+      example: "1000"
+      pattern: "^\\d+$"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "1000"
+      pattern: "^\\d+$"
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
 }
 
+// Label filters for trace entries.
 message TracingLabelFilters {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -40,27 +63,64 @@ message TracingLabelFilters {
       description: "Filters for application name, subsystem name, service name, operation name and span fields"
     }
   };
-  repeated TracingFilterType application_name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by application names"
-    min_items: 0
-  }];
-  repeated TracingFilterType subsystem_name = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by subsystem names"
-    min_items: 0
-  }];
-  repeated TracingFilterType service_name = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by service names"
-    min_items: 0
-  }];
-  repeated TracingFilterType operation_name = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by operation names"
-    min_items: 0
-  }];
-  repeated TracingSpanFieldsFilterType span_fields = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by span fields"
-    min_items: 0
-  }];
+  // Filter by application names
+  repeated TracingFilterType application_name = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by application names"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      skip_in: CLOUD_IBM
+      min_items: 0
+    }
+  ];
+  // Filter by subsystem names
+  repeated TracingFilterType subsystem_name = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by subsystem names"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      skip_in: CLOUD_IBM
+      min_items: 0
+    }
+  ];
+  // Filter by service names
+  repeated TracingFilterType service_name = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by service names"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      skip_in: CLOUD_IBM
+      min_items: 0
+    }
+  ];
+  // Filter by operation names
+  repeated TracingFilterType operation_name = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by operation names"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      skip_in: CLOUD_IBM
+      min_items: 0
+    }
+  ];
+  // Filter by span fields
+  repeated TracingSpanFieldsFilterType span_fields = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Filter by span fields"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      skip_in: CLOUD_IBM
+      min_items: 0
+    }
+  ];
 }
+
+// Span fields filter for trace entries.
 message TracingSpanFieldsFilterType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -72,14 +132,31 @@ message TracingSpanFieldsFilterType {
       ]
     }
   };
-  google.protobuf.StringValue key = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The key of the span field to filter by"
-    example: "span.field.key"
-    pattern: "^\\w+\\.\\w+$"
-  }];
-  TracingFilterType filter_type = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The FilterType to filter by."}];
+  // The key of the span field to filter by
+  google.protobuf.StringValue key = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The key of the span field to filter by"
+      example: "span.field.key"
+      pattern: "^\\w+\\.\\w+$"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "span.field.key"
+      pattern: "^.*$"
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // The type of the filter
+  TracingFilterType filter_type = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The type of the filter"},
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
 }
 
+// Filter type for trace entries.
 message TracingFilterType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -91,17 +168,36 @@ message TracingFilterType {
       ]
     }
   };
-  repeated google.protobuf.StringValue values = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The values of the label to filter by"
-    example: "[\"value1\", \"value2\"]"
-    min_items: 1
-  }];
-  TracingFilterOperationType operation = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The operation to perform on the label value"
-    example: "TRACING_FILTER_OPERATION_TYPE_STARTS_WITH"
-  }];
+  // The values of the label to filter by
+  repeated google.protobuf.StringValue values = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The values of the label to filter by"
+      example: "[\"value1\", \"value2\"]"
+      min_items: 1
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"value1\", \"value2\"]"
+      pattern: "^.*$"
+      required: true
+      min_items: 1
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // The operation to perform on the label value
+  TracingFilterOperationType operation = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The operation to perform on the label value"
+      example: "TRACING_FILTER_OPERATION_TYPE_STARTS_WITH"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "TRACING_FILTER_OPERATION_TYPE_STARTS_WITH"
+      skip_in: CLOUD_IBM
+    }
+  ];
 }
 
+// Tracing filter operation types.
 enum TracingFilterOperationType {
   TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED = 0;
   TRACING_FILTER_OPERATION_TYPE_INCLUDES = 1;

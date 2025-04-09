@@ -3,6 +3,7 @@ syntax = "proto3";
 package com.coralogixapis.alerts.v3;
 
 
+// LogsRatioConditionType is an enum that defines the types of conditions for log ratio alerts.
 enum LogsRatioConditionType {
   LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED = 0;
   LOGS_RATIO_CONDITION_TYPE_LESS_THAN = 1;

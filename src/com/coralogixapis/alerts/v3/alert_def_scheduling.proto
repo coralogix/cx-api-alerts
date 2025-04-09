@@ -2,8 +2,10 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+/// Alert activity schedule configuration
 message ActivitySchedule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -16,10 +18,25 @@ message ActivitySchedule {
       ]
     }
   };
-  repeated DayOfWeek day_of_week = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {example: "[\"DAY_OF_WEEK_MONDAY_OR_UNSPECIFIED\", \"DAY_OF_WEEK_TUESDAY\"]"}];
-  TimeOfDay start_time = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Start time of the alert activity"}];
-  TimeOfDay end_time = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "End time of the alert activity"}];
+  // Days of the week when the alert is active.
+  repeated DayOfWeek day_of_week = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {example: "[\"DAY_OF_WEEK_MONDAY_OR_UNSPECIFIED\", \"DAY_OF_WEEK_TUESDAY\"]"},
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      min_items: 1
+      max_items: 7
+      example: "[\"DAY_OF_WEEK_MONDAY_OR_UNSPECIFIED\", \"DAY_OF_WEEK_TUESDAY\"]"
+    }];
+  // Start time of the alert activity
+  TimeOfDay start_time = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Start time of the alert activity"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The end time of the alert activity.
+  TimeOfDay end_time = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "End time of the alert activity"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }
+
+// DayOfWeek represents the days of the week.
 enum DayOfWeek {
   DAY_OF_WEEK_MONDAY_OR_UNSPECIFIED = 0;
   DAY_OF_WEEK_TUESDAY = 1;
@@ -29,6 +46,8 @@ enum DayOfWeek {
   DAY_OF_WEEK_SATURDAY = 5;
   DAY_OF_WEEK_SUNDAY = 6;
 }
+
+// TimeOfDay represents a specific time of day in 24-hour format.
 message TimeOfDay {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -44,10 +63,20 @@ message TimeOfDay {
   int32 hours = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "14"
     pattern: "^([01][0-9]|2[0-3]|[0-9])$"
-  }];
+  },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "14",
+      pattern: "^([01][0-9]|2[0-3]|[0-9])$"
+    }];
   // Minutes of hour of day. Must be from 0 to 59.
   int32 minutes = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "30"
     pattern: "^([0-5][0-9]|[0-9])$"
-  }];
+  },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "30",
+      pattern: "^([0-5][0-9]|[0-9])$"
+    }];
 }
