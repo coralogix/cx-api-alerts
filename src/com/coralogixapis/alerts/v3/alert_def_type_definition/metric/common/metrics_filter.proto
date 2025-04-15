@@ -8,14 +8,13 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 message MetricFilter {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Metric Filter Configuration"
-      description: "Configuration for filtering metrics in alerts."
+      title: "Metric filter configuration in alerts"
       required: ["promql"]
     }
   };
   oneof type {
     google.protobuf.StringValue promql = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-      description: "PromQL filter for metrics."
+      description: "A PromQL filter for metrics"
       example: "avg_over_time(metric_name[5m]) > 10"
       format: "promql"
     }];

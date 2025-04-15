@@ -404,7 +404,7 @@ message DownloadAlertsRequest {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Download alert definitions request"
-      description: "A request to download all accesible alert definitions in base-64 encoded binary format"
+      description: "A request to download all accessible alert definitions in base-64 encoded binary format"
     }
   };
 }

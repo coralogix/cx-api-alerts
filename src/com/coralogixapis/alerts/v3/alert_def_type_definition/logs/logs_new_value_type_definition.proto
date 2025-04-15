@@ -50,8 +50,8 @@ message LogsNewValueCondition {
     }
   };
   google.protobuf.StringValue keypath_to_track = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The keypath to track for new values."
+    description: "The keypath to track for new values"
     example: "\"metadata.field\""
   }];
-  LogsNewValueTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for detecting new values."}];
+  LogsNewValueTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for detecting new values"}];
 }

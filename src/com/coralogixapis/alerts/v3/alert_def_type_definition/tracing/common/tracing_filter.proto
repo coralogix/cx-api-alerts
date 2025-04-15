@@ -25,9 +25,9 @@ message TracingSimpleFilter {
       required: ["latency_threshold_ms"]
     }
   };
-  TracingLabelFilters tracing_label_filters = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The label filters to filter traces."}];
+  TracingLabelFilters tracing_label_filters = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Trace label filters"}];
   google.protobuf.UInt64Value latency_threshold_ms = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The latency threshold to filter traces in milliseconds."
+    description: "The latency threshold to filter traces in milliseconds"
     example: "1000"
     pattern: "^\\d+$"
   }];
@@ -36,28 +36,28 @@ message TracingSimpleFilter {
 message TracingLabelFilters {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
-      title: "Tracing Label filters"
+      title: "Tracing label filters"
       description: "Filters for application name, subsystem name, service name, operation name and span fields"
     }
   };
   repeated TracingFilterType application_name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by application names."
+    description: "Filter by application names"
     min_items: 0
   }];
   repeated TracingFilterType subsystem_name = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by subsystem names."
+    description: "Filter by subsystem names"
     min_items: 0
   }];
   repeated TracingFilterType service_name = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by service names."
+    description: "Filter by service names"
     min_items: 0
   }];
   repeated TracingFilterType operation_name = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by operation names."
+    description: "Filter by operation names"
     min_items: 0
   }];
   repeated TracingSpanFieldsFilterType span_fields = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Filter by span fields."
+    description: "Filter by span fields"
     min_items: 0
   }];
 }
@@ -65,7 +65,7 @@ message TracingSpanFieldsFilterType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Tracing span fields filter type"
-      description: "Filter for span fields in trace entries"
+      description: "A filter for span fields in trace entries"
       required: [
         "key",
         "filter_type"
@@ -73,7 +73,7 @@ message TracingSpanFieldsFilterType {
     }
   };
   google.protobuf.StringValue key = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The key of the span field to filter by."
+    description: "The key of the span field to filter by"
     example: "span.field.key"
     pattern: "^\\w+\\.\\w+$"
   }];
@@ -92,12 +92,12 @@ message TracingFilterType {
     }
   };
   repeated google.protobuf.StringValue values = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The values of the label to filter by."
+    description: "The values of the label to filter by"
     example: "[\"value1\", \"value2\"]"
     min_items: 1
   }];
   TracingFilterOperationType operation = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The operation to perform on the label value."
+    description: "The operation to perform on the label value"
     example: "TRACING_FILTER_OPERATION_TYPE_STARTS_WITH"
   }];
 }

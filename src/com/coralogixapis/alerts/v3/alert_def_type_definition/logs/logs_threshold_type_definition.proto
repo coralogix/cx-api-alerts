@@ -22,22 +22,22 @@ message LogsThresholdType {
       description: "Learn more about log-based threshold alerts in our documentation"
     }
   };
-  LogsFilter logs_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for threshold alerts."}];
-  UndetectedValuesManagement undetected_values_management = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling the undetected values in the alert."}];
+  LogsFilter logs_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for threshold alerts"}];
+  UndetectedValuesManagement undetected_values_management = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling the undetected values in the alert"}];
   repeated LogsThresholdRule rules = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the threshold alert."
+    description: "The rules for the threshold alert"
     min_items: 1
     max_items: 5
   }];
   repeated google.protobuf.StringValue notification_payload_filter = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "[\"obj.field\"]"
-    description: "The filter to specify which fields to include in the notification payload."
+    description: "The filter to specify which fields to include in the notification payload"
     pattern: "^[a-zA-Z0-9_.]+$"
     min_items: 0
   }];
   google.protobuf.Int32Value evaluation_delay_ms = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "60000"
-    description: "The delay in milliseconds before evaluating the alert condition."
+    description: "The delay in milliseconds before evaluating the alert condition"
   }];
 }
 message LogsThresholdRule {
@@ -51,8 +51,8 @@ message LogsThresholdRule {
       ]
     }
   };
-  LogsThresholdCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the threshold alert."}];
-  AlertDefOverride override = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The override settings for the alert."}];
+  LogsThresholdCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the threshold alert"}];
+  AlertDefOverride override = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The override settings for the alert"}];
 }
 
 message LogsThresholdCondition {
@@ -69,12 +69,12 @@ message LogsThresholdCondition {
   };
   google.protobuf.DoubleValue threshold = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "100.0"
-    description: "The threshold value for the alert condition."
+    description: "The threshold value for the alert condition"
     pattern: "^\\d+(\\.\\d+)?$"
   }];
-  LogsTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition."}];
+  LogsTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"}];
   LogsThresholdConditionType condition_type = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The type of condition for the alert."
+    description: "The type of condition for the alert"
     example: "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
   }];
 }

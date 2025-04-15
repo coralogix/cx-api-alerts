@@ -33,7 +33,7 @@ message TimeOfDay {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Time of day"
-      description: "Represents a specific time in 24-hour format"
+      description: "Represents a specific time in a 24-hour format"
       required: [
         "hours",
         "minutes"

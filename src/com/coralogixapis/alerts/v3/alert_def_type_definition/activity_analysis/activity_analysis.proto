@@ -15,8 +15,8 @@ message ActivityAnalysis {
       ]
     }
   };
-  repeated string rules = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {example: "[\"rule1\", \"rule2\"]"}];
-  ActivityAnalysisStatus status = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The status of the activity analysis alert."}];
+  repeated string rules = 1;
+  ActivityAnalysisStatus status = 2;
 }
 
 enum ActivityAnalysisStatus {

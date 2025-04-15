@@ -14,9 +14,10 @@ message LogsFilter {
     }
   };
   oneof filter_type {
-    LogsSimpleFilter simple_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Simple filter using Lucene query and label filters"}];
+    LogsSimpleFilter simple_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "A simple filter that uses a Lucene query and label filters"}];
   }
 }
+
 message LogsSimpleFilter {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -24,11 +25,8 @@ message LogsSimpleFilter {
       description: "Basic filter configuration using a Lucene query and label filters"
     }
   };
-  google.protobuf.StringValue lucene_query = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The lucene query to filter logs."
-    example: "text:\"error\""
-  }];
-  LabelFilters label_filters = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The label filters to filter logs."}];
+  google.protobuf.StringValue lucene_query = 1;
+  LabelFilters label_filters = 2;
 }
 
 message LabelFilters {
@@ -38,9 +36,9 @@ message LabelFilters {
       description: "Filters for application name, subsystem name, and log severities"
     }
   };
-  repeated LabelFilterType application_name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by application names."}];
-  repeated LabelFilterType subsystem_name = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by subsystem names."}];
-  repeated LogSeverity severities = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by log severities."}];
+  repeated LabelFilterType application_name = 1;
+  repeated LabelFilterType subsystem_name = 2;
+  repeated LogSeverity severities = 3;
 }
 
 message LabelFilterType {
@@ -55,11 +53,11 @@ message LabelFilterType {
     }
   };
   google.protobuf.StringValue value = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The value of the label to filter by."
+    description: "The value of the label to filter by"
     example: "my-app"
   }];
   LogFilterOperationType operation = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The operation to perform on the label value."
+    description: "The operation to perform on the label value"
     example: "LOG_FILTER_OPERATION_TYPE_INCLUDES"
   }];
 }

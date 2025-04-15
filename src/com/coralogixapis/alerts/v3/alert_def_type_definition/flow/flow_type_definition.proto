@@ -21,10 +21,7 @@ message FlowType {
     description: "The stages of the flow alert."
     min_items: 1
   }];
-  google.protobuf.BoolValue enforce_suppression = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: " Whether to enforce suppression for the flow alert."
-    example: "true"
-  }];
+  google.protobuf.BoolValue enforce_suppression = 2;
 }
 
 message FlowStages {
@@ -42,12 +39,7 @@ message FlowStages {
   oneof flow_stages {
     FlowStagesGroups flow_stages_groups = 10 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The flow stages groups."}];
   }
-  google.protobuf.Int64Value timeframe_ms = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "60000"
-    description: "The timeframe in milliseconds for the flow alert."
-    pattern: "^[0-9]+$"
-    format: "milliseconds"
-  }];
+  google.protobuf.Int64Value timeframe_ms = 3;
   TimeframeType timeframe_type = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The type of timeframe for the flow alert."
     example: "TIMEFRAME_TYPE_UP_TO"
@@ -62,10 +54,7 @@ message FlowStagesGroups {
       required: ["groups"]
     }
   };
-  repeated FlowStagesGroup groups = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The flow stages groups."
-    min_items: 1
-  }];
+  repeated FlowStagesGroup groups = 1;
 }
 
 message FlowStagesGroup {
@@ -108,7 +97,7 @@ message FlowStagesGroupsAlertDefs {
     format: "UUIDv4"
   }];
   google.protobuf.BoolValue not = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Whether to negate the alert definition."
+    description: "Whether to negate the alert definition or not."
     example: "true"
   }];
 }

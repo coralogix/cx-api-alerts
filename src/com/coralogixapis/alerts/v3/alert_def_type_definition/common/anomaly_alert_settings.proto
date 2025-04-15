@@ -14,6 +14,5 @@ message AnomalyAlertSettings {
   };
   google.protobuf.FloatValue percentage_of_deviation = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The percentage of deviation from the baseline for triggering the alert."
-    example: "10.0"
   }];
 }

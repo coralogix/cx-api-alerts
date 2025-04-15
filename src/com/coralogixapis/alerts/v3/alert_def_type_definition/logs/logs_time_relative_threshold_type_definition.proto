@@ -24,7 +24,7 @@ message LogsTimeRelativeThresholdType {
   };
   LogsFilter logs_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the alert."}];
   repeated LogsTimeRelativeRule rules = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the time-relative alert."
+    description: "The rules for the time-relative alert"
     min_items: 1
     max_items: 5
   }];
@@ -40,7 +40,7 @@ message LogsTimeRelativeThresholdType {
   UndetectedValuesManagement undetected_values_management = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling the undetected values in the alert."}];
   google.protobuf.Int32Value evaluation_delay_ms = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "60000"
-    description: "The delay in milliseconds before evaluating the alert condition."
+    description: "The delay in milliseconds before evaluating the alert condition"
   }];
 }
 
@@ -48,7 +48,7 @@ message LogsTimeRelativeRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Logs Time Relative Rule"
-      description: "LogsTimeRelativeRule is a message that defines a rule for log-based time-relative alerts."
+      description: "LogsTimeRelativeRule is a message that defines a rule for log-based time-relative alerts"
       required: [
         "condition",
         "override"
@@ -72,12 +72,10 @@ message LogsTimeRelativeCondition {
     }
   };
   google.protobuf.DoubleValue threshold = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "10.0"
     description: "The threshold value for the alert condition."
-    pattern: "^\\d+(\\.\\d+)?$"
   }];
   LogsTimeRelativeComparedTo compared_to = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The time frame to compare the current value against."
+    description: "The time frame to compare the current value against"
     example: "\"LOGS_TIME_RELATIVE_COMPARED_TO_YESTERDAY\""
   }];
   LogsTimeRelativeConditionType condition_type = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {

@@ -30,7 +30,7 @@ message TracingThresholdType {
     max_items: 1
   }];
   repeated google.protobuf.StringValue notification_payload_filter = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The filter to specify which fields to include in the notification payload."
+    description: "Notification payload field filter"
     example: "[\"obj.field\"]"
     pattern: "^[a-zA-Z0-9_.]+$"
     min_items: 0
@@ -41,7 +41,7 @@ message TracingThresholdRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Trace Threshold Rule"
-      description: "TracingThresholdRule is a message that defines a rule for trace-based threshold alerts."
+      description: "A rule for trace-based threshold alerts"
       required: ["condition"]
     }
   };
@@ -61,12 +61,12 @@ message TracingThresholdCondition {
   };
   google.protobuf.DoubleValue span_amount = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "100"
-    description: "The threshold value for the alert condition."
+    description: "The threshold value for the alert condition"
     pattern: "^\\d+?$"
   }];
-  TracingTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition."}];
+  TracingTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"}];
   TracingThresholdConditionType condition_type = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The type of condition for the alert."
+    description: "The type of condition for the alert"
     example: "\"TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED\""
   }];
 }

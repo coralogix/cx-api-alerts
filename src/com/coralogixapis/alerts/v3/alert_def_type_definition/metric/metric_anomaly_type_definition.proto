@@ -32,7 +32,7 @@ message MetricAnomalyType {
   }];
   google.protobuf.Int32Value evaluation_delay_ms = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "60000"
-    description: "The delay in milliseconds before evaluating the alert condition."
+    description: "The delay in milliseconds before evaluating the alert condition"
     format: "milliseconds"
   }];
   AnomalyAlertSettings anomaly_alert_settings = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for anomaly alert settings."}];
@@ -42,7 +42,7 @@ message MetricAnomalyRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "Metric-based anomaly rule"
-      description: "MetricAnomalyRule is a message that defines a rule for metric-based anomaly detection alerts."
+      description: "A rule for metric-based anomaly detection alerts"
       required: ["condition"]
     }
   };
@@ -63,16 +63,16 @@ message MetricAnomalyCondition {
   };
   google.protobuf.DoubleValue threshold = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "10.0"
-    description: "The threshold value for the alert condition."
+    description: "The threshold value for the alert condition"
   }];
   google.protobuf.UInt32Value for_over_pct = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "20"
-    description: "The percentage of the metric value must be above the threshold to trigger the alert."
+    description: "The percentage of the metric that must exceed the threshold to trigger the alert"
   }];
   MetricTimeWindow of_the_last = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition."}];
   google.protobuf.UInt32Value min_non_null_values_pct = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "10"
-    description: "The percentage of non-null values required to trigger the alert."
+    description: "The percentage of non-null values required to trigger the alert"
   }];
   MetricAnomalyConditionType condition_type = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "\"METRIC_ANOMALY_CONDITION_TYPE_LESS_THAN_USUAL\""

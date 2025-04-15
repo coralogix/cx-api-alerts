@@ -18,9 +18,9 @@ message TracingImmediateType {
       description: "Learn more about trace-based alerts in our documentation."
     }
   };
-  TracingFilter tracing_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match trace entries for immediate alerts."}];
+  TracingFilter tracing_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "A filter to match trace entries for immediate alerts"}];
   repeated google.protobuf.StringValue notification_payload_filter = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The filter to specify which fields to include in the notification payload."
+    description: "Notification payload field filter"
     example: "[\"obj.field\"]"
     pattern: "^[a-zA-Z0-9_.]+$"
     min_items: 0

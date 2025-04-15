@@ -27,18 +27,18 @@ message LogsRatioThresholdType {
       description: "Learn more about logs ratio alerts in our documentation"
     }
   };
-  LogsFilter numerator = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the numerator of the ratio."}];
+  LogsFilter numerator = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the numerator of the ratio"}];
   google.protobuf.StringValue numerator_alias = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "\"numerator_alias\""
-    description: "The alias for the numerator filter, used for display purposes."
+    description: "The alias for the numerator filter, used for display purposes"
   }];
-  LogsFilter denominator = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the denominator of the ratio."}];
+  LogsFilter denominator = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the denominator of the ratio"}];
   google.protobuf.StringValue denominator_alias = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "\"denominator_alias\""
-    description: "The alias for the denominator filter, used for display purposes."
+    description: "The alias for the denominator filter, used for display purposes"
   }];
   repeated LogsRatioRules rules = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the ratio alert."
+    description: "The rules for the ratio alert"
     min_items: 1
     max_items: 5
   }];
@@ -48,17 +48,17 @@ message LogsRatioThresholdType {
     min_items: 0
   }];
   LogsRatioGroupByFor group_by_for = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The group by settings for the numerator and denominator filters."
+    description: "The group by settings for the numerator and denominator filters"
     example: "LOGS_RATIO_GROUP_BY_FOR_NUMERATOR_ONLY"
   }];
-  UndetectedValuesManagement undetected_values_management = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling the undetected values in the alert."}];
+  UndetectedValuesManagement undetected_values_management = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling the undetected values in the alert"}];
   google.protobuf.BoolValue ignore_infinity = 9 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "true"
-    description: "The configuration for ignoring infinity values in the ratio."
+    description: "The configuration for ignoring infinity values in the ratio"
   }];
   google.protobuf.Int32Value evaluation_delay_ms = 10 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "60000"
-    description: "The delay in milliseconds before evaluating the alert condition."
+    description: "The delay in milliseconds before evaluating the alert condition"
   }];
 }
 
@@ -73,8 +73,8 @@ message LogsRatioRules {
       ]
     }
   };
-  LogsRatioCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the ratio alert."}];
-  AlertDefOverride override = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The override settings for the alert."}];
+  LogsRatioCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the ratio alert"}];
+  AlertDefOverride override = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The override settings for the alert"}];
 }
 
 message LogsRatioCondition {
@@ -91,12 +91,12 @@ message LogsRatioCondition {
   };
   google.protobuf.DoubleValue threshold = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "10.0"
-    description: "The threshold value for the alert condition."
+    description: "The threshold value for the alert condition"
     pattern: "^\\d+(\\.\\d+)?$"
   }];
   LogsRatioTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "10"
-    description: "The time window for the alert condition."
+    description: "The time window for the alert condition"
   }];
   LogsRatioConditionType condition_type = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "\"LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED\""
