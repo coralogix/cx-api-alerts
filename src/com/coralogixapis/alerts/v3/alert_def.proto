@@ -18,6 +18,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_time_rel
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_immediate_type_definition.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_threshold_type_definition.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/logs_unique_count_type_definition.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/slo/slo_threshold_type_definition.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -84,6 +85,7 @@ message AlertDefProperties {
     MetricAnomalyType metric_anomaly = 110;
     LogsNewValueType logs_new_value = 111;
     LogsUniqueCountType logs_unique_count = 112;
+    SloThresholdType slo_threshold = 113;
   }
   repeated google.protobuf.StringValue group_by_keys = 7;
   AlertDefIncidentSettings incidents_settings = 8;
