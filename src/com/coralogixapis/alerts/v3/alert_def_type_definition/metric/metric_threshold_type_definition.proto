@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/common/metric_timewindow.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/common/metrics_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/threshold/metric_threshold_condition_type.proto";
@@ -11,6 +12,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/undetected_values_
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// MetricThresholdType is a message that defines the configuration for metric-based threshold alerts.
 message MetricThresholdType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -27,20 +29,39 @@ message MetricThresholdType {
       description: "Learn more about metric-based threshold alerts in our documentation"
     }
   };
-  MetricFilter metric_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match metric entries for the alert."}];
-  repeated MetricThresholdRule rules = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the metric threshold alert"
-    min_items: 1
-    max_items: 5
-  }];
-  UndetectedValuesManagement undetected_values_management = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling undetected values in the alert."}];
-  MetricMissingValues missing_values = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling missing values in the alert."}];
+  // The filter to match metric entries for the alert
+  MetricFilter metric_filter = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match metric entries for the alert."},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The rules for the metric threshold alert
+  repeated MetricThresholdRule rules = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The rules for the metric threshold alert"
+      min_items: 1
+      max_items: 5
+    },
+    (com.coralogix.openapi.v1.field) = {
+      min_items: 1
+      max_items: 5
+      required: true
+    }
+  ];
+  // Configuration for handling undetected values in the alert
+  UndetectedValuesManagement undetected_values_management = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling undetected values in the alert"}];
+  // Configuration for handling missing values in the alert
+  MetricMissingValues missing_values = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling missing values in the alert"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The delay in milliseconds before evaluating the alert condition
   google.protobuf.Int32Value evaluation_delay_ms = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The delay in milliseconds before evaluating the alert condition"
     example: "60000"
   }];
 }
 
+// MetricThresholdRule is a message that defines the configuration for metric threshold rules.
 message MetricThresholdRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -52,10 +73,19 @@ message MetricThresholdRule {
       ]
     }
   };
-  MetricThresholdCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the metric threshold alert"}];
-  AlertDefOverride override = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Alert override settings"}];
+  // The condition for the metric threshold alert
+  MetricThresholdCondition condition = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the metric threshold alert"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // Alert override settings
+  AlertDefOverride override = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Alert override settings"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }
 
+// MetricThresholdConditionType is a message that defines the type of condition for metric threshold alerts.
 message MetricThresholdCondition {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -69,19 +99,46 @@ message MetricThresholdCondition {
       ]
     }
   };
-  google.protobuf.DoubleValue threshold = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "100.0"
-    description: "The threshold value for the alert condition"
-    pattern: "^\\d+(\\.\\d+)?$"
-  }];
-  google.protobuf.UInt32Value for_over_pct = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The percentage of values that must exceed the threshold to trigger the alert"
-    example: "80"
-    pattern: "^(100|[1-9]?\\d)$"
-  }];
-  MetricTimeWindow of_the_last = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"}];
-  MetricThresholdConditionType condition_type = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The type of the alert condition"
-    example: "\"METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS\""
-  }];
+  // The threshold value for the alert condition
+  google.protobuf.DoubleValue threshold = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "100.0"
+      description: "The threshold value for the alert condition"
+      pattern: "^\\d+(\\.\\d+)?$"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "100.0"
+      pattern: "^\\d+(\\.\\d+)?$"
+      required: true
+    }
+  ];
+  // The percentage of values that must exceed the threshold to trigger the alert
+  google.protobuf.UInt32Value for_over_pct = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The percentage of values that must exceed the threshold to trigger the alert"
+      example: "80"
+      pattern: "^(100|[1-9]?\\d)$"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "80"
+      pattern: "^(100|[1-9]?\\d)$"
+      required: true
+    }
+  ];
+  // The time window for the alert condition
+  MetricTimeWindow of_the_last = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The type of the alert condition
+  MetricThresholdConditionType condition_type = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The type of the alert condition"
+      example: "\"METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS\""
+    },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "\"METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS\""
+    }
+  ];
 }

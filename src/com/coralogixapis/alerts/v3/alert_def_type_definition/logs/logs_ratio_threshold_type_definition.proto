@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/common/logs_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_condition_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_group_by_for.proto";
@@ -11,6 +12,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/undetected_values_
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+/// LogsRatioThresholdType is a message that defines the configuration for log-based ratio alerts.
 message LogsRatioThresholdType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -27,41 +29,87 @@ message LogsRatioThresholdType {
       description: "Learn more about logs ratio alerts in our documentation"
     }
   };
-  LogsFilter numerator = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the numerator of the ratio"}];
-  google.protobuf.StringValue numerator_alias = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "\"numerator_alias\""
-    description: "The alias for the numerator filter, used for display purposes"
-  }];
-  LogsFilter denominator = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the denominator of the ratio"}];
-  google.protobuf.StringValue denominator_alias = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "\"denominator_alias\""
-    description: "The alias for the denominator filter, used for display purposes"
-  }];
-  repeated LogsRatioRules rules = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the ratio alert"
-    min_items: 1
-    max_items: 5
-  }];
-  repeated google.protobuf.StringValue notification_payload_filter = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "[\"obj.field\"]"
-    pattern: "^[a-zA-Z0-9_.]+$"
-    min_items: 0
-  }];
-  LogsRatioGroupByFor group_by_for = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The group by settings for the numerator and denominator filters"
-    example: "LOGS_RATIO_GROUP_BY_FOR_NUMERATOR_ONLY"
-  }];
+  // The filter to match log entries for the numerator of the ratio
+  LogsFilter numerator = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the numerator of the ratio"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The alias for the numerator filter, used for display purposes
+  google.protobuf.StringValue numerator_alias = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "\"numerator_alias\""
+      description: "The alias for the numerator filter, used for display purposes"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "\"numerator_alias\""}
+  ];
+  // The filter to match log entries for the denominator of the ratio
+  LogsFilter denominator = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the denominator of the ratio"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The alias for the denominator filter, used for display purposes
+  google.protobuf.StringValue denominator_alias = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "\"denominator_alias\""
+      description: "The alias for the denominator filter, used for display purposes"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "\"denominator_alias\""}
+  ];
+  // The rules for the ratio alert
+  repeated LogsRatioRules rules = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The rules for the ratio alert"
+      min_items: 1
+      max_items: 5
+    },
+    (com.coralogix.openapi.v1.field) = {
+      min_items: 1
+      max_items: 5
+      required: true
+    }
+  ];
+  // The filter to specify which fields to include in the notification payload.
+  repeated google.protobuf.StringValue notification_payload_filter = 6 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    }
+  ];
+  // The group by settings for the numerator and denominator filters
+  LogsRatioGroupByFor group_by_for = 7 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The group by settings for the numerator and denominator filters"
+      example: "LOGS_RATIO_GROUP_BY_FOR_NUMERATOR_ONLY"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "LOGS_RATIO_GROUP_BY_FOR_NUMERATOR_ONLY"}
+  ];
+  // Configuration for handling the undetected values in the alert
   UndetectedValuesManagement undetected_values_management = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Configuration for handling the undetected values in the alert"}];
-  google.protobuf.BoolValue ignore_infinity = 9 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "true"
-    description: "The configuration for ignoring infinity values in the ratio"
-  }];
-  google.protobuf.Int32Value evaluation_delay_ms = 10 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "60000"
-    description: "The delay in milliseconds before evaluating the alert condition"
-  }];
+  // The configuration for ignoring infinity values in the ratio
+  google.protobuf.BoolValue ignore_infinity = 9 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "true"
+      description: "The configuration for ignoring infinity values in the ratio"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "true"}
+  ];
+  // The delay in milliseconds before evaluating the alert condition
+  google.protobuf.Int32Value evaluation_delay_ms = 10 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "60000"
+      description: "The delay in milliseconds before evaluating the alert condition"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "60000"}
+  ];
 }
 
+// LogsRatioRules is a message that defines the rules for log-based ratio alerts.
 message LogsRatioRules {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -73,10 +121,19 @@ message LogsRatioRules {
       ]
     }
   };
-  LogsRatioCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the ratio alert"}];
-  AlertDefOverride override = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The override settings for the alert"}];
+  // The condition for the ratio alert
+  LogsRatioCondition condition = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the ratio alert"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The override settings for the alert
+  AlertDefOverride override = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The override settings for the alert"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }
 
+// LogsRatioCondition is a message that defines the condition for log-based ratio alerts.
 message LogsRatioCondition {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -89,17 +146,33 @@ message LogsRatioCondition {
       ]
     }
   };
-  google.protobuf.DoubleValue threshold = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "10.0"
-    description: "The threshold value for the alert condition"
-    pattern: "^\\d+(\\.\\d+)?$"
-  }];
-  LogsRatioTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "10"
-    description: "The time window for the alert condition"
-  }];
-  LogsRatioConditionType condition_type = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "\"LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED\""
-    description: "The type of condition for the alert"
-  }];
+  // The threshold value for the alert condition
+  google.protobuf.DoubleValue threshold = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "10.0"
+      description: "The threshold value for the alert condition"
+      pattern: "^\\d+(\\.\\d+)?$"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "10.0"
+      pattern: "^\\d+(\\.\\d+)?$"
+      required: true
+    }
+  ];
+  // The time window for the alert condition
+  LogsRatioTimeWindow time_window = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
+  // The type of condition for the alert
+  LogsRatioConditionType condition_type = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+      description: "The type of condition for the alert"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+    }
+  ];
 }

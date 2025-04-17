@@ -2,9 +2,11 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// MetricFilter is a message that defines the configuration for metric filters in alerts.
 message MetricFilter {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -12,11 +14,20 @@ message MetricFilter {
       required: ["promql"]
     }
   };
+  // The type of filter to apply to the metrics.
   oneof type {
-    google.protobuf.StringValue promql = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-      description: "A PromQL filter for metrics"
-      example: "avg_over_time(metric_name[5m]) > 10"
-      format: "promql"
-    }];
+    // The filter is a PromQL expression.
+    google.protobuf.StringValue promql = 1 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "A PromQL filter for metrics"
+        example: "avg_over_time(metric_name[5m]) > 10"
+        format: "promql"
+      },
+      (com.coralogix.openapi.v1.field) = {
+        example: "avg_over_time(metric_name[5m]) > 10"
+        format: "promql"
+        required: true
+      }
+    ];
   }
 }

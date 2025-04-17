@@ -2,11 +2,13 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/common/logs_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/unique_count/logs_unique_value_timewindow.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// LogsUniqueCountType is a message that defines the configuration for alerts based on unique value counts in logs
 message LogsUniqueCountType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -22,28 +24,57 @@ message LogsUniqueCountType {
       description: "Learn more about log-based, unique count alerts in our documentation"
     }
   };
+  // The filter to match log entries for the alert
   LogsFilter logs_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the alert."}];
-  repeated LogsUniqueCountRule rules = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the log unique count alert"
-    min_items: 1
-    max_items: 1
-  }];
-  repeated google.protobuf.StringValue notification_payload_filter = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The filter to specify which fields to include in the notification payload"
-    example: "[\"obj.field\"]"
-    pattern: "^[a-zA-Z0-9_.]+$"
-    min_items: 0
-  }];
-  google.protobuf.Int64Value max_unique_count_per_group_by_key = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "100"
-    description: "The maximum unique count per group by key"
-  }];
-  google.protobuf.StringValue unique_count_keypath = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The keypath in the logs to be used for unique count"
-    example: "\"obj.field\""
-  }];
+  // The rules for the log unique count alert
+  repeated LogsUniqueCountRule rules = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The rules for the log unique count alert"
+      min_items: 1
+      max_items: 1
+    },
+    (com.coralogix.openapi.v1.field) = {
+      min_items: 1
+      max_items: 1
+      required: true
+    }
+  ];
+  // The filter to specify which fields to include in the notification payload
+  repeated google.protobuf.StringValue notification_payload_filter = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The filter to specify which fields to include in the notification payload"
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    }
+  ];
+  // The maximum unique count per group by key
+  google.protobuf.Int64Value max_unique_count_per_group_by_key = 4 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "100"
+      description: "The maximum unique count per group by key"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "100"}
+  ];
+  // The keypath in the logs to be used for unique count
+  google.protobuf.StringValue unique_count_keypath = 5 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The keypath in the logs to be used for unique count"
+      example: "\"obj.field\""
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "\"obj.field\""
+      required: true
+    }
+  ];
 }
 
+// LogsUniqueCountRule is a message that defines a rule for log-based unique count alerts.
 message LogsUniqueCountRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -52,9 +83,14 @@ message LogsUniqueCountRule {
       required: ["condition"]
     }
   };
-  LogsUniqueCountCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for detecting unique counts in logs."}];
+  // The condition for detecting unique counts in logs
+  LogsUniqueCountCondition condition = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for detecting unique counts in logs."},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }
 
+// LogsUniqueCountCondition is a message that defines the condition for detecting unique counts in logs.
 message LogsUniqueCountCondition {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -66,9 +102,20 @@ message LogsUniqueCountCondition {
       ]
     }
   };
-  google.protobuf.Int64Value max_unique_count = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The maximum unique count"
-    example: "100"
-  }];
-  LogsUniqueValueTimeWindow time_window = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the unique count alert."}];
+  // The maximum unique count for the alert condition
+  google.protobuf.Int64Value max_unique_count = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The maximum unique count"
+      example: "100"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "100"
+      required: true
+    }
+  ];
+  // The time window for the unique count alert
+  LogsUniqueValueTimeWindow time_window = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the unique count alert."},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }

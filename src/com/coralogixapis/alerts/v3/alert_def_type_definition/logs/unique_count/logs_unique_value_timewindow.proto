@@ -2,8 +2,10 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// Logs unique value time window
 message LogsUniqueValueTimeWindow {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -12,14 +14,23 @@ message LogsUniqueValueTimeWindow {
       required: ["type"]
     }
   };
+  // The type of the time window for the alert condition.
   oneof type {
-    LogsUniqueValueTimeWindowValue logs_unique_value_time_window_specific_value = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-      description: "A time window defined by a specific value"
-      example: "\"LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_HOURS_12\""
-    }];
+    // A time window defined by a specific value
+    LogsUniqueValueTimeWindowValue logs_unique_value_time_window_specific_value = 1 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "A time window defined by a specific value"
+        example: "\"LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_HOURS_12\""
+      },
+      (com.coralogix.openapi.v1.field) = {
+        example: "\"LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_HOURS_12\""
+        required: true
+      }
+    ];
   }
 }
 
+// LogsUniqueValueTimeWindowValue is an enum that defines the possible values for the time window of log-based unique value alerts.
 enum LogsUniqueValueTimeWindowValue {
   LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_MINUTE_1_OR_UNSPECIFIED = 0;
   LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_MINUTES_5 = 10;
