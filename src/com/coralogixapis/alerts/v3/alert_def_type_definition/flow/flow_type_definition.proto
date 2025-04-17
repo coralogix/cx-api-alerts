@@ -148,24 +148,26 @@ message FlowStagesGroupsAlertDefs {
     }
   };
   // The alert definition ID
-  google.protobuf.StringValue id = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The alert definition ID"
-    example: "123e4567-e89b-12d3-a456-426614174000"
-    format: "UUIDv4"
-  },
-  (com.coralogix.openapi.v1.field) = {
-    example: "123e4567-e89b-12d3-a456-426614174000"
-    format: "UUIDv4"
-    required: true
-  }];
+  google.protobuf.StringValue id = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The alert definition ID"
+      example: "123e4567-e89b-12d3-a456-426614174000"
+      format: "UUIDv4"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "123e4567-e89b-12d3-a456-426614174000"
+      format: "UUIDv4"
+      required: true
+    }
+  ];
   // Whether to negate the alert definition or not
-  google.protobuf.BoolValue not = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Whether to negate the alert definition or not."
-    example: "true"
-  },
-  (com.coralogix.openapi.v1.field) = {
-    example: "true"
-  }];
+  google.protobuf.BoolValue not = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Whether to negate the alert definition or not."
+      example: "true"
+    },
+    (com.coralogix.openapi.v1.field) = {example: "true"}
+  ];
 }
 
 // The logical operation to apply to the next stage

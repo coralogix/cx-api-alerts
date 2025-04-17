@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
-
 // LogsTimeRelativeConditionType is an enum that defines the types of conditions for log time relative alerts.
 enum LogsTimeRelativeConditionType {
   LOGS_TIME_RELATIVE_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED = 0;
