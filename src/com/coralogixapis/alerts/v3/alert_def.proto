@@ -83,9 +83,7 @@ message AlertDef {
   ];
 }
 
-/**
- * Represents the non generated alert definition properties (the ones that are set by the user)
- */
+// Represents the non generated alert definition properties (the ones that are set by the user)
 message AlertDefProperties {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {

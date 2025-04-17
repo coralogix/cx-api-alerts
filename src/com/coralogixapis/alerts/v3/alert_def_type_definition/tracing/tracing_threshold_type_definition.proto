@@ -2,12 +2,14 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/common/tracing_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/threshold/tracing_threshold_condition_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/threshold/tracing_threshold_timewindow.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// Tracing threshold alert type
 message TracingThresholdType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -23,20 +25,46 @@ message TracingThresholdType {
       description: "Learn more about trace-based alerts in our documentation"
     }
   };
-  TracingFilter tracing_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match trace entries for the alert."}];
-  repeated TracingThresholdRule rules = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the trace threshold alert."
-    min_items: 1
-    max_items: 1
-  }];
-  repeated google.protobuf.StringValue notification_payload_filter = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "Notification payload field filter"
-    example: "[\"obj.field\"]"
-    pattern: "^[a-zA-Z0-9_.]+$"
-    min_items: 0
-  }];
+  // The filter to match trace entries for the alert
+  TracingFilter tracing_filter = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match trace entries for the alert."},
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // The rules for the trace threshold alert
+  repeated TracingThresholdRule rules = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The rules for the trace threshold alert."
+      min_items: 1
+      max_items: 1
+    },
+    (com.coralogix.openapi.v1.field) = {
+      min_items: 1
+      max_items: 1
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // Notification payload field filter
+  repeated google.protobuf.StringValue notification_payload_filter = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "Notification payload field filter"
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+      skip_in: CLOUD_IBM
+    }
+  ];
 }
 
+// TracingThresholdRule is a rule for trace-based threshold alerts
 message TracingThresholdRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -45,9 +73,17 @@ message TracingThresholdRule {
       required: ["condition"]
     }
   };
-  TracingThresholdCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the threshold alert."}];
+  // The condition for the threshold alert
+  TracingThresholdCondition condition = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for the threshold alert"},
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
 }
 
+// TracingThresholdCondition is a condition for trace-based threshold alerts
 message TracingThresholdCondition {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -59,14 +95,38 @@ message TracingThresholdCondition {
       ]
     }
   };
-  google.protobuf.DoubleValue span_amount = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    example: "100"
-    description: "The threshold value for the alert condition"
-    pattern: "^\\d+?$"
-  }];
-  TracingTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"}];
-  TracingThresholdConditionType condition_type = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The type of condition for the alert"
-    example: "\"TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED\""
-  }];
+  // The threshold value for the alert condition
+  google.protobuf.DoubleValue span_amount = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      example: "100"
+      description: "The threshold value for the alert condition"
+      pattern: "^\\d+?$"
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "100"
+      pattern: "^\\d+?$"
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // The time window for the alert condition
+  TracingTimeWindow time_window = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for the alert condition"},
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      skip_in: CLOUD_IBM
+    }
+  ];
+  // The type of condition for the alert
+  TracingThresholdConditionType condition_type = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The type of condition for the alert"
+      example: "\"TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED\""
+    },
+    (com.coralogix.openapi.v1.field) = {
+      required: true
+      example: "\"TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED\""
+      skip_in: CLOUD_IBM
+    }
+  ];
 }

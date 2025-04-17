@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
-import "protoc-gen-openapiv2/options/annotations.proto";
 import "com/coralogix/openapi/v1/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 // Alert definition logs-based ratio time window configuration
 message LogsRatioTimeWindow {
@@ -21,14 +21,16 @@ message LogsRatioTimeWindow {
   /// The type of time window for the ratio alert
   oneof type {
     // Specifies the time window for the ratio alert
-    LogsRatioTimeWindowValue logs_ratio_time_window_specific_value = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-      description: "Specifies the time window for the ratio alert"
-      example: "LOGS_RATIO_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
-    },
+    LogsRatioTimeWindowValue logs_ratio_time_window_specific_value = 1 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "Specifies the time window for the ratio alert"
+        example: "LOGS_RATIO_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
+      },
       (com.coralogix.openapi.v1.field) = {
         required: true
         example: "LOGS_RATIO_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
-      }];
+      }
+    ];
   }
 }
 

@@ -2,11 +2,13 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/common/logs_filter.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/new_value/logs_new_value_timewindow.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// LogsNewValueType is a message that defines the configuration for alerts triggered by new values appearing in logs
 message LogsNewValueType {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -15,19 +17,38 @@ message LogsNewValueType {
       required: ["rules"]
     }
   };
-  LogsFilter logs_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the alert."}];
-  repeated LogsNewValueRule rules = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The rules for the log new value alert."
-    min_items: 1
-    max_items: 1
-  }];
-  repeated google.protobuf.StringValue notification_payload_filter = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The filter to specify which fields to include in the notification payload."
-    example: "[\"obj.field\"]"
-    pattern: "^[a-zA-Z0-9_.]+$"
-    min_items: 0
-  }];
+  // The filter to match log entries for the alert
+  LogsFilter logs_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The filter to match log entries for the alert"}];
+  // The rules for the log new value alert
+  repeated LogsNewValueRule rules = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The rules for the log new value alert"
+      min_items: 1
+      max_items: 1
+    },
+    (com.coralogix.openapi.v1.field) = {
+      min_items: 1
+      max_items: 1
+      required: true
+    }
+  ];
+  // The filter to specify which fields to include in the notification payload
+  repeated google.protobuf.StringValue notification_payload_filter = 3 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The filter to specify which fields to include in the notification payload"
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "[\"obj.field\"]"
+      pattern: "^[a-zA-Z0-9_.]+$"
+      min_items: 0
+    }
+  ];
 }
+
+// LogsNewValueRule is a message that defines the condition for detecting new values in logs
 message LogsNewValueRule {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -36,8 +57,14 @@ message LogsNewValueRule {
       required: ["condition"]
     }
   };
-  LogsNewValueCondition condition = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for detecting new values in logs."}];
+  // The condition for detecting new values in logs
+  LogsNewValueCondition condition = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The condition for detecting new values in logs"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }
+
+// LogsNewValueCondition is a message that defines the condition for detecting new values in logs
 message LogsNewValueCondition {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -49,9 +76,20 @@ message LogsNewValueCondition {
       ]
     }
   };
-  google.protobuf.StringValue keypath_to_track = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The keypath to track for new values"
-    example: "\"metadata.field\""
-  }];
-  LogsNewValueTimeWindow time_window = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for detecting new values"}];
+  // The keypath to track for new values
+  google.protobuf.StringValue keypath_to_track = 1 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The keypath to track for new values"
+      example: "\"metadata.field\""
+    },
+    (com.coralogix.openapi.v1.field) = {
+      example: "\"metadata.field\""
+      required: true
+    }
+  ];
+  // The time window for detecting new values
+  LogsNewValueTimeWindow time_window = 2 [
+    (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The time window for detecting new values"},
+    (com.coralogix.openapi.v1.field) = {required: true}
+  ];
 }

@@ -1,9 +1,11 @@
 syntax = "proto3";
 package com.coralogixapis.alerts.v3;
 
+import "com/coralogix/openapi/v1/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+// MetricMissingValues is a message that defines the configuration for handling missing values in metric threshold alerts.
 message MetricMissingValues {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -12,15 +14,27 @@ message MetricMissingValues {
       required: ["missing_values"]
     }
   };
+  // The type of missing values handling to apply.
   oneof missing_values {
-    google.protobuf.BoolValue replace_with_zero = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-      description: "If set to true, missing values will be replaced with zero"
-      example: "true"
-    }];
-    google.protobuf.UInt32Value min_non_null_values_pct = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-      description: "If set, specifies the minimum percentage of non-null values required for the alert to be triggered"
-      example: "80",
-      pattern: "^(100|[1-9][0-9]?)$"
-    }];
+    // If set to true, missing values will be replaced with zero
+    google.protobuf.BoolValue replace_with_zero = 1 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "If set to true, missing values will be replaced with zero"
+        example: "true"
+      },
+      (com.coralogix.openapi.v1.field) = {example: "true"}
+    ];
+    // If set, specifies the minimum percentage of non-null values required for the alert to be triggered
+    google.protobuf.UInt32Value min_non_null_values_pct = 2 [
+      (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        description: "If set, specifies the minimum percentage of non-null values required for the alert to be triggered"
+        example: "80"
+        pattern: "^(100|[1-9][0-9]?)$"
+      },
+      (com.coralogix.openapi.v1.field) = {
+        example: "80"
+        pattern: "^(100|[1-9][0-9]?)$"
+      }
+    ];
   }
 }

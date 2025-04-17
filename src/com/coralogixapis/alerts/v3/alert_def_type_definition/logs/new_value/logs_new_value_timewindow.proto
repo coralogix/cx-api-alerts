@@ -4,6 +4,8 @@ package com.coralogixapis.alerts.v3;
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 
+
+//
 message LogsNewValueTimeWindow {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
