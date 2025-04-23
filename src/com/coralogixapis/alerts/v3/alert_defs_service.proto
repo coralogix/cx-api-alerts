@@ -37,7 +37,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Get alert definition by ID"
+      summary: "Get alert definition by ID"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -66,7 +66,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Get alert definition by alert version ID"
+      summary: "Get alert definition by alert version ID"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -98,7 +98,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Create an alert"
+      summary: "Create an alert"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -130,7 +130,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Replace an alert definition"
+      summary: "Replace an alert definition"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -166,7 +166,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Get a list of all accessible alert definitions"
+      summary: "Get a list of all accessible alert definitions"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -195,7 +195,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Download alerts"
+      summary: "Download alerts"
       description: "Download a list of all accessible alert definitions in base64-encoded byte format."
       extensions: {
         key: "x-coralogixPermissions"
@@ -225,7 +225,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: ""
+      summary: ""
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -277,7 +277,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      operation_id: "Disable or enable an alert"
+      summary: "Disable or enable an alert"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
