@@ -11,11 +11,14 @@ import "com/coralogixapis/alerts/v3/commons.proto";
 
 
 service AlertDefsInternalService {
-
   rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
     option (google.api.http) = {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
+  }
+
+  rpc ListAlertDefs(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
+    option (google.api.http) = {get: "/v3/alert-defs-internal"};
   }
 }
 
