@@ -6,7 +6,6 @@ import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
-import "com/coralogixapis/alerts/v3/commons.proto";
 import "com/coralogixapis/alerts/v3/time_range.proto";
 
 message AlertDefQueryFilter {
@@ -18,10 +17,30 @@ message AlertDefQueryFilter {
   };
   repeated google.protobuf.StringValue name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by name"}];
   repeated AlertDefType type = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef type"}];
-  map<string, string> entity_labels = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef entity labels (default is AND)"}];
-  BooleanOperator entity_labels_filter_operator = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "The operator for the entity labels filter (default is AND)"}];
-  repeated AlertDefPriority priority = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef priority"}];
-  google.protobuf.BoolValue status = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef enabled status"}];
-  google.protobuf.BoolValue snoozed = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by snoozed status"}];
-  TimeRange modified_at_range = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were modified at the given time range"}];
+  ListAlertDefEntityLabelsFilter entity_labels = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef entity labels"}];
+  ListAlertDefPriorityFilter priority = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef priority"}];
+  google.protobuf.BoolValue status = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef enabled status"}];
+  google.protobuf.BoolValue snoozed = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by snoozed status"}];
+  TimeRange modified_at_range = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were modified at the given time range"}];
+}
+
+message ListAlertDefPriorityFilter {
+  repeated AlertDefPriority priority = 1;   // The priority of the alert definition (e.g., "P1", "P2", "P3")
+  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
+  FilterValuesOperator values_operator = 3;   // The operator to apply to the field (e.g., "AND", "OR")
+}
+
+message ListAlertDefEntityLabelsFilter {
+  map<string, string> values = 1;      // The values to filter by
+  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
+  FilterValuesOperator values_operator = 3;   // The operator to apply to the field (e.g., "AND", "OR")
+}
+
+enum FilterMatcher {
+  FILTER_MATCHER_EQUALS_OR_UNSPECIFIED = 0;
+}
+
+enum FilterValuesOperator {
+  FILTER_VALUES_OPERATOR_OR_OR_UNSPECIFIED = 0;
+  FILTER_VALUES_OPERATOR_AND = 1;
 }
