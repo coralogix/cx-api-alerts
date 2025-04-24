@@ -399,6 +399,9 @@ message ListAlertDefsRequest {
       description: "A request to get list of alert definitions"
     }
   };
+  AlertDefQueryFilter filter = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter for AlertDefs"}];
+  PaginationRequest pagination = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Pagination parameters"}];
+  repeated OrderBy order_bys = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Order by fields"}];
 }
 
 message DownloadAlertsRequest {
@@ -599,4 +602,40 @@ message SetActiveResponse {
       description: "Response after enabling or disabling an alert definition"
     }
   };
+}
+
+message PaginationRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Pagination request"
+      description: "Pagination parameters for list requests"
+      required: ["page_size"]
+    }
+  };
+  google.protobuf.UInt32Value page_size = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Number of items to return per page"
+    example: "10"
+  }];
+  google.protobuf.StringValue page_token = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Token for the next page of results"
+    example: "\"next_page_token\""
+  }];
+}
+
+message PaginationResponse {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Pagination response"
+      description: "Pagination information for list responses"
+      required: ["total_size"]
+    }
+  };
+  google.protobuf.UInt32Value total_size = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Total number of items available"
+    example: "100"
+  }];
+  google.protobuf.StringValue next_page_token = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Token for the next page of results"
+    example: "\"next_page_token\""
+  }];
 }
