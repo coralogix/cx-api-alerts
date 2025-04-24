@@ -17,7 +17,7 @@ service AlertDefsInternalService {
     };
   }
 
-  rpc ListAlertDefs(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
+  rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
     option (google.api.http) = {get: "/v3/alert-defs-internal"};
   }
 }
