@@ -4,6 +4,7 @@ package com.coralogixapis.alerts.v3;
 
 import "com/coralogix/common/v1/audit_log.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
+import "com/coralogixapis/alerts/v3/alert_def_query_filter.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/descriptor.proto";
 import "google/protobuf/wrappers.proto";
@@ -382,14 +383,18 @@ message ListAlertDefsResponse {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
       title: "List alert definitions response"
-      description: "A response that contains a list of alert definitions"
-      required: ["alert_defs"]
+      description: "A response that contains a list of alert definitions and pagination information"
+      required: [
+        "alert_defs",
+        "pagination"
+      ]
     }
   };
   repeated AlertDef alert_defs = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "List of alert definitions"
     min_items: 0
   }];
+  PaginationResponse pagination = 4;
 }
 
 message ListAlertDefsRequest {
