@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package com.coralogixapis.alerts.v3;
-
-enum BooleanOperator {
-  AND = 0;
-  OR = 1;
-}

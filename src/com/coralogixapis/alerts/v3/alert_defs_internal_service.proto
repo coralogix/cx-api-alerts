@@ -6,10 +6,8 @@ import "google/protobuf/descriptor.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
-import "com/coralogixapis/alerts/v3/alert_def_filter/alert_query_filter.proto";
-import "com/coralogixapis/alerts/v3/pagination.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
-
+import "com/coralogixapis/alerts/v3/alert_def_query_filter.proto";
+import "com/coralogixapis/alerts/v3/commons.proto";
 
 
 service AlertDefsInternalService {
@@ -19,7 +17,17 @@ service AlertDefsInternalService {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
   }
-  rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {}
+}
+
+message ListAlertDefsInternalResponse {
+  repeated AlertDef alert_defs = 1;
+  PaginationResponse pagination = 4;
+}
+
+message ListAlertDefsInternalRequest {
+  AlertDefQueryFilter filter = 4;
+  PaginationRequest pagination = 5;
+  repeated OrderBy order_bys = 6;
 }
 
 message GetAlertDefByVersionIdInternalRequest {
@@ -28,27 +36,4 @@ message GetAlertDefByVersionIdInternalRequest {
 
 message GetAlertDefByVersionIdInternalResponse {
   AlertDef alert_def = 1;
-}
-
-message ListAlertDefsInternalRequest {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-    json_schema: {
-      title: "List alert definitions request"
-      description: "A request to get list of alert definitions"
-    }
-  };
-  AlertQueryFilterInternal alert_query_filter = 1;
-  PaginationRequest pagination = 20;
-}
-
-message ListAlertDefsInternalResponse {
-  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-    json_schema: {
-      title: "List alert definitions response"
-      description: "A response that contains a list of alert definitions"
-      required: ["alert_defs"]
-    }
-  };
-  repeated AlertDef alert_defs = 1;
-  PaginationResponse pagination_response = 20;
 }

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
+import "google/protobuf/descriptor.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
@@ -34,4 +35,81 @@ message TimeDuration {
 enum DurationUnit {
   DURATION_UNIT_UNSPECIFIED = 0;
   DURATION_UNIT_HOURS = 1;
+}
+
+enum BooleanOperator {
+  BOOLEAN_OPERATOR_AND_UNSPECIFIED = 0;
+  BOOLEAN_OPERATOR_OR = 1;
+}
+
+enum OrderByDirection {
+  ORDER_BY_DIRECTION_ASC_OR_UNSPECIFIED = 0;
+  ORDER_BY_DIRECTION_DESC = 1;
+}
+
+enum OrderByFields {
+  ORDER_BY_FIELDS_NAME_OR_UNSPECIFIED = 0;
+  ORDER_BY_FIELDS_ID = 1;
+  ORDER_BY_FIELDS_SEVERITY = 2;
+  ORDER_BY_FIELDS_CREATED_TIME = 3;
+  ORDER_BY_FIELDS_UPDATED_TIME = 4;
+}
+
+message PaginationRequest {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Pagination request"
+      description: "Pagination parameters for list requests"
+      required: ["page_size"]
+    }
+  };
+  google.protobuf.UInt32Value page_size = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Number of items to return per page"
+    example: "10"
+  }];
+  google.protobuf.StringValue page_token = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Token for the next page of results"
+    example: "\"next_page_token\""
+  }];
+}
+
+message PaginationResponse {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Pagination response"
+      description: "Pagination information for list responses"
+      required: ["total_size"]
+    }
+  };
+  google.protobuf.UInt32Value total_size = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Total number of items available"
+    example: "100"
+  }];
+  google.protobuf.StringValue next_page_token = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Token for the next page of results"
+    example: "\"next_page_token\""
+  }];
+}
+
+
+
+message OrderBy {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Order by"
+      description: "A data structure that specifies the field and direction for ordering query results"
+      required: [
+        "field_name",
+        "direction"
+      ]
+    }
+  };
+  OrderByFields field_name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Field name to order by"
+    example: "\"ORDER_BY_FIELDS_NAME_OR_UNSPECIFIED\""
+  }];
+  OrderByDirection direction = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Direction for ordering"
+    example: "\"ORDER_BY_DIRECTION_ASC_OR_UNSPECIFIED\""
+  }];
 }
