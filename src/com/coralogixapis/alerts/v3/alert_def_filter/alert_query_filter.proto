@@ -10,13 +10,12 @@ message AlertQueryFilter {
 }
 
 message SloThresholdFilter {
- google.protobuf.StringValue slo_id = 1;
+  google.protobuf.StringValue slo_id = 1;
 }
 
-
 message AlertQueryFilterInternal {
+  optional AlertDefType alert_def_type = 1;
   oneof filter {
-    AlertDefType alert_def_type = 1;
-    SloThresholdFilter slo_threshold_filter = 2;
+    SloThresholdFilter slo_threshold_filter = 100;
   }
 }
