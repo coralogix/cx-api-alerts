@@ -36,7 +36,7 @@ message ListAlertDefsInternalResponse {
 message ListAlertDefsInternalRequest {
   AlertDefQueryFilterInternal filter = 4;
   PaginationRequest pagination = 5;
-  repeated OrderBy order_bys = 6;
+  OrderByList order_bys = 6;
 }
 
 message GetAlertDefByVersionIdInternalRequest {

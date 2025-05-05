@@ -91,7 +91,19 @@ message PaginationResponse {
   }];
 }
 
-
+message OrderByList {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Order by list"
+      description: "List of fields to order by"
+      required: ["order_bys"]
+    }
+  };
+  repeated OrderBy order_bys = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Order by fields"
+    min_items: 0
+  }];
+}
 
 message OrderBy {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {

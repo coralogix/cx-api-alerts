@@ -373,7 +373,7 @@ message ListAlertDefsRequest {
   };
   AlertDefQueryFilter filter = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter for AlertDefs"}];
   PaginationRequest pagination = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Pagination parameters"}];
-  repeated OrderBy order_bys = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Order by fields"}];
+  OrderByList order_bys = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Order by fields"}];
 }
 
 message DownloadAlertsRequest {
