@@ -15,32 +15,54 @@ message AlertDefQueryFilter {
       description: "Filter configuration for alert defs"
     }
   };
-  ListAlertDefNameFilter name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by name"}];
-  repeated AlertDefType type = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef type"}];
-  ListAlertDefEntityLabelsFilter entity_labels = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef entity labels"}];
-  ListAlertDefPriorityFilter priority = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef priority"}];
-  google.protobuf.BoolValue status = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef enabled status"}];
-  google.protobuf.BoolValue snoozed = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by snoozed status"}];
-  TimeRange modified_at_range = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were modified at the given time range"}];
-  TimeRange last_triggered_at_range = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were triggered at the given time range"}];
+  AlertDefNameFilter name_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by name"}];
+  AlertDefTypeFilter type_filter = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef type"}];
+  AlertDefEntityLabelsFilter entity_labels_filter = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef entity labels"}];
+  AlertDefPriorityFilter priority_filter = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef priority"}];
+  AlertDefStatusFilter status_filter = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef enabled status"}];
+  AlertDefSnoozedFilter snoozed_filter = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by snoozed status"}];
+  AlertDefModifiedTimeFilter modified_time_range_filter = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were modified at the given time range"}];
+  AlertDefLastTriggeredTimeFilter last_triggered_time_range_filter = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were triggered at the given time range"}];
 }
 
-message ListAlertDefNameFilter {
+message AlertDefNameFilter {
   repeated google.protobuf.StringValue name = 1;   // The name of the alert definition
-  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
+  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS")
   FilterValuesOperator values_operator = 3;   // The operator to apply to the field (e.g., "AND", "OR")
 }
 
-message ListAlertDefPriorityFilter {
+message AlertDefPriorityFilter {
   repeated AlertDefPriority priority = 1;   // The priority of the alert definition (e.g., "P1", "P2", "P3")
-  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
   FilterValuesOperator values_operator = 3;   // The operator to apply to the field (e.g., "AND", "OR")
 }
 
-message ListAlertDefEntityLabelsFilter {
+message AlertDefEntityLabelsFilter {
   map<string, string> entity_labels = 1;      // The values to filter by
-  FilterMatcher matcher = 2;   // The filter operator (e.g., "EQUALS", "NOT_EQUALS", "GREATER_THAN")
-  FilterValuesOperator values_operator = 3;   // The operator to apply to the field (e.g., "AND", "OR")
+  FilterValuesOperator values_operator = 3;
+}
+
+message AlertDefSnoozedFilter {
+  repeated google.protobuf.BoolValue snoozed = 1;   // The snoozed status of the alert definition
+}
+
+message AlertDefModifiedTimeFilter {
+  TimeRange modified_at_range = 1;   // The time range to filter by
+}
+
+message AlertDefLastTriggeredTimeFilter {
+  TimeRange last_triggered_at_range = 1;   // The time range to filter by
+}
+
+message AlertDefTypeFilter {
+  repeated AlertDefType type = 1;
+}
+
+message AlertDefStatusFilter {
+  repeated google.protobuf.BoolValue enabled = 1;
+}
+
+message AlertDefSnoozeFilter {
+  repeated google.protobuf.BoolValue snoozed = 1;
 }
 
 enum FilterMatcher {
