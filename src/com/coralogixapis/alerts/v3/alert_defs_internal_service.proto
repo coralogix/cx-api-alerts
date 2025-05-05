@@ -5,9 +5,11 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/descriptor.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
-import "com/coralogixapis/alerts/v3/alert_def_query_filter.proto";
 import "com/coralogixapis/alerts/v3/commons.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
 
 
 service AlertDefsInternalService {
@@ -20,6 +22,10 @@ service AlertDefsInternalService {
   rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
     option (google.api.http) = {get: "/v3/alert-defs-internal"};
   }
+
+  rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {
+    option (google.api.http) = {get: "/v3/alert-defs-internal-management"};
+  }
 }
 
 message ListAlertDefsInternalResponse {
@@ -28,7 +34,7 @@ message ListAlertDefsInternalResponse {
 }
 
 message ListAlertDefsInternalRequest {
-  AlertDefQueryFilter filter = 4;
+  AlertDefQueryFilterInternal filter = 4;
   PaginationRequest pagination = 5;
   repeated OrderBy order_bys = 6;
 }
@@ -39,4 +45,32 @@ message GetAlertDefByVersionIdInternalRequest {
 
 message GetAlertDefByVersionIdInternalResponse {
   AlertDef alert_def = 1;
+}
+
+message ListAlertDefsForManagementInternalRequest {
+}
+
+message ListAlertDefsForManagementInternalResponse {
+  repeated PartialAlertDef alert_defs = 1;
+}
+
+message PartialAlertDef {
+  google.protobuf.StringValue id = 1;
+  google.protobuf.StringValue version_id = 2;
+  google.protobuf.StringValue name = 3;
+  AlertDefType type = 4;
+  google.protobuf.Timestamp last_modified = 5;
+  AlertDefPriority priority = 6;
+  google.protobuf.BoolValue enabled = 7;
+}
+
+message SloThresholdFilter {
+  google.protobuf.StringValue slo_id = 1;
+}
+
+message AlertDefQueryFilterInternal {
+  optional AlertDefType alert_def_type = 1;
+  oneof filter {
+    SloThresholdFilter slo_threshold_filter = 100;
+  }
 }
