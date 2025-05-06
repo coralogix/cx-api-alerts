@@ -10,7 +10,6 @@ import "com/coralogixapis/alerts/v3/alert_def.proto";
 import "com/coralogixapis/alerts/v3/commons.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
-import "com/coralogixapis/alerts/v3/alert_def_query_filter.proto";
 
 
 service AlertDefsInternalService {
