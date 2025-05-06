@@ -125,3 +125,29 @@ message OrderBy {
     example: "\"ORDER_BY_DIRECTION_ASC_OR_UNSPECIFIED\""
   }];
 }
+
+message TimeDuration {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Time duration"
+      description: "Configuration for time duration"
+      required: [
+        "duration",
+        "unit"
+      ]
+    }
+  };
+  google.protobuf.UInt64Value duration = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The duration value"
+    example: "60"
+  }];
+  DurationUnit unit = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The unit of the duration"
+    example: "\"DURATION_UNIT_HOURS\""
+  }];
+}
+
+enum DurationUnit {
+  DURATION_UNIT_UNSPECIFIED = 0;
+  DURATION_UNIT_HOURS = 1;
+}
