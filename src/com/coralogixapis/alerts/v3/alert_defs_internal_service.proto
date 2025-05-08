@@ -12,7 +12,7 @@ service AlertDefsInternalService {
 
   rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
     option (google.api.http) = {
-      get: "/v3/alert-defs-internal/alertVersionId/{alert_version_id}"
+      get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
   }
 }

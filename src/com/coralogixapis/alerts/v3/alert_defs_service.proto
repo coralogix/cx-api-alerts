@@ -350,7 +350,7 @@ message GetAlertDefByVersionIdRequest {
   };
   google.protobuf.StringValue alert_version_id = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Alert version ID"
-    example: "123e4567-e89b-12d3-a456-426614174000"
+    example: "\"123e4567-e89b-12d3-a456-426614174000\""
     format: "UUIDv4"
   }];
 }
@@ -419,7 +419,7 @@ message DownloadAlertsResponse {
   };
   bytes content = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Base64-encoded binary data of the alert definitions"
-    example: "SGVsbG8gV29ybGQ="
+    example: "\"SGVsbG8gV29ybGQ=\""
     format: "base64"
   }];
 }
