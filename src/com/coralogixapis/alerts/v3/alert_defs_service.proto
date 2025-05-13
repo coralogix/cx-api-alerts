@@ -399,7 +399,6 @@ message ListAlertDefsRequest {
       description: "A request to get list of alert definitions"
     }
   };
-  AlertQueryFilter alert_query_filter = 1;
 }
 
 message DownloadAlertsRequest {
