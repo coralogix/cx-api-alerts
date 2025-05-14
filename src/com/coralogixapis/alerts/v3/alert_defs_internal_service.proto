@@ -64,7 +64,7 @@ message PartialAlertDef {
   google.protobuf.Timestamp last_triggered = 6;
   AlertDefPriority priority = 7;
   google.protobuf.BoolValue enabled = 8;
-
+  map<string, string> entity_labels = 9;
 }
 
 message SloThresholdFilter {
