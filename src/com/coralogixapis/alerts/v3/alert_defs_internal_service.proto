@@ -7,7 +7,6 @@ import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
-import "com/coralogixapis/alerts/v3/alert_def_filter/alert_query_filter.proto";
 import "com/coralogixapis/alerts/v3/pagination.proto";
 import "com/coralogixapis/alerts/v3/commons.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
@@ -68,18 +67,16 @@ message PartialAlertDef {
 
 }
 
+message SloThresholdFilter {
+  google.protobuf.StringValue slo_id = 1;
+}
+
 message AlertDefQueryFilterInternal {
   repeated AlertDefTypeFilterInternal alert_def_type_filter = 1;
 }
 message AlertDefTypeFilterInternal {
   oneof type_filter {
     AlertDefType alert_def_type = 1;
-    SloThresholdFilter slo_threshold_filter = 100;
-  }
-}
-
-message AdvancedAlertDefTypeFilter {
-  oneof filter {
     SloThresholdFilter slo_threshold_filter = 100;
   }
 }
