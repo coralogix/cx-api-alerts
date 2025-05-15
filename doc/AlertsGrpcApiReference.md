@@ -803,13 +803,15 @@ Represents The non generated alert definition properties (the ones that are set 
 <h2 id="comcoralogixapisalertsv3orderbyfields" name="comcoralogixapisalertsv3orderbyfields">OrderByFields <small>(<code>com.coralogixapis.alerts.v3.OrderByFields</code>)</small></h2>
 
 
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| `ORDER_BY_FIELDS_NAME_OR_UNSPECIFIED` | `0` |  |
-| `ORDER_BY_FIELDS_ID` | `1` |  |
-| `ORDER_BY_FIELDS_SEVERITY` | `2` |  |
-| `ORDER_BY_FIELDS_CREATED_TIME` | `3` |  |
-| `ORDER_BY_FIELDS_UPDATED_TIME` | `4` |  |
+| Name                             | Number | Description |
+|----------------------------------|--------| ----------- |
+| `ORDER_BY_FIELDS_UNSPECIFIED`    | `0`    |  |
+| `ORDER_BY_FIELDS_NAME`           | `1`    |  |
+| `ORDER_BY_FIELDS_ID`             | `2`    |  |
+| `ORDER_BY_FIELDS_SEVERITY`       | `3`    |  |
+| `ORDER_BY_FIELDS_CREATED_TIME`   | `4`    |  |
+| `ORDER_BY_FIELDS_UPDATED_TIME`   | `5`    |  |
+| `ORDER_BY_FIELDS_LAST_TRIGGERED` | `6`    |  |
 
 <h2 id="comcoralogixapisalertsv3tracingfilteroperationtype" name="comcoralogixapisalertsv3tracingfilteroperationtype">TracingFilterOperationType <small>(<code>com.coralogixapis.alerts.v3.TracingFilterOperationType</code>)</small></h2>
 
