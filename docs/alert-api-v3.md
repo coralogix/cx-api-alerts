@@ -2433,11 +2433,13 @@ google.protobuf.BoolValue valid = 1;
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| ORDER_BY_FIELDS_NAME_OR_UNSPECIFIED | 0 |  |
-| ORDER_BY_FIELDS_ID | 1 |  |
-| ORDER_BY_FIELDS_SEVERITY | 2 |  |
-| ORDER_BY_FIELDS_CREATED_TIME | 3 |  |
-| ORDER_BY_FIELDS_UPDATED_TIME | 4 |  |
+| `ORDER_BY_FIELDS_UNSPECIFIED`    | `0`    |  |
+| `ORDER_BY_FIELDS_NAME`           | `1`    |  |
+| `ORDER_BY_FIELDS_ID`             | `2`    |  |
+| `ORDER_BY_FIELDS_SEVERITY`       | `3`    |  |
+| `ORDER_BY_FIELDS_CREATED_TIME`   | `4`    |  |
+| `ORDER_BY_FIELDS_UPDATED_TIME`   | `5`    |  |
+| `ORDER_BY_FIELDS_LAST_TRIGGERED` | `6`    |  |
 
 
 

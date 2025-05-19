@@ -5,16 +5,39 @@ package com.coralogixapis.alerts.v3;
 import "google/protobuf/descriptor.proto";
 import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
+import "com/coralogixapis/alerts/v3/pagination.proto";
+import "com/coralogixapis/alerts/v3/commons.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
 
 
 service AlertDefsInternalService {
-
   rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
     option (google.api.http) = {
       get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
     };
   }
+
+  rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
+    option (google.api.http) = {get: "/v3/alert-defs-internal"};
+  }
+
+  rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {
+    option (google.api.http) = {get: "/v3/alert-defs-internal-management"};
+  }
+}
+
+message ListAlertDefsInternalResponse {
+  repeated AlertDef alert_defs = 1;
+  PaginationResponse pagination = 4;
+}
+
+message ListAlertDefsInternalRequest {
+  AlertDefQueryFilterInternal filter = 4;
+  PaginationRequest pagination = 5;
+  OrderByList order_bys = 6;
 }
 
 message GetAlertDefByVersionIdInternalRequest {
@@ -23,4 +46,37 @@ message GetAlertDefByVersionIdInternalRequest {
 
 message GetAlertDefByVersionIdInternalResponse {
   AlertDef alert_def = 1;
+}
+
+message ListAlertDefsForManagementInternalRequest {
+}
+
+message ListAlertDefsForManagementInternalResponse {
+  repeated PartialAlertDef alert_defs = 1;
+}
+
+message PartialAlertDef {
+  google.protobuf.StringValue id = 1;
+  google.protobuf.StringValue version_id = 2;
+  google.protobuf.StringValue name = 3;
+  AlertDefType type = 4;
+  google.protobuf.Timestamp last_modified = 5;
+  google.protobuf.Timestamp last_triggered = 6;
+  AlertDefPriority priority = 7;
+  google.protobuf.BoolValue enabled = 8;
+  map<string, string> entity_labels = 9;
+}
+
+message SloThresholdFilter {
+  google.protobuf.StringValue slo_id = 1;
+}
+
+message AlertDefQueryFilterInternal {
+  repeated AlertDefTypeFilterInternal alert_def_type_filter = 1;
+}
+message AlertDefTypeFilterInternal {
+  oneof type_filter {
+    AlertDefType alert_def_type = 1;
+    SloThresholdFilter slo_threshold_filter = 100;
+  }
 }
