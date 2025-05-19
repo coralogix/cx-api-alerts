@@ -15,17 +15,12 @@ import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
 
 service AlertDefsInternalService {
   rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
-    option (google.api.http) = {
-      get: "/v3/alert_defs_internal/alertVersionId/{alert_version_id}"
-    };
   }
 
   rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
-    option (google.api.http) = {get: "/v3/alert-defs-internal"};
   }
 
   rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {
-    option (google.api.http) = {get: "/v3/alert-defs-internal-management"};
   }
 }
 
