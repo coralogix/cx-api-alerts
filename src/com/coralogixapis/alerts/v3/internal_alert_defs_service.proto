@@ -9,14 +9,14 @@ import "com/coralogixapis/alerts/v3/pagination.proto";
 import "com/coralogixapis/alerts/v3/commons.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
-import "overrides.proto";
-import "logs_threshold_condition_type.proto";
-import "logs_ratio_condition_type.proto";
-import "logs_time_relative_condition_type.proto";
-import "metric_threshold_condition_type.proto";
-import "tracing_threshold_condition_type.proto";
-import "logs_anomaly_condition_type.proto";
-import "metric_anomaly_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/overrides.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/threshold/logs_threshold_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/ratio/logs_ratio_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/time_relative/logs_time_relative_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/threshold/metric_threshold_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/threshold/tracing_threshold_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/logs/anomaly/logs_anomaly_condition_type.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/anomaly/metric_anomaly_condition_type.proto";
 
 
 service AlertDefsInternalService {
