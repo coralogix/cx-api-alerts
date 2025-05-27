@@ -9,6 +9,14 @@ import "com/coralogixapis/alerts/v3/pagination.proto";
 import "com/coralogixapis/alerts/v3/commons.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
+import "overrides.proto";
+import "logs_threshold_condition_type.proto";
+import "logs_ratio_condition_type.proto";
+import "logs_time_relative_condition_type.proto";
+import "metric_threshold_condition_type.proto";
+import "tracing_threshold_condition_type.proto";
+import "logs_anomaly_condition_type.proto";
+import "metric_anomaly_condition_type.proto";
 
 
 service AlertDefsInternalService {
@@ -63,7 +71,110 @@ message PartialAlertDef {
   AlertDefPriority priority = 7;
   google.protobuf.BoolValue enabled = 8;
   map<string, string> entity_labels = 9;
+  oneof type_definition {
+    PartialLogsImmediateType logs_immediate = 101;
+    PartialTracingImmediateType tracing_immediate = 102;
+    PartialLogsThresholdType logs_threshold = 103;
+    PartialLogsRatioThresholdType logs_ratio_threshold = 104;
+    PartialLogsTimeRelativeThresholdType logs_time_relative_threshold = 105;
+    PartialMetricThresholdType metric_threshold = 106;
+    PartialTracingThresholdType tracing_threshold = 107;
+    PartialFlowType flow = 108;
+    PartialLogsAnomalyType logs_anomaly = 109;
+    PartialMetricAnomalyType metric_anomaly = 110;
+    PartialLogsNewValueType logs_new_value = 111;
+    PartialLogsUniqueCountType logs_unique_count = 112;
+    PartialSloThresholdType slo_threshold = 113;
+  }
+
 }
+
+message PartialLogsImmediateType {
+}
+message PartialTracingImmediateType {
+}
+message PartialLogsThresholdType {
+  repeated PartialLogsThresholdRule rules = 1;
+}
+message PartialLogsRatioThresholdType {
+  repeated PartialLogsRatioRule rules = 1;
+}
+message PartialLogsTimeRelativeThresholdType {
+  repeated PartialLogsTimeRelativeRule rules = 1;
+}
+message PartialMetricThresholdType {
+  repeated PartialMetricThresholdRule rules = 1;
+}
+message PartialTracingThresholdType {
+  repeated PartialTracingThresholdRule rules = 1;
+}
+message PartialFlowType {
+}
+message PartialLogsAnomalyType {
+  repeated PartialLogsAnomalyRule rules = 1;
+}
+message PartialMetricAnomalyType {
+  repeated PartialMetricAnomalyRule rules = 1;
+}
+message PartialLogsNewValueType {
+}
+message PartialLogsUniqueCountType {
+}
+message PartialSloThresholdType {
+}
+
+message PartialLogsThresholdRule {
+  PartialLogsThresholdCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+message PartialLogsRatioRule {
+  PartialLogsRatioCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+message PartialLogsTimeRelativeRule {
+  PartialLogsTimeRelativeCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+message PartialMetricThresholdRule {
+  PartialMetricThresholdCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+message PartialTracingThresholdRule {
+  PartialTracingThresholdCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+message PartialLogsAnomalyRule {
+  PartialLogsAnomalyCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+message PartialMetricAnomalyRule {
+  PartialMetricAnomalyCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+
+message PartialLogsThresholdCondition {
+  LogsThresholdConditionType condition_type = 1;
+}
+message PartialLogsRatioCondition {
+  LogsRatioConditionType condition_type = 1;
+}
+message PartialLogsTimeRelativeCondition {
+  LogsTimeRelativeConditionType condition_type = 1;
+}
+message PartialMetricThresholdCondition {
+  MetricThresholdConditionType condition_type = 1;
+}
+message PartialTracingThresholdCondition {
+  TracingThresholdConditionType condition_type = 1;
+}
+message PartialLogsAnomalyCondition {
+  LogsAnomalyConditionType condition_type = 1;
+}
+message PartialMetricAnomalyCondition {
+  MetricAnomalyConditionType condition_type = 1;
+}
+
+
 
 message SloThresholdFilter {
   google.protobuf.StringValue slo_id = 1;
