@@ -9,7 +9,7 @@ import "com/coralogixapis/alerts/v3/pagination.proto";
 import "com/coralogixapis/alerts/v3/commons.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
-
+import "com/coralogixapis/alerts/v3/alert_def_type_definition/partial_alert_def_type_definitions.proto";
 
 service AlertDefsInternalService {
   rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
@@ -63,6 +63,21 @@ message PartialAlertDef {
   AlertDefPriority priority = 7;
   google.protobuf.BoolValue enabled = 8;
   map<string, string> entity_labels = 9;
+  oneof type_definition {
+    PartialLogsImmediateType logs_immediate = 101;
+    PartialTracingImmediateType tracing_immediate = 102;
+    PartialLogsThresholdType logs_threshold = 103;
+    PartialLogsRatioThresholdType logs_ratio_threshold = 104;
+    PartialLogsTimeRelativeThresholdType logs_time_relative_threshold = 105;
+    PartialMetricThresholdType metric_threshold = 106;
+    PartialTracingThresholdType tracing_threshold = 107;
+    PartialFlowType flow = 108;
+    PartialLogsAnomalyType logs_anomaly = 109;
+    PartialMetricAnomalyType metric_anomaly = 110;
+    PartialLogsNewValueType logs_new_value = 111;
+    PartialLogsUniqueCountType logs_unique_count = 112;
+    PartialSloThresholdType slo_threshold = 113;
+  }
 }
 
 message SloThresholdFilter {
