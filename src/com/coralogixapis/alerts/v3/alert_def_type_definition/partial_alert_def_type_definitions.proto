@@ -56,6 +56,7 @@ message PartialLogsUniqueCountType {
 }
 
 message PartialSloThresholdType {
+  repeated PartialSloThresholdRule rules = 1;
 }
 
 message PartialLogsThresholdRule {
@@ -90,6 +91,10 @@ message PartialLogsAnomalyRule {
 
 message PartialMetricAnomalyRule {
   PartialMetricAnomalyCondition condition = 1;
+  AlertDefOverride override = 2;
+}
+
+message PartialSloThresholdRule {
   AlertDefOverride override = 2;
 }
 
