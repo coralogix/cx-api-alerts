@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v3;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "com/coralogixapis/alerts/v3/alert_def.proto";
+import "com/coralogixapis/alerts/v3/event/alert_event.proto";
+
+service AlertWatchDataInternalService {
+  rpc GetAlertWatchData(GetAlertWatchDataRequest) returns (GetAlertWatchDataResponse) {
+  }
+}
+
+message GetAlertWatchDataRequest {
+  string event_id = 1;
+
+  message Limits {
+    int32 permutations = 1; // Maximum: 5000
+    int32 logs = 2;         // Maximum: 2000
+    int32 graph_permutations = 3; // Maximum: 100
+  }
+
+  Limits limits = 2;
+}
+
+message Log {
+  string timestamp = 1; // ISO8601 format
+  map<string, string> metadata = 2;
+  map<string, string> labels = 3;
+  string data = 4; // The log message
+}
+
+// obtained by querying IncidentManagement_GetGraphFromArchive.
+message GraphData {
+  uint64 timestamp = 1;
+  uint64 count = 2;
+  string log = 3;
+}
+
+message LogBased {
+  string dataprime_query = 1; // The DataPrime query that triggered the alert
+  repeated Log logs = 2; // List of logs associated with the alert event
+  repeated GraphData graph_data = 3;
+}
+
+message LogsImmediateData {
+  LogBased log_based = 1;
+}
+
+message LogsThresholdData {
+  LogBased log_based = 1;
+}
+
+message LogsRatioThresholdData {
+  LogBased log_based = 1;
+}
+
+message LogsTimeRelativeThresholdData {
+  LogBased log_based = 1;
+}
+
+message LogsAnomalyData {
+  LogBased log_based = 1;
+}
+
+message LogsNewValueData {
+  LogBased log_based = 1;
+}
+
+message LogsUniqueCountData {
+  LogBased log_based = 1;
+}
+
+/// will be implemented later
+// message TracingImmediateData {}
+// message TracingThresholdData {}
+// message MetricThresholdData {}
+// message MetricAnomalyData {}
+// message SloThresholdData {}
+// message FlowData {}
+
+message GetAlertWatchDataResponse {
+  repeated AlertEvent alert_event = 1; // Alert event permutations
+  AlertDef alert_def = 2;
+
+  oneof alert_data {
+    LogsImmediateData logs_immediate = 101;
+    LogsThresholdData logs_threshold = 102;
+    LogsRatioThresholdData logs_ratio_threshold = 103;
+    LogsTimeRelativeThresholdData logs_time_relative_threshold = 104;
+    LogsAnomalyData logs_anomaly = 105;
+    LogsNewValueData logs_new_value = 106;
+    LogsUniqueCountData logs_unique_count = 107;
+  }
+}
