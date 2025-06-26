@@ -25,15 +25,14 @@ message GetAlertWatchDataRequest {
 }
 
 message Log {
-  string timestamp = 1; // ISO8601 format
-  map<string, string> metadata = 2;
-  map<string, string> labels = 3;
-  string data = 4; // The log message
+  map<string, string> metadata = 1; // includes an ISO8601 timestamp
+  map<string, string> labels = 2;
+  string data = 3; // The log message
 }
 
 // obtained by querying IncidentManagement_GetGraphFromArchive.
 message GraphData {
-  uint64 timestamp = 1;
+  string timestamp = 1; // ISO8601 format
   uint64 count = 2;
   string log = 3;
 }
