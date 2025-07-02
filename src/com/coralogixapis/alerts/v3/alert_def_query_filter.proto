@@ -19,8 +19,7 @@ message AlertDefQueryFilter {
   AlertDefTypeFilter type_filter = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef type"}];
   AlertDefEntityLabelsFilter entity_labels_filter = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef entity labels"}];
   AlertDefPriorityFilter priority_filter = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef priority"}];
-  AlertDefStatusFilter status_filter = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef enabled status"}];
-  AlertDefSnoozedFilter snoozed_filter = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by snoozed status"}];
+  AlertDefEnabledFilter enabled_filter = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filter by AlertDef enabled status"}];
   AlertDefModifiedTimeFilter modified_time_range_filter = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were modified at the given time range"}];
   AlertDefLastTriggeredTimeFilter last_triggered_time_range_filter = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Filters all alerts that were triggered at the given time range"}];
 }
@@ -41,10 +40,6 @@ message AlertDefEntityLabelsFilter {
   FilterValuesOperator values_operator = 3;
 }
 
-message AlertDefSnoozedFilter {
-  repeated google.protobuf.BoolValue snoozed = 1;   // The snoozed status of the alert definition
-}
-
 message AlertDefModifiedTimeFilter {
   TimeRange modified_at_range = 1;   // The time range to filter by
 }
@@ -57,18 +52,15 @@ message AlertDefTypeFilter {
   repeated AlertDefType type = 1;
 }
 
-message AlertDefStatusFilter {
+message AlertDefEnabledFilter {
   repeated google.protobuf.BoolValue enabled = 1;
-}
-
-message AlertDefSnoozeFilter {
-  repeated google.protobuf.BoolValue snoozed = 1;
 }
 
 enum FilterMatcher {
   FILTER_MATCHER_UNSPECIFIED = 0;
   FILTER_MATCHER_EQUALS = 1;
   FILTER_MATCHER_NOT_EQUALS = 2;
+  FILTER_MATCHER_CONTAINS = 3;
 }
 
 enum FilterValuesOperator {
