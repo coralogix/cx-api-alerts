@@ -32,7 +32,7 @@ message Log {
 
 // obtained by querying IncidentManagement_GetGraphFromArchive.
 message GraphData {
-  string timestamp = 1; // ISO8601 format
+  uint64 timestamp = 1; 
   uint64 count = 2;
   string log = 3;
 }
