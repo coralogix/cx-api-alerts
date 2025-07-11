@@ -69,7 +69,7 @@ message AlertDefEntityLabelsFilter {
     description: "The entity label key-value pairs to filter by"
     example: "{\"environment\": \"production\", \"team\": \"backend\"}"
   }];
-  FilterValuesOperator values_operator = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  FilterValuesOperator values_operator = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Whether all labels must match (AND) or any label can match (OR)"
   }];
 }
