@@ -768,10 +768,6 @@ message PriorityCount {
     description: "The count for this alert priority"
     example: "15"
   }];
-  google.protobuf.UInt32Value override_rules_count = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The count of multi-condition override rules with this priority"
-    example: "3"
-  }];
 }
 
 message EntityLabelCount {
