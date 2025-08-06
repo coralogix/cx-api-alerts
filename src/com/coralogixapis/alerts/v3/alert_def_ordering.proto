@@ -49,6 +49,6 @@ message AlertDefOrderByList {
   };
   repeated AlertDefOrderBy order_bys = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Order by fields for alert definitions"
-    min_items: 0
+    min_items: 1
   }];
 }
