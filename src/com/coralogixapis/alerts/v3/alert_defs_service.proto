@@ -295,7 +295,7 @@ service AlertDefsService {
   }
 
   rpc FilterOptionCounts(FilterOptionCountsRequest) returns (FilterOptionCountsResponse) {
-    option (com.coralogix.common.v1.audit_log_description).description = "get filter option counts";
+    option (com.coralogixapis.common.v1.audit_log_description).description = "get filter option counts";
     option (google.api.http) = {get: "/v3/alert-defs/filter-option-counts"};
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
       responses: {
