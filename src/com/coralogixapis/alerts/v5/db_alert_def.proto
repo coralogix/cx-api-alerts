@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+import "com/coralogix/alerts/v5/db_alert_def_type_definition/db_alert_def_definition.proto";
+import "com/coralogix/alerts/v5/db_alert_def_type_definition/db_alert_def_matcher.proto";
+
+/**
+ * A rule definition, as it would come from the MySQL Alerts Database.
+ * 
+ * This is not a client-facing struct, but instead a DTO struct between the db, Kafka Connect, and consuming services.
+ */
+message AlertDefinitionMatcherWrapper {
+  AlertDefinition alert_definition = 1;
+  Matcher alert_matcher = 2;
+  MetricExtraction metric_extraction = 3;
+}
+
+enum MetadataFieldName {
+  UNKNOWN = 0;
+  
+  APPLICATION_NAME = 1;
+  SUBSYSTEM_NAME = 2;
+  IP_ADDRESS = 3;
+  COMPUTER_NAME = 4;
+  PROCESS_NAME = 5;
+  CATEGORY = 6;
+  CLASS_NAME = 7;
+  METHOD_NAME = 8;
+  SEVERITY = 9;
+  THREAD_ID = 10;
+}
+
