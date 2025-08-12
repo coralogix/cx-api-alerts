@@ -1,3 +1,7 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v5;
+
 /**
  *
  */
@@ -30,15 +34,23 @@ message Cardinality {
   }
 }
 
-// Helper types for MetricExtraction
+/**
+ * We capture the string value in a struct in case we need to add more fields in the future.
+ */
 message ConstantString {
   string value = 1;
 }
 
+/**
+ * We capture the string value in a struct in case we need to add more fields in the future.
+ */
 message ConstantDouble {
   double value = 1;
 }
 
+/**
+ * We capture the string value in a struct in case we need to add more fields in the future.
+ */
 message FieldValueString {
   string field_name = 1;
 }

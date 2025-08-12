@@ -1,3 +1,9 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v5;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
 
 message Matcher {
   oneof matcher_type {
@@ -33,6 +39,22 @@ message MetadataField {
   MetadataFieldName field_name = 1;
   FieldValue value = 2;
 }
+
+enum MetadataFieldName {
+  METADATA_FIELD_NAME_UNKNOWN = 0;
+  
+  APPLICATION_NAME = 1;
+  SUBSYSTEM_NAME = 2;
+  IP_ADDRESS = 3;
+  COMPUTER_NAME = 4;
+  PROCESS_NAME = 5;
+  CATEGORY = 6;
+  CLASS_NAME = 7;
+  METHOD_NAME = 8;
+  SEVERITY = 9;
+  THREAD_ID = 10;
+}
+
 
 message Bool {
   repeated Matcher must = 1;
