@@ -91,3 +91,10 @@ message OrderBy {
     example: "\"ORDER_BY_DIRECTION_ASC_OR_UNSPECIFIED\""
   }];
 }
+
+enum AlertStatus {
+  ALERT_STATUS_UNSPECIFIED = 0;
+  ALERT_STATUS_ALERTING = 1;
+  ALERT_STATUS_OK = 2;
+  ALERT_STATUS_NO_DATA = 3;
+}
