@@ -13,6 +13,7 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 import "com/coralogixapis/alerts/v3/alert_def_query_filter.proto";
 import "com/coralogixapis/alerts/v3/pagination.proto";
 import "com/coralogixapis/alerts/v3/alert_def_ordering.proto";
+import "com/coralogixapis/alerts/v3/commons.proto";
 
 service AlertDefsService {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {
@@ -656,6 +657,9 @@ message FilterOptionCountsFilter {
   FilterOptionCountsEntityLabelsFilter entity_labels_filter = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Filter by alert definition entity labels"
   }];
+  FilterOptionCountsStatusFilter status_filter = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Filter by alert definition status"
+  }];
 }
 
 message FilterOptionCountsNameFilter {
@@ -718,6 +722,19 @@ message FilterOptionCountsEntityLabelsFilter {
   }];
 }
 
+message FilterOptionCountsStatusFilter {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Filter option counts status filter"
+      description: "Filter by alert definition status for counting options"
+    }
+  };
+  repeated AlertDefStatus statuses = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The alert statuses to include in the count"
+    example: "[\"ALERT_STATUS_ALERTING\", \"ALERT_STATUS_OK\", \"ALERT_STATUS_NO_DATA\"]"
+  }];
+}
+
 message FilterOptionCounts {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -733,6 +750,9 @@ message FilterOptionCounts {
   }];
   repeated EntityLabelCount entity_label_counts = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Counts for different entity label values"
+  }];
+  repeated StatusCount status_counts = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Counts for different alert statuses"
   }];
 }
 
@@ -788,5 +808,22 @@ message EntityLabelCount {
   google.protobuf.UInt32Value count = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The count for this entity label value"
     example: "28"
+  }];
+}
+
+message StatusCount {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Status count"
+      description: "Count for a specific alert status"
+    }
+  };
+  AlertDefStatus status = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The alert status"
+    example: "\"ALERT_STATUS_ALERTING\""
+  }];
+  google.protobuf.UInt32Value count = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The count for this alert status"
+    example: "15"
   }];
 }
