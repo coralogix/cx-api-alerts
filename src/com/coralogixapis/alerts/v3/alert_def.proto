@@ -19,6 +19,7 @@ import "com/coralogixapis/alerts/v3/alert_def_type_definition/metric/metric_thre
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/slo/slo_threshold_type_definition.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_immediate_type_definition.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/tracing/tracing_threshold_type_definition.proto";
+import "com/coralogixapis/alerts/v3/commons.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
@@ -57,6 +58,14 @@ message AlertDef {
   google.protobuf.Timestamp updated_time = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     example: "\"2023-10-01T12:00:00Z\""
     description: "The time when the alert definition was last updated"
+  }];
+  google.protobuf.Timestamp last_triggered_time = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    example: "\"2023-10-01T12:00:00Z\""
+    description: "The last time the alert definition was triggered"
+  }];
+  AlertDefStatus status = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The current status of the alert (Alerting, Ok, or No Data)"
+    example: "\"ALERT_STATUS_OK\""
   }];
 }
 
