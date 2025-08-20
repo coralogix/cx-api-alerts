@@ -128,6 +128,10 @@ message FilterOptionCountsStatusFilter {
     description: "The alert statuses to include in the count"
     example: "[\"ALERT_DEF_STATUS_ALERTING\", \"ALERT_DEF_STATUS_OK\", \"ALERT_DEF_STATUS_NO_DATA\"]"
   }];
+  FilterMatcher matcher = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+      description: "The filter operator (EQUALS, NOT_EQUALS)"
+      example: "\"FILTER_MATCHER_EQUALS\""
+    }];
 }
 
 message FilterOptionCounts {
