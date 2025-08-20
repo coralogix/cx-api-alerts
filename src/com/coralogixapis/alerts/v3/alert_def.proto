@@ -144,4 +144,5 @@ message AlertDefProperties {
     example: "false"
     default: "false"
   }];
+  AlertDefCaseSettings case_settings = 13 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {description: "Case creation and management settings"}];
 }

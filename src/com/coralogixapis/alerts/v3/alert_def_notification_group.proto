@@ -23,6 +23,14 @@ message AlertDefIncidentSettings {
   }];
 }
 
+message AlertDefCaseSettings {
+  google.protobuf.BoolValue case_integration_enabled = 12 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Whether the case integration is enabled for this alert definition"
+    example: "false"
+    default: "false"
+  }];
+}
+
 message AlertDefNotificationGroup {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {title: "Alert definition notification group"}
