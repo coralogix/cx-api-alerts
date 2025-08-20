@@ -79,7 +79,7 @@ message FilterOptionCountsTypeFilter {
     json_schema: {
       title: "Filter option counts type filter"
       description: "Filter by alert definition types for counting options"
-    }AlertDefType types
+    }
   };
   repeated AlertDefType types = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The alert types"
