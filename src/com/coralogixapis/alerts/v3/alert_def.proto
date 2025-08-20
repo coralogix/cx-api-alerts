@@ -64,8 +64,8 @@ message AlertDef {
     description: "The last time the alert definition was triggered"
   }];
   optional AlertDefStatus status = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-    description: "The current status of the alert (Alerting, Ok, or No Data)"
-    example: "\"ALERT_STATUS_OK\""
+    description: "The current status of the alert"
+    example: "\"ALERT_DEF_STATUS_OK\""
   }];
 }
 
