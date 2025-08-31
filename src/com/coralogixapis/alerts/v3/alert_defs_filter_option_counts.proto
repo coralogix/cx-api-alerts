@@ -16,7 +16,7 @@ message FilterOptionCountsRequest {
       description: "Request to get counts for filter options based on applied filters"
     }
   };
-  FilterOptionCountsFilter filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  FilterOptionCountsFilter query_filter = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The filter to apply when counting options"
   }];
 }
@@ -81,7 +81,7 @@ message FilterOptionCountsTypeFilter {
       description: "Filter by alert definition types for counting options"
     }
   };
-  repeated AlertDefType types = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  repeated AlertDefType type = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The alert types"
     example: "[\"ALERT_DEF_TYPE_LOGS_THRESHOLD\", \"ALERT_DEF_TYPE_LOGS_NEW_VALUE\", \"ALERT_DEF_TYPE_LOGS_UNIQUE_COUNT\", \"ALERT_DEF_TYPE_TRACING_THRESHOLD\"]"
   }];
@@ -94,7 +94,7 @@ message FilterOptionCountsPriorityFilter {
       description: "Filter by alert definition priorities"
     }
   };
-  repeated AlertDefPriority priorities = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  repeated AlertDefPriority priority = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The alert priorities to include in the count"
     example: "[\"ALERT_DEF_PRIORITY_P1\", \"ALERT_DEF_PRIORITY_P2\", \"ALERT_DEF_PRIORITY_P3\"]"
   }];
@@ -111,7 +111,7 @@ message FilterOptionCountsEntityLabelsFilter {
     description: "The entity label key-value pairs to filter by"
     example: "{\"environment\": \"production\", \"team\": \"backend\"}"
   }];
-  FilterValuesOperator labels_operator = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  FilterValuesOperator values_operator = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Whether all labels must match (AND) or any label can match (OR)"
     example: "\"FILTER_VALUES_OPERATOR_AND\""
   }];
@@ -124,7 +124,7 @@ message FilterOptionCountsStatusFilter {
       description: "Filter by alert definition status for counting options"
     }
   };
-  repeated AlertDefStatus statuses = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  repeated AlertDefStatus status = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The alert statuses to include in the count"
     example: "[\"ALERT_DEF_STATUS_ALERTING\", \"ALERT_DEF_STATUS_OK\", \"ALERT_DEF_STATUS_NO_DATA\"]"
   }];
