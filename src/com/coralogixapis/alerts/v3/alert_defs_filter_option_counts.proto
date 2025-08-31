@@ -64,7 +64,7 @@ message FilterOptionCountsNameFilter {
       description: "Filter by alert definition names for counting options"
     }
   };
-  repeated google.protobuf.StringValue names = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+  repeated google.protobuf.StringValue name = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The name(s) of the alert definition - multiple values are OR'd together"
     example: "[\"My Alert\", \"Another Alert\"]"
   }];
