@@ -55,6 +55,9 @@ message FilterOptionCountsFilter {
   FilterOptionCountsStatusFilter status_filter = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Filter by alert definition status"
   }];
+  FilterOptionCountsEnabledFilter enabled_filter = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Filter by alert definition enabled status"
+  }];
 }
 
 message FilterOptionCountsNameFilter {
@@ -134,6 +137,19 @@ message FilterOptionCountsStatusFilter {
     }];
 }
 
+message FilterOptionCountsEnabledFilter {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Filter option counts enabled filter"
+      description: "Filter by alert definition enabled status for counting options"
+    }
+  };
+  google.protobuf.BoolValue enabled = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Whether to filter for enabled (true) or disabled (false) alerts"
+    example: "true"
+  }];
+}
+
 message FilterOptionCounts {
   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
     json_schema: {
@@ -152,6 +168,9 @@ message FilterOptionCounts {
   }];
   repeated StatusCount status_counts = 4 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "Counts for different alert statuses"
+  }];
+  repeated EnabledCount enabled_counts = 5 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Counts for different alert enabled statuses"
   }];
 }
 
@@ -224,5 +243,22 @@ message StatusCount {
   google.protobuf.UInt32Value count = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
     description: "The count for this alert status"
     example: "15"
+  }];
+}
+
+message EnabledCount {
+  option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+    json_schema: {
+      title: "Enabled count"
+      description: "Count for a specific alert enabled status"
+    }
+  };
+  google.protobuf.BoolValue enabled = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "Whether the alert is enabled (true) or disabled (false)"
+    example: "true"
+  }];
+  google.protobuf.UInt32Value count = 2 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+    description: "The count for this enabled status"
+    example: "25"
   }];
 }
