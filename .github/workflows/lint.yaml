@@ -1,0 +1,28 @@
+name: Buf Lint
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'src/**'
+      - 'buf.yaml'
+  push:
+    branches: [ master ]
+    paths:
+      - 'src/**'
+      - 'buf.yaml'
+
+jobs:
+  protobuf_lint_and_build:
+    runs-on: ubuntu-latest
+    name: Lint, Build & Format
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bufbuild/buf-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
