@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v5;
+
+/**
+ * Represents a key used in Kafka compacted topics for restoring company rule definitions from Change Data Capture (Debezium + Kafka Connect).
+ */
+message DbAlertRuleDefinitionKey {
+    int64 company_id = 1;
+    string alert_rule_id = 2;
+}

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v5;
+
+import "google/protobuf/wrappers.proto";
+
+import "com/coralogixapis/alerts/v5/db_alert_def_type_definition/db_alert_def_extraction.proto";
+
+message AlertDefinition {
+  string id = 1;
+  int64 company_id = 2;
+  AlertMetadata metadata = 3;
+  string name = 4;
+  bool has_conditions = 5;
+  AlertConditions conditions = 6;
+  MetricExtraction metric_extraction = 7;
+  AlertType user_alert_type = 8;
+  google.protobuf.StringValue unique_identifier = 9;
+  google.protobuf.StringValue active_when = 10;
+}
+
+message AlertMetadata {
+  string application_name = 1;
+  repeated SubSystem subsystem = 2;
+  repeated string category = 3;
+  repeated string class_name = 4;
+  repeated string method_name = 5;
+  repeated string log_severity = 6;
+  repeated string computer_name = 7;
+  repeated string ip_address = 8;
+  repeated string process_name = 9;
+  repeated string thread_id = 10;
+}
+
+message SubSystem {
+  string value = 1;
+  MetadataFieldCompareType compare_type = 2;
+  string compare_value = 3;
+}
+
+enum MetadataFieldCompareType {
+  METADATA_FIELD_COMPARE_TYPE_UNKNOWN = 0;
+
+  METADATA_FIELD_COMPARE_TYPE_START_WITH = 1;
+  METADATA_FIELD_COMPARE_TYPE_END_WITH = 2;
+  METADATA_FIELD_COMPARE_TYPE_EQUALS = 3;
+  METADATA_FIELD_COMPARE_TYPE_CONTAINS = 4;
+}
+
+message AlertConditions {
+  AlertConditionOperator condition_operator = 1;
+  int32 condition_timeframe = 2;
+  int32 condition_threshold = 3;
+}
+
+enum AlertConditionOperator {
+  ALERT_CONDITION_UNKNOWN = 0;
+
+  ALERT_CONDITION_LESS_THAN = 1;
+  ALERT_CONDITION_IMMEDIATE = 2;
+  ALERT_CONDITION_MORE_THAN = 3;
+  ALERT_CONDITION_MORE_THAN_USUAL = 4;
+  ALERT_CONDITION_NEWLY_ENCOUNTERED = 5;
+  ALERT_CONDITION_LESS_THAN_USUAL = 6;
+}
+
+enum AlertType {
+  ALERT_TYPE_UNKNOWN = 0;
+  TEXT = 1;
+  TEMPLATE = 2;
+  DYNAMIC = 3;
+  RATIO = 4;
+  CARDINALITY = 5;
+  RELATIVE_TIME = 6;
+}
