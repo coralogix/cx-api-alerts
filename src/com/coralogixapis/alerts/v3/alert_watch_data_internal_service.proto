@@ -6,8 +6,7 @@ import "com/coralogixapis/alerts/v3/alert_def.proto";
 import "com/coralogixapis/alerts/v3/event/alert_event.proto";
 
 service AlertWatchDataInternalService {
-  rpc GetAlertWatchData(GetAlertWatchDataRequest) returns (GetAlertWatchDataResponse) {
-  }
+  rpc GetAlertWatchData(GetAlertWatchDataRequest) returns (GetAlertWatchDataResponse) {}
 }
 
 message GetAlertWatchDataRequest {
@@ -15,7 +14,7 @@ message GetAlertWatchDataRequest {
 
   message Limits {
     int32 permutations = 1; // Maximum: 5000
-    int32 logs = 2;         // Maximum: 2000
+    int32 logs = 2; // Maximum: 2000
     int32 graph_permutations = 3; // Maximum: 100
   }
 
@@ -43,7 +42,7 @@ message Log {
 
 // obtained by querying IncidentManagement_GetGraphFromArchive.
 message GraphData {
-  uint64 timestamp = 1; 
+  uint64 timestamp = 1;
   uint64 count = 2;
   string log = 3;
 }

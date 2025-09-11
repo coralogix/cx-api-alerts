@@ -2,29 +2,25 @@ syntax = "proto3";
 
 package com.coralogixapis.alerts.v3;
 
-import "google/protobuf/wrappers.proto";
-import "google/protobuf/timestamp.proto";
 import "com/coralogixapis/alerts/v3/alert_def.proto";
-import "com/coralogixapis/alerts/v3/pagination.proto";
-import "com/coralogixapis/alerts/v3/commons.proto";
-import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_priority.proto";
+import "com/coralogixapis/alerts/v3/alert_def_type.proto";
 import "com/coralogixapis/alerts/v3/alert_def_type_definition/partial_alert_def_type_definitions.proto";
+import "com/coralogixapis/alerts/v3/commons.proto";
+import "com/coralogixapis/alerts/v3/pagination.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
 
 service AlertDefsInternalService {
-  rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {
-  }
+  rpc GetAlertDefByVersionIdInternal(GetAlertDefByVersionIdInternalRequest) returns (GetAlertDefByVersionIdInternalResponse) {}
 
   // buf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE
-  rpc ListAlertDefsInternalUnauthenticated(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
-  }
+  rpc ListAlertDefsInternalUnauthenticated(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {}
 
   // buf:lint:ignore RPC_REQUEST_RESPONSE_UNIQUE
-  rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {
-  }
+  rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {}
 
-  rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {
-  }
+  rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {}
 }
 
 message ListAlertDefsInternalResponse {
@@ -46,8 +42,7 @@ message GetAlertDefByVersionIdInternalResponse {
   AlertDef alert_def = 1;
 }
 
-message ListAlertDefsForManagementInternalRequest {
-}
+message ListAlertDefsForManagementInternalRequest {}
 
 message ListAlertDefsForManagementInternalResponse {
   repeated PartialAlertDef alert_defs = 1;
