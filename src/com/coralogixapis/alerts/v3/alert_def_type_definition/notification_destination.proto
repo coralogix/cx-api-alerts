@@ -107,7 +107,6 @@ message NotificationRouter {
     json_schema: {
       title: "Notification router"
       description: "Configuration for routing notifications"
-      required: ["id"]
     }
   };
   string id = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
