@@ -319,7 +319,7 @@ service AlertDefsService {
       get: "alerts/alerts-general/v3/filter-option-counts"
       additional_bindings: {get: "/v3/alert-defs/filter-option-counts"}
     };
-    option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
         value: {description: "Bad Request"}
