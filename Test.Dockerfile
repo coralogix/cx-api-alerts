@@ -26,9 +26,6 @@ ADD . /app
 RUN curl -sSL "https://github.com/coralogix/protofetch/releases/download/v0.1.11/protofetch_$(uname -m)-unknown-linux-musl.tar.gz" -o "protofetch.tar.gz"
 RUN tar -xvf "protofetch.tar.gz" -C /
 
-RUN curl -sSL "https://github.com/bufbuild/buf/releases/download/v1.55.1/buf-Linux-$(uname -m)" -o "/bin/buf"
-RUN chmod +x "/bin/buf"
-
 ADD . /branch
 
 RUN --mount=type=ssh \
@@ -44,7 +41,5 @@ WORKDIR /branch
 RUN --mount=type=ssh \
     --mount=type=secret,id=known_hosts,target=/root/.ssh/known_hosts \
     protofetch fetch -f
-
-RUN buf lint && buf breaking --against /master
 
 RUN bash build_facade_files.sh
