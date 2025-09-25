@@ -26,7 +26,10 @@ service AlertDefsService {
   // Get Alert Def by non changing ID AKA UniqueIdentifier
   rpc GetAlertDef(GetAlertDefRequest) returns (GetAlertDefResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "get alert definition";
-    option (google.api.http) = {get: "/v3/alert-defs/{id}"};
+    option (google.api.http) = {
+      get: "/alerts/alerts-general/v3/{id}"
+      additional_bindings: {get: "/v3/alert-defs/{id}"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
@@ -55,7 +58,10 @@ service AlertDefsService {
 
   rpc GetAlertDefByVersionId(GetAlertDefByVersionIdRequest) returns (GetAlertDefByVersionIdResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "get alert definition by alert version ID";
-    option (google.api.http) = {get: "/v3/alert-defs/alert-version-id/{alert_version_id}"};
+    option (google.api.http) = {
+      get: "/alerts/alerts-general/v3/alert-version-id/{alert_version_id}"
+      additional_bindings: {get: "/v3/alert-defs/alert-version-id/{alert_version_id}"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
@@ -85,8 +91,9 @@ service AlertDefsService {
   rpc CreateAlertDef(CreateAlertDefRequest) returns (CreateAlertDefResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "create alert definition";
     option (google.api.http) = {
-      post: "/v3/alert-defs"
+      post: "/alerts/alerts-general/v3"
       body: "alert_def_properties"
+      additional_bindings: {post: "/v3/alert-defs"}
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
@@ -117,8 +124,9 @@ service AlertDefsService {
   rpc ReplaceAlertDef(ReplaceAlertDefRequest) returns (ReplaceAlertDefResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "replace alert definition";
     option (google.api.http) = {
-      put: "/v3/alert-defs"
+      put: "/alerts/alerts-general/v3"
       body: "*"
+      additional_bindings: {put: "/v3/alert-defs"}
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
@@ -155,7 +163,10 @@ service AlertDefsService {
 
   rpc ListAlertDefs(ListAlertDefsRequest) returns (ListAlertDefsResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "get alert definitions list";
-    option (google.api.http) = {get: "/v3/alert-defs"};
+    option (google.api.http) = {
+      get: "/alerts/alerts-general/v3"
+      additional_bindings: {get: "/v3/alert-defs"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
@@ -184,7 +195,10 @@ service AlertDefsService {
 
   rpc DownloadAlerts(DownloadAlertsRequest) returns (stream DownloadAlertsResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "download alerts";
-    option (google.api.http) = {get: "/v3/alerts/download"};
+    option (google.api.http) = {
+      get: "/alerts/alerts-general/v3/download"
+      additional_bindings: {get: "/v3/alerts/download"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
@@ -214,7 +228,10 @@ service AlertDefsService {
 
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "delete alert definitions";
-    option (google.api.http) = {delete: "/v3/alert-defs/{id}"};
+    option (google.api.http) = {
+      delete: "/alerts/alerts-general/v3/{id}"
+      additional_bindings: {delete: "/v3/alert-defs/{id}"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
@@ -266,7 +283,10 @@ service AlertDefsService {
 
   rpc SetActive(SetActiveRequest) returns (SetActiveResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "disable or enable the alert definitions";
-    option (google.api.http) = {post: "/v3/alert-defs/{id}:setActive"};
+    option (google.api.http) = {
+      post: "/alerts/alerts-general/v3/{id}:setActive"
+      additional_bindings: {post: "/v3/alert-defs/{id}:setActive"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
@@ -295,7 +315,10 @@ service AlertDefsService {
 
   rpc FilterOptionCounts(FilterOptionCountsRequest) returns (FilterOptionCountsResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "get filter option counts";
-    option (google.api.http) = {get: "/v3/alert-defs/filter-option-counts"};
+    option (google.api.http) = {
+      get: "/alerts/alerts-general/v3/filter-option-counts"
+      additional_bindings: {get: "/v3/alert-defs/filter-option-counts"}
+    };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
         key: "400"
