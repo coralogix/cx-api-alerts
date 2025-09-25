@@ -102,4 +102,6 @@ message BulkUpdateAlertDefsInternalRequest {
 
 message BulkUpdateAlertDefsInternalResponse {
   repeated AlertDef alert_defs = 1;
+  repeated google.protobuf.StringValue not_found_ids = 2;
+  repeated google.protobuf.StringValue failed_to_update_ids = 3;
 }
