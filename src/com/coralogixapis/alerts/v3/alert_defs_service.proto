@@ -154,6 +154,39 @@ service AlertDefsService {
     };
   }
 
+  rpc BulkReplaceAlertDefs(BulkReplaceAlertDefsRequest) returns (BulkReplaceAlertDefsResponse) {
+    option (com.coralogixapis.common.v1.audit_log_description).description = "bulk replace alert definition";
+    option (google.api.http) = {
+      put: "/v3/alert-defs/bulk"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
+      responses: {
+        key: "400"
+        value: {description: "Bad Request"}
+      }
+      responses: {
+        key: "401"
+        value: {description: "Unauthorized request"}
+      }
+      responses: {
+        key: "500"
+        value: {description: "Internal server error"}
+      }
+      tags: ["Alert definitions service"]
+      summary: "Bulk replace an alert definition"
+      extensions: {
+        key: "x-coralogixPermissions"
+        value: {
+          list_value: {
+            values: {string_value: "alerts:UpdateConfig"}
+          }
+        }
+      }
+    };
+  }
+
+
   //  rpc BatchGetAlertDef(BatchGetAlertDefRequest) returns (BatchGetAlertDefResponse){
   //    option (com.coralogixapis.common.v1.audit_log_description).description = "batch get alert definitions";
   //    option (google.api.http) = {
@@ -631,4 +664,19 @@ message SetActiveResponse {
       description: "Response after enabling or disabling an alert definition"
     }
   };
+}
+
+message AlertDefToReplace {
+  google.protobuf.StringValue id = 1;
+  AlertDefProperties alert_def_properties = 2;
+}
+
+message BulkReplaceAlertDefsRequest {
+  repeated AlertDefToReplace alert_defs_to_replace = 1;
+}
+
+message BulkReplaceAlertDefsResponse {
+  repeated AlertDef alert_defs = 1;
+  repeated google.protobuf.StringValue not_found_ids = 2;
+  repeated google.protobuf.StringValue failed_to_replace_ids = 3;
 }

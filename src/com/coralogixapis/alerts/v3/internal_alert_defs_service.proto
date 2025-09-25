@@ -22,7 +22,6 @@ service AlertDefsInternalService {
 
   rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {}
 
-  rpc BulkUpdateAlertDefsInternal(BulkUpdateAlertDefsInternalRequest) returns (BulkUpdateAlertDefsInternalResponse) {}
 }
 
 message ListAlertDefsInternalResponse {
@@ -89,19 +88,4 @@ message AlertDefTypeFilterInternal {
     AlertDefType alert_def_type = 1;
     SloThresholdFilter slo_threshold_filter = 100;
   }
-}
-
-message AlertDefToUpdate {
-  google.protobuf.StringValue id = 1;
-  AlertDefProperties alert_def_properties = 2;
-}
-
-message BulkUpdateAlertDefsInternalRequest {
-  repeated AlertDefToUpdate alert_defs_to_update = 1;
-}
-
-message BulkUpdateAlertDefsInternalResponse {
-  repeated AlertDef alert_defs = 1;
-  repeated google.protobuf.StringValue not_found_ids = 2;
-  repeated google.protobuf.StringValue failed_to_update_ids = 3;
 }
