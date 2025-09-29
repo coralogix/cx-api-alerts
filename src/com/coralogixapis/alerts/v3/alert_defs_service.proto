@@ -159,7 +159,7 @@ service AlertDefsService {
     option (google.api.http) = {
       put: "/alerts/alerts-general/v3/bulk"
       body: "*"
-      additional_bindings: { put: "/v3/alert-defs/bulk" }
+      additional_bindings: {put: "/v3/alert-defs/bulk"}
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
@@ -175,7 +175,7 @@ service AlertDefsService {
         value: {description: "Internal server error"}
       }
       tags: ["Alert definitions service"]
-      summary: "Bulk replace an alert definition"
+      summary: "Bulk replace alert definitions"
       extensions: {
         key: "x-coralogixPermissions"
         value: {
@@ -186,7 +186,6 @@ service AlertDefsService {
       }
     };
   }
-
 
   //  rpc BatchGetAlertDef(BatchGetAlertDefRequest) returns (BatchGetAlertDefResponse){
   //    option (com.coralogixapis.common.v1.audit_log_description).description = "batch get alert definitions";
