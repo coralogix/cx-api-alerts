@@ -21,7 +21,6 @@ service AlertDefsInternalService {
   rpc ListAlertDefsInternal(ListAlertDefsInternalRequest) returns (ListAlertDefsInternalResponse) {}
 
   rpc ListAlertDefsForManagementInternal(ListAlertDefsForManagementInternalRequest) returns (ListAlertDefsForManagementInternalResponse) {}
-
 }
 
 message ListAlertDefsInternalResponse {
