@@ -158,7 +158,7 @@ service AlertDefsService {
     option (com.coralogixapis.common.v1.audit_log_description).description = "bulk replace alert definition";
     option (google.api.http) = {
       put: "/alerts/alerts-general/v3/bulk"
-      body: "*",
+      body: "*"
       additional_bindings: { put: "/v3/alert-defs/bulk" }
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
@@ -694,9 +694,7 @@ message BulkReplaceAlertDefsRequest {
       required: ["alert_defs_to_replace"]
     }
   };
-  repeated AlertDefToReplace alert_defs_to_replace = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
-    description: "List of alert definitions to replace"
-  }];
+  repeated AlertDefToReplace alert_defs_to_replace = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "List of alert definitions to replace"}];
 }
 
 message BulkReplaceAlertDefsResponse {
@@ -712,9 +710,7 @@ message BulkReplaceAlertDefsResponse {
       ]
     }
   };
-  repeated AlertDef alert_defs = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
-    description: "List of successfully replaced alert definitions"
-  }];
+  repeated AlertDef alert_defs = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "List of successfully replaced alert definitions"}];
   repeated google.protobuf.StringValue not_found_ids = 2 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
     description: "List of alert definition IDs that were not found"
     example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"
