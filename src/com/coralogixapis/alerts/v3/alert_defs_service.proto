@@ -714,12 +714,33 @@ message BulkReplaceAlertDefsResponse {
     description: "List of alert definition IDs that were not found"
     example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"
   }];
-  repeated google.protobuf.StringValue failed_to_replace_ids = 3 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
-    description: "List of alert definition IDs that failed to be replaced"
-    example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"
+  repeated FailedToReplaceAlertDef failed_to_replace_alert_defs = 3 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "List of alert definition IDs and messages that failed to be replaced"
   }];
   repeated google.protobuf.StringValue skipped_ids = 4 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
     description: "List of alert definition IDs that were skipped (no changes detected)"
     example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"
+  }];
+}
+
+message FailedToReplaceAlertDef {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Failed to replace alert definition"
+      description: "An alert definition id that failed to be replaced along with the error message"
+      required: [
+        "id",
+        "error_message"
+      ]
+    }
+  };
+  google.protobuf.StringValue id = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "The alert definition ID"
+    example: "\"123e4567-e89b-12d3-a456-426614174000\""
+    format: "UUIDv4"
+  }];
+  google.protobuf.StringValue error_message = 2 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "The error message explaining why the replacement failed"
+    example: "\"Invalid alert definition configuration\""
   }];
 }
