@@ -728,13 +728,10 @@ message FailedToReplaceAlertDef {
     json_schema: {
       title: "Failed to replace alert definition"
       description: "An alert definition id that failed to be replaced"
-      required: [
-        "id"
-      ]
+      required: ["id"]
     }
   };
   google.protobuf.StringValue id = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
-
     description: "The alert definition ID"
     example: "\"123e4567-e89b-12d3-a456-426614174000\""
     format: "UUIDv4"
