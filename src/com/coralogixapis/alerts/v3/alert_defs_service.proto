@@ -260,10 +260,10 @@ service AlertDefsService {
   }
 
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse) {
-    option (com.coralogixapis.common.v1.audit_log_description).description = "delete alert definitions";
+    option (com.coralogixapis.common.v1.audit_log_description).description = "delete alert definition";
     option (google.api.http) = {
-      delete: "/alerts/alerts-general/v3/"
-      additional_bindings: {delete: "/v3/alert-defs/"}
+      delete: "/alerts/alerts-general/v3/{id}"
+      additional_bindings: {delete: "/v3/alert-defs/{id}"}
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
@@ -294,8 +294,8 @@ service AlertDefsService {
   rpc BulkDeleteAlertDefs(BulkDeleteAlertDefsRequest) returns (BulkDeleteAlertDefsResponse) {
     option (com.coralogixapis.common.v1.audit_log_description).description = "bulk delete alert definitions";
     option (google.api.http) = {
-      delete: "/alerts/alerts-general/v3/{id}"
-      additional_bindings: {delete: "/v3/alert-defs/{id}"}
+      delete: "/alerts/alerts-general/v3/"
+      additional_bindings: {delete: "/v3/alert-defs/"}
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
