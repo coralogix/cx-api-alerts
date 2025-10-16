@@ -154,6 +154,39 @@ service AlertDefsService {
     };
   }
 
+  rpc BulkReplaceAlertDefs(BulkReplaceAlertDefsRequest) returns (BulkReplaceAlertDefsResponse) {
+    option (com.coralogixapis.common.v1.audit_log_description).description = "bulk replace alert definition";
+    option (google.api.http) = {
+      put: "/alerts/alerts-general/v3/bulk"
+      body: "*"
+      additional_bindings: {put: "/v3/alert-defs/bulk"}
+    };
+    option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
+      responses: {
+        key: "400"
+        value: {description: "Bad Request"}
+      }
+      responses: {
+        key: "401"
+        value: {description: "Unauthorized request"}
+      }
+      responses: {
+        key: "500"
+        value: {description: "Internal server error"}
+      }
+      tags: ["Alert definitions service"]
+      summary: "Bulk replace alert definitions"
+      extensions: {
+        key: "x-coralogixPermissions"
+        value: {
+          list_value: {
+            values: {string_value: "alerts:UpdateConfig"}
+          }
+        }
+      }
+    };
+  }
+
   //  rpc BatchGetAlertDef(BatchGetAlertDefRequest) returns (BatchGetAlertDefResponse){
   //    option (com.coralogixapis.common.v1.audit_log_description).description = "batch get alert definitions";
   //    option (google.api.http) = {
@@ -631,4 +664,74 @@ message SetActiveResponse {
       description: "Response after enabling or disabling an alert definition"
     }
   };
+}
+
+message AlertDefToReplace {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Alert definition to replace"
+      description: "An alert definition along with its ID for replacement"
+      required: [
+        "id",
+        "alert_def_properties"
+      ]
+    }
+  };
+  google.protobuf.StringValue id = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "The alert definition ID"
+    example: "\"123e4567-e89b-12d3-a456-426614174000\""
+    format: "UUIDv4"
+  }];
+  AlertDefProperties alert_def_properties = 2 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "The properties of the alert definition"}];
+}
+
+message BulkReplaceAlertDefsRequest {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Bulk replace alert definitions request"
+      description: "A request to bulk replace multiple alert definitions"
+      required: ["alert_defs_to_replace"]
+    }
+  };
+  repeated AlertDefToReplace alert_defs_to_replace = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "List of alert definitions to replace"}];
+}
+
+message BulkReplaceAlertDefsResponse {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Bulk replace alert definitions response"
+      description: "A response that contains the results of the bulk replace operation"
+      required: [
+        "alert_defs",
+        "not_found_ids",
+        "failed_to_replace_alert_defs",
+        "skipped_ids"
+      ]
+    }
+  };
+  repeated AlertDef alert_defs = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "List of successfully replaced alert definitions"}];
+  repeated google.protobuf.StringValue not_found_ids = 2 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "List of alert definition IDs that were not found"
+    example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"
+  }];
+  repeated FailedToReplaceAlertDef failed_to_replace_alert_defs = 3 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "List of alert definitions that failed to be replaced"}];
+  repeated google.protobuf.StringValue skipped_ids = 4 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "List of alert definition IDs that were skipped (no changes detected)"
+    example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"
+  }];
+}
+
+message FailedToReplaceAlertDef {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Failed to replace alert definition"
+      description: "An alert definition id that failed to be replaced"
+      required: ["id"]
+    }
+  };
+  google.protobuf.StringValue id = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "The alert definition ID"
+    example: "\"123e4567-e89b-12d3-a456-426614174000\""
+    format: "UUIDv4"
+  }];
 }
