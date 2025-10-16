@@ -260,10 +260,42 @@ service AlertDefsService {
   }
 
   rpc DeleteAlertDef(DeleteAlertDefRequest) returns (DeleteAlertDefResponse) {
-    option (com.coralogixapis.common.v1.audit_log_description).description = "delete alert definitions";
+    option (com.coralogixapis.common.v1.audit_log_description).description = "delete alert definition";
     option (google.api.http) = {
       delete: "/alerts/alerts-general/v3/{id}"
       additional_bindings: {delete: "/v3/alert-defs/{id}"}
+    };
+    option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
+      responses: {
+        key: "400"
+        value: {description: "Bad Request"}
+      }
+      responses: {
+        key: "401"
+        value: {description: "Unauthorized request"}
+      }
+      responses: {
+        key: "500"
+        value: {description: "Internal server error"}
+      }
+      tags: ["Alert definitions service"]
+      summary: ""
+      extensions: {
+        key: "x-coralogixPermissions"
+        value: {
+          list_value: {
+            values: {string_value: "alerts:UpdateConfig"}
+          }
+        }
+      }
+    };
+  }
+
+  rpc BulkDeleteAlertDefs(BulkDeleteAlertDefsRequest) returns (BulkDeleteAlertDefsResponse) {
+    option (com.coralogixapis.common.v1.audit_log_description).description = "bulk delete alert definitions";
+    option (google.api.http) = {
+      delete: "/alerts/alerts-general/v3/"
+      additional_bindings: {delete: "/v3/alert-defs/"}
     };
     option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_operation) = {
       responses: {
@@ -544,6 +576,57 @@ message DeleteAlertDefResponse {
       description: "A response to the deletion of an alert definition"
     }
   };
+}
+
+message BulkDeleteAlertDefsRequest {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Bulk delete alert definitions request"
+      description: "A request to delete an alert definition by Ids"
+      required: ["ids"]
+    }
+  };
+  repeated google.protobuf.StringValue ids = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {example: "[\"123e4567-e89b-12d3-a456-426614174000\"]"}];
+}
+
+message BulkDeleteAlertDefsResponse {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Bulk delete alert definitions response"
+      description: "A response to the deletion of alert definitions"
+    }
+  };
+  repeated google.protobuf.StringValue successful_ids = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    example: "[\"123e4567-e89b-12d3-a456-426614174000\", \"456e7890-e12b-34d5-f678-526614174000\"]"
+    description: "The IDs of the alert definitions that were successfully deleted"
+  }];
+  repeated BulkDeleteAlertDefFailure failed = 2 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {description: "Details of alert definitions that failed to be deleted"}];
+  repeated google.protobuf.StringValue not_found_ids = 3 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    example: "[\"123e4567-e89b-12d3-a456-426614174000\", \"456e7890-e12b-34d5-f678-526614174000\"]"
+    description: "The IDs of the alert definitions that were not found"
+  }];
+}
+
+message BulkDeleteAlertDefFailure {
+  option (grpc.gateway.protoc_gen_openapiv3.options.openapiv3_schema) = {
+    json_schema: {
+      title: "Bulk delete alert definition failure"
+      description: "Failure information for a failed alert definition deletion"
+      required: [
+        "id",
+        "error_message"
+      ]
+    }
+  };
+  google.protobuf.StringValue id = 1 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    format: "UUIDv4"
+    example: "\"123e4567-e89b-12d3-a456-426614174000\""
+    description: "The ID of the alert definition that failed to be deleted"
+  }];
+  google.protobuf.StringValue error_message = 2 [(grpc.gateway.protoc_gen_openapiv3.options.openapiv3_field) = {
+    description: "A message describing why the deletion failed"
+    example: "Alert definition is in use and cannot be deleted."
+  }];
 }
 
 message ReplaceAlertDefRequest {
