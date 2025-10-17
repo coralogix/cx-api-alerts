@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package com.coralogixapis.alerts.v5;
+
+import "com/coralogixapis/alerts/v3/alert_def.proto";
+
+message AlertDefCacheValue {
+  optional AlertDef alert_def = 1;
+}
